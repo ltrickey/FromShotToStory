@@ -43,7 +43,9 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Allows app access to camera to record and play video.</string>
-	<key>NSMicrophoneUsageDescription </key>
+	<key>NSMicrophoneUsageDescription</key>
 	<string>Allows app to access microphone to record audio.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allows app to save and access videos from media library.</string>
 </dict>
 </plist>
