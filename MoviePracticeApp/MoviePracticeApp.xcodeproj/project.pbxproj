@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C2771F0D6CC000E1B33E /* Shot.swift */; };
+		5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */; };
 		51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */; };
 		51C3E3C11F0AF68200AF729A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3C01F0AF68200AF729A /* ViewController.swift */; };
 		51C3E3C41F0AF68200AF729A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C21F0AF68200AF729A /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		5133C2771F0D6CC000E1B33E /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
+		5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTableViewCell.swift; sourceTree = "<group>"; };
 		51C3E3BB1F0AF68200AF729A /* MoviePracticeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviePracticeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C3E3C01F0AF68200AF729A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +81,11 @@
 		51C3E3BD1F0AF68200AF729A /* MoviePracticeApp */ = {
 			isa = PBXGroup;
 			children = (
+				51C3E3C21F0AF68200AF729A /* Main.storyboard */,
 				51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */,
 				51C3E3C01F0AF68200AF729A /* ViewController.swift */,
-				51C3E3C21F0AF68200AF729A /* Main.storyboard */,
 				5133C2771F0D6CC000E1B33E /* Shot.swift */,
+				5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */,
 				51C3E3C51F0AF68200AF729A /* Assets.xcassets */,
 				51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */,
 				51C3E3CA1F0AF68200AF729A /* Info.plist */,
@@ -206,6 +209,7 @@
 				5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */,
 				51C3E3C11F0AF68200AF729A /* ViewController.swift in Sources */,
 				51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */,
+				5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
