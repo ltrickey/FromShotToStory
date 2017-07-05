@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     
     //connecting touch up inside from button to record video.
     @IBAction func record(_ sender: UIButton) {
-        startCameraFromViewController(self, withDelegate: self)
+        // added _ = to say we're not capturing result.  
+        _ = startCameraFromViewController(self, withDelegate: self)
     }
     
     override func viewDidLoad() {
