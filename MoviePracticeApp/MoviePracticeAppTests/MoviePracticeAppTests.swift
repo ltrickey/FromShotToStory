@@ -34,5 +34,7 @@ class MoviePracticeAppTests: XCTestCase {
         // Shot with no desc should return nil
         let noDescShot = Shot.init(name: "No Description", photo: nil, video: nil, description: "")
         XCTAssertNil(noDescShot)
+        
+        //Shot should have EITHER photo or Video, not both?  TO WRITE IN FUTURE. 
     }
 }
