@@ -25,4 +25,14 @@ class MoviePracticeAppTests: XCTestCase {
         XCTAssertNotNil(videoShot)
         
     }
+    
+    func testShotInitializationFails() {
+        // Shot with no name should return nil
+        let noNameShot = Shot.init(name: "", photo: nil, video: nil, description: "A close up shot")
+        XCTAssertNil(noNameShot)
+        
+        // Shot with no desc should return nil
+        let noDescShot = Shot.init(name: "No Description", photo: nil, video: nil, description: "")
+        XCTAssertNil(noDescShot)
+    }
 }
