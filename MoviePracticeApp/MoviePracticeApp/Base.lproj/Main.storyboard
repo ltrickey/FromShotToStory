@@ -45,6 +45,11 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="sNi-k9-a2m" id="pTu-VH-6sU"/>
+                                    <outlet property="nameLabel" destination="fVI-R2-fgG" id="oMa-Uh-dZ1"/>
+                                    <outlet property="photoImageView" destination="CuA-ak-WrH" id="lLk-6I-q0t"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
