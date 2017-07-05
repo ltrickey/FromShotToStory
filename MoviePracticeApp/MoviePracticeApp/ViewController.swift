@@ -19,7 +19,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var shotImageView: UIImageView!
     
-    //need to connect the TRY IT button to make an outlet.  Check the camera view to see how they did it. 
+    //connecting touch up inside from button to record video.
+    @IBAction func record(_ sender: UIButton) {
+        startCameraFromViewController(self, withDelegate: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
