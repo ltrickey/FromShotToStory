@@ -32,3 +32,26 @@ class ViewController: UIViewController {
 
 }
 
+// MARK: - UIImagePickerControllerDelegate
+
+extension ViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        dismiss(animated: true, completion: nil)
+        
+        // Handle a movie capture
+        if mediaType == kUTTypeMovie {
+            guard let path = (info[UIImagePickerControllerMediaURL] as! URL).path else { return }
+            if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
+                UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
+            }
+        }
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+
+extension ViewController: UINavigationControllerDelegate {
+}
+
+
