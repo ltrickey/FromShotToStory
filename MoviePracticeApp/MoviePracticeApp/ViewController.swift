@@ -69,7 +69,8 @@ extension ViewController: UIImagePickerControllerDelegate {
         
         // Handle a movie capture
         if mediaType == kUTTypeMovie {
-            guard let path = (info[UIImagePickerControllerMediaURL] as! URL).path else { return }
+          // took away GUARD statement here b/c of errors
+            let path = (info[UIImagePickerControllerMediaURL] as! URL).path
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
                 UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
             }
