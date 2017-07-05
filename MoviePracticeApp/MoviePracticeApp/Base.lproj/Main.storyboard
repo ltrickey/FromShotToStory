@@ -30,7 +30,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="728.5" placeholderIntrinsicHeight="466" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-M2-1eh">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="728.5" placeholderIntrinsicHeight="466" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-M2-1eh">
                                         <rect key="frame" x="20" y="35.5" width="728.5" height="466"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrption of shot type and how it can be used in filmmaking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC">
@@ -56,7 +56,6 @@
                     <connections>
                         <outlet property="shotDescLabel" destination="Vu8-3I-cXC" id="aJF-Hk-Dzf"/>
                         <outlet property="shotImageView" destination="eWU-M2-1eh" id="fSf-H8-6mk"/>
-                        <outlet property="shotTypeLabel" destination="MQN-61-jjp" id="Fjd-Mg-NJa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -64,4 +63,7 @@
             <point key="canvasLocation" x="136.71875" y="137.109375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultShot" width="694" height="438"/>
+    </resources>
 </document>

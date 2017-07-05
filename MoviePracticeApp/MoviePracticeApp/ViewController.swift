@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     //MARK: Properties
     
+    // THIS SHOT NAME MAY NOT WORK!
     @IBOutlet weak var shotNameLabel: UILabel!
     @IBOutlet weak var shotDescLabel: UILabel!
 
