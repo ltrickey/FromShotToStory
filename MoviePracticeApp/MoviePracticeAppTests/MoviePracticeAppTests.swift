@@ -11,26 +11,18 @@ import XCTest
 
 class MoviePracticeAppTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+   //MARK: Shot Class Tests
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    // confirm it returns a Shot object with good data
+    func testShotInitializationSucceeds() {
+        
+        // Shot with no photo or video
+        let noPhotoShot = Shot.init(name: "Close Up", photo: nil, video: nil, description: "A close up shot")
+        XCTAssertNotNil(noPhotoShot)
+        
+        // Shot with just video string
+        let videoShot = Shot.init(name: "Close Up", photo: nil, video: "string.nowhere", description: "A close up shot")
+        XCTAssertNotNil(videoShot)
+        
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

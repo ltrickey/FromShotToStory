@@ -21,7 +21,13 @@ class Shot {
     
     //MARK: Initialization
     
-    init(name: String, photo: UIImage?, video: String?, description: String) {
+    init?(name: String, photo: UIImage?, video: String?, description: String) {
+        
+        // return nill if no name or description
+        guard !name.isEmpty else { return nil }
+        
+        guard !description.isEmpty else { return nil }
+        
         
         self.name = name
         self.photo = photo
