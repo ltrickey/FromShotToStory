@@ -118,7 +118,7 @@ class ShotTableViewController: UITableViewController {
     
     private func loadShots() {
         
-        let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo arcu vel arcu ornare interdum. Nullam sed tempus purus, id bibendum leo. In sed pellentesque elit. Nulla facilisis tincidunt est ac malesuada. Integer ligula nunc, cursus in accumsan et, tempor nec quam. Maecenas in volutpat sapien, sit amet semper ligula. Integer vel ligula leo. Donec eget augue sed felis congue eleifend in eu nisi. Vestibulum libero justo, efficitur at tincidunt nec, malesuada vitae dui."
+        let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo arcu vel arcu ornare interdum. Nullam sed tempus purus, id bibendum leo. In sed pellentesque elit. Nulla facilisis tincidunt est ac malesuada. Integer ligula nunc, cursus in accumsan et, tempor nec quam."
         
         let shotData = [
             "Establishing": [UIImage(named: "establishingShot")!, description],
