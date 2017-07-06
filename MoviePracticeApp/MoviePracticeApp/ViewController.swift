@@ -13,11 +13,13 @@ class ViewController: UIViewController {
     
     //MARK: Properties
     
-    // THIS SHOT NAME MAY NOT WORK!
     @IBOutlet weak var shotNameLabel: UILabel!
     @IBOutlet weak var shotDescLabel: UILabel!
 
     @IBOutlet weak var shotImageView: UIImageView!
+    
+    // set optional shot variable 
+    var shot: Shot?
     
     //connecting touch up inside from button to record video.
     @IBAction func record(_ sender: UIButton) {
@@ -27,7 +29,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set up views with existing Shot.
+        if let shot = shot {
+            navigationItem.title = shot.name
+            shotNameLabel.text = shot.name
+            shotImageView.image = shot.photo
+            shotDescLabel.text = shot.description
+        }
     }
 
     override func didReceiveMemoryWarning() {

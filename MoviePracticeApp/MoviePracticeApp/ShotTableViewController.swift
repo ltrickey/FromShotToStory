@@ -91,15 +91,29 @@ class ShotTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // send the data along when clicked.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        guard let ViewController = segue.destination as? ViewController else {
+            fatalError("Unexpected destination: \(segue.destination)")
+        }
+        
+        guard let selectedCell = sender as? ShotTableViewCell else {
+            fatalError("Unexpected sender: \(sender)")
+        }
+        
+        guard let indexPath = tableView.indexPath(for: selectedCell) else {
+            fatalError("The selected cell is not being displayed by the table")
+        }
+        
+        let selectedShot = shots[indexPath.row]
+        ViewController.shot = selectedShot
     }
-    */
+
     
     //MARK: Private Methods
     
