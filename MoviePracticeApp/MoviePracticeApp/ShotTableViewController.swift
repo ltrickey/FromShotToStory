@@ -50,7 +50,6 @@ class ShotTableViewController: UITableViewController {
         
         cell.nameLabel.text = shot.name
         cell.photoImageView.image = shot.photo
-        cell.descriptionLabel.text = shot.description
 
         return cell
     }
