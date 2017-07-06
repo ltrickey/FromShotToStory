@@ -9,15 +9,15 @@
 import UIKit
 
 class ShotTableViewController: UITableViewController {
+    
+    //MARK: Properties
+    
+    var shots = [Shot]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadShots()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,5 +91,37 @@ class ShotTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK: Private Methods
+    
+    private func loadShots() {
+        
+        let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo arcu vel arcu ornare interdum. Nullam sed tempus purus, id bibendum leo. In sed pellentesque elit. Nulla facilisis tincidunt est ac malesuada. Integer ligula nunc, cursus in accumsan et, tempor nec quam. Maecenas in volutpat sapien, sit amet semper ligula. Integer vel ligula leo. Donec eget augue sed felis congue eleifend in eu nisi. Vestibulum libero justo, efficitur at tincidunt nec, malesuada vitae dui."
+        
+        let shotData = [
+            "Establishing": [UIImage(named: "establishingShot")!, description],
+            "Extreme Close Up": [UIImage(named: "extremeCloseUpShot")!, description],
+            "Front Angle": [UIImage(named: "frontAngleShot")!, description],
+            "High Angle": [UIImage(named: "highAngleShot")!, description],
+            "Insert": [UIImage(named: "insertShot")!, description],
+            "Low Angle": [UIImage(named: "lowAngleShot")!, description],
+            "Medium": [UIImage(named: "mediumShot")!, description],
+            "Over the Shoulder": [UIImage(named: "overTheShoulderShot")!, description],
+            "Point of View": [UIImage(named: "pointofViewShot")!, description],
+            "Profile": [UIImage(named: "profileAngleShot")!, description],
+            "Three Quarter Angle": [UIImage(named: "threeQuarterAngleShot")!, description],
+            "Wide": [UIImage(named: "wideShot")!, description]
+        ]
+        
+        var shots = [Shot]()
+        
+        for (name, data) in shotData {
+            var shot = Shot(name: name, photo: (data[0] as! UIImage), video: nil, description: (data[1] as! String))
+            shots.append(shot!)
+        }
+        
+    }
+    
+    //create a dictionary with descroptions then create shots!
 
 }
