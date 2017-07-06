@@ -17,7 +17,7 @@ class ShotTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadShots()
-        
+        print(shots)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +28,33 @@ class ShotTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return shots.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "ShotTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ShotTableViewCell  else {
+            fatalError("The dequeued cell is not an instance of ShotTableViewCell.")
+        }
+        
+        // Fetches the appropriate meal for the data source layout.
+        let shot = shots[indexPath.row]
+        
+        cell.nameLabel.text = shot.name
+        cell.photoImageView.image = shot.photo
+        cell.descriptionLabel.text = shot.description
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -107,21 +116,22 @@ class ShotTableViewController: UITableViewController {
             "Low Angle": [UIImage(named: "lowAngleShot")!, description],
             "Medium": [UIImage(named: "mediumShot")!, description],
             "Over the Shoulder": [UIImage(named: "overTheShoulderShot")!, description],
-            "Point of View": [UIImage(named: "pointofViewShot")!, description],
+            "Point of View": [UIImage(named: "pointOfViewShot")!, description],
             "Profile": [UIImage(named: "profileAngleShot")!, description],
             "Three Quarter Angle": [UIImage(named: "threeQuarterAngleShot")!, description],
             "Wide": [UIImage(named: "wideShot")!, description]
         ]
         
-        var shots = [Shot]()
         
         for (name, data) in shotData {
-            var shot = Shot(name: name, photo: (data[0] as! UIImage), video: nil, description: (data[1] as! String))
-            shots.append(shot!)
+            
+            guard let shot = Shot(name: name, photo: (data[0] as! UIImage), video: nil, description: (data[1] as! String)) else {
+                fatalError("Unable to instansiate shot" + name)
+            }
+            
+            shots.append(shot)
         }
         
     }
     
-    //create a dictionary with descroptions then create shots!
-
 }
