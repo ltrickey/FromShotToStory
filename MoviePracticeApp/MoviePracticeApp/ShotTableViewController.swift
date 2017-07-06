@@ -18,6 +18,7 @@ class ShotTableViewController: UITableViewController {
         super.viewDidLoad()
         loadShots()
         print(shots)
+        navigationItem.title = "Shot List"
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,29 +121,56 @@ class ShotTableViewController: UITableViewController {
         
         let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo arcu vel arcu ornare interdum. Nullam sed tempus purus, id bibendum leo. In sed pellentesque elit. Nulla facilisis tincidunt est ac malesuada. Integer ligula nunc, cursus in accumsan et, tempor nec quam."
         
-        let shotData = [
-            "Establishing": [UIImage(named: "establishingShot")!, description],
-            "Extreme Close Up": [UIImage(named: "extremeCloseUpShot")!, description],
-            "Front Angle": [UIImage(named: "frontAngleShot")!, description],
-            "High Angle": [UIImage(named: "highAngleShot")!, description],
-            "Insert": [UIImage(named: "insertShot")!, description],
-            "Low Angle": [UIImage(named: "lowAngleShot")!, description],
-            "Medium": [UIImage(named: "mediumShot")!, description],
-            "Over the Shoulder": [UIImage(named: "overTheShoulderShot")!, description],
-            "Point of View": [UIImage(named: "pointOfViewShot")!, description],
-            "Profile": [UIImage(named: "profileAngleShot")!, description],
-            "Three Quarter Angle": [UIImage(named: "threeQuarterAngleShot")!, description],
-            "Wide": [UIImage(named: "wideShot")!, description]
-        ]
         
-        
-        for (name, data) in shotData {
+        struct shotData  {
+            var name : String
+            var photo : UIImage
+            var description : String
             
-            guard let shot = Shot(name: name, photo: (data[0] as! UIImage), video: nil, description: (data[1] as! String)) else {
-                fatalError("Unable to instansiate shot" + name)
+            init(name: String, photo: UIImage, description : String)
+            {
+                self.name = name
+                self.photo = photo
+                self.description = description
+            }
+        }
+        
+        var shotList = [shotData]()
+        
+        shotList.append(shotData(name: "Establishing", photo: UIImage(named: "establishingShot")!, description : description))
+        
+        shotList.append(shotData(name: "Wide", photo: UIImage(named: "wideShot")!, description : description))
+        
+        shotList.append(shotData(name: "Medium", photo: UIImage(named: "mediumShot")!, description : description))
+        
+        shotList.append(shotData(name: "Close Up", photo: UIImage(named: "closeUpShot")!, description: description))
+        
+        shotList.append(shotData(name: "Extreme Close Up", photo: UIImage(named: "extremeCloseUpShot")!, description : description))
+        
+        shotList.append(shotData(name: "Over the Shoulder", photo: UIImage(named: "overTheShoulderShot")!, description : description))
+        
+        shotList.append(shotData(name: "Point of View", photo: UIImage(named: "pointOfViewShot")!, description : description))
+        
+        shotList.append(shotData(name: "Insert", photo: UIImage(named: "insertShot")!, description : description))
+        
+        shotList.append(shotData(name: "Low", photo: UIImage(named: "lowAngleShot")!, description : description))
+        
+         shotList.append(shotData(name: "High", photo: UIImage(named: "highAngleShot")!, description : description))
+        
+        shotList.append(shotData(name: "Front", photo: UIImage(named: "frontAngleShot")!, description : description))
+       
+        shotList.append(shotData(name: "Three Quarter", photo: UIImage(named: "threeQuarterAngleShot")!, description : description))
+        
+        shotList.append(shotData(name: "Profile", photo: UIImage(named: "profileAngleShot")!, description : description))
+        
+        
+        
+        for (shot) in shotList {
+            guard let shotObject = Shot(name: shot.name, photo: shot.photo, video: nil, description: shot.description) else {
+                fatalError("Unable to instansiate shot")
             }
             
-            shots.append(shot)
+            shots.append(shotObject)
         }
         
     }
