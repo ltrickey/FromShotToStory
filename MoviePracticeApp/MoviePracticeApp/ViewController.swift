@@ -13,9 +13,7 @@ class ViewController: UIViewController {
     
     //MARK: Properties
     
-    @IBOutlet weak var shotNameLabel: UILabel!
     @IBOutlet weak var shotDescLabel: UILabel!
-
     @IBOutlet weak var shotImageView: UIImageView!
     
     // set optional shot variable 
@@ -33,7 +31,6 @@ class ViewController: UIViewController {
         // Set up views with existing Shot.
         if let shot = shot {
             navigationItem.title = shot.name
-            shotNameLabel.text = shot.name
             shotImageView.image = shot.photo
             shotDescLabel.text = shot.description
         }
