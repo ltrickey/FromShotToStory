@@ -1,0 +1,3 @@
+[submodule "Swift-YouTube-Player"]
+	path = Swift-YouTube-Player
+	url = https://github.com/ltrickey/Swift-YouTube-Player.git

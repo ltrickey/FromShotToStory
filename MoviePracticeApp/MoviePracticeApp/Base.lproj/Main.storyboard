@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jga-ot-BN4">
-    <device id="ipad10_5" orientation="landscape">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,15 +15,15 @@
             <objects>
                 <tableViewController id="3hg-hD-RsD" customClass="ShotTableViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="hAr-zN-5w0">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShotTableViewCell" rowHeight="200" id="aib-P6-cTk" customClass="ShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1112" height="200"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aib-P6-cTk" id="2rW-Bn-sU0">
-                                    <rect key="frame" x="0.0" y="0.0" width="1112" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="CuA-ak-WrH">
@@ -34,7 +34,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVI-R2-fgG">
-                                            <rect key="frame" x="358" y="53" width="746" height="93"/>
+                                            <rect key="frame" x="358" y="53" width="658" height="93"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
@@ -87,21 +87,21 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-3c-Mvn">
-                                <rect key="frame" x="0.0" y="53" width="1092" height="710"/>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-3c-Mvn">
+                                <rect key="frame" x="0.0" y="84" width="1024" height="1157"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="728.5" placeholderIntrinsicHeight="466" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-M2-1eh">
-                                        <rect key="frame" x="146" y="0.0" width="800" height="480"/>
+                                        <rect key="frame" x="112" y="0.0" width="800" height="480"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="480" id="Oog-xx-cay"/>
                                             <constraint firstAttribute="width" constant="800" id="g6g-El-3SG"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC">
-                                        <rect key="frame" x="40" y="505" width="1012" height="20"/>
+                                        <rect key="frame" x="100" y="488" width="824" height="669"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Descrption of shot type and how it can be used in filmmaking">
                                                 <attributes>
@@ -113,42 +113,41 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-Hd-jYg">
-                                        <rect key="frame" x="428.5" y="550" width="235" height="160"/>
-                                        <color key="tintColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="TRY IT!">
-                                                    <attributes>
-                                                        <font key="NSFont" size="68" name="ArialRoundedMTBold"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <connections>
-                                            <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CUy-MV-9MM"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Vu8-3I-cXC" secondAttribute="trailing" constant="40" id="I9M-lh-jLT"/>
-                                    <constraint firstItem="Vu8-3I-cXC" firstAttribute="leading" secondItem="hXM-3c-Mvn" secondAttribute="leading" constant="20" id="Z42-bc-Xc1"/>
-                                    <constraint firstItem="Vu8-3I-cXC" firstAttribute="leading" secondItem="hXM-3c-Mvn" secondAttribute="leading" constant="40" id="ith-Tn-NMd"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vu8-3I-cXC" secondAttribute="trailing" constant="20" id="vxQ-62-dar"/>
+                                    <constraint firstItem="Vu8-3I-cXC" firstAttribute="leading" secondItem="hXM-3c-Mvn" secondAttribute="leading" constant="100" id="Z42-bc-Xc1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vu8-3I-cXC" secondAttribute="trailing" constant="100" id="vxQ-62-dar"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-Hd-jYg">
+                                <rect key="frame" x="394.5" y="1250.5" width="235" height="90.5"/>
+                                <color key="tintColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="TRY IT!">
+                                            <attributes>
+                                                <font key="NSFont" size="68" name="ArialRoundedMTBold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CUy-MV-9MM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hXM-3c-Mvn" secondAttribute="trailing" constant="10" id="AzP-pC-Kis"/>
-                            <constraint firstItem="hXM-3c-Mvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="CF3-tm-rl8"/>
-                            <constraint firstItem="hXM-3c-Mvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IlU-1O-LMe"/>
+                            <constraint firstAttribute="trailing" secondItem="hXM-3c-Mvn" secondAttribute="trailing" id="AzP-pC-Kis"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vdz-Hd-jYg" secondAttribute="bottom" constant="10" id="BzQ-2y-bpz"/>
+                            <constraint firstItem="hXM-3c-Mvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="CF3-tm-rl8"/>
+                            <constraint firstItem="vdz-Hd-jYg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Itd-bn-2X3"/>
                             <constraint firstItem="hXM-3c-Mvn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="TCf-7Y-Pj9"/>
                             <constraint firstItem="hXM-3c-Mvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vnd-vL-49K"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hXM-3c-Mvn" secondAttribute="bottom" constant="40" id="dJD-sg-ubb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hXM-3c-Mvn" secondAttribute="bottom" constant="125" id="dJD-sg-ubb"/>
+                            <constraint firstItem="hXM-3c-Mvn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gUy-xm-del"/>
                             <constraint firstItem="hXM-3c-Mvn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="iqG-Uf-4S1"/>
-                            <constraint firstAttribute="trailing" secondItem="hXM-3c-Mvn" secondAttribute="trailing" constant="20" id="vgM-oa-rSn"/>
-                            <constraint firstAttribute="trailing" secondItem="hXM-3c-Mvn" secondAttribute="trailing" constant="20" id="wbx-RV-vPf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vdz-Hd-jYg" secondAttribute="bottom" constant="25" id="znx-4w-Qqp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -158,7 +157,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860.7421875" y="136.71875"/>
+            <point key="canvasLocation" x="860.61151079136698" y="136.69064748201438"/>
+        </scene>
+        <!--Video View Controller-->
+        <scene sceneID="khR-eB-kcW">
+            <objects>
+                <viewController id="j60-35-1fl" customClass="VideoViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aoj-Z6-M0k"/>
+                        <viewControllerLayoutGuide type="bottom" id="PSN-Vc-dQH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pPi-MF-Tm1">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1J-cH-w2Z">
+                                <rect key="frame" x="53" y="63" width="900" height="685"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="youtubePlayer" destination="N1J-cH-w2Z" id="GbS-kT-Cme"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydq-gk-mwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1482.421875" y="135.7247437774524"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wq4-Mu-XDo">

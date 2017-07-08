@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		511EC2FC1F0EE68800ED43B5 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EC2FB1F0EE68800ED43B5 /* VideoViewController.swift */; };
+		511EC3081F0EE87000ED43B5 /* YouTubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511EC2FD1F0EE87000ED43B5 /* YouTubePlayer.swift */; };
+		511EC3091F0EE87000ED43B5 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = 511EC2FE1F0EE87000ED43B5 /* YTPlayer.html */; };
+		511EC30A1F0EE87000ED43B5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 511EC3001F0EE87000ED43B5 /* Info.plist */; };
+		511EC30B1F0EE87000ED43B5 /* YouTubePlayer.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 511EC3021F0EE87000ED43B5 /* YouTubePlayer.xcconfig */; };
+		511EC30C1F0EE87000ED43B5 /* YouTubePlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 511EC3031F0EE87000ED43B5 /* YouTubePlayer-dummy.m */; };
 		5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C2771F0D6CC000E1B33E /* Shot.swift */; };
 		5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */; };
 		5133C27C1F0D964800E1B33E /* ShotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */; };
@@ -16,6 +22,8 @@
 		51C3E3C61F0AF68200AF729A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C51F0AF68200AF729A /* Assets.xcassets */; };
 		51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */; };
 		51C3E3D41F0AF68300AF729A /* MoviePracticeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */; };
+		8BE47CF6F6422CA5F31D4F16 /* Pods_MoviePracticeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A924B46BA08A3937E004F076 /* Pods_MoviePracticeAppTests.framework */; };
+		CC97363B49CF34CD8E63E239 /* Pods_MoviePracticeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA57DFF63F3EF4B58A8AFDF /* Pods_MoviePracticeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0558E9BFB8C549B22E47A88F /* Pods-MoviePracticeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviePracticeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp.release.xcconfig"; sourceTree = "<group>"; };
+		0CECCB9F79151D7B8EBA9770 /* Pods-MoviePracticeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviePracticeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		511EC2FB1F0EE68800ED43B5 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		511EC2FD1F0EE87000ED43B5 /* YouTubePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YouTubePlayer.swift; path = YouTubePlayer/YouTubePlayer/YouTubePlayer.swift; sourceTree = "<group>"; };
+		511EC2FE1F0EE87000ED43B5 /* YTPlayer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = YTPlayer.html; path = YouTubePlayer/YouTubePlayer/YTPlayer.html; sourceTree = "<group>"; };
+		511EC3001F0EE87000ED43B5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		511EC3011F0EE87000ED43B5 /* YouTubePlayer.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = YouTubePlayer.modulemap; sourceTree = "<group>"; };
+		511EC3021F0EE87000ED43B5 /* YouTubePlayer.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = YouTubePlayer.xcconfig; sourceTree = "<group>"; };
+		511EC3031F0EE87000ED43B5 /* YouTubePlayer-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YouTubePlayer-dummy.m"; sourceTree = "<group>"; };
+		511EC3041F0EE87000ED43B5 /* YouTubePlayer-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-prefix.pch"; sourceTree = "<group>"; };
+		511EC3051F0EE87000ED43B5 /* YouTubePlayer-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-umbrella.h"; sourceTree = "<group>"; };
 		5133C2771F0D6CC000E1B33E /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
 		5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTableViewCell.swift; sourceTree = "<group>"; };
 		5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTableViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +61,10 @@
 		51C3E3CF1F0AF68300AF729A /* MoviePracticeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviePracticeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePracticeAppTests.swift; sourceTree = "<group>"; };
 		51C3E3D51F0AF68300AF729A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C2F875E9FB6B8E6A1BFB675 /* Pods-MoviePracticeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviePracticeAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviePracticeAppTests/Pods-MoviePracticeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		A924B46BA08A3937E004F076 /* Pods_MoviePracticeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviePracticeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA57DFF63F3EF4B58A8AFDF /* Pods_MoviePracticeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviePracticeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8A15D965AEE2FABAD4F67C0 /* Pods-MoviePracticeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviePracticeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviePracticeAppTests/Pods-MoviePracticeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC97363B49CF34CD8E63E239 /* Pods_MoviePracticeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,18 +80,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE47CF6F6422CA5F31D4F16 /* Pods_MoviePracticeAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		511EC2FF1F0EE87000ED43B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				511EC2FE1F0EE87000ED43B5 /* YTPlayer.html */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		511EC3061F0EE87000ED43B5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				511EC3001F0EE87000ED43B5 /* Info.plist */,
+				511EC3011F0EE87000ED43B5 /* YouTubePlayer.modulemap */,
+				511EC3021F0EE87000ED43B5 /* YouTubePlayer.xcconfig */,
+				511EC3031F0EE87000ED43B5 /* YouTubePlayer-dummy.m */,
+				511EC3041F0EE87000ED43B5 /* YouTubePlayer-prefix.pch */,
+				511EC3051F0EE87000ED43B5 /* YouTubePlayer-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YouTubePlayer";
+			sourceTree = "<group>";
+		};
+		511EC3071F0EE87000ED43B5 /* YouTubePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				511EC2FD1F0EE87000ED43B5 /* YouTubePlayer.swift */,
+				511EC2FF1F0EE87000ED43B5 /* Resources */,
+				511EC3061F0EE87000ED43B5 /* Support Files */,
+			);
+			name = YouTubePlayer;
+			path = Pods/YouTubePlayer;
+			sourceTree = "<group>";
+		};
 		51C3E3B21F0AF68200AF729A = {
 			isa = PBXGroup;
 			children = (
+				511EC3071F0EE87000ED43B5 /* YouTubePlayer */,
 				51C3E3BD1F0AF68200AF729A /* MoviePracticeApp */,
 				51C3E3D21F0AF68300AF729A /* MoviePracticeAppTests */,
 				51C3E3BC1F0AF68200AF729A /* Products */,
+				C3BB84183549927B98ABE6BA /* Pods */,
+				678A39CAC35DAEE566152DF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +147,7 @@
 				51C3E3C21F0AF68200AF729A /* Main.storyboard */,
 				51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */,
 				51C3E3C01F0AF68200AF729A /* ViewController.swift */,
+				511EC2FB1F0EE68800ED43B5 /* VideoViewController.swift */,
 				5133C2771F0D6CC000E1B33E /* Shot.swift */,
 				5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */,
 				5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */,
@@ -105,6 +167,26 @@
 			path = MoviePracticeAppTests;
 			sourceTree = "<group>";
 		};
+		678A39CAC35DAEE566152DF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCA57DFF63F3EF4B58A8AFDF /* Pods_MoviePracticeApp.framework */,
+				A924B46BA08A3937E004F076 /* Pods_MoviePracticeAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3BB84183549927B98ABE6BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CECCB9F79151D7B8EBA9770 /* Pods-MoviePracticeApp.debug.xcconfig */,
+				0558E9BFB8C549B22E47A88F /* Pods-MoviePracticeApp.release.xcconfig */,
+				E8A15D965AEE2FABAD4F67C0 /* Pods-MoviePracticeAppTests.debug.xcconfig */,
+				9C2F875E9FB6B8E6A1BFB675 /* Pods-MoviePracticeAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51C3E3D81F0AF68300AF729A /* Build configuration list for PBXNativeTarget "MoviePracticeApp" */;
 			buildPhases = (
+				072B466862347C44DE4D52C9 /* [CP] Check Pods Manifest.lock */,
 				51C3E3B71F0AF68200AF729A /* Sources */,
 				51C3E3B81F0AF68200AF729A /* Frameworks */,
 				51C3E3B91F0AF68200AF729A /* Resources */,
+				4AD45C5B156D28AB55507AA0 /* [CP] Embed Pods Frameworks */,
+				F0A2F3C39964638B96266E88 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,9 +214,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51C3E3DB1F0AF68300AF729A /* Build configuration list for PBXNativeTarget "MoviePracticeAppTests" */;
 			buildPhases = (
+				85D247ADE9CF794E224262CD /* [CP] Check Pods Manifest.lock */,
 				51C3E3CB1F0AF68300AF729A /* Sources */,
 				51C3E3CC1F0AF68300AF729A /* Frameworks */,
 				51C3E3CD1F0AF68300AF729A /* Resources */,
+				680EA99227222BBFFFFBA880 /* [CP] Embed Pods Frameworks */,
+				A96B2AAC253F7002602FACC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,7 +279,10 @@
 			files = (
 				51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */,
 				51C3E3C61F0AF68200AF729A /* Assets.xcassets in Resources */,
+				511EC3091F0EE87000ED43B5 /* YTPlayer.html in Resources */,
+				511EC30A1F0EE87000ED43B5 /* Info.plist in Resources */,
 				51C3E3C41F0AF68200AF729A /* Main.storyboard in Resources */,
+				511EC30B1F0EE87000ED43B5 /* YouTubePlayer.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +295,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		072B466862347C44DE4D52C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4AD45C5B156D28AB55507AA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		680EA99227222BBFFFFBA880 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviePracticeAppTests/Pods-MoviePracticeAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85D247ADE9CF794E224262CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A96B2AAC253F7002602FACC8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviePracticeAppTests/Pods-MoviePracticeAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0A2F3C39964638B96266E88 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		51C3E3B71F0AF68200AF729A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -211,6 +395,9 @@
 			files = (
 				5133C27C1F0D964800E1B33E /* ShotTableViewController.swift in Sources */,
 				5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */,
+				511EC3081F0EE87000ED43B5 /* YouTubePlayer.swift in Sources */,
+				511EC30C1F0EE87000ED43B5 /* YouTubePlayer-dummy.m in Sources */,
+				511EC2FC1F0EE68800ED43B5 /* VideoViewController.swift in Sources */,
 				51C3E3C11F0AF68200AF729A /* ViewController.swift in Sources */,
 				51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */,
 				5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */,
@@ -352,6 +539,7 @@
 		};
 		51C3E3D91F0AF68300AF729A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CECCB9F79151D7B8EBA9770 /* Pods-MoviePracticeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9HR7ZRASLB;
@@ -365,6 +553,7 @@
 		};
 		51C3E3DA1F0AF68300AF729A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0558E9BFB8C549B22E47A88F /* Pods-MoviePracticeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9HR7ZRASLB;
@@ -378,6 +567,7 @@
 		};
 		51C3E3DC1F0AF68300AF729A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8A15D965AEE2FABAD4F67C0 /* Pods-MoviePracticeAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -392,6 +582,7 @@
 		};
 		51C3E3DD1F0AF68300AF729A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C2F875E9FB6B8E6A1BFB675 /* Pods-MoviePracticeAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

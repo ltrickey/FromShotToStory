@@ -1,0 +1,12 @@
+PODS:
+  - YouTubePlayer (0.4.0)
+
+DEPENDENCIES:
+  - YouTubePlayer
+
+SPEC CHECKSUMS:
+  YouTubePlayer: '028451f6772f372d4759866db99824c676ac1473'
+
+PODFILE CHECKSUM: f5bc3cb2aa1f2bcda65ee89d31aa98391aceb194
+
+COCOAPODS: 1.2.1
