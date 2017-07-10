@@ -1,3 +1,4 @@
+
 //
 //  ShotViewController.swift
 //  MoviePracticeApp
@@ -80,6 +81,23 @@ class ShotViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Navigation
+    
+    // send the data of this shot along when myShots button is clicked.
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard let MyShotsCollectionViewController = segue.destination as? MyShotsCollectionViewController else {
+            fatalError("Unexpected destination: \(segue.destination)")
+        }
+        
+        print("sending")
+        print(self.shot?.name ?? "Nothing Sent")
+        
+        MyShotsCollectionViewController.shotName = (shot?.name)!
     }
 
 }
