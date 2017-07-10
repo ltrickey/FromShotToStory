@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ShotViewController.swift
 //  MoviePracticeApp
 //
 //  Created by Lynn Trickey on 7/3/17.
@@ -9,9 +9,16 @@
 import UIKit
 import MobileCoreServices
 
-class ViewController: UIViewController {
+class ShotViewController: UIViewController {
     
     //MARK: Properties
+    
+    // setting this up to access later after saving.
+    var videoPath : String = ""
+    
+    // save shot URLS after they've been done here.
+    // shot name string, urls of shots array of strings.
+    var shotTypesTried = [String: [String]]()
     
     @IBOutlet weak var shotDescLabel: UILabel!
     @IBOutlet weak var shotImageView: UIImageView!
@@ -73,17 +80,27 @@ class ViewController: UIViewController {
 
 // MARK: - UIImagePickerControllerDelegate
 
-extension ViewController: UIImagePickerControllerDelegate {
+extension ShotViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        
+        print(info)
+        
         dismiss(animated: true, completion: nil)
         
         // Handle a movie capture
         if mediaType == kUTTypeMovie {
+            
           // took away GUARD statement here b/c of errors
             let path = (info[UIImagePickerControllerMediaURL] as! URL).path
+            
+            // Save url of video?
+            self.videoPath = path
+            
+            print("video path:" + self.videoPath)
+            
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
-                UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
+                UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
             }
         }
     }
@@ -91,7 +108,7 @@ extension ViewController: UIImagePickerControllerDelegate {
 
 // MARK: - UINavigationControllerDelegate
 
-extension ViewController: UINavigationControllerDelegate {
+extension ShotViewController: UINavigationControllerDelegate {
 }
 
 

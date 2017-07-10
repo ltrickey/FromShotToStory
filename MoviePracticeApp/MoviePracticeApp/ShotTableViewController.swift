@@ -98,7 +98,7 @@ class ShotTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard let ViewController = segue.destination as? ViewController else {
+        guard let ShotViewController = segue.destination as? ShotViewController else {
             fatalError("Unexpected destination: \(segue.destination)")
         }
         
@@ -111,7 +111,7 @@ class ShotTableViewController: UITableViewController {
         }
         
         let selectedShot = shots[indexPath.row]
-        ViewController.shot = selectedShot
+        ShotViewController.shot = selectedShot
     }
 
     
