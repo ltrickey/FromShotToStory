@@ -23,6 +23,7 @@ class ShotViewController: UIViewController {
     
     @IBOutlet weak var shotDescLabel: UILabel!
     @IBOutlet weak var shotImageView: UIImageView!
+    @IBOutlet weak var myShotsButton: UIButton!
     
     // set optional shot variable 
     var shot: Shot?
