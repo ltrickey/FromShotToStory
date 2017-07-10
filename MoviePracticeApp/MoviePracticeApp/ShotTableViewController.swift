@@ -50,8 +50,16 @@ class ShotTableViewController: UITableViewController {
         let shot = shots[indexPath.row]
         
         cell.nameLabel.text = shot.name
+        
+        let shotName = cell.nameLabel.text
+        
+        // if this name already exists as key in the constant, change color.
+        if shotTypesTried[shotName!] != nil {
+            cell.backgroundColor = UIColor.red
+        }
+        
+        
         cell.photoImageView.image = shot.photo
-        cell.backgroundColor = UIColor.red
 
         return cell
     }

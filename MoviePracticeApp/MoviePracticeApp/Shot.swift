@@ -17,7 +17,7 @@ class Shot {
     let photo: UIImage?
     let video: String? // using Youtube API?  String or no?
     let description: String
-    
+    var tried: Bool = false
     
     //MARK: Initialization
     
