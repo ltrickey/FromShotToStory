@@ -44,9 +44,9 @@ class ShotViewController: UIViewController {
             shotDescLabel.text = shot.description
         }
         
-        if shot!.tried == false {
-            myShotsButton.isHidden = true
-        }
+//        if shot!.tried == false {
+//            myShotsButton.isHidden = true
+//        }
     }
 
     override func didReceiveMemoryWarning() {

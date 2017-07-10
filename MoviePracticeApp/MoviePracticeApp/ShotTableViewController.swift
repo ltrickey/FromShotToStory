@@ -47,9 +47,6 @@ class ShotTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("rendering")
-        print(shots.count)
-        
         // Fetches the appropriate meal for the data source layout.
         let shot = shots[indexPath.row]
         
@@ -128,7 +125,7 @@ class ShotTableViewController: UITableViewController {
             fatalError("Unexpected destination: \(segue.destination)")
         }
         
-        guard let selectedCell = sender as? ShotTableViewCell else {
+        guard let selectedCell = sender as? UITableViewCell else {
             fatalError("Unexpected sender: \(sender)")
         }
         
