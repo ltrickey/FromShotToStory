@@ -46,29 +46,39 @@ class ShotTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         print("rendering")
         print(shots.count)
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "ShotTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ShotTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of ShotTableViewCell.")
-        }
         
         // Fetches the appropriate meal for the data source layout.
         let shot = shots[indexPath.row]
         
-        
-        // change cell color if shot has been tried.
-        print (shot.tried)
-        if shot.tried == true {
-            cell.backgroundColor = UIColor.red
-        }
-        
-        cell.nameLabel.text = shot.name
-        cell.photoImageView.image = shot.photo
+        // change cell layout if shot has been tried.
+        if shot.tried == false {
 
-        return cell
+            let cellIdentifier = "ShotTableViewCell"
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ShotTableViewCell  else {
+                fatalError("The dequeued cell is not an instance of ShotTableViewCell.")
+            }
+            
+            cell.nameLabel.text = shot.name
+            cell.photoImageView.image = shot.photo
+            
+            return cell
+        } else {
+            let cellIdentifier = "TriedShotTableViewCell"
+        
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TriedShotTableViewCell  else {
+                fatalError("The dequeued cell is not an instance of TriedShotTableViewCell.")
+            }
+
+            cell.nameLabel.text = shot.name
+            cell.photoImageView.image = shot.photo
+            
+            return cell
+        }
+
     }
 
 

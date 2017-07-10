@@ -16,6 +16,7 @@
 		51C3E3C61F0AF68200AF729A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C51F0AF68200AF729A /* Assets.xcassets */; };
 		51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */; };
 		51C3E3D41F0AF68300AF729A /* MoviePracticeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */; };
+		51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		51C3E3CF1F0AF68300AF729A /* MoviePracticeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviePracticeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePracticeAppTests.swift; sourceTree = "<group>"; };
 		51C3E3D51F0AF68300AF729A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriedShotTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				5133C2771F0D6CC000E1B33E /* Shot.swift */,
 				5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */,
 				5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */,
+				51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */,
 				51C3E3C51F0AF68200AF729A /* Assets.xcassets */,
 				51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */,
 				51C3E3CA1F0AF68200AF729A /* Info.plist */,
@@ -213,6 +216,7 @@
 				5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */,
 				51C3E3C11F0AF68200AF729A /* ShotViewController.swift in Sources */,
 				51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */,
+				51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */,
 				5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

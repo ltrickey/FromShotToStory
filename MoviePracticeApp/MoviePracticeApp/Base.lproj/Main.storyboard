@@ -66,6 +66,53 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="v7S-ab-MzB"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TriedShotTableViewCell" rowHeight="200" id="fHg-CT-w4Y" customClass="TriedShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="228" width="1112" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fHg-CT-w4Y" id="Lx2-9e-qKy">
+                                    <rect key="frame" x="0.0" y="0.0" width="1112" height="199.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="GbQ-PT-Ohs">
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="3j9-FA-7N4"/>
+                                                <constraint firstAttribute="width" constant="350" id="3xk-R6-ra2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVl-kq-IcL">
+                                            <rect key="frame" x="358" y="53" width="746" height="93"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <font key="NSFont" size="44" name="ArialRoundedMTBold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="trailing" secondItem="Lx2-9e-qKy" secondAttribute="trailingMargin" id="7hK-hh-hoy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nVl-kq-IcL" secondAttribute="bottom" constant="45" id="CMW-1V-URE"/>
+                                        <constraint firstItem="GbQ-PT-Ohs" firstAttribute="leading" secondItem="Lx2-9e-qKy" secondAttribute="leading" id="Sx7-1r-hQM"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nVl-kq-IcL" secondAttribute="bottom" constant="45" id="WRj-md-ZDy"/>
+                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="leading" secondItem="GbQ-PT-Ohs" secondAttribute="trailing" constant="8" id="eVK-aS-ASz"/>
+                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="trailing" secondItem="Lx2-9e-qKy" secondAttribute="trailingMargin" id="q64-qm-cq8"/>
+                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="top" secondItem="Lx2-9e-qKy" secondAttribute="topMargin" constant="45" id="v61-Jf-Ysb"/>
+                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="top" secondItem="Lx2-9e-qKy" secondAttribute="topMargin" constant="45" id="yGV-V9-Xvz"/>
+                                        <constraint firstItem="GbQ-PT-Ohs" firstAttribute="top" secondItem="Lx2-9e-qKy" secondAttribute="top" id="zjd-6U-T18"/>
+                                    </constraints>
+                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="nVl-kq-IcL" id="NHj-bl-rkL"/>
+                                    <outlet property="photoImageView" destination="GbQ-PT-Ohs" id="CCD-eo-24e"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="3hg-hD-RsD" id="UyD-PZ-nqq"/>
