@@ -9,16 +9,17 @@
 import UIKit
 import MobileCoreServices
 
+// save shot URLS after they've been done here.
+// shot name string, urls of shots array of strings.
+// Is this a problem with a global variable?
+var shotTypesTried = [String: [String]]()
+
 class ShotViewController: UIViewController {
     
     //MARK: Properties
     
     // setting this up to access later after saving.
     var videoPath : String = ""
-    
-    // save shot URLS after they've been done here.
-    // shot name string, urls of shots array of strings.
-    var shotTypesTried = [String: [String]]()
     
     @IBOutlet weak var shotDescLabel: UILabel!
     @IBOutlet weak var shotImageView: UIImageView!
@@ -101,6 +102,16 @@ extension ShotViewController: UIImagePickerControllerDelegate {
             
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
                 UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
+                
+                // add to saved shots!
+                if shotTypesTried[(shot?.name)!] != nil {
+                    shotTypesTried[(shot?.name)!]!.append(self.videoPath)
+                } else {
+                    shotTypesTried[(shot?.name)!] = [self.videoPath]
+                }
+                
+                print("ShotTypeSTried!")
+                print(shotTypesTried)
             }
         }
     }

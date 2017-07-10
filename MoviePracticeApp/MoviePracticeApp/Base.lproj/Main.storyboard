@@ -76,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktl-O4-ANr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="143.16546762589928" y="135.431654676259"/>
+            <point key="canvasLocation" x="-161" y="135"/>
         </scene>
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -101,7 +101,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC">
-                                        <rect key="frame" x="40" y="505" width="1032" height="20"/>
+                                        <rect key="frame" x="20" y="505" width="1072" height="20"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Descrption of shot type and how it can be used in filmmaking">
                                                 <attributes>
@@ -131,9 +131,6 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Vu8-3I-cXC" secondAttribute="trailing" constant="40" id="I9M-lh-jLT"/>
-                                    <constraint firstItem="Vu8-3I-cXC" firstAttribute="leading" secondItem="hXM-3c-Mvn" secondAttribute="leading" constant="20" id="Z42-bc-Xc1"/>
-                                    <constraint firstItem="Vu8-3I-cXC" firstAttribute="leading" secondItem="hXM-3c-Mvn" secondAttribute="leading" constant="40" id="ith-Tn-NMd"/>
                                     <constraint firstAttribute="trailing" secondItem="Vu8-3I-cXC" secondAttribute="trailing" constant="20" id="vxQ-62-dar"/>
                                 </constraints>
                             </stackView>
@@ -154,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860.7421875" y="136.71875"/>
+            <point key="canvasLocation" x="1337" y="135"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="vH6-fT-9KD">
@@ -189,7 +186,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmK-34-NbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246.223021582734" y="156.83453237410072"/>
+            <point key="canvasLocation" x="4036" y="156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wq4-Mu-XDo">
@@ -207,7 +204,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcT-2r-mFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-580.6640625" y="135.9375"/>
+            <point key="canvasLocation" x="-1386" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xuU-RI-29g">
@@ -225,7 +222,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLP-zp-fm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1531.8345323741007" y="156.83453237410072"/>
+            <point key="canvasLocation" x="2729" y="156"/>
         </scene>
     </scenes>
     <resources>
