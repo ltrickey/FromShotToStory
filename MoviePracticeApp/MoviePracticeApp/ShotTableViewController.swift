@@ -51,6 +51,7 @@ class ShotTableViewController: UITableViewController {
         
         cell.nameLabel.text = shot.name
         cell.photoImageView.image = shot.photo
+        cell.backgroundColor = UIColor.red
 
         return cell
     }
