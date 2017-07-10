@@ -43,6 +43,10 @@ class ShotViewController: UIViewController {
             shotImageView.image = shot.photo
             shotDescLabel.text = shot.description
         }
+        
+        if shot!.tried == false {
+            myShotsButton.isHidden = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +90,6 @@ extension ShotViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
         
-        print(info)
-        
         dismiss(animated: true, completion: nil)
         
         // Handle a movie capture
@@ -101,6 +103,8 @@ extension ShotViewController: UIImagePickerControllerDelegate {
             
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
                 UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
+                
+                myShotsButton.isHidden = false
                 
                 // add to saved shots global
                 if shotTypesTried[(shot?.name)!] != nil {
