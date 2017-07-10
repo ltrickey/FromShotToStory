@@ -17,7 +17,7 @@ class Shot {
     let photo: UIImage?
     let video: String? // using Youtube API?  String or no?
     let description: String
-    var tried: Bool = false
+    var tried: Bool
     
     //MARK: Initialization
     
@@ -33,6 +33,7 @@ class Shot {
         self.photo = photo
         self.video = video
         self.description = description
+        self.tried = false
     }
     
 }

@@ -13,11 +13,19 @@ class ShotTableViewController: UITableViewController {
     //MARK: Properties
     
     var shots = [Shot]()
+    
+    // should rerender shot objects every time about to see table.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("reloading data")
+        loadShots()
+        self.tableView.reloadData()
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadShots()
-        print(shots)
         navigationItem.title = "Shot List"
     }
 
@@ -38,7 +46,8 @@ class ShotTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print("rendering")
+        print(shots.count)
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "ShotTableViewCell"
         
@@ -49,16 +58,14 @@ class ShotTableViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let shot = shots[indexPath.row]
         
-        cell.nameLabel.text = shot.name
         
-        let shotName = cell.nameLabel.text
-        
-        // if this name already exists as key in the constant, change color.
-        if shotTypesTried[shotName!] != nil {
+        // change cell color if shot has been tried.
+        print (shot.tried)
+        if shot.tried == true {
             cell.backgroundColor = UIColor.red
         }
         
-        
+        cell.nameLabel.text = shot.name
         cell.photoImageView.image = shot.photo
 
         return cell
@@ -128,6 +135,8 @@ class ShotTableViewController: UITableViewController {
     
     private func loadShots() {
         
+        shots.removeAll()
+        
         let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo arcu vel arcu ornare interdum. Nullam sed tempus purus, id bibendum leo. In sed pellentesque elit. Nulla facilisis tincidunt est ac malesuada. Integer ligula nunc, cursus in accumsan et, tempor nec quam."
         
         
@@ -179,6 +188,15 @@ class ShotTableViewController: UITableViewController {
                 fatalError("Unable to instansiate shot")
             }
             
+            //if shot has been tried, change bool value to true.
+            print(shotObject.name)
+            print(shotTypesTried)
+            
+            if shotTypesTried[shotObject.name] != nil {
+                shotObject.tried = true
+            }
+            
+            print(shotObject.tried)
             shots.append(shotObject)
         }
         

@@ -98,20 +98,16 @@ extension ShotViewController: UIImagePickerControllerDelegate {
             // Save url of video?
             self.videoPath = path
             
-            print("video path:" + self.videoPath)
-            
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
                 UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
                 
-                // add to saved shots!
+                // add to saved shots global
                 if shotTypesTried[(shot?.name)!] != nil {
                     shotTypesTried[(shot?.name)!]!.append(self.videoPath)
                 } else {
                     shotTypesTried[(shot?.name)!] = [self.videoPath]
                 }
                 
-                print("ShotTypeSTried!")
-                print(shotTypesTried)
             }
         }
     }
