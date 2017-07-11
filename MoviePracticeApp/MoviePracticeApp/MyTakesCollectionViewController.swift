@@ -14,6 +14,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     //MARK: properties
     
+    var takes = [Take]()
+    
     private let reuseIdentifier = "Cell"
     
     fileprivate let itemsPerRow: CGFloat = 3
@@ -160,6 +162,33 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     }
     */
-
-
+    
+    //MARK: Private Methods
+    
+    private func loadTakes() {
+        
+        takes.removeAll()
+        
+        for url in shotsTaken {
+            var take : Take
+            
+            do {
+                let asset = AVURLAsset(url: url as URL , options: nil)
+                let imgGenerator = AVAssetImageGenerator(asset: asset)
+                imgGenerator.appliesPreferredTrackTransform = true
+                let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
+                let thumbnail = UIImage(cgImage: cgImage)
+                
+//                cell.savedShotThumbnail.image = thumbnail
+                
+                take = Take(url: url, thumbnail: thumbnail)
+                takes.append(take)
+                
+            } catch let error {
+                print("*** Error generating thumbnail: \(error.localizedDescription)")
+            }
+           
+        }
+        
+    }
 }
