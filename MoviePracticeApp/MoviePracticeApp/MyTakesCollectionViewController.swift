@@ -10,10 +10,6 @@ import UIKit
 import AVFoundation
 import AVKit
 
-private let reuseIdentifier = "Cell"
-
-fileprivate let itemsPerRow: CGFloat = 3
-
 class MyTakesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //MARK: properties

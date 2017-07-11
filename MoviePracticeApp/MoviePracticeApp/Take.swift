@@ -14,14 +14,14 @@ class Take {
     
     //MARK: Properties
     let url: URL
-    let thumbnail: UIImage
+    let thumbnail: UIImage?
     
     //MARK: initialization
     
     init(url: URL, thumbnail: UIImage?) {
         
         self.url = url
-        self.thumbnail = thumbnail!
+        self.thumbnail = thumbnail
     }
     
 }

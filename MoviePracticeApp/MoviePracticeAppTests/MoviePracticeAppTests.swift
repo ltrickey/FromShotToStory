@@ -37,4 +37,25 @@ class MoviePracticeAppTests: XCTestCase {
         
         //Shot should have EITHER photo or Video, not both?  TO WRITE IN FUTURE. 
     }
+    
+    
+    //MARK: Take Class Tests
+    
+    func testTakeInitializationSucceeds() {
+        
+        let url = URL(string: "https://www.apple.com")
+        let thumbnail = UIImage(named: "CloseUpShot" )
+        
+        // Take created with no thumbnail.
+        let noThumbnail = Take.init(url: url!, thumbnail: nil)
+        XCTAssertNotNil(noThumbnail)
+        
+        // Shot with just video string
+        let both = Take.init(url: url!, thumbnail: thumbnail)
+        XCTAssertNotNil(noThumbnail)
+        XCTAssertNotNil(both)
+        
+    }
+
+    
 }
