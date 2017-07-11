@@ -90,7 +90,7 @@ class ShotViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard let MyShotsCollectionViewController = segue.destination as? MyShotsCollectionViewController else {
+        guard let MyShotsCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
             fatalError("Unexpected destination: \(segue.destination)")
         }
 

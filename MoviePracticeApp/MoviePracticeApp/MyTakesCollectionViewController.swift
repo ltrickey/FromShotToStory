@@ -1,5 +1,5 @@
 //
-//  MyShotsCollectionViewController.swift
+//  MyTakesCollectionViewController.swift
 //  MoviePracticeApp
 //
 //  Created by Lynn Trickey on 7/10/17.
@@ -8,12 +8,13 @@
 
 import UIKit
 import AVFoundation
+import AVKit
 
 private let reuseIdentifier = "Cell"
 
 fileprivate let itemsPerRow: CGFloat = 3
 
-class MyShotsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class MyTakesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //MARK: properties
     
@@ -32,8 +33,6 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("the shot name is:")
-        print(shotName! as String)
         shotsTaken = shotTypesTried[shotName!]!
 
         // Uncomment the following line to preserve selection between presentations
@@ -50,15 +49,24 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
         // Dispose of any resources that can be recreated.
     }
     
-        /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func prepare(for segue: UIStoryboardSegue, sender: MyTakesCollectionViewCell?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+     
+        let destination = segue.destination as! AVPlayerViewController
+        print("This is the senter object")
+        print(sender)
+//        let url = shotsTaken[indexPath.item]
+
+     
+//        if let movieURL = url {
+//            destination.player = AVPlayer(url: movieURL)
+//        }
+  
     }
-    */
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -69,9 +77,9 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
         return shotsTaken.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> SavedShotCollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyTakesCollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! SavedShotCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
         cell.backgroundColor = UIColor.black
         
         // Configure the cell
@@ -135,12 +143,12 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
     }
     */
 
-    /*
+
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-    */
+
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

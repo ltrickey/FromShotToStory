@@ -42,7 +42,7 @@
                   moduleName = "MoviePracticeApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/ShotViewController.swift"
-                  timestampString = "521496220.919749"
+                  timestampString = "521504041.859789"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "98"
@@ -57,7 +57,7 @@
                   moduleName = "MoviePracticeApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/ShotViewController.swift"
-                  timestampString = "521496220.921507"
+                  timestampString = "521504041.861981"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "98"
@@ -70,16 +70,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviePracticeApp/MyShotsCollectionViewController.swift"
+            timestampString = "521504168.802611"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/MyShotsCollectionViewController.swift"
-            timestampString = "521495822.277703"
+            timestampString = "521504168.802611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

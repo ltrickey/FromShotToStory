@@ -1,5 +1,5 @@
 //
-//  SavedShotCollectionViewCell.swift
+//  MyTakesCollectionViewCell.swift
 //  MoviePracticeApp
 //
 //  Created by Lynn Trickey on 7/10/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SavedShotCollectionViewCell: UICollectionViewCell {
+class MyTakesCollectionViewCell: UICollectionViewCell {
     
     //MARK: properties
     @IBOutlet weak var savedShotThumbnail: UIImageView!
