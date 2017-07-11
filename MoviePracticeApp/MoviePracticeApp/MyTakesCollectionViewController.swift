@@ -38,8 +38,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        loadTakes()
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,28 +81,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         // Configure the cell
         
-        // Fetches the appropriate meal for the data source layout.
-        let filePath = shotsTaken[indexPath.item]
-        print("filepath >>>")
-        print(filePath)
-        
-//        let fileURL = NSURL(string: filePathString)
-//        print("filepath URL >>>")
-//        print(fileURL)
-        
-        do {
-            let asset = AVURLAsset(url: filePath as URL , options: nil)
-            let imgGenerator = AVAssetImageGenerator(asset: asset)
-            imgGenerator.appliesPreferredTrackTransform = true
-            let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
-            let thumbnail = UIImage(cgImage: cgImage)
-            
-            
-            cell.savedShotThumbnail.image = thumbnail
-            
-        } catch let error {
-            print("*** Error generating thumbnail: \(error.localizedDescription)")
-        }
+        // Fetches the appropriate take for the data source layout.
+        let take = takes[indexPath.item]
+
+        cell.savedShotThumbnail.image = take.thumbnail
         
         return cell
     }

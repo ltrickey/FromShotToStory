@@ -47,7 +47,7 @@ class ShotTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate shot for the data source layout.
         let shot = shots[indexPath.row]
         
         // change cell layout if shot has been tried.
