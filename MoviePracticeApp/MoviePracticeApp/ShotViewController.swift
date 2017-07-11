@@ -93,9 +93,7 @@ class ShotViewController: UIViewController {
         guard let MyShotsCollectionViewController = segue.destination as? MyShotsCollectionViewController else {
             fatalError("Unexpected destination: \(segue.destination)")
         }
-        
-        print("sending")
-        print(self.shot?.name ?? "Nothing Sent")
+
         
         MyShotsCollectionViewController.shotName = (shot?.name)!
     }
