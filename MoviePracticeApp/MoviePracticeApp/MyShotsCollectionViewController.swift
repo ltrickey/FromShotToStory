@@ -28,7 +28,7 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
     var shotName : String?
     
     // the array of shot URLs - not filled until viewDidLoad
-    var shotsTaken: [String] = []
+    var shotsTaken: [URL] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,12 +77,16 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
         // Configure the cell
         
         // Fetches the appropriate meal for the data source layout.
-        let filePathString = shotsTaken[indexPath.item]
+        let filePath = shotsTaken[indexPath.item]
+        print("filepath >>>")
+        print(filePath)
         
-        let fileURL = NSURL(string: filePathString)
+//        let fileURL = NSURL(string: filePathString)
+//        print("filepath URL >>>")
+//        print(fileURL)
         
         do {
-            let asset = AVURLAsset(url: fileURL! as URL , options: nil)
+            let asset = AVURLAsset(url: filePath as URL , options: nil)
             let imgGenerator = AVAssetImageGenerator(asset: asset)
             imgGenerator.appliesPreferredTrackTransform = true
             let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
