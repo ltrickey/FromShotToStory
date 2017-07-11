@@ -69,9 +69,9 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
         return shotsTaken.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> SavedShotCollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! SavedShotCollectionViewCell
         cell.backgroundColor = UIColor.black
         
         // Configure the cell
@@ -88,7 +88,8 @@ class MyShotsCollectionViewController: UICollectionViewController, UICollectionV
             let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
             let thumbnail = UIImage(cgImage: cgImage)
             
-            // thumbnail here
+            
+            cell.savedShotThumbnail.image = thumbnail
             
         } catch let error {
             print("*** Error generating thumbnail: \(error.localizedDescription)")
