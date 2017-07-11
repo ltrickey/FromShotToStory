@@ -232,7 +232,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xRq-N1-U5N">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedShotCollectionViewCell" id="xRq-N1-U5N" customClass="SavedShotCollectionViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -250,6 +250,9 @@
                                     <constraint firstAttribute="trailing" secondItem="eUj-Uf-uXJ" secondAttribute="trailing" id="ft1-EG-zmu"/>
                                     <constraint firstItem="eUj-Uf-uXJ" firstAttribute="top" secondItem="xRq-N1-U5N" secondAttribute="top" id="rnC-HY-6oe"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="savedShotThumbnail" destination="eUj-Uf-uXJ" id="OKe-s0-wmS"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

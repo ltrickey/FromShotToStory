@@ -16,7 +16,7 @@ class ShotTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = UIColor.gray
+        self.backgroundColor = UIColor.lightGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

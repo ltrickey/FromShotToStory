@@ -10,6 +10,7 @@
 		5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C2771F0D6CC000E1B33E /* Shot.swift */; };
 		5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */; };
 		5133C27C1F0D964800E1B33E /* ShotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */; };
+		513C25A21F146518000F2996 /* SavedShotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C25A11F146518000F2996 /* SavedShotCollectionViewCell.swift */; };
 		51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */; };
 		51C3E3C11F0AF68200AF729A /* ShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3C01F0AF68200AF729A /* ShotViewController.swift */; };
 		51C3E3C41F0AF68200AF729A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C21F0AF68200AF729A /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		5133C2771F0D6CC000E1B33E /* Shot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shot.swift; sourceTree = "<group>"; };
 		5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTableViewCell.swift; sourceTree = "<group>"; };
 		5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTableViewController.swift; sourceTree = "<group>"; };
+		513C25A11F146518000F2996 /* SavedShotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedShotCollectionViewCell.swift; sourceTree = "<group>"; };
 		51C3E3BB1F0AF68200AF729A /* MoviePracticeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviePracticeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C3E3C01F0AF68200AF729A /* ShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */,
 				51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */,
 				51F93DF81F1424EB009E4DF3 /* MyShotsCollectionViewController.swift */,
+				513C25A11F146518000F2996 /* SavedShotCollectionViewCell.swift */,
 				51C3E3C51F0AF68200AF729A /* Assets.xcassets */,
 				51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */,
 				51C3E3CA1F0AF68200AF729A /* Info.plist */,
@@ -219,6 +222,7 @@
 				5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */,
 				51C3E3C11F0AF68200AF729A /* ShotViewController.swift in Sources */,
 				51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */,
+				513C25A21F146518000F2996 /* SavedShotCollectionViewCell.swift in Sources */,
 				51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */,
 				5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */,
 				51F93DF91F1424EB009E4DF3 /* MyShotsCollectionViewController.swift in Sources */,
