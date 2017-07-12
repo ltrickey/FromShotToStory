@@ -221,7 +221,7 @@
         <scene sceneID="i4m-tD-oOr">
             <objects>
                 <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,6 +253,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="savedShotThumbnail" destination="eUj-Uf-uXJ" id="OKe-s0-wmS"/>
+                                    <segue destination="ZzT-cR-QbC" kind="show" id="t3d-Oo-orb"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -263,13 +264,26 @@
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Ycw-2R-13i">
-                    <connections>
-                        <action selector="playTake:" destination="dOW-F5-u1l" id="kip-ra-Ykc"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1196" y="94"/>
+            <point key="canvasLocation" x="1185" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="t32-Ii-5Hy">
+            <objects>
+                <viewController id="ZzT-cR-QbC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MRF-po-d3I"/>
+                        <viewControllerLayoutGuide type="bottom" id="6sS-Mq-oTs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XQ7-Zf-omw">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kLr-Qf-Id7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1823" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wq4-Mu-XDo">
