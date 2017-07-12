@@ -22,15 +22,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
-
-//    @IBAction func playVideo(_ sender: UITapGestureRecognizer) {
-//        
-
-//    }
-    
-
-    
-    
     // variable of Shot Name, sent from shot view.
     var shotName : String?
     
@@ -43,10 +34,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 if let tapIndexPath = self.collectionView?.indexPathForItem(at: tapLocation) {
 //                    if let tappedCell = self.collectionView?.cellForIndexPath(tapIndexPath) as? MyTakesCollectionViewCell {
                     print(tapIndexPath)
-                    
-                            guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
-                                return
-                            }
+                    print(tapIndexPath[1])
+                            
+                            let url = shotsTaken[tapIndexPath[1]]
                             // Create an AVPlayer, passing it the HTTP Live Streaming URL.
                             let player = AVPlayer(url: url)
                     
