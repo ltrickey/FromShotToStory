@@ -28,28 +28,28 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [URL] = []
     
-    // action when cell is tapped.
-    @IBAction func playVideo(_ sender: UITapGestureRecognizer) {
-        
-        print("name of view that was tapped >>>>")
-        let cell = (sender.view!)
-        print(self.collectionView!.indexPath(for: cell as! UICollectionViewCell))
-        
-        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
-            return
-        }
-        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-        let player = AVPlayer(url: url)
-        
-        // Create a new AVPlayerViewController and pass it a reference to the player.
-        let controller = AVPlayerViewController()
-        controller.player = player
-        
-        // Modally present the player and call the player's play() method when complete.
-        present(controller, animated: true) {
-            player.play()
-        }
-    }
+//    // action when cell is tapped.
+//    @IBAction func playVideo(_ sender: UITapGestureRecognizer) {
+//        
+//        print("name of view that was tapped >>>>")
+//        let cell = (sender.view!)
+//        print(self.collectionView!.indexPath(for: cell as! UICollectionViewCell))
+//        
+//        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
+//            return
+//        }
+//        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+//        let player = AVPlayer(url: url)
+//        
+//        // Create a new AVPlayerViewController and pass it a reference to the player.
+//        let controller = AVPlayerViewController()
+//        controller.player = player
+//        
+//        // Modally present the player and call the player's play() method when complete.
+//        present(controller, animated: true) {
+//            player.play()
+//        }
+//    }
     
        override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +59,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         loadTakes()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,17 +69,34 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
 
     // MARK: - Navigation
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        print("Selected cell >>>>")
+        print(indexPath)
+        performSegue(withIdentifier: "sendCellDetails", sender: indexPath)
+        
+    }
 
-    func prepare(for segue: UIStoryboardSegue, sender: MyTakesCollectionViewCell?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    func prepare(for segue: UIStoryboardSegue, sender: Any) {
+        
+        if segue.identifier == "sendCellDetails" {
+            guard let playTakeViewController = segue.destination as? PlayTakeViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            let indexPath = self.collectionView?.indexPathsForSelectedItems
+
+            
+            playTakeViewController.cellIndex = sender as! [IndexPath]
+            
+        }
      
         
-        print("name of view that was tapped >>>>")
-        let cell = (sender!)
-        print(self.collectionView!.indexPath(for: cell as! UICollectionViewCell))
+//        print("name of cell that was tapped >>>>")
+//        let cell = (sender!)
+//        print(self.collectionView!.indexPath(for: cell as! UICollectionViewCell))
         
-
     }
 
     // MARK: UICollectionViewDataSource
@@ -131,20 +149,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     // MARK: UICollectionViewDelegate
-    
-//    var urltoPass: URL!
-//    
-//    func collectionView(_ collectionView: UICollectionView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-//        
-//        // Get Take object associated with cell.
-//        let indexPath = collectionView.indexPathsForSelectedItems;
-//        let currentCell = collectionView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!;
-//        
-//        urltoPass = currentCell.url
-//        performSegueWithIdentifier("openPlayer", sender: self)
-//        
-//    }
-
 
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
@@ -187,31 +191,4 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
     }
     
-    // don't think I actually need this.
-//    private func prepareToPlay(url: URL) {
-//        let url = url
-//        // Create asset to be played
-//        
-//        var asset = AVAsset(url: url)
-//        
-//        let assetKeys = [
-//            "playable",
-//            "hasProtectedContent"
-//        ]
-//        // Create a new AVPlayerItem with the asset and an
-//        // array of asset keys to be automatically loaded
-//        let playerItem = AVPlayerItem(asset: asset,
-//                                  automaticallyLoadedAssetKeys: assetKeys)
-//        
-//        // Register as an observer of the player item's status property
-//        playerItem.addObserver(self,
-//                               forKeyPath: #keyPath(AVPlayerItem.status),
-//                               options: [.old, .new],
-//                               context: &playerItemContext)
-//        
-//        // Associate the player item with the player
-//        let player = AVPlayer(playerItem: playerItem)
-//        
-//        return player
-//    }
 }

@@ -11,9 +11,16 @@ import AVFoundation
 import AVKit
 
 class PlayTakeViewController: UIViewController {
+    
+    //MARK: Properties
+    
+    var cellIndex: [IndexPath]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("in view did load >>>")
+        print(self.cellIndex)
 
         guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
             return
