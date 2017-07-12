@@ -67,6 +67,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
         collectionView?.addGestureRecognizer(tapGesture)
         tapGesture.delegate = self
+        
+        // Use the edit button item provided by the table view controller.
+        navigationItem.rightBarButtonItem = editButtonItem
     }
     
     
