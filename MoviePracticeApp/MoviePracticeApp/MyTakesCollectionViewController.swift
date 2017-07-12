@@ -21,8 +21,19 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     fileprivate let itemsPerRow: CGFloat = 3
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-
+    
+    // variable of Shot Name, sent from shot view.
+    var shotName : String?
+    
+    // the array of shot URLs - not filled until viewDidLoad
+    var shotsTaken: [URL] = []
+    
+    // action when cell is tapped.
     @IBAction func playVideo(_ sender: UITapGestureRecognizer) {
+        
+        print("name of view that was tapped >>>>")
+        let cell = (sender.view!)
+        print(self.collectionView!.indexPath(for: cell as! UICollectionViewCell))
         
         guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
             return
@@ -40,41 +51,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
     }
     
-//        print("inside gesture recognizer >>>>>")
-//        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
-//            return
-//        }
-//
-//       
-//        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-//        let player = AVPlayer(url: url)
-//        
-//        // Create a new AVPlayerViewController and pass it a reference to the player.
-//        let controller = AVPlayerViewController()
-//        controller.player = player
-//        
-//        // Modally present the player and call the player's play() method when complete.
-//        present(controller, animated: true) {
-//            player.play()
-//        }
-
-    
-    
-    // variable of Shot Name, sent from shot view.
-    var shotName : String?
-    
-    // the array of shot URLs - not filled until viewDidLoad
-    var shotsTaken: [URL] = []
-
-    override func viewDidLoad() {
+       override func viewDidLoad() {
         super.viewDidLoad()
         shotsTaken = shotTypesTried[shotName!]!
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
         loadTakes()
     }
 
@@ -90,21 +73,11 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
      
-        let destination = segue.destination as! AVPlayerViewController
         
-        let cell = sender!
+        print("name of view that was tapped >>>>")
+        let cell = (sender!)
+        print(self.collectionView!.indexPath(for: cell as! UICollectionViewCell))
         
-        let indexPath = self.collectionView!.indexPath(for: cell)
-        
-        let index = indexPath?.item
-        
-        let destinationURL = shotsTaken[index!]
-        
-        print("This is the selected cell INDEEXXXX!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-        print(index)
-        let url = shotsTaken[index!]
-        
-        destination.player = AVPlayer(url: url)
 
     }
 
