@@ -32,22 +32,22 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         if recognizer.state == UIGestureRecognizerState.ended {
             let tapLocation = recognizer.location(in: self.collectionView)
                 if let tapIndexPath = self.collectionView?.indexPathForItem(at: tapLocation) {
-//                    if let tappedCell = self.collectionView?.cellForIndexPath(tapIndexPath) as? MyTakesCollectionViewCell {
                     print(tapIndexPath)
                     print(tapIndexPath[1])
                             
-                            let url = shotsTaken[tapIndexPath[1]]
-                            // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-                            let player = AVPlayer(url: url)
+                        let url = shotsTaken[tapIndexPath[1]]
                     
-                            // Create a new AVPlayerViewController and pass it a reference to the player.
-                            let controller = AVPlayerViewController()
-                            controller.player = player
+                        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+                        let player = AVPlayer(url: url)
                     
-                            // Modally present the player and call the player's play() method when complete.
-                            present(controller, animated: true) {
-                                player.play()
-                            }
+                        // Create a new AVPlayerViewController and pass it a reference to the player.
+                        let controller = AVPlayerViewController()
+                        controller.player = player
+                    
+                        // Modally present the player and call the player's play() method when complete.
+                        present(controller, animated: true) {
+                            player.play()
+                        }
         
                     }
                 }
