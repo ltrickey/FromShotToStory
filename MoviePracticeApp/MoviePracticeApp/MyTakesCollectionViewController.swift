@@ -22,6 +22,24 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 
+    @IBAction func playTake(_ sender: UITapGestureRecognizer) {
+        print("inside gesture recognizer >>>>>")
+        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
+            return
+        }
+        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+        let player = AVPlayer(url: url)
+        
+        // Create a new AVPlayerViewController and pass it a reference to the player.
+        let controller = AVPlayerViewController()
+        controller.player = player
+        
+        // Modally present the player and call the player's play() method when complete.
+        present(controller, animated: true) {
+            player.play()
+        }
+
+    }
     
     // variable of Shot Name, sent from shot view.
     var shotName : String?
@@ -54,15 +72,21 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Pass the selected object to the new view controller.
      
         let destination = segue.destination as! AVPlayerViewController
-        print("This is the senter object")
-        print(sender)
-//        let url = shotsTaken[indexPath.item]
+        
+        let cell = sender!
+        
+        let indexPath = self.collectionView!.indexPath(for: cell)
+        
+        let index = indexPath?.item
+        
+        let destinationURL = shotsTaken[index!]
+        
+        print("This is the selected cell INDEEXXXX!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        print(index)
+        let url = shotsTaken[index!]
+        
+        destination.player = AVPlayer(url: url)
 
-     
-//        if let movieURL = url {
-//            destination.player = AVPlayer(url: movieURL)
-//        }
-  
     }
 
     // MARK: UICollectionViewDataSource
@@ -114,13 +138,25 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     // MARK: UICollectionViewDelegate
+    
+//    var urltoPass: URL!
+//    
+//    func collectionView(_ collectionView: UICollectionView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+//        
+//        // Get Take object associated with cell.
+//        let indexPath = collectionView.indexPathsForSelectedItems;
+//        let currentCell = collectionView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!;
+//        
+//        urltoPass = currentCell.url
+//        performSegueWithIdentifier("openPlayer", sender: self)
+//        
+//    }
 
-    /*
+
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-    */
 
 
     // Uncomment this method to specify if the specified item should be selected
@@ -129,20 +165,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
 
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
 
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
     
     //MARK: Private Methods
     
@@ -160,8 +183,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
                 let thumbnail = UIImage(cgImage: cgImage)
                 
-//                cell.savedShotThumbnail.image = thumbnail
-                
                 take = Take(url: url, thumbnail: thumbnail)
                 takes.append(take)
                 
@@ -172,4 +193,32 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
         
     }
+    
+    // don't think I actually need this.
+//    private func prepareToPlay(url: URL) {
+//        let url = url
+//        // Create asset to be played
+//        
+//        var asset = AVAsset(url: url)
+//        
+//        let assetKeys = [
+//            "playable",
+//            "hasProtectedContent"
+//        ]
+//        // Create a new AVPlayerItem with the asset and an
+//        // array of asset keys to be automatically loaded
+//        let playerItem = AVPlayerItem(asset: asset,
+//                                  automaticallyLoadedAssetKeys: assetKeys)
+//        
+//        // Register as an observer of the player item's status property
+//        playerItem.addObserver(self,
+//                               forKeyPath: #keyPath(AVPlayerItem.status),
+//                               options: [.old, .new],
+//                               context: &playerItemContext)
+//        
+//        // Associate the player item with the player
+//        let player = AVPlayer(playerItem: playerItem)
+//        
+//        return player
+//    }
 }

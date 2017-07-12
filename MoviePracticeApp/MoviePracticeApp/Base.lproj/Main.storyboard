@@ -241,6 +241,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-Uf-uXJ">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <gestureRecognizers/>
                                         </imageView>
                                     </subviews>
                                 </view>
@@ -252,7 +253,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="savedShotThumbnail" destination="eUj-Uf-uXJ" id="OKe-s0-wmS"/>
-                                    <segue destination="A6b-nu-py7" kind="show" id="mSl-qD-W7q"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -263,16 +263,13 @@
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ycw-2R-13i">
+                    <connections>
+                        <action selector="playTake:" destination="dOW-F5-u1l" id="kip-ra-Ykc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1201.6187050359713" y="134.53237410071944"/>
-        </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="bpz-GS-YnA">
-            <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="A6b-nu-py7" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eSv-C1-p9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1854" y="142"/>
+            <point key="canvasLocation" x="1196" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wq4-Mu-XDo">
