@@ -13,7 +13,8 @@ import MobileCoreServices
 // save shot URLS after they've been done here.
 // shot name string, urls of shots array of strings.
 // Is this a problem with a global variable?
-var shotTypesTried = [String: [URL]]()
+
+var takesSaved = [String: [URL]]()
 
 class ShotViewController: UIViewController {
     
@@ -37,6 +38,9 @@ class ShotViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // get takes from local data - could be nil if never saved before.
+         var takesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
         
         // Set up views with existing Shot.
         if let shot = shot {
@@ -122,18 +126,33 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
                 
                 myShotsButton.isHidden = false
+            
+                
+                if takesSaved != nil {
+                    if takesSaved[(shot?.name)!] != nil {
+                        takesSaved[(shot?.name)!]!.append(self.videoPath as URL)
+                        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(takesSaved, toFile: Take.ArchiveURL.path)
+                    } else {
+                        takesSaved[(shot?.name)!] = [self.videoPath as URL]
+                        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(takesSaved, toFile: Take.ArchiveURL.path)
+                    }
+                } else {
+                    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(takesSaved, toFile: Take.ArchiveURL.path)
+                }
+                
+            }
                 
                 // add to saved shots global
-                if shotTypesTried[(shot?.name)!] != nil {
-                    shotTypesTried[(shot?.name)!]!.append(self.videoPath as URL)
+                if takesSaved[(shot?.name)!] != nil {
+                    takesSaved[(shot?.name)!]!.append(self.videoPath as URL)
                 } else {
-                    shotTypesTried[(shot?.name)!] = [self.videoPath as URL]
+                    takesSaved[(shot?.name)!] = [self.videoPath as URL]
                 }
                 
             }
         }
     }
-}
+
 
 // MARK: - UINavigationControllerDelegate
 

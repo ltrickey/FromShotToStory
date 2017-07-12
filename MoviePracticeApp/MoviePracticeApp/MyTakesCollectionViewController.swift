@@ -221,32 +221,5 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
         
     }
-    
-    // don't think I actually need this.
-//    private func prepareToPlay(url: URL) {
-//        let url = url
-//        // Create asset to be played
-//        
-//        var asset = AVAsset(url: url)
-//        
-//        let assetKeys = [
-//            "playable",
-//            "hasProtectedContent"
-//        ]
-//        // Create a new AVPlayerItem with the asset and an
-//        // array of asset keys to be automatically loaded
-//        let playerItem = AVPlayerItem(asset: asset,
-//                                  automaticallyLoadedAssetKeys: assetKeys)
-//        
-//        // Register as an observer of the player item's status property
-//        playerItem.addObserver(self,
-//                               forKeyPath: #keyPath(AVPlayerItem.status),
-//                               options: [.old, .new],
-//                               context: &playerItemContext)
-//        
-//        // Associate the player item with the player
-//        let player = AVPlayer(playerItem: playerItem)
-//        
-//        return player
-//    }
+
 }
