@@ -32,8 +32,11 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shotsTaken = shotTypesTried[shotName!]!
-
+        // get takes from local data - could be nil if never saved before.
+        let alltakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
+        
+        shotsTaken = (alltakesSaved?[shotName!])!
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

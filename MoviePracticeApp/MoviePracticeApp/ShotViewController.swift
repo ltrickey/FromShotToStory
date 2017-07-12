@@ -127,7 +127,6 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 
                 myShotsButton.isHidden = false
             
-                
                 if takesSaved != nil {
                     if takesSaved[(shot?.name)!] != nil {
                         takesSaved[(shot?.name)!]!.append(self.videoPath as URL)
@@ -140,15 +139,8 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                     let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(takesSaved, toFile: Take.ArchiveURL.path)
                 }
                 
-            }
-                
-                // add to saved shots global
-                if takesSaved[(shot?.name)!] != nil {
-                    takesSaved[(shot?.name)!]!.append(self.videoPath as URL)
-                } else {
-                    takesSaved[(shot?.name)!] = [self.videoPath as URL]
                 }
-                
+            
             }
         }
     }

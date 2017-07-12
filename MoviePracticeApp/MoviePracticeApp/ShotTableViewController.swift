@@ -196,10 +196,11 @@ class ShotTableViewController: UITableViewController {
             }
             
             //if shot has been tried, change bool value to true.
-            print(shotObject.name)
-            print(shotTypesTried)
             
-            if shotTypesTried[shotObject.name] != nil {
+            // get takes from local data - could be nil if never saved before.
+            let alltakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
+            
+            if alltakesSaved?[shotObject.name] != nil {
                 shotObject.tried = true
             }
             
