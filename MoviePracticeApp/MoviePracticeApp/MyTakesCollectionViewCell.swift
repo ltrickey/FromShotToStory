@@ -11,7 +11,9 @@ import UIKit
 class MyTakesCollectionViewCell: UICollectionViewCell {
     
     //MARK: properties
-    @IBOutlet weak var savedShotThumbnail: UIImageView!
+    
+    
+    @IBOutlet weak var savedShotImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

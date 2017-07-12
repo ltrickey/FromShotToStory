@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class MyTakesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class MyTakesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     //MARK: properties
-    
+        
     var takes = [Take]()
     
     private let reuseIdentifier = "Cell"
@@ -22,12 +22,29 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 
+    @IBAction func playVideo(_ sender: UITapGestureRecognizer) {
+        
+        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
+            return
+        }
+        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+        let player = AVPlayer(url: url)
+        
+        // Create a new AVPlayerViewController and pass it a reference to the player.
+        let controller = AVPlayerViewController()
+        controller.player = player
+        
+        // Modally present the player and call the player's play() method when complete.
+        present(controller, animated: true) {
+            player.play()
+        }
+    }
     
 //        print("inside gesture recognizer >>>>>")
 //        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
 //            return
 //        }
-//        
+//
 //       
 //        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
 //        let player = AVPlayer(url: url)
@@ -110,7 +127,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Fetches the appropriate take for the data source layout.
         let take = takes[indexPath.item]
 
-        cell.savedShotThumbnail.image = take.thumbnail
+        cell.savedShotImageView.image = take.thumbnail
+        cell.savedShotImageView.isUserInteractionEnabled = true
         
         return cell
     }

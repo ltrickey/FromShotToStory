@@ -242,6 +242,9 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-Uf-uXJ">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <gestureRecognizers/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="dL7-1C-6K1" appends="YES" id="9nb-FS-EN1"/>
+                                            </connections>
                                         </imageView>
                                     </subviews>
                                 </view>
@@ -252,8 +255,7 @@
                                     <constraint firstItem="eUj-Uf-uXJ" firstAttribute="top" secondItem="xRq-N1-U5N" secondAttribute="top" id="rnC-HY-6oe"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="savedShotThumbnail" destination="eUj-Uf-uXJ" id="OKe-s0-wmS"/>
-                                    <segue destination="ZzT-cR-QbC" kind="show" id="t3d-Oo-orb"/>
+                                    <outlet property="savedShotImageView" destination="eUj-Uf-uXJ" id="79q-TN-4p9"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -264,26 +266,13 @@
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dL7-1C-6K1">
+                    <connections>
+                        <action selector="playVideo:" destination="dOW-F5-u1l" id="SMd-Yg-EnY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1185" y="134"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="t32-Ii-5Hy">
-            <objects>
-                <viewController id="ZzT-cR-QbC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MRF-po-d3I"/>
-                        <viewControllerLayoutGuide type="bottom" id="6sS-Mq-oTs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XQ7-Zf-omw">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kLr-Qf-Id7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1823" y="143"/>
+            <point key="canvasLocation" x="2611" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wq4-Mu-XDo">

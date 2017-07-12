@@ -47,5 +47,18 @@
 	<string>Allows app to access microphone to record audio.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allows app to save and access videos from media library.</string>
+    
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>devimages.apple.com.edgekey.net</key>
+            <dict>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <false/>
+            </dict>
+        </dict>
+    </dict>
+    
 </dict>
 </plist>
