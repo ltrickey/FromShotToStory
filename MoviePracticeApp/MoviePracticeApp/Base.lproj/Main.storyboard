@@ -242,9 +242,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-Uf-uXJ">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <gestureRecognizers/>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="dL7-1C-6K1" appends="YES" id="9nb-FS-EN1"/>
-                                            </connections>
                                         </imageView>
                                     </subviews>
                                 </view>
@@ -266,11 +263,6 @@
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="dL7-1C-6K1">
-                    <connections>
-                        <action selector="playVideo:" destination="dOW-F5-u1l" id="SMd-Yg-EnY"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2611" y="135"/>
         </scene>

@@ -21,42 +21,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     fileprivate let itemsPerRow: CGFloat = 3
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
-
-    @IBAction func playVideo(_ sender: UITapGestureRecognizer) {
-        
-        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
-            return
-        }
-        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-        let player = AVPlayer(url: url)
-        
-        // Create a new AVPlayerViewController and pass it a reference to the player.
-        let controller = AVPlayerViewController()
-        controller.player = player
-        
-        // Modally present the player and call the player's play() method when complete.
-        present(controller, animated: true) {
-            player.play()
-        }
-    }
     
-//        print("inside gesture recognizer >>>>>")
-//        guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
-//            return
-//        }
-//
-//       
-//        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-//        let player = AVPlayer(url: url)
+
+//    @IBAction func playVideo(_ sender: UITapGestureRecognizer) {
 //        
-//        // Create a new AVPlayerViewController and pass it a reference to the player.
-//        let controller = AVPlayerViewController()
-//        controller.player = player
-//        
-//        // Modally present the player and call the player's play() method when complete.
-//        present(controller, animated: true) {
-//            player.play()
-//        }
+
+//    }
+    
 
     
     
@@ -65,6 +36,32 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [URL] = []
+    
+    func tapToPlay(_ recognizer: UITapGestureRecognizer)  {
+        if recognizer.state == UIGestureRecognizerState.ended {
+            let tapLocation = recognizer.location(in: self.collectionView)
+                if let tapIndexPath = self.collectionView?.indexPathForItem(at: tapLocation) {
+//                    if let tappedCell = self.collectionView?.cellForIndexPath(tapIndexPath) as? MyTakesCollectionViewCell {
+                    print(tapIndexPath)
+                    
+                            guard let url = URL(string: "https://devimages.apple.com.edgekey.net/samplecode/avfoundationMedia/AVFoundationQueuePlayer_HLS2/master.m3u8") else {
+                                return
+                            }
+                            // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+                            let player = AVPlayer(url: url)
+                    
+                            // Create a new AVPlayerViewController and pass it a reference to the player.
+                            let controller = AVPlayerViewController()
+                            controller.player = player
+                    
+                            // Modally present the player and call the player's play() method when complete.
+                            present(controller, animated: true) {
+                                player.play()
+                            }
+        
+                    }
+                }
+            }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +73,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         loadTakes()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
+        collectionView?.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -86,27 +89,27 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
     // MARK: - Navigation
 
-    func prepare(for segue: UIStoryboardSegue, sender: MyTakesCollectionViewCell?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-     
-        let destination = segue.destination as! AVPlayerViewController
-        
-        let cell = sender!
-        
-        let indexPath = self.collectionView!.indexPath(for: cell)
-        
-        let index = indexPath?.item
-        
-        let destinationURL = shotsTaken[index!]
-        
-        print("This is the selected cell INDEEXXXX!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-        print(index)
-        let url = shotsTaken[index!]
-        
-        destination.player = AVPlayer(url: url)
-
-    }
+//    func prepare(for segue: UIStoryboardSegue, sender: MyTakesCollectionViewCell?) {
+//        // Get the new view controller using [segue destinationViewController].
+//        // Pass the selected object to the new view controller.
+//     
+//        let destination = segue.destination as! AVPlayerViewController
+//        
+//        let cell = sender!
+//        
+//        let indexPath = self.collectionView!.indexPath(for: cell)
+//        
+//        let index = indexPath?.item
+//        
+//        let destinationURL = shotsTaken[index!]
+//        
+//        print("This is the selected cell INDEEXXXX!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+//        print(index)
+//        let url = shotsTaken[index!]
+//        
+//        destination.player = AVPlayer(url: url)
+//
+//    }
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
