@@ -114,8 +114,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
 
-
-
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -166,35 +164,17 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     // MARK: UICollectionViewDelegate
-    
-//    var urltoPass: URL!
-//    
-//    func collectionView(_ collectionView: UICollectionView, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-//        
-//        // Get Take object associated with cell.
-//        let indexPath = collectionView.indexPathsForSelectedItems;
-//        let currentCell = collectionView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!;
-//        
-//        urltoPass = currentCell.url
-//        performSegueWithIdentifier("openPlayer", sender: self)
-//        
-//    }
-
 
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-
-
-    
     //MARK: Private Methods
     
     private func loadTakes() {
