@@ -13,7 +13,7 @@ import AVKit
 class MyTakesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     //MARK: properties
-        
+    
     var takes = [Take]()
     
     private let reuseIdentifier = "Cell"
@@ -28,33 +28,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [URL] = []
     
-    func tapToPlay(_ recognizer: UITapGestureRecognizer)  {
-        if recognizer.state == UIGestureRecognizerState.ended {
-            let tapLocation = recognizer.location(in: self.collectionView)
-                if let tapIndexPath = self.collectionView?.indexPathForItem(at: tapLocation) {
-                    print(tapIndexPath)
-                    print(tapIndexPath[1])
-                            
-                        let url = shotsTaken[tapIndexPath[1]]
-                    
-                        // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-                        let player = AVPlayer(url: url)
-                    
-                        // Create a new AVPlayerViewController and pass it a reference to the player.
-                        let controller = AVPlayerViewController()
-                        controller.player = player
-                    
-                        // Modally present the player and call the player's play() method when complete.
-                        present(controller, animated: true) {
-                            player.play()
-                        }
-        
-                    }
-                }
-            }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         shotsTaken = shotTypesTried[shotName!]!
 
         // Uncomment the following line to preserve selection between presentations
@@ -71,38 +48,73 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Use the edit button item provided by the table view controller.
         navigationItem.rightBarButtonItem = editButtonItem
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    // MARK: - Navigation
-
-//    func prepare(for segue: UIStoryboardSegue, sender: MyTakesCollectionViewCell?) {
-//        // Get the new view controller using [segue destinationViewController].
-//        // Pass the selected object to the new view controller.
-//     
-//        let destination = segue.destination as! AVPlayerViewController
+    //MARK: - ACTIONS
+    
+    func tapToPlay(_ recognizer: UITapGestureRecognizer)  {
+        if recognizer.state == UIGestureRecognizerState.ended {
+            let tapLocation = recognizer.location(in: self.collectionView)
+            if let tapIndexPath = self.collectionView?.indexPathForItem(at: tapLocation) {
+                print(tapIndexPath)
+                print(tapIndexPath[1])
+                
+                let url = shotsTaken[tapIndexPath[1]]
+                
+                // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+                let player = AVPlayer(url: url)
+                
+                // Create a new AVPlayerViewController and pass it a reference to the player.
+                let controller = AVPlayerViewController()
+                controller.player = player
+                
+                // Modally present the player and call the player's play() method when complete.
+                present(controller, animated: true) {
+                    player.play()
+                }
+                
+            }
+        }
+    }
+    
+    
+//    @IBAction func trashTake(_ sender: Any) {
+//        var deletedTakes:[Take] = []
 //        
-//        let cell = sender!
+//        let indexpaths = collectionView?.indexPathsForSelectedItems()
 //        
-//        let indexPath = self.collectionView!.indexPath(for: cell)
-//        
-//        let index = indexPath?.item
-//        
-//        let destinationURL = shotsTaken[index!]
-//        
-//        print("This is the selected cell INDEEXXXX!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-//        print(index)
-//        let url = shotsTaken[index!]
-//        
-//        destination.player = AVPlayer(url: url)
-//
+//        if let indexpaths = indexpaths {
+//            
+//            for item  in indexpaths {
+//                let cell = collectionView!.cellForItemAtIndexPath(item as! NSIndexPath)
+//                
+//                collectionView?.deselectItemAtIndexPath(item as? NSIndexPath, animated: true)
+//                
+////                // fruits for section
+////                let sectionfruits = dataSource.fruitsInGroup(item.section)
+////                deletedFruits.append(sectionfruits[item.row])
+////            }
+////            
+////            dataSource.deleteItems(deletedFruits)
+////            
+////            collectionView?.deleteItemsAtIndexPaths(indexpaths)
+//        }
 //    }
+//    
+
+    // MARK: - Editing
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        collectionView?.allowsMultipleSelection = editing
+//        deleteCellToolBar.isHidden = !editing
+    }
+
+
+
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
