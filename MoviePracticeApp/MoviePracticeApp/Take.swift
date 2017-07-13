@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class Take: NSObject, NSCoding {
+class Take: NSObject {
     
     //MARK: Properties
     
