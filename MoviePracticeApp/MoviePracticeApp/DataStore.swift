@@ -10,7 +10,7 @@ import Foundation
 
 class DataStore: NSObject, NSCoding {
     
-    static let sharedInstnce = loadData()
+    static let myTakes = loadData()
     
     var allTakesSaved = [String:[Take]]()
     // var yogastuff: [YogaWorkout] = []
@@ -25,6 +25,26 @@ class DataStore: NSObject, NSCoding {
     
     func encode(with coder: NSCoder) {
         coder.encode(allTakesSaved, forKey: "allTakesSaved")
+    }
+    
+    // adding subscript which allows me to call DataStore[shotname] & return an array of Take obj
+    subscript(shot: String) -> [Take]? {
+        get {
+            // return an appropriate subscript value here
+            return self[shot] ?? nil
+            
+        }
+        set(newValue) {
+            // perform a suitable setting action here
+            if var shotArray = self[shot] {
+                shotArray.append((newValue?[0])!)
+                self[shot] = shotArray
+                
+            } else {
+                //create a new array of Take object
+                self[shot] = newValue
+            }
+        }
     }
     
     static var filePath: String {

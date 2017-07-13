@@ -14,16 +14,8 @@ class ShotTableViewController: UITableViewController {
     
     var shots = [Shot]()
     
-    // get takes from local data - could be nil if never saved before.
-    var alltakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
-    
     // should rerender shot objects every time about to see table.
     override func viewWillAppear(_ animated: Bool) {
-        
-        //refetch data from database and save it in variable?
-        alltakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
-
-        print(alltakesSaved!)
         
         super.viewWillAppear(animated)
         print("reloading data")
@@ -168,11 +160,15 @@ class ShotTableViewController: UITableViewController {
             }
             
             //if shot has been tried, change bool value to true.
+            //load my takes from local storage through DataStore
+            var myTakes = DataStore.myTakes
             
-            if alltakesSaved?[shotObject.name] != nil {
-                shotObject.tried = true
-            }
+            print(myTakes)
             
+//            if myTakes[shotObject.name] != nil {
+//                shotObject.tried = true
+//            }
+//            
             shots.append(shotObject)
         }
         
