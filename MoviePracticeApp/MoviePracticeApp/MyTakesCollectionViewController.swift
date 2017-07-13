@@ -25,6 +25,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // variable of Shot Name, sent from shot view.
     var shotName : String?
     
+    // get takes from local data - could be nil if never saved before.
+    let alltakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
+    
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [URL] = []
     
@@ -35,14 +38,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // get takes from local data - could be nil if never saved before.
         let alltakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
         
-        shotsTaken = (alltakesSaved?[shotName!])!
+        shotsTaken = (alltakesSaved?[shotName!]!)!
     
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        loadTakes()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
         collectionView?.addGestureRecognizer(tapGesture)
@@ -50,6 +52,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         // Use the edit button item provided by the table view controller.
         navigationItem.rightBarButtonItem = editButtonItem
+        
+        print(shotsTaken)
+        loadTakes()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +71,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 print(tapIndexPath)
                 print(tapIndexPath[1])
                 
-                let url = shotsTaken[tapIndexPath[1]]
+                let url = shotsTaken[tapIndexPath[1]] 
+                
+                print(url)
                 
                 // Create an AVPlayer, passing it the HTTP Live Streaming URL.
                 let player = AVPlayer(url: url)
@@ -108,13 +115,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 //        }
 //    }
 //    
-
-    // MARK: - Editing
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        collectionView?.allowsMultipleSelection = editing
-//        deleteCellToolBar.isHidden = !editing
-    }
+//
+//    // MARK: - Editing
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        collectionView?.allowsMultipleSelection = editing
+////        deleteCellToolBar.isHidden = !editing
+//    }
 
 
     // MARK: UICollectionViewDataSource
@@ -129,6 +136,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyTakesCollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
+        
         cell.backgroundColor = UIColor.black
         
         // Configure the cell
@@ -182,10 +190,15 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     private func loadTakes() {
         
-        takes.removeAll()
+//        takes.removeAll()
         
         for url in shotsTaken {
             var take : Take
+            
+//            take = Take(url: url , thumbnail: nil)
+//
+//            takes.append(take)
+
             
             do {
                 let asset = AVURLAsset(url: url as URL , options: nil)

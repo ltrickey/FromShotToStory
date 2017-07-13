@@ -22,7 +22,6 @@ class ShotViewController: UIViewController {
     //getting everything from local data
     var allTakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
 
-//    var shotTakesSaved : [URL] = []
     
     // setting this up to access later after saving.
     var videoPath: URL!
@@ -131,10 +130,14 @@ extension ShotViewController: UIImagePickerControllerDelegate {
             
                 if allTakesSaved?[(shot?.name)!] != nil {
                     allTakesSaved?[(shot?.name)!]!.append(self.videoPath as URL)
-                    NSKeyedArchiver.archiveRootObject(allTakesSaved!, toFile: Take.ArchiveURL.path)
+                    NSKeyedArchiver.archiveRootObject(allTakesSaved as Any, toFile: Take.ArchiveURL.path)
+                    
+                    print(allTakesSaved)
                 } else {
                     allTakesSaved?[(shot?.name)!] = [self.videoPath as URL]
-                    NSKeyedArchiver.archiveRootObject(allTakesSaved!, toFile: Take.ArchiveURL.path)
+                    NSKeyedArchiver.archiveRootObject(allTakesSaved as Any, toFile: Take.ArchiveURL.path)
+                    
+                    print(allTakesSaved)
                 }
                 
                 
