@@ -26,16 +26,16 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     var shotName : String?
     
     // get takes from local data - could be nil if never saved before.
-    var alltakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
+    var alltakesSaved = DataStore.myTakes
 
     // the array of shot URLs - not filled until viewDidLoad
-    var shotsTaken: [URL] = []
+    var shotsTaken: [Take] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shotsTaken = (alltakesSaved?[shotName!]!)!
+        shotsTaken = (alltakesSaved[shotName!]!)
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -66,8 +66,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 print(tapIndexPath)
                 print(tapIndexPath[1])
                 
-                let url = shotsTaken[tapIndexPath[1]] 
-                
+                let takeToPlay = shotsTaken[tapIndexPath[1]]
+                let url = takeToPlay.url
                 print(url)
                 
                 // Create an AVPlayer, passing it the HTTP Live Streaming URL.
@@ -186,28 +186,26 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     private func loadTakes() {
         
         
-        for url in shotsTaken {
-            var take : Take
+        for take in shotsTaken {
             
-            take = Take(url: url , thumbnail: nil)
-
-            takes.append(take)
-
+//            takes.append(take)
             
-//            do {
-//                let asset = AVURLAsset(url: url as URL , options: nil)
-//                let imgGenerator = AVAssetImageGenerator(asset: asset)
-//                imgGenerator.appliesPreferredTrackTransform = true
-//                let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
-//                let thumbnail = UIImage(cgImage: cgImage)
-//                
+            let url = take.url
+            
+            do {
+                let asset = AVURLAsset(url: url as URL , options: nil)
+                let imgGenerator = AVAssetImageGenerator(asset: asset)
+                imgGenerator.appliesPreferredTrackTransform = true
+                let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
+                let thumbnail = UIImage(cgImage: cgImage)
+                
 //                take = Take(url: url as URL, thumbnail: thumbnail)
-//                takes.append(take)
-//                
-//            } catch let error {
-//                print("*** Error generating thumbnail: \(error.localizedDescription)")
-//            }
-//           
+                takes.append(take)
+                
+            } catch let error {
+                print("*** Error generating thumbnail: \(error.localizedDescription)")
+            }
+//
         }
         
     }
