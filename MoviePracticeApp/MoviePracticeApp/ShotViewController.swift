@@ -14,11 +14,15 @@ import MobileCoreServices
 // shot name string, urls of shots array of strings.
 // Is this a problem with a global variable?
 
-var takesSaved = [String: [URL]]()
 
 class ShotViewController: UIViewController {
     
     //MARK: Properties
+    
+    //getting everything from local data
+    var allTakesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
+
+//    var shotTakesSaved : [URL] = []
     
     // setting this up to access later after saving.
     var videoPath: URL!
@@ -38,20 +42,19 @@ class ShotViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // get takes from local data - could be nil if never saved before.
-         var takesSaved = NSKeyedUnarchiver.unarchiveObject(withFile: Take.ArchiveURL.path) as? [String: [URL]]
-        
+                
         // Set up views with existing Shot.
         if let shot = shot {
             navigationItem.title = shot.name
             shotImageView.image = shot.photo
             shotDescLabel.text = shot.description
+        
         }
         
         if shot!.tried == false {
             myShotsButton.isHidden = true
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,7 +101,6 @@ class ShotViewController: UIViewController {
             fatalError("Unexpected destination: \(segue.destination)")
         }
 
-        
         MyShotsCollectionViewController.shotName = (shot?.name)!
     }
 
@@ -127,23 +129,20 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 
                 myShotsButton.isHidden = false
             
-                if takesSaved != nil {
-                    if takesSaved[(shot?.name)!] != nil {
-                        takesSaved[(shot?.name)!]!.append(self.videoPath as URL)
-                        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(takesSaved, toFile: Take.ArchiveURL.path)
-                    } else {
-                        takesSaved[(shot?.name)!] = [self.videoPath as URL]
-                        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(takesSaved, toFile: Take.ArchiveURL.path)
-                    }
+                if allTakesSaved?[(shot?.name)!] != nil {
+                    allTakesSaved?[(shot?.name)!]!.append(self.videoPath as URL)
+                    NSKeyedArchiver.archiveRootObject(allTakesSaved!, toFile: Take.ArchiveURL.path)
                 } else {
-                    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(takesSaved, toFile: Take.ArchiveURL.path)
+                    allTakesSaved?[(shot?.name)!] = [self.videoPath as URL]
+                    NSKeyedArchiver.archiveRootObject(allTakesSaved!, toFile: Take.ArchiveURL.path)
                 }
                 
-                }
-            
+                
             }
+            
         }
     }
+}
 
 
 // MARK: - UINavigationControllerDelegate
