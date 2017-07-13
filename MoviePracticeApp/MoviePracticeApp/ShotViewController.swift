@@ -127,19 +127,11 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
                 
                 myShotsButton.isHidden = false
-            
-                if allTakesSaved[(shot?.name)!] != nil {
-                    allTakesSaved[(shot?.name)!]!.append(self.videoPath as URL)
-                    NSKeyedArchiver.archiveRootObject(allTakesSaved as Any, toFile: Take.ArchiveURL.path)
-                    
-                    print(allTakesSaved)
-                } else {
-                    allTakesSaved?[(shot?.name)!] = [self.videoPath as URL]
-                    NSKeyedArchiver.archiveRootObject(allTakesSaved as Any, toFile: Take.ArchiveURL.path)
-                    
-                    print(allTakesSaved)
-                }
                 
+                //replacing that nonsense with this new DataStore method??
+                
+                let takeToSave = Take(url: savedURL, thumbnail: nil)
+                allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
                 
             }
             
