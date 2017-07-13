@@ -13,10 +13,19 @@ class MyTakesCollectionViewCell: UICollectionViewCell {
     //MARK: properties
     
     
+    @IBOutlet weak var deleteButton: UIButton!
+    
+    
     @IBOutlet weak var savedShotImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Create a UIButton
+        deleteButton = UIButton(frame: CGRect(x: frame.size.width/10, y: frame.size.width/16, width: frame.size.width/4, height: frame.size.width/4))
+        
+        // Add the UIButton to the collection view
+        contentView.addSubview(deleteButton)
     }
+
     
 }

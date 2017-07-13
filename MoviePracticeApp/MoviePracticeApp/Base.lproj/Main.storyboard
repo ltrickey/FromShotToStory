@@ -221,7 +221,7 @@
         <scene sceneID="i4m-tD-oOr">
             <objects>
                 <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,6 +243,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <gestureRecognizers/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIP-jc-W2H" userLabel="delete">
+                                            <rect key="frame" x="77" y="85" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -252,6 +257,7 @@
                                     <constraint firstItem="eUj-Uf-uXJ" firstAttribute="top" secondItem="xRq-N1-U5N" secondAttribute="top" id="rnC-HY-6oe"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="deleteButton" destination="AIP-jc-W2H" id="9zk-ep-DHM"/>
                                     <outlet property="savedShotImageView" destination="eUj-Uf-uXJ" id="79q-TN-4p9"/>
                                 </connections>
                             </collectionViewCell>
@@ -261,6 +267,17 @@
                             <outlet property="delegate" destination="dOW-F5-u1l" id="K2g-Fb-8E0"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="lZa-aq-lAu" userLabel="edit">
+                            <connections>
+                                <action selector="editTakes:" destination="dOW-F5-u1l" id="xjc-Fe-BjT"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="editButton" destination="lZa-aq-lAu" id="w4c-Qx-dB8"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
