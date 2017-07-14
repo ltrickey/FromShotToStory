@@ -48,20 +48,13 @@ class DataStore: NSObject, NSCoding {
     
     func deleteTake(shot: String, take: Take) {
         if var shotArr = DataStore.myTakes.allTakesSaved[shot] {
-            print("original shot array")
-            print(DataStore.myTakes.allTakesSaved[shot])
             
             //remove shot from array
             shotArr = shotArr.filter{$0 != take}
             
             //save it back in shot arr
             DataStore.myTakes.allTakesSaved[shot] = shotArr
-            
-            //just to make sure it's been deleted.
-            print("new shot array")
-            print(DataStore.myTakes.allTakesSaved[shot])
-            
-            print(DataStore.myTakes.allTakesSaved)
+    
         } else {
             print("THAT SHOT IS NOT IN YOUR ARRAY AND CANNOT BE DELETED !")
         }
