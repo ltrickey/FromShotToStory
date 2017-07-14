@@ -77,43 +77,43 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     // MARK: The navigation bar's Edit button functions
-    func deleteTakeCell(sender:UIButton) {
-        // Put the index number of the delete button the use tapped in a variable
-        let i: Int = (sender.layer.value(forKey: "index")) as! Int
-        // Remove an object from the collection view's dataSource
-        imageFileNames.removeAtIndex(i)
-        
-        // Refresh the collection view
-        self.collectionView!.reloadData()
-    }
-    
-    @IBAction func deleteTakes(_ sender: UIBarButtonItem) {
-        if(editModeEnabled == false) {
-            // Put the collection view in edit mode
-            editButton.title = "Done"
-            self.editButton.style = .done
-            editModeEnabled = true
-            
-            // Loop through the collectionView's visible cells
-            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
-                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
-                cell.deleteButton.isHidden = false // Hide all of the delete buttons
-            }
-        } else {
-            // Take the collection view out of edit mode
-            editButton.style = .plain
-            editButton.title = "Edit"
-            editModeEnabled = false
-            
-            // Loop through the collectionView's visible cells
-            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
-                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
-                cell.deleteButton.isHidden = true  // Hide all of the delete buttons
-            }
-        }
-    }
+//    func deleteTakeCell(sender:UIButton) {
+//        // Put the index number of the delete button the use tapped in a variable
+//        let i: Int = (sender.layer.value(forKey: "index")) as! Int
+//        // Remove an object from the collection view's dataSource
+////        imageFileNames.removeAtIndex(i)
+//        
+//        // Refresh the collection view
+//        self.collectionView!.reloadData()
+//    }
+//    
+//    @IBAction func deleteTakes(_ sender: UIBarButtonItem) {
+//        if(editModeEnabled == false) {
+//            // Put the collection view in edit mode
+//            editButton.title = "Done"
+//            self.editButton.style = .done
+//            editModeEnabled = true
+//            
+//            // Loop through the collectionView's visible cells
+//            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
+//                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
+//                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
+//                cell.deleteButton.isHidden = false // Hide all of the delete buttons
+//            }
+//        } else {
+//            // Take the collection view out of edit mode
+//            editButton.style = .plain
+//            editButton.title = "Edit"
+//            editModeEnabled = false
+//            
+//            // Loop through the collectionView's visible cells
+//            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
+//                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
+//                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
+//                cell.deleteButton.isHidden = true  // Hide all of the delete buttons
+//            }
+//        }
+//    }
 
 
 
@@ -140,18 +140,18 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         cell.savedShotImageView.image = take.thumbnail
         cell.savedShotImageView.isUserInteractionEnabled = true
         
-        // adding show/hide of delete button for each cell
-        if self.navigationItem.rightBarButtonItem!.title == "Edit" {
-            cell.deleteButton.isHidden = true
-        } else {
-            cell.deleteButton.isHidden = false
-        }
-        
-        // Give the delete button an index number
-        cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
-        
-        // Add an action function to the delete button
-        cell.deleteButton.addTarget(self, action: "deleteTakeCell:", for: UIControlEvents.touchUpInside)
+//        // adding show/hide of delete button for each cell
+//        if self.navigationItem.rightBarButtonItem!.title == "Edit" {
+//            cell.deleteButton.isHidden = true
+//        } else {
+//            cell.deleteButton.isHidden = false
+//        }
+//        
+//        // Give the delete button an index number
+//        cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+//        
+//        // Add an action function to the delete button
+//        cell.deleteButton.addTarget(self, action: "deleteTakeCell:", for: UIControlEvents.touchUpInside)
         
         return cell
     }
