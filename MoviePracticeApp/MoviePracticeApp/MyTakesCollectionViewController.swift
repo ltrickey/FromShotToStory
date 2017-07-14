@@ -32,6 +32,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [Take] = []
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBAction func deleteTakes(_ sender: UIBarButtonItem) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +47,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
         collectionView?.addGestureRecognizer(tapGesture)
         tapGesture.delegate = self
-        
-        // Use the edit button item provided by the table view controller.
-        navigationItem.rightBarButtonItem = editButtonItem
         
         print(shotsTaken[0])
         
@@ -77,36 +77,11 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     
-//    @IBAction func trashTake(_ sender: Any) {
-//        var deletedTakes:[Take] = []
-//        
-//        let indexpaths = collectionView?.indexPathsForSelectedItems()
-//        
-//        if let indexpaths = indexpaths {
-//            
-//            for item  in indexpaths {
-//                let cell = collectionView!.cellForItemAtIndexPath(item as! NSIndexPath)
-//                
-//                collectionView?.deselectItemAtIndexPath(item as? NSIndexPath, animated: true)
-//                
-////                // fruits for section
-////                let sectionfruits = dataSource.fruitsInGroup(item.section)
-////                deletedFruits.append(sectionfruits[item.row])
-////            }
-////            
-////            dataSource.deleteItems(deletedFruits)
-////            
-////            collectionView?.deleteItemsAtIndexPaths(indexpaths)
-//        }
-//    }
-//    
-//
-//    // MARK: - Editing
-//    override func setEditing(_ editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//        collectionView?.allowsMultipleSelection = editing
-////        deleteCellToolBar.isHidden = !editing
-//    }
+
+    
+
+    // MARK: - Editing
+
 
 
     // MARK: UICollectionViewDataSource
