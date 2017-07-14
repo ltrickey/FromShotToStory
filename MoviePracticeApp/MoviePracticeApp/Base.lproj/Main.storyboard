@@ -243,6 +243,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <gestureRecognizers/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Delete">
+                                            <rect key="frame" x="77" y="150" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -252,6 +257,7 @@
                                     <constraint firstItem="eUj-Uf-uXJ" firstAttribute="top" secondItem="xRq-N1-U5N" secondAttribute="top" id="rnC-HY-6oe"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="deleteButton" destination="10r-xb-fJZ" id="SFd-2F-575"/>
                                     <outlet property="savedShotImageView" destination="eUj-Uf-uXJ" id="79q-TN-4p9"/>
                                 </connections>
                             </collectionViewCell>
