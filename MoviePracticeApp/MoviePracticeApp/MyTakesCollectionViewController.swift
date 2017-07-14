@@ -26,7 +26,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     var shotName : String?
     
     // get takes from local data - could be nil if never saved before.
-    var alltakesSaved = DataStore.myTakes
+    var data = DataStore.myTakes
 
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [Take] = []
@@ -34,8 +34,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        shotsTaken = (alltakesSaved[shotName!]!)
+        print(shotsTaken)
+        shotsTaken = (data.allTakesSaved[shotName!]!)
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -187,8 +187,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         
         for take in shotsTaken {
-            
-//            takes.append(take)
             
             let url = take.url
             

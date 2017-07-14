@@ -132,7 +132,7 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 
                 let takeToSave = Take(url: savedURL, thumbnail: nil)
                 allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
-                
+            
             }
             
         }

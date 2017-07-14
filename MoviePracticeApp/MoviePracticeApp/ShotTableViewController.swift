@@ -161,14 +161,14 @@ class ShotTableViewController: UITableViewController {
             
             //if shot has been tried, change bool value to true.
             //load my takes from local storage through DataStore
-            var myTakes = DataStore.myTakes
+            let myTakes = DataStore.myTakes
             
             print(myTakes)
             
-//            if myTakes[shotObject.name] != nil {
-//                shotObject.tried = true
-//            }
-//            
+            if myTakes.allTakesSaved[shotObject.name] != nil {
+                shotObject.tried = true
+            }
+            
             shots.append(shotObject)
         }
         

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/ShotTableViewController.swift"
-            timestampString = "521667803.579176"
+            timestampString = "521677359.521684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "loadShots()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,45 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/Take.swift"
-            timestampString = "521596084.0584"
+            timestampString = "521683268.930097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "Take"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MoviePracticeApp.Take.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MoviePracticeApp.Take&gt;"
-                  moduleName = "MoviePracticeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/Take.swift"
-                  timestampString = "521666700.144553"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MoviePracticeApp.Take.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MoviePracticeApp.Take&gt;"
-                  moduleName = "MoviePracticeApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/Take.swift"
-                  timestampString = "521666700.146332"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,13 +122,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/Take.swift"
-            timestampString = "521676445.69265"
+            timestampString = "521683268.930097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "Take"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviePracticeApp/MyTakesCollectionViewController.swift"
+            timestampString = "521677563.141559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviePracticeApp/DataStore.swift"
+            timestampString = "521680163.180974"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "saveTake(shot:take:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

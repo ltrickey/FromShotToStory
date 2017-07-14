@@ -27,25 +27,29 @@ class DataStore: NSObject, NSCoding {
         coder.encode(allTakesSaved, forKey: "allTakesSaved")
     }
     
-    // adding subscript which allows me to call DataStore[shotname] & return an array of Take obj
-    subscript(shot: String) -> [Take]? {
-        get {
-            // return an appropriate subscript value here
-            return self[shot] ?? nil
-            
-        }
-        set(newValue) {
-            // perform a suitable setting action here
-            if var shotArray = self[shot] {
-                shotArray.append((newValue?[0])!)
-                self[shot] = shotArray
-                
-            } else {
-                //create a new array of Take object
-                self[shot] = newValue
-            }
-        }
-    }
+//    // adding subscript which allows me to call DataStore[shotname] & return an array of Take obj
+//    subscript(shot: String) -> [Take]? {
+//        get {
+//            // return an appropriate subscript value here
+//            if DataStore.myTakes[shot] != nil {
+//                return DataStore.myTakes[shot]
+//            } else {
+//                return nil
+//            }
+//            
+//        }
+//        set(newValue) {
+//            // perform a suitable setting action here
+//            if var shotArray = DataStore.myTakes[shot] {
+//                shotArray.append((newValue?[0])!)
+//                DataStore.myTakes[shot] = shotArray
+//                
+//            } else {
+//                //create a new array of Take object
+//                DataStore.myTakes[shot] = newValue
+//            }
+//        }
+//    }
     
     static var filePath: String {
         //1 - manager lets you examine contents of a files and folders in your app; creates a directory to where we are saving it
@@ -58,9 +62,11 @@ class DataStore: NSObject, NSCoding {
     }
     
     func saveTake(shot: String, take: Take) {
-        if var shotArr = self.allTakesSaved[shot] {
+        if var shotArr = DataStore.myTakes.allTakesSaved[shot] {
             shotArr.append(take)
-            self.allTakesSaved[shot] = shotArr
+            DataStore.myTakes.allTakesSaved[shot] = shotArr
+        } else {
+            DataStore.myTakes.allTakesSaved[shot] = [take]
         }
         NSKeyedArchiver.archiveRootObject(self, toFile: DataStore.filePath)
     }
