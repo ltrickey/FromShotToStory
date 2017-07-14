@@ -92,6 +92,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         self.collectionView!.reloadData()
     }
     
+//    func tap(_ gestureRecognizer: UITapGestureRecognizer)
+    
     func deleteTakes(_ sender: UIBarButtonItem) {
         if(editModeEnabled == false) {
             // Put the collection view in edit mode
@@ -152,7 +154,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
         
         // Add an action function to the delete button
-        cell.deleteButton.addTarget(self, action: Selector("deleteTakeCell:"), for: UIControlEvents.touchUpInside)
+//        #selector(tap(gestureReconizer:))
+        cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
         
         return cell
     }
