@@ -133,10 +133,6 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 
                 myShotsButton.isHidden = false
                 
-//                let referenceURL? = info[UIImagePickerControllerReferenceURL] as! URL
-//                print("This is the reference URL")
-//                print(referenceURL)
-                
                 //replacing that nonsense with this new DataStore method??
                 
                 let localid = fetchLastVideoSaved()
