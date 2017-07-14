@@ -44,11 +44,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
         collectionView?.addGestureRecognizer(tapGesture)
+        
         tapGesture.delegate = self
         
         print(shotsTaken[0])
         
         let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
+        
         self.navigationItem.rightBarButtonItem = editButton
         
         loadTakes()
@@ -87,12 +89,11 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         let takeToDelete = shotsTaken[i]
 
         data.deleteTake(shot: self.shotName!, take: takeToDelete)
+        loadTakes()
         
         // Refresh the collection view
         self.collectionView!.reloadData()
     }
-    
-//    func tap(_ gestureRecognizer: UITapGestureRecognizer)
     
     func deleteTakes(_ sender: UIBarButtonItem) {
         if(editModeEnabled == false) {
@@ -209,7 +210,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             let thumbnail = getAssetThumbnail(asset: asset)
             take.thumbnail =  thumbnail
             takes.append(take)
-
         }
         
     }

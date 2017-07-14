@@ -60,9 +60,12 @@ class DataStore: NSObject, NSCoding {
             //just to make sure it's been deleted.
             print("new shot array")
             print(DataStore.myTakes.allTakesSaved[shot])
+            
+            print(DataStore.myTakes.allTakesSaved)
         } else {
             print("THAT SHOT IS NOT IN YOUR ARRAY AND CANNOT BE DELETED !")
         }
+        NSKeyedArchiver.archiveRootObject(self, toFile: DataStore.filePath)
     }
     
     private static func loadData() -> DataStore {
