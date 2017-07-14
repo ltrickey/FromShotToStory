@@ -72,21 +72,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 let videoAsset = getVideoToPlayFromLocalIdentifier(id: takeToPlay.localid)
                 
                 playVideo (view: self, videoAsset: videoAsset)
-//                let url = videoAsset.url
-//                print(url)
-//                
-//                // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-//                let player = AVPlayer(url: url)
-//                
-//                // Create a new AVPlayerViewController and pass it a reference to the player.
-//                let controller = AVPlayerViewController()
-//                controller.player = player
-//                
-//                // Modally present the player and call the player's play() method when complete.
-//                present(controller, animated: true) {
-//                    player.play()
-//                }
-                
             }
         }
     }
@@ -196,28 +181,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             
             let asset = getVideoToPlayFromLocalIdentifier(id: take.localid)
             
-            do {
-                let thumbnail = getAssetThumbnail(asset: asset)
-                take.thumbnail =  thumbnail
-                takes.append(take)
-            } catch let error {
-                print("*** Error generating thumbnail: \(error.localizedDescription)")
-            }
-//
-//            do {
-//                let asset = AVURLAsset(url: url as URL , options: nil)
-//                let imgGenerator = AVAssetImageGenerator(asset: asset)
-//                imgGenerator.appliesPreferredTrackTransform = true
-//                let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
-//                let thumbnail = UIImage(cgImage: cgImage)
-//                
-//                take.thumbnail =  thumbnail
-//                takes.append(take)
-//                
-//            } catch let error {
-//                print("*** Error generating thumbnail: \(error.localizedDescription)")
-//            }
-//
+            let thumbnail = getAssetThumbnail(asset: asset)
+            take.thumbnail =  thumbnail
+            takes.append(take)
+
         }
         
     }
@@ -233,7 +200,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         return videoAsset
     }
     
-    private func playVideo (view: UIViewController, videoAsset: PHAsset) {
+    private func playVideo(view: UIViewController, videoAsset: PHAsset) {
         
         guard (videoAsset.mediaType == .video) else {
             print("Not a valid video media type")
