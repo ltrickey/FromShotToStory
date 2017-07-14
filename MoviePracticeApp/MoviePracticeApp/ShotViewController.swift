@@ -24,9 +24,6 @@ class ShotViewController: UIViewController {
     var allTakesSaved = DataStore.myTakes
 
     
-    // setting this up to access later after saving.
-    var videoPath: URL!
-    
     @IBOutlet weak var shotDescLabel: UILabel!
     @IBOutlet weak var shotImageView: UIImageView!
     @IBOutlet weak var myShotsButton: UIButton!
@@ -81,6 +78,13 @@ class ShotViewController: UIViewController {
     func video(_ videoPath: NSString, didFinishSavingWithError error: NSError?, contextInfo info: AnyObject) {
         var title = "Success"
         var message = "Video was saved"
+        
+        //Saving it in my Database too!
+        let localid = fetchLastVideoSaved()
+        
+        let takeToSave = Take(localid: localid, thumbnail: nil)
+        allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
+        
         if let _ = error {
             title = "Error"
             message = "Video failed to save"
@@ -103,6 +107,19 @@ class ShotViewController: UIViewController {
 
         MyShotsCollectionViewController.shotName = (shot?.name)!
     }
+    
+    private func fetchLastVideoSaved() -> String {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        let allVideo = PHAsset.fetchAssets(with: .video, options: fetchOptions)
+        
+        let lastVideoSaved = allVideo.firstObject
+        
+        let identifier = lastVideoSaved?.localIdentifier
+        
+        return identifier!
+    }
 
 }
 
@@ -119,50 +136,17 @@ extension ShotViewController: UIImagePickerControllerDelegate {
             
           // took away GUARD statement here b/c of errors
             let path = (info[UIImagePickerControllerMediaURL] as! URL).path
-            print("this is the path made from the URL")
-            print(path)
-            
-            // Save url of video?
-            let savedURL = info[UIImagePickerControllerMediaURL] as! URL
-            print("this is the URL I'm saving")
-            print(savedURL)
-            self.videoPath = savedURL as URL
             
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
                 UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
                 
                 myShotsButton.isHidden = false
-                
-                //replacing that nonsense with this new DataStore method??
-                
-                let localid = fetchLastVideoSaved()
-                
-                let takeToSave = Take(localid: localid, thumbnail: nil)
-                allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
-            
             }
             
         }
     }
     
-    private func fetchLastVideoSaved() -> String {
-        let fetchOptions = PHFetchOptions()
-        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
-                                                         ascending: false)]
-        let allVideo = PHAsset.fetchAssets(with: .video, options: fetchOptions)
-        
-        for video in allVideo {
-            print(video.localidentifier)
-        }
-        
-        let lastVideoSaved = allVideo[0]
-        
-        let identifier = lastVideoSaved.localIdentifier
-        
-        print("This is the identifier")
-        print(identifier)
-        return identifier
-    }
+
 }
 
 
