@@ -27,6 +27,7 @@ class MyTakesCollectionViewCell: UICollectionViewCell {
 ////        deleteButtonImg = UIImage(named: "delete-icon")!
 ////        deleteButton.setImage(deleteButtonImg, forState: UIControlState.Normal)
 //        
+        deleteButton.isHidden = true
         // Add the UIButton to the collection view
         contentView.addSubview(deleteButton)
 

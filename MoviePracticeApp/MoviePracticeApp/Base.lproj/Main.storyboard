@@ -243,10 +243,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <gestureRecognizers/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Delete">
-                                            <rect key="frame" x="77" y="150" width="46" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Delete" colorLabel="IBBuiltInLabel-Red">
+                                            <rect key="frame" x="78" y="150" width="45" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" title="Delete">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
                                         </button>
                                     </subviews>
                                 </view>
