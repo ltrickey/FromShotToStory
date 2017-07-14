@@ -48,7 +48,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         print(shotsTaken[0])
         
-        let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: "deleteTakes")
+        let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
         self.navigationItem.rightBarButtonItem = editButton
         
         loadTakes()
