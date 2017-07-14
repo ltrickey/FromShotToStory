@@ -83,7 +83,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         let i: Int = (sender.layer.value(forKey: "index")) as! Int
         
         // Remove an object from the collection view's dataSource
-//        imageFileNames.removeAtIndex(i)
+
+        let takeToDelete = shotsTaken[i]
+
+        data.deleteTake(shot: self.shotName!, take: takeToDelete)
         
         // Refresh the collection view
         self.collectionView!.reloadData()
@@ -113,8 +116,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             
             // Loop through the collectionView's visible cells
             for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
-                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
+                let indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
+                let cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
                 cell.deleteButton.isHidden = true  // Hide all of the delete buttons
             }
         }
@@ -145,18 +148,11 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         cell.savedShotImageView.image = take.thumbnail
         cell.savedShotImageView.isUserInteractionEnabled = true
         
-//        // adding show/hide of delete button for each cell
-//        if self.navigationItem.rightBarButtonItem!.title == "Edit" {
-//            cell.deleteButton.isHidden = true
-//        } else {
-//            cell.deleteButton.isHidden = false
-//        }
-//        
-//        // Give the delete button an index number
-//        cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
-//        
-//        // Add an action function to the delete button
-//        cell.deleteButton.addTarget(self, action: "deleteTakeCell:", for: UIControlEvents.touchUpInside)
+        // Give the delete button an index number
+        cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+        
+        // Add an action function to the delete button
+        cell.deleteButton.addTarget(self, action: Selector("deleteTakeCell:"), for: UIControlEvents.touchUpInside)
         
         return cell
     }
