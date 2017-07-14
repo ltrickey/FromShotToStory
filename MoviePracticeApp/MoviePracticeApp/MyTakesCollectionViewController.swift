@@ -32,10 +32,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [Take] = []
     
-    @IBOutlet weak var editButton: UIBarButtonItem!
-    
     var editModeEnabled = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(shotsTaken)
@@ -49,6 +47,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         tapGesture.delegate = self
         
         print(shotsTaken[0])
+        
+        let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: "deleteTakes")
+        self.navigationItem.rightBarButtonItem = editButton
         
         loadTakes()
     }
@@ -77,43 +78,46 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     // MARK: The navigation bar's Edit button functions
-//    func deleteTakeCell(sender:UIButton) {
-//        // Put the index number of the delete button the use tapped in a variable
-//        let i: Int = (sender.layer.value(forKey: "index")) as! Int
-//        // Remove an object from the collection view's dataSource
-////        imageFileNames.removeAtIndex(i)
-//        
-//        // Refresh the collection view
-//        self.collectionView!.reloadData()
-//    }
-//    
-//    @IBAction func deleteTakes(_ sender: UIBarButtonItem) {
-//        if(editModeEnabled == false) {
-//            // Put the collection view in edit mode
-//            editButton.title = "Done"
-//            self.editButton.style = .done
-//            editModeEnabled = true
-//            
-//            // Loop through the collectionView's visible cells
-//            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
-//                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-//                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
-//                cell.deleteButton.isHidden = false // Hide all of the delete buttons
-//            }
-//        } else {
-//            // Take the collection view out of edit mode
-//            editButton.style = .plain
-//            editButton.title = "Edit"
-//            editModeEnabled = false
-//            
-//            // Loop through the collectionView's visible cells
-//            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
-//                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-//                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
-//                cell.deleteButton.isHidden = true  // Hide all of the delete buttons
-//            }
-//        }
-//    }
+    func deleteTakeCell(sender:UIButton) {
+        // Put the index number of the delete button the use tapped in a variable
+        let i: Int = (sender.layer.value(forKey: "index")) as! Int
+        // Remove an object from the collection view's dataSource
+//        imageFileNames.removeAtIndex(i)
+        
+        // Refresh the collection view
+        self.collectionView!.reloadData()
+    }
+    
+    func deleteTakes(_ sender: UIBarButtonItem) {
+        if(editModeEnabled == false) {
+            // Put the collection view in edit mode
+            let editButton = self.navigationItem.rightBarButtonItem
+            editButton?.title = "Done"
+            editButton?.style = .done
+            editModeEnabled = true
+            
+            // Loop through the collectionView's visible cells
+            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
+                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
+                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
+                cell.deleteButton.isHidden = false // Hide all of the delete buttons
+            }
+        } else {
+            // Take the collection view out of edit mode
+            let editButton = self.navigationItem.rightBarButtonItem
+            
+            editButton?.style = .plain
+            editButton?.title = "Edit"
+            editModeEnabled = false
+            
+            // Loop through the collectionView's visible cells
+            for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
+                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
+                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
+                cell.deleteButton.isHidden = true  // Hide all of the delete buttons
+            }
+        }
+    }
 
 
 

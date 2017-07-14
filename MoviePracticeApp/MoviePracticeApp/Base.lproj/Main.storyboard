@@ -139,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-3c-Mvn">
-                                <rect key="frame" x="0.0" y="53" width="1112" height="719"/>
+                                <rect key="frame" x="0.0" y="53" width="1112" height="675"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="728.5" placeholderIntrinsicHeight="466" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-M2-1eh">
                                         <rect key="frame" x="156" y="0.0" width="800" height="480"/>
@@ -148,8 +148,8 @@
                                             <constraint firstAttribute="width" constant="800" id="g6g-El-3SG"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC">
-                                        <rect key="frame" x="20" y="505" width="1072" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC">
+                                        <rect key="frame" x="20" y="505" width="1072" height="0.0"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Descrption of shot type and how it can be used in filmmaking">
                                                 <attributes>
@@ -162,7 +162,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-Hd-jYg">
-                                        <rect key="frame" x="438.5" y="550" width="235" height="109"/>
+                                        <rect key="frame" x="438.5" y="530" width="235" height="85"/>
                                         <color key="tintColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -178,7 +178,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yO-4B-UjV">
-                                        <rect key="frame" x="512" y="684" width="88" height="35"/>
+                                        <rect key="frame" x="512" y="640" width="88" height="35"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="My Shots">
@@ -207,6 +207,8 @@
                             <constraint firstItem="hXM-3c-Mvn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="iqG-Uf-4S1"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myShotsButton" destination="9yO-4B-UjV" id="hQ9-07-6m9"/>
                         <outlet property="shotDescLabel" destination="Vu8-3I-cXC" id="aJF-Hk-Dzf"/>
@@ -269,17 +271,8 @@
                             <outlet property="delegate" destination="dOW-F5-u1l" id="K2g-Fb-8E0"/>
                         </connections>
                     </collectionView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="9sf-SV-NlJ" userLabel="Edit">
-                            <connections>
-                                <action selector="deleteTakes:" destination="dOW-F5-u1l" id="Yt4-5v-7yR"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="editButton" destination="9sf-SV-NlJ" id="2Cg-Ox-PZr"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
