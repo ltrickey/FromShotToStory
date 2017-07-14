@@ -36,24 +36,26 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("printing shots taken")
         print(shotsTaken)
         shotsTaken = (data.allTakesSaved[shotName!]!)
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
-        collectionView?.addGestureRecognizer(tapGesture)
-        
-        tapGesture.delegate = self
-        
-        print(shotsTaken[0])
-        
+                
         let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
         
         self.navigationItem.rightBarButtonItem = editButton
         
         loadTakes()
+        
+        if !shotsTaken.isEmpty {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
+            collectionView?.addGestureRecognizer(tapGesture)
+            
+            tapGesture.delegate = self
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -133,26 +135,33 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return shotsTaken.count
+        if shotsTaken.count > 0 {
+            return shotsTaken.count
+        } else {
+            return 1
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyTakesCollectionViewCell {
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
+    
+        
         if takes.isEmpty {
             // create a new cell template that just says "No shots to display
-        }
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
-        
-        cell.backgroundColor = UIColor.black
+            cell.backgroundColor = UIColor.white
+            self.navigationItem.title = "No Takes Saved"
+
+        } else {
         
         // Configure the cell
-        
+         cell.backgroundColor = UIColor.black
+            
         // Fetches the appropriate take for the data source layout.
         let take = takes[indexPath.item]
 
-        cell.savedShotImageView.image = take.thumbnail
-        cell.savedShotImageView.isUserInteractionEnabled = true
+        cell.savedShotImageView?.image = take.thumbnail
+        cell.savedShotImageView?.isUserInteractionEnabled = true
         
         // Give the delete button an index number
         cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
@@ -160,7 +169,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Add an action function to the delete button
 //        #selector(tap(gestureReconizer:))
         cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
-        
+        }
         return cell
     }
     
@@ -204,15 +213,18 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     private func loadTakes() {
         
-        for take in shotsTaken {
-            print("this is the take object>>>>>>")
-            print(take)
-            
-            let asset = getVideoToPlayFromLocalIdentifier(id: take.localid)
-            
-            let thumbnail = getAssetThumbnail(asset: asset)
-            take.thumbnail =  thumbnail
-            takes.append(take)
+        if !shotsTaken.isEmpty {
+            for take in shotsTaken {
+                print("this is the take object>>>>>>")
+                print(take)
+                
+                let asset = getVideoToPlayFromLocalIdentifier(id: take.localid)
+                
+                let thumbnail = getAssetThumbnail(asset: asset)
+                take.thumbnail =  thumbnail
+                takes.append(take)
+            }
+
         }
         
     }

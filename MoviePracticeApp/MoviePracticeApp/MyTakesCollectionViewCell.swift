@@ -13,7 +13,7 @@ class MyTakesCollectionViewCell: UICollectionViewCell {
     //MARK: properties
     
     
-    @IBOutlet weak var savedShotImageView: UIImageView!
+    @IBOutlet weak var savedShotImageView: UIImageView?
     
     @IBOutlet weak var deleteButton: UIButton!
     
