@@ -77,7 +77,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     // MARK: The navigation bar's Edit button functions
-    func deletePhotoCell(sender:UIButton) {
+    func deleteTakeCell(sender:UIButton) {
         // Put the index number of the delete button the use tapped in a variable
         let i: Int = (sender.layer.valueForKey("index")) as Int
         // Remove an object from the collection view's dataSource
@@ -142,16 +142,16 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         // adding show/hide of delete button for each cell
         if self.navigationItem.rightBarButtonItem!.title == "Edit" {
-            icon.deleteButton.hidden = true
+            cell.deleteButton.hidden = true
         } else {
-            icon.deleteButton.hidden = false
+            cell.deleteButton.hidden = false
         }
         
         // Give the delete button an index number
-        icon.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+        cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
         
         // Add an action function to the delete button
-        icon.deleteButton.addTarget(self, action: "deletePhotoCell:", forControlEvents: UIControlEvents.TouchUpInside)
+        cell.deleteButton.addTarget(self, action: "deleteTakeCell:", forControlEvents: UIControlEvents.TouchUpInside)
         
         return cell
     }
