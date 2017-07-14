@@ -209,5 +209,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
         
     }
+    
+    private func getVideoToPlayFromLocalIdentifier(id: String) {
+        
+    }
 
 }
