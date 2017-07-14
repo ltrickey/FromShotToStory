@@ -89,10 +89,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         let takeToDelete = shotsTaken[i]
 
         data.deleteTake(shot: self.shotName!, take: takeToDelete)
-        loadTakes()
         
         // Refresh the collection view
-        self.collectionView!.reloadData()
+        self.collectionView?.reloadData()
     }
     
     func deleteTakes(_ sender: UIBarButtonItem) {
@@ -105,8 +104,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             
             // Loop through the collectionView's visible cells
             for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
-                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
+                let indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
+                let cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
                 cell.deleteButton.isHidden = false // Hide all of the delete buttons
             }
         } else {
@@ -138,6 +137,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyTakesCollectionViewCell {
+        
+        if takes.isEmpty {
+            // create a new cell template that just says "No shots to display
+        }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
         
