@@ -97,7 +97,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             // Loop through the collectionView's visible cells
             for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
                 var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-                var cell: MyTakesCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as MyTakesCollectionViewCell!
+                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
                 cell.deleteButton.hidden = false // Hide all of the delete buttons
             }
         } else {
@@ -108,8 +108,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             
             // Loop through the collectionView's visible cells
             for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
-                var indexPath: NSIndexPath = self.collectionView.indexPathForCell(item as MyTakesCollectionViewCell)!
-                var cell: PhotoCell = self.collectionView!.cellForItemAtIndexPath(indexPath) as MyTakesCollectionViewCell!
+                var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
+                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItemAtIndexPath(indexPath as IndexPath) as MyTakesCollectionViewCell!
                 cell.deleteButton.hidden = true  // Hide all of the delete buttons
             }
         }
