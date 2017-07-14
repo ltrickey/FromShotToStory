@@ -245,9 +245,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <gestureRecognizers/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Delete" colorLabel="IBBuiltInLabel-Red">
-                                            <rect key="frame" x="78" y="150" width="45" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Delete" colorLabel="IBBuiltInLabel-Red">
+                                            <rect key="frame" x="0.0" y="150" width="200" height="30"/>
                                             <state key="normal" title="Delete">
                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -257,8 +256,11 @@
                                 <constraints>
                                     <constraint firstItem="eUj-Uf-uXJ" firstAttribute="leading" secondItem="xRq-N1-U5N" secondAttribute="leading" id="3ss-G4-v4G"/>
                                     <constraint firstAttribute="bottom" secondItem="eUj-Uf-uXJ" secondAttribute="bottom" id="9QZ-ki-gYj"/>
+                                    <constraint firstAttribute="trailing" secondItem="10r-xb-fJZ" secondAttribute="trailing" id="Eqo-Xt-dr7"/>
+                                    <constraint firstItem="10r-xb-fJZ" firstAttribute="leading" secondItem="xRq-N1-U5N" secondAttribute="leading" id="UA6-Ua-kmK"/>
                                     <constraint firstAttribute="trailing" secondItem="eUj-Uf-uXJ" secondAttribute="trailing" id="ft1-EG-zmu"/>
                                     <constraint firstItem="eUj-Uf-uXJ" firstAttribute="top" secondItem="xRq-N1-U5N" secondAttribute="top" id="rnC-HY-6oe"/>
+                                    <constraint firstAttribute="bottom" secondItem="10r-xb-fJZ" secondAttribute="bottom" constant="20" id="uzX-tD-hIR"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="deleteButton" destination="10r-xb-fJZ" id="SFd-2F-575"/>
@@ -276,7 +278,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="135"/>
+            <point key="canvasLocation" x="1211.8705035971223" y="134.53237410071944"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wq4-Mu-XDo">

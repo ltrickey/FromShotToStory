@@ -28,6 +28,8 @@ class MyTakesCollectionViewCell: UICollectionViewCell {
 ////        deleteButton.setImage(deleteButtonImg, forState: UIControlState.Normal)
 //        
         deleteButton.isHidden = true
+        deleteButton.backgroundColor = UIColor.white
+
         // Add the UIButton to the collection view
         contentView.addSubview(deleteButton)
 
