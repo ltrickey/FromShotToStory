@@ -185,24 +185,26 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     private func loadTakes() {
         
-        
         for take in shotsTaken {
+            print("this is the take object>>>>>>")
+            print(take)
             
             let url = take.url
-            
-            do {
-                let asset = AVURLAsset(url: url as URL , options: nil)
-                let imgGenerator = AVAssetImageGenerator(asset: asset)
-                imgGenerator.appliesPreferredTrackTransform = true
-                let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
-                let thumbnail = UIImage(cgImage: cgImage)
-                
-//                take = Take(url: url as URL, thumbnail: thumbnail)
-                takes.append(take)
-                
-            } catch let error {
-                print("*** Error generating thumbnail: \(error.localizedDescription)")
-            }
+            takes.append(take)
+//
+//            do {
+//                let asset = AVURLAsset(url: url as URL , options: nil)
+//                let imgGenerator = AVAssetImageGenerator(asset: asset)
+//                imgGenerator.appliesPreferredTrackTransform = true
+//                let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil)
+//                let thumbnail = UIImage(cgImage: cgImage)
+//                
+//                take.thumbnail =  thumbnail
+//                takes.append(take)
+//                
+//            } catch let error {
+//                print("*** Error generating thumbnail: \(error.localizedDescription)")
+//            }
 //
         }
         
