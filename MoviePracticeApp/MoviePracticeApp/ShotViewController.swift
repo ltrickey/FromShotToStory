@@ -151,6 +151,10 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                                                          ascending: false)]
         let allVideo = PHAsset.fetchAssets(with: .video, options: fetchOptions)
         
+        for video in allVideo {
+            print(video.localidentifier)
+        }
+        
         let lastVideoSaved = allVideo[0]
         
         let identifier = lastVideoSaved.localIdentifier
