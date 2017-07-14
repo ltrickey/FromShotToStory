@@ -9,6 +9,7 @@
 
 import UIKit
 import MobileCoreServices
+import Photos
 
 // save shot URLS after they've been done here.
 // shot name string, urls of shots array of strings.
@@ -118,9 +119,13 @@ extension ShotViewController: UIImagePickerControllerDelegate {
             
           // took away GUARD statement here b/c of errors
             let path = (info[UIImagePickerControllerMediaURL] as! URL).path
+            print("this is the path made from the URL")
+            print(path)
             
             // Save url of video?
             let savedURL = info[UIImagePickerControllerMediaURL] as! URL
+            print("this is the URL I'm saving")
+            print(savedURL)
             self.videoPath = savedURL as URL
             
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
@@ -128,14 +133,34 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 
                 myShotsButton.isHidden = false
                 
+//                let referenceURL? = info[UIImagePickerControllerReferenceURL] as! URL
+//                print("This is the reference URL")
+//                print(referenceURL)
+                
                 //replacing that nonsense with this new DataStore method??
                 
                 let takeToSave = Take(url: savedURL, thumbnail: nil)
                 allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
+                
+                fetchLastVideoSaved()
             
             }
             
         }
+    }
+    
+    private func fetchLastVideoSaved() {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        let allVideo = PHAsset.fetchAssets(with: .video, options: fetchOptions)
+        
+        let lastVideoSaved = allVideo[0]
+        
+        let identifier = lastVideoSaved.localIdentifier
+        
+        print("This is the identifier")
+        print(identifier)
     }
 }
 
