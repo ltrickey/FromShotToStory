@@ -79,7 +79,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // MARK: The navigation bar's Edit button functions
     func deleteTakeCell(sender:UIButton) {
         // Put the index number of the delete button the use tapped in a variable
-        let i: Int = (sender.layer.valueForKey("index")) as Int
+        let i: Int = (sender.layer.value(forKey: "index")) as! Int
         // Remove an object from the collection view's dataSource
         imageFileNames.removeAtIndex(i)
         
@@ -98,7 +98,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
                 var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
                 var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
-                cell.deleteButton.hidden = false // Hide all of the delete buttons
+                cell.deleteButton.isHidden = false // Hide all of the delete buttons
             }
         } else {
             // Take the collection view out of edit mode
@@ -109,8 +109,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             // Loop through the collectionView's visible cells
             for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
                 var indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
-                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItemAtIndexPath(indexPath as IndexPath) as MyTakesCollectionViewCell!
-                cell.deleteButton.hidden = true  // Hide all of the delete buttons
+                var cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
+                cell.deleteButton.isHidden = true  // Hide all of the delete buttons
             }
         }
     }
@@ -142,16 +142,16 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         // adding show/hide of delete button for each cell
         if self.navigationItem.rightBarButtonItem!.title == "Edit" {
-            cell.deleteButton.hidden = true
+            cell.deleteButton.isHidden = true
         } else {
-            cell.deleteButton.hidden = false
+            cell.deleteButton.isHidden = false
         }
         
         // Give the delete button an index number
         cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
         
         // Add an action function to the delete button
-        cell.deleteButton.addTarget(self, action: "deleteTakeCell:", forControlEvents: UIControlEvents.TouchUpInside)
+        cell.deleteButton.addTarget(self, action: "deleteTakeCell:", for: UIControlEvents.touchUpInside)
         
         return cell
     }
