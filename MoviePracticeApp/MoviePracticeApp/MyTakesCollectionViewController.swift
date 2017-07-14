@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import AVKit
+import Photos
 
 class MyTakesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
@@ -67,20 +68,24 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 print(tapIndexPath[1])
                 
                 let takeToPlay = shotsTaken[tapIndexPath[1]]
-                let url = takeToPlay.url
-                print(url)
                 
-                // Create an AVPlayer, passing it the HTTP Live Streaming URL.
-                let player = AVPlayer(url: url)
+                let videoAsset = getVideoToPlayFromLocalIdentifier(id: takeToPlay.localid)
                 
-                // Create a new AVPlayerViewController and pass it a reference to the player.
-                let controller = AVPlayerViewController()
-                controller.player = player
-                
-                // Modally present the player and call the player's play() method when complete.
-                present(controller, animated: true) {
-                    player.play()
-                }
+                playVideo (view: self, videoAsset: videoAsset)
+//                let url = videoAsset.url
+//                print(url)
+//                
+//                // Create an AVPlayer, passing it the HTTP Live Streaming URL.
+//                let player = AVPlayer(url: url)
+//                
+//                // Create a new AVPlayerViewController and pass it a reference to the player.
+//                let controller = AVPlayerViewController()
+//                controller.player = player
+//                
+//                // Modally present the player and call the player's play() method when complete.
+//                present(controller, animated: true) {
+//                    player.play()
+//                }
                 
             }
         }
@@ -189,7 +194,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             print("this is the take object>>>>>>")
             print(take)
             
-            let url = take.url
+//            let url = take.url
             takes.append(take)
 //
 //            do {
@@ -210,8 +215,36 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
     }
     
-    private func getVideoToPlayFromLocalIdentifier(id: String) {
+    private func getVideoToPlayFromLocalIdentifier(id: String) -> PHAsset {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+
+        let assetArray = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: fetchOptions)
+        let videoAsset = assetArray[0]
         
+        return videoAsset
+    }
+    
+    private func playVideo (view: UIViewController, videoAsset: PHAsset) {
+        
+        guard (videoAsset.mediaType == .video) else {
+            print("Not a valid video media type")
+            return
+        }
+        
+        PHCachingImageManager().requestAVAsset(forVideo: videoAsset, options: nil) { (asset, audioMix, args) in
+            let asset = asset as! AVURLAsset
+            
+            DispatchQueue.main.async {
+                let player = AVPlayer(url: asset.url)
+                let playerViewController = AVPlayerViewController()
+                playerViewController.player = player
+                view.present(playerViewController, animated: true) {
+                    playerViewController.player!.play()
+                }
+            }
+        }
     }
 
 }

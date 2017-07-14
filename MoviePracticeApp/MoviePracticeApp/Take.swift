@@ -13,38 +13,38 @@ class Take :NSObject, NSCoding {
     
     //MARK: Properties
     
-    let url: URL
+    let localid: String
     var thumbnail: UIImage? = nil
     
-    init(url: URL, thumbnail: UIImage?) {
-        self.url = url
+    init(localid: String, thumbnail: UIImage?) {
+        self.localid = localid
         self.thumbnail = thumbnail
     }
     
     
     //MARK: Types
     struct PropertyKey {
-        static let url = "url"
+        static let localid = "localid"
         static let thumbnail = "thumbnail"
     }
     
     //MARK: NSCoding
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(url, forKey: PropertyKey.url)
+        aCoder.encode(localid, forKey: PropertyKey.localid)
         aCoder.encode(thumbnail, forKey: PropertyKey.thumbnail)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        guard let url = aDecoder.decodeObject(forKey: PropertyKey.url) as? URL else {
-            os_log("Unable to decode the URL for a Take object.", log: OSLog.default, type: .debug)
+        guard let localid = aDecoder.decodeObject(forKey: PropertyKey.localid) as? String else {
+            os_log("Unable to decode the local ID for a Take object.", log: OSLog.default, type: .debug)
             return nil
         }
         
         let thumbnail = aDecoder.decodeObject(forKey: PropertyKey.thumbnail) as? UIImage
         
         // Must call designated initializer.
-        self.init(url: url, thumbnail:thumbnail)
+        self.init(localid: localid, thumbnail:thumbnail)
 
     }
 }

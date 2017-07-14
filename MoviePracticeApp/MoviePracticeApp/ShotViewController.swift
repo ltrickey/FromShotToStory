@@ -139,17 +139,17 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 
                 //replacing that nonsense with this new DataStore method??
                 
-                let takeToSave = Take(url: savedURL, thumbnail: nil)
-                allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
+                let localid = fetchLastVideoSaved()
                 
-                fetchLastVideoSaved()
+                let takeToSave = Take(localid: localid, thumbnail: nil)
+                allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
             
             }
             
         }
     }
     
-    private func fetchLastVideoSaved() {
+    private func fetchLastVideoSaved() -> String {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
                                                          ascending: false)]
@@ -161,6 +161,7 @@ extension ShotViewController: UIImagePickerControllerDelegate {
         
         print("This is the identifier")
         print(identifier)
+        return identifier
     }
 }
 
