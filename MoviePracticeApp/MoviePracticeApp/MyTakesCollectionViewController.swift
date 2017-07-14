@@ -81,6 +81,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     func deleteTakeCell(sender:UIButton) {
         // Put the index number of the delete button the use tapped in a variable
         let i: Int = (sender.layer.value(forKey: "index")) as! Int
+        
         // Remove an object from the collection view's dataSource
 //        imageFileNames.removeAtIndex(i)
         

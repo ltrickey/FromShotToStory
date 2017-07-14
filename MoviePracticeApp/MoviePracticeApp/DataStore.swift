@@ -46,6 +46,25 @@ class DataStore: NSObject, NSCoding {
         NSKeyedArchiver.archiveRootObject(self, toFile: DataStore.filePath)
     }
     
+    func deleteTake(shot: String, take: Take) {
+        if var shotArr = DataStore.myTakes.allTakesSaved[shot] {
+            print("original shot array")
+            print(DataStore.myTakes.allTakesSaved[shot])
+            
+            //remove shot from array
+            shotArr = shotArr.filter{$0 != take}
+            
+            //save it back in shot arr
+            DataStore.myTakes.allTakesSaved[shot] = shotArr
+            
+            //just to make sure it's been deleted.
+            print("new shot array")
+            print(DataStore.myTakes.allTakesSaved[shot])
+        } else {
+            print("THAT SHOT IS NOT IN YOUR ARRAY AND CANNOT BE DELETED !")
+        }
+    }
+    
     private static func loadData() -> DataStore {
         if let data = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? DataStore {
             return data
