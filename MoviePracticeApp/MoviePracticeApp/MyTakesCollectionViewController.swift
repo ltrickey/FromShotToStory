@@ -194,8 +194,15 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             print("this is the take object>>>>>>")
             print(take)
             
-//            let url = take.url
-            takes.append(take)
+            let asset = getVideoToPlayFromLocalIdentifier(id: take.localid)
+            
+            do {
+                let thumbnail = getAssetThumbnail(asset: asset)
+                take.thumbnail =  thumbnail
+                takes.append(take)
+            } catch let error {
+                print("*** Error generating thumbnail: \(error.localizedDescription)")
+            }
 //
 //            do {
 //                let asset = AVURLAsset(url: url as URL , options: nil)
@@ -245,6 +252,17 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 }
             }
         }
+    }
+    
+    private func getAssetThumbnail(asset: PHAsset) -> UIImage {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var thumbnail = UIImage()
+        option.isSynchronous = true
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            thumbnail = result!
+        })
+        return thumbnail
     }
 
 }
