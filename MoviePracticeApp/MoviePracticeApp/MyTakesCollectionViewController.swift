@@ -140,6 +140,19 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         cell.savedShotImageView.image = take.thumbnail
         cell.savedShotImageView.isUserInteractionEnabled = true
         
+        // adding show/hide of delete button for each cell
+        if self.navigationItem.rightBarButtonItem!.title == "Edit" {
+            icon.deleteButton.hidden = true
+        } else {
+            icon.deleteButton.hidden = false
+        }
+        
+        // Give the delete button an index number
+        icon.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+        
+        // Add an action function to the delete button
+        icon.deleteButton.addTarget(self, action: "deletePhotoCell:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         return cell
     }
     
