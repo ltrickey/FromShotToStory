@@ -177,11 +177,11 @@
                                             <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CUy-MV-9MM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yO-4B-UjV">
-                                        <rect key="frame" x="512" y="640" width="88" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yO-4B-UjV" userLabel="My Takes Button">
+                                        <rect key="frame" x="511" y="640" width="90" height="35"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="My Shots">
+                                                <fragment content="My Takes">
                                                     <attributes>
                                                         <font key="NSFont" size="20" name="ArialRoundedMTBold"/>
                                                     </attributes>

@@ -33,11 +33,12 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     var shotsTaken: [Take] = []
     
     var editModeEnabled = false
+    var tapGesture = UITapGestureRecognizer()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("printing shots taken")
-        print(shotsTaken)
+
         shotsTaken = (data.allTakesSaved[shotName!]!)
 
         // Register cell classes
@@ -45,17 +46,17 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 
         let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
         
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
+
         self.navigationItem.rightBarButtonItem = editButton
         
         loadTakes()
         
-        if !shotsTaken.isEmpty {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
-            collectionView?.addGestureRecognizer(tapGesture)
-            
-            tapGesture.delegate = self
-        }
-        
+
+        collectionView?.addGestureRecognizer(self.tapGesture)
+
+        self.tapGesture.delegate = self
+        self.tapGesture.isEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,6 +99,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     func deleteTakes(_ sender: UIBarButtonItem) {
         if(editModeEnabled == false) {
+            //disable tap gesture recognizer for playing video
+            tapGesture.isEnabled = false
+            
             // Put the collection view in edit mode
             let editButton = self.navigationItem.rightBarButtonItem
             editButton?.title = "Done"
@@ -111,6 +115,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 cell.deleteButton.isHidden = false // Hide all of the delete buttons
             }
         } else {
+            // renable tap gesture for playing video
+            //disable tap gesture recognizer for playing video
+            tapGesture.isEnabled = true
+            
             // Take the collection view out of edit mode
             let editButton = self.navigationItem.rightBarButtonItem
             
