@@ -197,8 +197,14 @@ class ShotTableViewController: UITableViewController {
     
     func readDataFromFile(file:String) -> String? {
         
-        //gets filepath of .txt file
-        let filePath:String = Bundle.main.path(forResource: "shotData", ofType: "txt")!
+        //gets filepath of .csv file
+        let filePath:String = Bundle.main.path(forResource: "shotData", ofType: "csv")!
+        
+        let stream = InputStream(fileAtPath: filePath)!
+        let csv = try! CSVReader(stream: stream)
+        while let row = csv.next() {
+            print("\(row)")
+        }
         
         print("filePath is >>>>> ")
         print(filePath)
