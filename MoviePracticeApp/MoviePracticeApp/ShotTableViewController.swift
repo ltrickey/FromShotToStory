@@ -27,14 +27,10 @@ class ShotTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // read in .txt and turn int into a string
-        let shotData: String? = readDataFromFile(file: "shotData")
+//        // read in .txt and turn int into a string
+//        let shotData: String? = readDataFromFile(file: "shotData")
         
-        if shotData != nil {
-            loadShots(data: (shotData)!)
-        } else {
-            print("shot data is nil!")
-        }
+        readDataFromFile()
         
         navigationItem.title = "Shot List"
     }
@@ -113,22 +109,22 @@ class ShotTableViewController: UITableViewController {
     
     //MARK: Private Methods
     
-    private func loadShots(data: String) {
-        
-        shots.removeAll()
-        
-        let rows = data.components(separatedBy: "\n")
-        for row in rows {
-            let data = row.components(separatedBy: ";")
-            guard let shotObject = Shot(name: data[0], photo: UIImage(named: data[0])!, video: nil, description: data[1]) else {
-                fatalError("Unable to instansiate shot")
-            }
-            
-            shots.append(shotObject)
-            
-        }
-    }
-        
+//    private func loadShots(data: String) {
+//        
+//        shots.removeAll()
+//        
+//        let rows = data.components(separatedBy: "\n")
+//        for row in rows {
+//            let data = row.components(separatedBy: ";")
+//            guard let shotObject = Shot(name: data[0], photo: UIImage(named: data[0])!, video: nil, description: data[1]) else {
+//                fatalError("Unable to instansiate shot")
+//            }
+//            
+//            shots.append(shotObject)
+//            
+//        }
+//    }
+    
 //        let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo arcu vel arcu ornare interdum. Nullam sed tempus purus, id bibendum leo. In sed pellentesque elit. Nulla facilisis tincidunt est ac malesuada. Integer ligula nunc, cursus in accumsan et, tempor nec quam."
 //        
 //        
@@ -195,30 +191,49 @@ class ShotTableViewController: UITableViewController {
 //        
 //    }
     
-    func readDataFromFile(file:String) -> String? {
+    func readDataFromFile() {
         
         //gets filepath of .csv file
         let filePath:String = Bundle.main.path(forResource: "shotData", ofType: "csv")!
         
         let stream = InputStream(fileAtPath: filePath)!
-        let csv = try! CSVReader(stream: stream,
-                                 hasHeaderRow: true) // It must be true.
+        let csv = try! CSVReader(stream: stream)
+        
+        //if shot has been tried, change bool value to true.
+        //load my takes from local storage through DataStore
+        let myTakes = DataStore.myTakes
         
         while let row = csv.next() {
-            let shotimage = row[1]
-            print("\(shotimage)")
+            let shotName = row[0]
+            print(shotName)
+            let shotImageName = row[1]
+            print(shotImageName)
+            let shotImage = UIImage(named: shotImageName)!
+            let shotDescription = row[2]
+            print(shotDescription)
+            
+            guard let shotObject = Shot(name: shotName, photo: shotImage, video: nil, description: shotDescription) else {
+                    fatalError("Unable to instansiate shot")
+                }
+            
+            
+            if myTakes.allTakesSaved[shotObject.name] != nil {
+                shotObject.tried = true
+            }
+                
+            shots.append(shotObject)
         }
-        
-        //tries to read it in as a string
-        do {
-            let contents = try? String(contentsOfFile: filePath)
-            return contents
-            print("the contents of this file is >>>")
-            print(contents!)
-        } catch {
-            print("File Read Error for file \(filePath)")
-            return nil
-        }
+//        
+//        //tries to read it in as a string
+//        do {
+//            let contents = try? String(contentsOfFile: filePath)
+//            return contents
+//            print("the contents of this file is >>>")
+//            print(contents!)
+//        } catch {
+//            print("File Read Error for file \(filePath)")
+//            return nil
+//        }
 
         
     }
