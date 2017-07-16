@@ -17,7 +17,7 @@
                BlueprintIdentifier = "701D4F02FAA85F5DE4F688FC7C082624"
                BuildableName = "CSV.framework"
                BlueprintName = "CSV.swift"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,7 +48,7 @@
             BlueprintIdentifier = "701D4F02FAA85F5DE4F688FC7C082624"
             BuildableName = "CSV.framework"
             BlueprintName = "CSV.swift"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>

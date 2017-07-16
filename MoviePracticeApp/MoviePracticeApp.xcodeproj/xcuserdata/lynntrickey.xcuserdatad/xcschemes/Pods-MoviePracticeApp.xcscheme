@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "701D4F02FAA85F5DE4F688FC7C082624"
-               BuildableName = "CSV.framework"
-               BlueprintName = "CSV.swift"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "DA679D9ABAE4CA240562FC6998C96EBD"
+               BuildableName = "Pods_MoviePracticeApp.framework"
+               BlueprintName = "Pods-MoviePracticeApp"
+               ReferencedContainer = "container:Pods/Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "701D4F02FAA85F5DE4F688FC7C082624"
-            BuildableName = "CSV.framework"
-            BlueprintName = "CSV.swift"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "DA679D9ABAE4CA240562FC6998C96EBD"
+            BuildableName = "Pods_MoviePracticeApp.framework"
+            BlueprintName = "Pods-MoviePracticeApp"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>

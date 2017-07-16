@@ -102,7 +102,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/Take.swift"
@@ -115,7 +115,7 @@
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MoviePracticeApp.Take.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MoviePracticeApp.Take&gt;"
@@ -130,7 +130,7 @@
                   offsetFromSymbolStart = "12">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "MoviePracticeApp.Take.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MoviePracticeApp.Take&gt;"

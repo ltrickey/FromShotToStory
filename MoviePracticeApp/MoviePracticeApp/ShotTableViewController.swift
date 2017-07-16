@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CSV
 
 class ShotTableViewController: UITableViewController {
     
@@ -30,7 +31,7 @@ class ShotTableViewController: UITableViewController {
         let shotData: String? = readDataFromFile(file: "shotData")
         
         if shotData != nil {
-            loadShots(data: shotData?)
+            loadShots(data: (shotData)!)
         } else {
             print("shot data is nil!")
         }
