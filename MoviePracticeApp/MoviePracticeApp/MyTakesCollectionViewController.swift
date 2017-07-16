@@ -84,17 +84,20 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     // MARK: The navigation bar's Edit button functions
     func deleteTakeCell(sender:UIButton) {
+        
+        print("delete button pushed")
         // Put the index number of the delete button the use tapped in a variable
         let i: Int = (sender.layer.value(forKey: "index")) as! Int
-        
+                
         // Remove an object from the collection view's dataSource
 
         let takeToDelete = shotsTaken[i]
 
         data.deleteTake(shot: self.shotName!, take: takeToDelete)
         
-        // Refresh the collection view
-        self.collectionView?.reloadData()
+        // Refresh the collection view - this deletes the button.  Maybe add to array and then when edit done remove all?
+        let indexPath = [0, i] as IndexPath
+        self.collectionView?.reloadItems(at: [indexPath])
     }
     
     func deleteTakes(_ sender: UIBarButtonItem) {
@@ -118,6 +121,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             // renable tap gesture for playing video
             //disable tap gesture recognizer for playing video
             tapGesture.isEnabled = true
+            
+            //relaod collection
+            self.collectionView?.reloadData()
             
             // Take the collection view out of edit mode
             let editButton = self.navigationItem.rightBarButtonItem

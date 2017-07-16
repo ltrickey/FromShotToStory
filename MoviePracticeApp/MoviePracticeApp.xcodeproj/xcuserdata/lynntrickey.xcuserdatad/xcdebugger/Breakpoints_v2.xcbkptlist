@@ -113,6 +113,38 @@
             endingLineNumber = "37"
             landmarkName = "Take"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviePracticeApp.Take.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MoviePracticeApp.Take&gt;"
+                  moduleName = "MoviePracticeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/Take.swift"
+                  timestampString = "521848587.787678"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviePracticeApp.Take.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;MoviePracticeApp.Take&gt;"
+                  moduleName = "MoviePracticeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/Take.swift"
+                  timestampString = "521848587.789312"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/DataStore.swift"
-            timestampString = "521757291.564957"
+            timestampString = "521848668.108627"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "saveTake(shot:take:)"
             landmarkType = "7">
          </BreakpointContent>
