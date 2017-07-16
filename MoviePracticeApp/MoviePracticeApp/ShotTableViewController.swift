@@ -201,13 +201,13 @@ class ShotTableViewController: UITableViewController {
         let filePath:String = Bundle.main.path(forResource: "shotData", ofType: "csv")!
         
         let stream = InputStream(fileAtPath: filePath)!
-        let csv = try! CSVReader(stream: stream)
-        while let row = csv.next() {
-            print("\(row)")
-        }
+        let csv = try! CSVReader(stream: stream,
+                                 hasHeaderRow: true) // It must be true.
         
-        print("filePath is >>>>> ")
-        print(filePath)
+        while let row = csv.next() {
+            let shotimage = row[1]
+            print("\(shotimage)")
+        }
         
         //tries to read it in as a string
         do {
