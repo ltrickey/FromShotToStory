@@ -43,25 +43,72 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-                
+        
+        //set up edit button on nav bar
         let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
         
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
-
         self.navigationItem.rightBarButtonItem = editButton
         
-        loadTakes()
-        
+        //set up tap to play
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
 
         collectionView?.addGestureRecognizer(self.tapGesture)
 
         self.tapGesture.delegate = self
         self.tapGesture.isEnabled = true
+        
+        //load take objects
+        loadTakes()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: UICollectionViewDataSource
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if shotsTaken.count > 0 {
+            return shotsTaken.count
+        } else {
+            return 1
+        }
+    }
+    
+    //set up cells
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyTakesCollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
+        
+        if takes.isEmpty {
+            cell.backgroundColor = UIColor.white
+            self.navigationItem.title = "No Takes Saved"
+            
+        } else {
+            
+            // Configure the cell
+            cell.backgroundColor = UIColor.black
+            
+            // Fetches the appropriate take for the data source layout.
+            let take = takes[indexPath.item]
+            
+            cell.savedShotImageView?.image = take.thumbnail
+            cell.savedShotImageView?.isUserInteractionEnabled = true
+            
+//            // Give the delete button an index number
+//            cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+//            
+//            //also send index path
+//            cell.deleteButton.layer.setValue(indexPath, forKey: "indexPath")
+            
+            // Add an action function to the delete button
+            cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
+        }
+        return cell
     }
     
     //MARK: - ACTIONS
@@ -82,24 +129,27 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
     }
     
-    // MARK: The navigation bar's Edit button functions
+    //Delete function called when delete button on cell is tapped.
     func deleteTakeCell(sender:UIButton) {
         
         print("delete button pushed")
         // Put the index number of the delete button the use tapped in a variable
+        
+        //for some reason this is uiview not collectionview cell.
+        let superView = sender.superview
+        let superViewPath = self.collectionView?.indexPath(for: superView as! UICollectionViewCell)
         let i: Int = (sender.layer.value(forKey: "index")) as! Int
                 
         // Remove an object from the collection view's dataSource
-
         let takeToDelete = shotsTaken[i]
-
         data.deleteTake(shot: self.shotName!, take: takeToDelete)
         
         // Refresh the collection view - this deletes the button.  Maybe add to array and then when edit done remove all?
-        let indexPath = [0, i] as IndexPath
-        self.collectionView?.reloadItems(at: [indexPath])
+//        let indexPath = [0, i] as IndexPath
+        self.collectionView?.reloadItems(at: [superViewPath!])
     }
     
+    // MARK: Edit function called when edit button on bar is tapped.
     func deleteTakes(_ sender: UIBarButtonItem) {
         if(editModeEnabled == false) {
             //disable tap gesture recognizer for playing video
@@ -143,49 +193,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
 
 
-    // MARK: UICollectionViewDataSource
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if shotsTaken.count > 0 {
-            return shotsTaken.count
-        } else {
-            return 1
-        }
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyTakesCollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
-    
-        
-        if takes.isEmpty {
-            // create a new cell template that just says "No shots to display
-            cell.backgroundColor = UIColor.white
-            self.navigationItem.title = "No Takes Saved"
-
-        } else {
-        
-        // Configure the cell
-         cell.backgroundColor = UIColor.black
-            
-        // Fetches the appropriate take for the data source layout.
-        let take = takes[indexPath.item]
-
-        cell.savedShotImageView?.image = take.thumbnail
-        cell.savedShotImageView?.isUserInteractionEnabled = true
-        
-        // Give the delete button an index number
-        cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
-        
-        // Add an action function to the delete button
-//        #selector(tap(gestureReconizer:))
-        cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
-        }
-        return cell
-    }
     
     // MARK: UICollectionViewDelegateFlowLayout 
     // taken from tutorial to make collection view larger

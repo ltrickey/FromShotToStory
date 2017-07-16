@@ -223,7 +223,7 @@
         <scene sceneID="i4m-tD-oOr">
             <objects>
                 <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,16 +241,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-Uf-uXJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                            <gestureRecognizers/>
-                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Delete" colorLabel="IBBuiltInLabel-Red">
                                             <rect key="frame" x="0.0" y="150" width="200" height="30"/>
                                             <state key="normal" title="Delete">
                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-Uf-uXJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <gestureRecognizers/>
+                                        </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
