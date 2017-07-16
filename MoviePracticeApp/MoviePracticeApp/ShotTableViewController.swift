@@ -27,10 +27,7 @@ class ShotTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // read in .txt and turn int into a string
-//        let shotData: String? = readDataFromFile(file: "shotData")
-        
-        readDataFromFile()
+        loadShotData()
         
         navigationItem.title = "Shot List"
     }
@@ -108,20 +105,8 @@ class ShotTableViewController: UITableViewController {
 
     
     //MARK: Private Methods
-
-//        
-//         shotList.append(shotData(name: "High", photo: UIImage(named: "highAngleShot")!, description : description))
-//        
-//        shotList.append(shotData(name: "Front", photo: UIImage(named: "frontAngleShot")!, description : description))
-//       
-//        shotList.append(shotData(name: "Three Quarter", photo: UIImage(named: "threeQuarterAngleShot")!, description : description))
-//        
-//        shotList.append(shotData(name: "Profile", photo: UIImage(named: "profileAngleShot")!, description : description))
-//        
-//        
-
     
-    func readDataFromFile() {
+    private func loadShotData() {
         
         //gets filepath of .csv file
         let filePath:String = Bundle.main.path(forResource: "shotData", ofType: "csv")!
@@ -135,26 +120,18 @@ class ShotTableViewController: UITableViewController {
         
         while let row = csv.next() {
             let shotName = row[0]
-            print(shotName)
             let shotImageName = row[1]
-            print(shotImageName)
             let shotImage = UIImage(named: shotImageName)!
             let shotDescription = row[2]
-            print(shotDescription)
             
             guard let shotObject = Shot(name: shotName, photo: shotImage, video: nil, description: shotDescription) else {
                     fatalError("Unable to instansiate shot")
                 }
             
-            
             if myTakes.allTakesSaved[shotObject.name] != nil {
                 shotObject.tried = true
             }
-                
             shots.append(shotObject)
         }
-        
     }
-    
-
 }
