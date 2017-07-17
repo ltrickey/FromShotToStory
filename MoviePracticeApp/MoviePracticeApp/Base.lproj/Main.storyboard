@@ -155,19 +155,21 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-3c-Mvn">
-                                <rect key="frame" x="0.0" y="84" width="1112" height="686"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="728.5" placeholderIntrinsicHeight="466" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-M2-1eh">
+                                <rect key="frame" x="156" y="74" width="800" height="480"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" id="Oog-xx-cay"/>
+                                    <constraint firstAttribute="width" constant="800" id="g6g-El-3SG"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-3c-Mvn">
+                                <rect key="frame" x="0.0" y="626" width="1112" height="144"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="728.5" placeholderIntrinsicHeight="466" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-M2-1eh">
-                                        <rect key="frame" x="156" y="0.0" width="800" height="480"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="480" id="Oog-xx-cay"/>
-                                            <constraint firstAttribute="width" constant="800" id="g6g-El-3SG"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-Hd-jYg">
-                                        <rect key="frame" x="478" y="505" width="156" height="92"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-Hd-jYg">
+                                        <rect key="frame" x="473" y="0.0" width="166" height="62"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="TRY IT!">
@@ -181,9 +183,11 @@
                                             <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CUy-MV-9MM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yO-4B-UjV" userLabel="My Takes Button">
-                                        <rect key="frame" x="455.5" y="622" width="201" height="64"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yO-4B-UjV" userLabel="My Takes Button">
+                                        <rect key="frame" x="451" y="82" width="210" height="62"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="4" maxY="5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="My Takes">
@@ -203,20 +207,24 @@
                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hXM-3c-Mvn" secondAttribute="trailing" id="AzP-pC-Kis"/>
+                            <constraint firstItem="eWU-M2-1eh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dtf-aL-BLu"/>
                             <constraint firstItem="Vu8-3I-cXC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="400" id="MgC-hL-hm9"/>
-                            <constraint firstItem="hXM-3c-Mvn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="TCf-7Y-Pj9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hXM-3c-Mvn" secondAttribute="bottom" constant="20" id="SvJ-Cr-4Nx"/>
                             <constraint firstItem="hXM-3c-Mvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vnd-vL-49K"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hXM-3c-Mvn" secondAttribute="bottom" constant="20" id="XXm-Ec-hEn"/>
+                            <constraint firstItem="eWU-M2-1eh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="c80-i5-a6B"/>
                             <constraint firstItem="Vu8-3I-cXC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ttC-Hh-XkU"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonStackView" destination="hXM-3c-Mvn" id="T0m-9l-JH2"/>
                         <outlet property="myShotsButton" destination="9yO-4B-UjV" id="hQ9-07-6m9"/>
                         <outlet property="shotDescLabel" destination="Vu8-3I-cXC" id="aJF-Hk-Dzf"/>
+                        <outlet property="shotDescriptionBottom" destination="SvJ-Cr-4Nx" id="Woj-fz-kS1"/>
                         <outlet property="shotDescriptionHeight" destination="MgC-hL-hm9" id="P7s-00-oPe"/>
                         <outlet property="shotImageView" destination="eWU-M2-1eh" id="fSf-H8-6mk"/>
+                        <outlet property="tryItButton" destination="vdz-Hd-jYg" id="esj-h4-ixt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -10,6 +10,7 @@
 import UIKit
 import MobileCoreServices
 import Photos
+import QuartzCore
 
 // save shot URLS after they've been done here.
 // shot name string, urls of shots array of strings.
@@ -25,15 +26,18 @@ class ShotViewController: UIViewController {
 
     @IBOutlet weak var shotDescLabel: UILabel!
     @IBOutlet weak var shotDescriptionHeight: NSLayoutConstraint!
+    @IBOutlet weak var shotDescriptionBottom: NSLayoutConstraint!
     @IBOutlet weak var shotImageView: UIImageView!
     @IBOutlet weak var myShotsButton: UIButton!
-    
+    @IBOutlet weak var tryItButton: UIButton!
+    @IBOutlet weak var buttonStackView: UIStackView!
+   
     // set optional shot variable 
     var shot: Shot?
     
     //connecting touch up inside from button to record video.
     @IBAction func record(_ sender: UIButton) {
-        // added _ = to say we're not capturing result.  
+        // added _ = to say we're not capturing result.
         _ = startCameraFromViewController(self, withDelegate: self)
     }
     
@@ -49,6 +53,17 @@ class ShotViewController: UIViewController {
             shotDescLabel.text = shot.description
         
         }
+        
+        //add borders to buttons 
+        let white = UIColor.white.cgColor
+        tryItButton.layer.cornerRadius = 10; // this value vary as per your desire
+        tryItButton.clipsToBounds = true
+        myShotsButton.layer.cornerRadius = 10; // this value vary as per your desire
+        myShotsButton.clipsToBounds = true
+        tryItButton.layer.borderWidth = 4.0
+        myShotsButton.layer.borderWidth = 4.0
+        tryItButton.layer.borderColor = white
+        myShotsButton.layer.borderColor = white
         
         if shot!.tried == false {
             myShotsButton.isHidden = true
@@ -66,15 +81,25 @@ class ShotViewController: UIViewController {
         //change layout of description label based on orientation.
         switch UIDevice.current.orientation{
         case .portrait:
+            buttonStackView.spacing = 50 as CGFloat
             shotDescriptionHeight.constant = 550 as CGFloat
+            shotDescriptionBottom.constant = 75 as CGFloat
         case .portraitUpsideDown:
+            buttonStackView.spacing = 50 as CGFloat
             shotDescriptionHeight.constant = 550 as CGFloat
+            shotDescriptionBottom.constant = 75 as CGFloat
         case .landscapeLeft:
+            buttonStackView.spacing = 20 as CGFloat
             shotDescriptionHeight.constant = 400 as CGFloat
+            shotDescriptionBottom.constant = 30 as CGFloat
         case .landscapeRight:
+            buttonStackView.spacing = 20 as CGFloat
             shotDescriptionHeight.constant = 400 as CGFloat
+            shotDescriptionBottom.constant = 30 as CGFloat
         default:
+            buttonStackView.spacing = 20 as CGFloat
             shotDescriptionHeight.constant = 400 as CGFloat
+            shotDescriptionBottom.constant = 75 as CGFloat
         }
     }
 
