@@ -58,6 +58,8 @@ class ShotViewController: UIViewController {
             shotDescLabel.text = shot.description
             if shot.gif != nil {
                 replayGifButton.isHidden = false
+                let btnImage = UIImage(named: "replay")
+                replayGifButton.setImage(btnImage , for: UIControlState.normal)
                 let gif = UIImage(gifName: shot.gif!)
                 shotImageView.setGifImage(gif, manager: gifManager, loopCount: 1)
             } else {
