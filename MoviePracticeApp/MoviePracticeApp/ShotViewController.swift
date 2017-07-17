@@ -54,7 +54,7 @@ class ShotViewController: UIViewController {
             shotDescLabel.text = shot.description
             let gif = UIImage(gifName: "closeUp.gif")
             let gifManager = SwiftyGifManager(memoryLimit:20)
-            shotImageView.setGifImage(gif, manager: gifManager)
+            shotImageView.setGifImage(gif, manager: gifManager, loopCount: 2)
         }
         
         //add borders to buttons 
