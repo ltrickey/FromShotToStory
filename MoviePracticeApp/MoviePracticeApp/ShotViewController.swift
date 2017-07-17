@@ -23,8 +23,8 @@ class ShotViewController: UIViewController {
     //getting everything from local data
     var allTakesSaved = DataStore.myTakes
 
-    
     @IBOutlet weak var shotDescLabel: UILabel!
+    @IBOutlet weak var shotDescriptionHeight: NSLayoutConstraint!
     @IBOutlet weak var shotImageView: UIImageView!
     @IBOutlet weak var myShotsButton: UIButton!
     
@@ -59,6 +59,23 @@ class ShotViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+       
+        //change layout of description label based on orientation.
+        switch UIDevice.current.orientation{
+        case .portrait:
+            shotDescriptionHeight.constant = 550 as CGFloat
+        case .portraitUpsideDown:
+            shotDescriptionHeight.constant = 550 as CGFloat
+        case .landscapeLeft:
+            shotDescriptionHeight.constant = 400 as CGFloat
+        case .landscapeRight:
+            shotDescriptionHeight.constant = 400 as CGFloat
+        default:
+            shotDescriptionHeight.constant = 400 as CGFloat
+        }
     }
 
     
