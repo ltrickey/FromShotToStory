@@ -52,9 +52,13 @@ class ShotViewController: UIViewController {
         if let shot = shot {
             navigationItem.title = shot.name
             shotDescLabel.text = shot.description
-            let gif = UIImage(gifName: "closeUp.gif")
-            let gifManager = SwiftyGifManager(memoryLimit:20)
-            shotImageView.setGifImage(gif, manager: gifManager, loopCount: 1)
+            if shot.gif != nil {
+                let gif = UIImage(gifName: shot.gif!)
+                let gifManager = SwiftyGifManager(memoryLimit:20)
+                shotImageView.setGifImage(gif, manager: gifManager, loopCount: 1)
+            } else {
+                shotImageView.image = shot.photo
+            }
         }
         
         //add borders to buttons 
