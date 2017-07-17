@@ -8,3 +8,6 @@ Point of View,pointOfViewShot,"Point of View Shot (POV) Shot intended to mimic w
 Insert,insertShot,"Need to write a description!"
 Low,lowAngleShot,"Low angle shots, where the camera points upwards from below, make people (and things) look bigger, more courageous and more important.   These shots are also good for filming people who are looking down at things, so you’re filming their face rather than the top of their head."
 High,highAngleShot,"When a subject is photographed from above eye level. This can have the effect of making the subject seem vulnerable, weak, or frightened."
+Pan,panShot,"A shot where you move the camera from one side to the other, across the environment or subject. Imagine if you looked to your right, then looked to your left - that's panning!",panShot.gif
+Tilt,tiltShot,"A shot where the camera moves up or down while keeping its horizontal axis constant. Nod your head up and down - this is tilting.",tilt.gif
+Tracking,trackingShot,"A tracking shot is any shot where the camera moves alongside the object(s) it is recording. In cinematography, the term refers to ashot in which the camera is mounted on a camera dolly that is then placed on rails – like a railroad track. The camera is then pushed along the track while the image is being filmed.",track.gif

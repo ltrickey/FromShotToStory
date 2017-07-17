@@ -20,6 +20,7 @@ class ShotTableViewController: UITableViewController {
         
         super.viewWillAppear(animated)
         print("reloading data")
+        loadShotData()
         self.tableView.reloadData()
         
     }
@@ -107,6 +108,8 @@ class ShotTableViewController: UITableViewController {
     //MARK: Private Methods
     
     private func loadShotData() {
+        
+        shots.removeAll()
         
         //gets filepath of .csv file
         let filePath:String = Bundle.main.path(forResource: "shotData", ofType: "csv")!

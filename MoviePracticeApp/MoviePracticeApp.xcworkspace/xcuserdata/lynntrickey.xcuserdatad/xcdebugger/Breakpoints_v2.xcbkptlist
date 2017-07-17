@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/ShotTableViewController.swift"
-            timestampString = "522020120.952157"
+            timestampString = "522024676.862147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "loadShotData()"
             landmarkType = "7">
          </BreakpointContent>

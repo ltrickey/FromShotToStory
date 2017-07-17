@@ -172,7 +172,7 @@
                                         <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
-                                                <fragment content="TRY IT!">
+                                                <fragment content="Try it!">
                                                     <attributes>
                                                         <font key="NSFont" size="45" name="ArialRoundedMTBold"/>
                                                     </attributes>
