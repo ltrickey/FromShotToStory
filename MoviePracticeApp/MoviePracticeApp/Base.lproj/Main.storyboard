@@ -162,6 +162,14 @@
                                     <constraint firstAttribute="width" constant="800" id="g6g-El-3SG"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-8s-arN">
+                                <rect key="frame" x="156" y="493" width="64" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="REPLAY"/>
+                                <connections>
+                                    <action selector="replayGif:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kId-xI-tha"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-3c-Mvn">
                                 <rect key="frame" x="0.0" y="708" width="1112" height="62"/>
                                 <subviews>
@@ -203,14 +211,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-8s-arN">
-                                <rect key="frame" x="165" y="524" width="55" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="REPLAY"/>
-                                <connections>
-                                    <action selector="replayGif:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kId-xI-tha"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
