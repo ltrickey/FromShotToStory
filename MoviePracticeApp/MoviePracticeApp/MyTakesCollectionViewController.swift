@@ -72,36 +72,29 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if shotsTaken.count > 0 {
-            return shotsTaken.count
-        } else {
-            return 1
+        if shotsTaken.count < 1 {
+            self.navigationItem.title = "No Takes Saved"
         }
+        return shotsTaken.count
     }
     
     //set up cells
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyTakesCollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedShotCell", for: indexPath) as! MyTakesCollectionViewCell
-        
-        if takes.isEmpty {
-            cell.backgroundColor = UIColor.white
-            self.navigationItem.title = "No Takes Saved"
             
-        } else {
+        // Configure the cell
+        cell.backgroundColor = UIColor.black
             
-            // Configure the cell
-            cell.backgroundColor = UIColor.black
+        // Fetches the appropriate take for the data source layout.
+        let take = takes[indexPath.item]
             
-            // Fetches the appropriate take for the data source layout.
-            let take = takes[indexPath.item]
+        cell.savedShotImageView?.image = take.thumbnail
+        cell.savedShotImageView?.isUserInteractionEnabled = true
             
-            cell.savedShotImageView?.image = take.thumbnail
-            cell.savedShotImageView?.isUserInteractionEnabled = true
-            
-            // Add an action function to the delete button
-            cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
-        }
+        // Add an action function to the delete button
+        cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
+    
         return cell
     }
     
