@@ -6,7 +6,7 @@ target 'MoviePracticeApp' do
     use_frameworks!
 # Pods for MoviePracticeApp
     pod 'CSV.swift', '~> 2.0'
-
+    pod 'SwiftyGif'
 
   target 'MoviePracticeAppTests' do
     inherit! :search_paths

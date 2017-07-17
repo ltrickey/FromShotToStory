@@ -26,11 +26,12 @@ class ShotViewController: UIViewController {
 
     @IBOutlet weak var shotDescLabel: UILabel!
     @IBOutlet weak var shotDescriptionHeight: NSLayoutConstraint!
-    @IBOutlet weak var shotDescriptionBottom: NSLayoutConstraint!
+
     @IBOutlet weak var shotImageView: UIImageView!
     @IBOutlet weak var myShotsButton: UIButton!
     @IBOutlet weak var tryItButton: UIButton!
     @IBOutlet weak var buttonStackView: UIStackView!
+    @IBOutlet weak var buttonStackBottom: NSLayoutConstraint!
    
     // set optional shot variable 
     var shot: Shot?
@@ -83,23 +84,23 @@ class ShotViewController: UIViewController {
         case .portrait:
             buttonStackView.spacing = 50 as CGFloat
             shotDescriptionHeight.constant = 550 as CGFloat
-            shotDescriptionBottom.constant = 75 as CGFloat
+            buttonStackBottom.constant = 75 as CGFloat
         case .portraitUpsideDown:
             buttonStackView.spacing = 50 as CGFloat
             shotDescriptionHeight.constant = 550 as CGFloat
-            shotDescriptionBottom.constant = 75 as CGFloat
+            buttonStackBottom.constant = 75 as CGFloat
         case .landscapeLeft:
             buttonStackView.spacing = 20 as CGFloat
             shotDescriptionHeight.constant = 400 as CGFloat
-            shotDescriptionBottom.constant = 30 as CGFloat
+            buttonStackBottom.constant = 30 as CGFloat
         case .landscapeRight:
             buttonStackView.spacing = 20 as CGFloat
             shotDescriptionHeight.constant = 400 as CGFloat
-            shotDescriptionBottom.constant = 30 as CGFloat
+            buttonStackBottom.constant = 30 as CGFloat
         default:
             buttonStackView.spacing = 20 as CGFloat
             shotDescriptionHeight.constant = 400 as CGFloat
-            shotDescriptionBottom.constant = 75 as CGFloat
+            buttonStackBottom.constant = 75 as CGFloat
         }
     }
 
@@ -121,7 +122,7 @@ class ShotViewController: UIViewController {
     
     func video(_ videoPath: NSString, didFinishSavingWithError error: NSError?, contextInfo info: AnyObject) {
         var title = "Success"
-        var message = "Video was saved!  Great Job!  Watch back your take, then try again.  Maybe give your actor some more direction, try getting closer, etc."
+        var message = "Video was saved!  Great Job!  Click on 'My Takes' to watch back your take, then try again.  You can try giving your actor some different direction, or get closer or further away from your subject."
         
         //Saving it in my Database too!
         let localid = fetchLastVideoSaved()

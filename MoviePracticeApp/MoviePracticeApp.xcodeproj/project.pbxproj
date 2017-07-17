@@ -26,6 +26,7 @@
 		51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */; };
 		51F93DF91F1424EB009E4DF3 /* MyTakesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */; };
 		65CF9275438EF04818493BEC /* Pods_MoviePracticeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837CE62395D90A57571C033A /* Pods_MoviePracticeAppTests.framework */; };
+		8C496A8909F2DEE1AFA691B0 /* Pods_MoviePracticeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7919BA2649CB8E8FF3A7FA58 /* Pods_MoviePracticeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 				51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */,
 				513C25A91F158365000F2996 /* AVFoundation.framework in Frameworks */,
 				513C25A71F15835F000F2996 /* AVKit.framework in Frameworks */,
+				8C496A8909F2DEE1AFA691B0 /* Pods_MoviePracticeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

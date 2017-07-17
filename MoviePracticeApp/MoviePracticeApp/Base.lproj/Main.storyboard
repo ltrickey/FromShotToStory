@@ -139,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC">
-                                <rect key="frame" x="181" y="464" width="750" height="41.5"/>
+                                <rect key="frame" x="181" y="464" width="750" height="48.5"/>
                                 <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="750" id="rWd-Y4-Dj2"/>
@@ -148,7 +148,7 @@
                                     <fragment content="Descrption of shot type and how it can be used in filmmaking">
                                         <attributes>
                                             <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="17" name="ArialRoundedMTBold"/>
+                                            <font key="NSFont" size="20" name="ArialRoundedMTBold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" paragraphSpacing="1" paragraphSpacingBefore="1" lineHeightMultiple="2" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -209,7 +209,7 @@
                             <constraint firstAttribute="trailing" secondItem="hXM-3c-Mvn" secondAttribute="trailing" id="AzP-pC-Kis"/>
                             <constraint firstItem="eWU-M2-1eh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dtf-aL-BLu"/>
                             <constraint firstItem="Vu8-3I-cXC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="400" id="MgC-hL-hm9"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hXM-3c-Mvn" secondAttribute="bottom" constant="20" id="SvJ-Cr-4Nx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hXM-3c-Mvn" secondAttribute="bottom" constant="20" id="SvJ-Cr-4Nx" userLabel="Button Stack Bottom"/>
                             <constraint firstItem="hXM-3c-Mvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vnd-vL-49K"/>
                             <constraint firstItem="eWU-M2-1eh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="c80-i5-a6B"/>
                             <constraint firstItem="Vu8-3I-cXC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ttC-Hh-XkU"/>
@@ -218,10 +218,10 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonStackBottom" destination="SvJ-Cr-4Nx" id="Hfm-TP-Yfc"/>
                         <outlet property="buttonStackView" destination="hXM-3c-Mvn" id="T0m-9l-JH2"/>
                         <outlet property="myShotsButton" destination="9yO-4B-UjV" id="hQ9-07-6m9"/>
                         <outlet property="shotDescLabel" destination="Vu8-3I-cXC" id="aJF-Hk-Dzf"/>
-                        <outlet property="shotDescriptionBottom" destination="SvJ-Cr-4Nx" id="Woj-fz-kS1"/>
                         <outlet property="shotDescriptionHeight" destination="MgC-hL-hm9" id="P7s-00-oPe"/>
                         <outlet property="shotImageView" destination="eWU-M2-1eh" id="fSf-H8-6mk"/>
                         <outlet property="tryItButton" destination="vdz-Hd-jYg" id="esj-h4-ixt"/>
