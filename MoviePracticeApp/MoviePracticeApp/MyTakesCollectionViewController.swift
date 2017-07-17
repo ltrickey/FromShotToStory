@@ -111,8 +111,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         if recognizer.state == UIGestureRecognizerState.ended {
             let tapLocation = recognizer.location(in: self.collectionView)
             if let tapIndexPath = self.collectionView?.indexPathForItem(at: tapLocation) {
-                print(tapIndexPath)
-                print(tapIndexPath[1])
                 
                 let takeToPlay = shotsTaken[tapIndexPath[1]]
                 
@@ -126,39 +124,36 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     //Delete function called when delete button on cell is tapped.
     func deleteTakeCell(sender:UIButton) {
         
-        print("delete button pushed")
-        // Put the index number of the delete button the use tapped in a variable
-        
-        //for some reason this is uiview not collectionview cell.
+        //Access cell attached to button
         let cell = sender.superview?.superview as! UICollectionViewCell
         
-        print(cell)
+        self.collectionView?.willRemoveSubview(cell)
         
         let cellPath = self.collectionView?.indexPath(for: cell)
         
-        print(cellPath!)
         let i: Int = cellPath![1]
 
-//        // Remove an object from the collection view's dataSource
+       // Remove an object from the collection view's dataSource
         let takeToDelete = shotsTaken[i]
         data.deleteTake(shot: self.shotName!, take: takeToDelete)
         
-//        // Remove Video Asset from Photos library!
-        
-            PHPhotoLibrary.shared().performChanges( {
-                let videoAsset = self.getVideoFromLocalIdentifier(id: takeToDelete.localid)
-                PHAssetChangeRequest.deleteAssets([videoAsset] as NSFastEnumeration)}, completionHandler: { success, error in print("Finished deleting asset. %@", (success ? "Success" : error!))
+       // Remove Video Asset from Photos library
+        PHPhotoLibrary.shared().performChanges( {
+            let videoAsset = self.getVideoFromLocalIdentifier(id: takeToDelete.localid)
+            PHAssetChangeRequest.deleteAssets([videoAsset] as NSFastEnumeration)}, completionHandler: { success, error in print("Finished deleting asset. %@", (success ? "Success" : error!))
         })
-//        let videoAsset = getVideoFromLocalIdentifier(id: takeToDelete.localid)
-//        
-//        // Need to put this in a perform changes completion block, like with ShotViewController.  
-//        //See: https://developer.apple.com/documentation/photos/phphotolibrary/1620743-performchanges
-//        PHAssetChangeRequest.deleteAssets([videoAsset] as NSFastEnumeration)
-//        
-        // Refresh the collection view - this deletes the button.  Maybe add to array and then when edit done remove all?
-        self.collectionView?.reloadItems(at: [cellPath!])
-        self.collectionView?.reloadData()
+  
+        // Refresh the collection view - this deletes the button.  How to delete whole cell?
+        shotsTaken = (data.allTakesSaved[shotName!]!)
+        print(shotsTaken)
+        loadTakes()
+//        self.collectionView?.reloadItems(at: [cellPath!])
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+        }
+        
     }
+
     
     // MARK: Edit function called when edit button on bar is tapped.
     func deleteTakes(_ sender: UIBarButtonItem) {
@@ -176,19 +171,14 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             for item in self.collectionView!.visibleCells as! [MyTakesCollectionViewCell] {
                 let indexPath: NSIndexPath = self.collectionView!.indexPath(for: item as MyTakesCollectionViewCell)! as NSIndexPath
                 let cell: MyTakesCollectionViewCell = self.collectionView!.cellForItem(at: indexPath as IndexPath) as! MyTakesCollectionViewCell!
-                cell.deleteButton.isHidden = false // Hide all of the delete buttons
+                cell.deleteButton.isHidden = false // show all of the delete buttons
             }
         } else {
             // renable tap gesture for playing video
-            //disable tap gesture recognizer for playing video
             tapGesture.isEnabled = true
-            
-            //relaod collection
-            self.collectionView?.reloadData()
             
             // Take the collection view out of edit mode
             let editButton = self.navigationItem.rightBarButtonItem
-            
             editButton?.style = .plain
             editButton?.title = "Edit"
             editModeEnabled = false
@@ -241,28 +231,20 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     //MARK: Private Methods
     
     private func loadTakes() {
-        
         if !shotsTaken.isEmpty {
             for take in shotsTaken {
-                print("this is the take object>>>>>>")
-                print(take)
-                
                 let asset = getVideoFromLocalIdentifier(id: take.localid)
-                
                 let thumbnail = getAssetThumbnail(asset: asset)
                 take.thumbnail =  thumbnail
                 takes.append(take)
             }
-
         }
-        
     }
     
     private func getVideoFromLocalIdentifier(id: String) -> PHAsset {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
                                                          ascending: false)]
-
         let assetArray = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: fetchOptions)
         let videoAsset = assetArray[0]
         
@@ -270,15 +252,12 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     private func playVideo(view: UIViewController, videoAsset: PHAsset) {
-        
         guard (videoAsset.mediaType == .video) else {
             print("Not a valid video media type")
             return
         }
-        
         PHCachingImageManager().requestAVAsset(forVideo: videoAsset, options: nil) { (asset, audioMix, args) in
             let asset = asset as! AVURLAsset
-            
             DispatchQueue.main.async {
                 let player = AVPlayer(url: asset.url)
                 let playerViewController = AVPlayerViewController()
