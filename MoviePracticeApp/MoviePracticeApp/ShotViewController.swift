@@ -77,7 +77,7 @@ class ShotViewController: UIViewController {
     
     func video(_ videoPath: NSString, didFinishSavingWithError error: NSError?, contextInfo info: AnyObject) {
         var title = "Success"
-        var message = "Video was saved"
+        var message = "Video was saved!  Great Job!  Watch back your take, then try again.  Maybe give your actor some more direction, try getting closer, etc."
         
         //Saving it in my Database too!
         let localid = fetchLastVideoSaved()

@@ -99,12 +99,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             cell.savedShotImageView?.image = take.thumbnail
             cell.savedShotImageView?.isUserInteractionEnabled = true
             
-//            // Give the delete button an index number
-//            cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
-//            
-//            //also send index path
-//            cell.deleteButton.layer.setValue(indexPath, forKey: "indexPath")
-            
             // Add an action function to the delete button
             cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
         }
@@ -122,7 +116,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 
                 let takeToPlay = shotsTaken[tapIndexPath[1]]
                 
-                let videoAsset = getVideoToPlayFromLocalIdentifier(id: takeToPlay.localid)
+                let videoAsset = getVideoFromLocalIdentifier(id: takeToPlay.localid)
                 
                 playVideo (view: self, videoAsset: videoAsset)
             }
@@ -136,17 +130,34 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Put the index number of the delete button the use tapped in a variable
         
         //for some reason this is uiview not collectionview cell.
-        let superView = sender.superview
-        let superViewPath = self.collectionView?.indexPath(for: superView as! UICollectionViewCell)
-        let i: Int = (sender.layer.value(forKey: "index")) as! Int
-                
-        // Remove an object from the collection view's dataSource
+        let cell = sender.superview?.superview as! UICollectionViewCell
+        
+        print(cell)
+        
+        let cellPath = self.collectionView?.indexPath(for: cell)
+        
+        print(cellPath!)
+        let i: Int = cellPath![1]
+
+//        // Remove an object from the collection view's dataSource
         let takeToDelete = shotsTaken[i]
         data.deleteTake(shot: self.shotName!, take: takeToDelete)
         
+//        // Remove Video Asset from Photos library!
+        
+            PHPhotoLibrary.shared().performChanges( {
+                let videoAsset = self.getVideoFromLocalIdentifier(id: takeToDelete.localid)
+                PHAssetChangeRequest.deleteAssets([videoAsset] as NSFastEnumeration)}, completionHandler: { success, error in print("Finished deleting asset. %@", (success ? "Success" : error!))
+        })
+//        let videoAsset = getVideoFromLocalIdentifier(id: takeToDelete.localid)
+//        
+//        // Need to put this in a perform changes completion block, like with ShotViewController.  
+//        //See: https://developer.apple.com/documentation/photos/phphotolibrary/1620743-performchanges
+//        PHAssetChangeRequest.deleteAssets([videoAsset] as NSFastEnumeration)
+//        
         // Refresh the collection view - this deletes the button.  Maybe add to array and then when edit done remove all?
-//        let indexPath = [0, i] as IndexPath
-        self.collectionView?.reloadItems(at: [superViewPath!])
+        self.collectionView?.reloadItems(at: [cellPath!])
+        self.collectionView?.reloadData()
     }
     
     // MARK: Edit function called when edit button on bar is tapped.
@@ -190,9 +201,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             }
         }
     }
-
-
-
     
     // MARK: UICollectionViewDelegateFlowLayout 
     // taken from tutorial to make collection view larger
@@ -239,7 +247,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 print("this is the take object>>>>>>")
                 print(take)
                 
-                let asset = getVideoToPlayFromLocalIdentifier(id: take.localid)
+                let asset = getVideoFromLocalIdentifier(id: take.localid)
                 
                 let thumbnail = getAssetThumbnail(asset: asset)
                 take.thumbnail =  thumbnail
@@ -250,7 +258,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
     }
     
-    private func getVideoToPlayFromLocalIdentifier(id: String) -> PHAsset {
+    private func getVideoFromLocalIdentifier(id: String) -> PHAsset {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
                                                          ascending: false)]
