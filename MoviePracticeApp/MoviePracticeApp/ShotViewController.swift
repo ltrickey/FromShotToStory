@@ -11,6 +11,7 @@ import UIKit
 import MobileCoreServices
 import Photos
 import QuartzCore
+import SwiftyGif
 
 // save shot URLS after they've been done here.
 // shot name string, urls of shots array of strings.
@@ -38,7 +39,7 @@ class ShotViewController: UIViewController {
     
     //connecting touch up inside from button to record video.
     @IBAction func record(_ sender: UIButton) {
-        // added _ = to say we're not capturing result.
+        // added _ = to say we're not saving the result from this in this function.
         _ = startCameraFromViewController(self, withDelegate: self)
     }
     
@@ -50,9 +51,10 @@ class ShotViewController: UIViewController {
         // Set up views with existing Shot.
         if let shot = shot {
             navigationItem.title = shot.name
-            shotImageView.image = shot.photo
             shotDescLabel.text = shot.description
-        
+            let gif = UIImage(gifName: "closeUp.gif")
+            let gifManager = SwiftyGifManager(memoryLimit:20)
+            shotImageView.setGifImage(gif, manager: gifManager)
         }
         
         //add borders to buttons 

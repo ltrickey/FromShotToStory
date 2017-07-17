@@ -23,6 +23,8 @@
 		51C3E3C61F0AF68200AF729A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C51F0AF68200AF729A /* Assets.xcassets */; };
 		51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */; };
 		51C3E3D41F0AF68300AF729A /* MoviePracticeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */; };
+		51DA094B1F1D5C5500FD3BD8 /* SwiftyGif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DA094A1F1D5C5500FD3BD8 /* SwiftyGif.framework */; };
+		51DA09511F1D5E3700FD3BD8 /* closeUp.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51DA09501F1D5E3700FD3BD8 /* closeUp.gif */; };
 		51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */; };
 		51F93DF91F1424EB009E4DF3 /* MyTakesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */; };
 		65CF9275438EF04818493BEC /* Pods_MoviePracticeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837CE62395D90A57571C033A /* Pods_MoviePracticeAppTests.framework */; };
@@ -60,6 +62,8 @@
 		51C3E3CF1F0AF68300AF729A /* MoviePracticeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviePracticeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePracticeAppTests.swift; sourceTree = "<group>"; };
 		51C3E3D51F0AF68300AF729A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51DA094A1F1D5C5500FD3BD8 /* SwiftyGif.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyGif.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/SwiftyGif/SwiftyGif.framework"; sourceTree = "<group>"; };
+		51DA09501F1D5E3700FD3BD8 /* closeUp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = closeUp.gif; path = ../../../../../../Downloads/closeUp.gif; sourceTree = "<group>"; };
 		51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriedShotTableViewCell.swift; sourceTree = "<group>"; };
 		51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTakesCollectionViewController.swift; sourceTree = "<group>"; };
 		70D945474346E3A6B642E3CF /* Pods-MoviePracticeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviePracticeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51DA094B1F1D5C5500FD3BD8 /* SwiftyGif.framework in Frameworks */,
 				51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */,
 				513C25A91F158365000F2996 /* AVFoundation.framework in Frameworks */,
 				513C25A71F15835F000F2996 /* AVKit.framework in Frameworks */,
@@ -96,6 +101,7 @@
 		513C25A51F15835F000F2996 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51DA094A1F1D5C5500FD3BD8 /* SwiftyGif.framework */,
 				51B7B4DB1F1AFF440049C8BF /* CSV.framework */,
 				513C25A81F158365000F2996 /* AVFoundation.framework */,
 				513C25A61F15835F000F2996 /* AVKit.framework */,
@@ -140,6 +146,7 @@
 				51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */,
 				51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */,
 				513C25A11F146518000F2996 /* MyTakesCollectionViewCell.swift */,
+				51DA094C1F1D5D2A00FD3BD8 /* Gifs */,
 				51C3E3C51F0AF68200AF729A /* Assets.xcassets */,
 				51574EA71F1AEAE200C2AE6E /* shotData.csv */,
 				51C3E3CA1F0AF68200AF729A /* Info.plist */,
@@ -154,6 +161,14 @@
 				51C3E3D51F0AF68300AF729A /* Info.plist */,
 			);
 			path = MoviePracticeAppTests;
+			sourceTree = "<group>";
+		};
+		51DA094C1F1D5D2A00FD3BD8 /* Gifs */ = {
+			isa = PBXGroup;
+			children = (
+				51DA09501F1D5E3700FD3BD8 /* closeUp.gif */,
+			);
+			name = Gifs;
 			sourceTree = "<group>";
 		};
 		B2BF85122728D8D7C972B7F1 /* Pods */ = {
@@ -258,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */,
+				51DA09511F1D5E3700FD3BD8 /* closeUp.gif in Resources */,
 				51C3E3C61F0AF68200AF729A /* Assets.xcassets in Resources */,
 				51574EA81F1AEAE200C2AE6E /* shotData.csv in Resources */,
 				51C3E3C41F0AF68200AF729A /* Main.storyboard in Resources */,
