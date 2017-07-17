@@ -15,13 +15,13 @@ class Shot {
     
     let name: String
     let photo: UIImage?
-    let video: String? // using Youtube API?  String or no?
+    let gif: String? // using Youtube API?  String or no?
     let description: String
     var tried: Bool
     
     //MARK: Initialization
     
-    init?(name: String, photo: UIImage?, video: String?, description: String) {
+    init?(name: String, photo: UIImage?, gif: String?, description: String) {
         
         // return nill if no name or description
         guard !name.isEmpty else { return nil }
@@ -31,7 +31,7 @@ class Shot {
         
         self.name = name
         self.photo = photo
-        self.video = video
+        self.gif = gif
         self.description = description
         self.tried = false
     }
