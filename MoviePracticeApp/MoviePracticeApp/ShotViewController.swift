@@ -39,6 +39,8 @@ class ShotViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.bringSubview(toFront: shotDescLabel)
                 
         // Set up views with existing Shot.
         if let shot = shot {
