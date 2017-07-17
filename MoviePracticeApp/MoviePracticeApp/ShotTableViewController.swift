@@ -124,7 +124,13 @@ class ShotTableViewController: UITableViewController {
             let shotImage = UIImage(named: shotImageName)!
             let shotDescription = row[2]
             
-            guard let shotObject = Shot(name: shotName, photo: shotImage, video: nil, description: shotDescription) else {
+            var shotGif: String?
+            let isIndexValid = row.indices.contains(3)
+            if isIndexValid {
+                shotGif = row[3]
+            }
+            
+            guard let shotObject = Shot(name: shotName, photo: shotImage, gif: shotGif, description: shotDescription) else {
                     fatalError("Unable to instansiate shot")
                 }
             
