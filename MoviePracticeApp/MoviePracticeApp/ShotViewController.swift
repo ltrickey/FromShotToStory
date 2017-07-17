@@ -29,6 +29,7 @@ class ShotViewController: UIViewController {
     @IBOutlet weak var shotDescriptionHeight: NSLayoutConstraint!
 
     @IBOutlet weak var shotImageView: UIImageView!
+    @IBOutlet weak var replayGifButton: UIButton!
     @IBOutlet weak var myShotsButton: UIButton!
     @IBOutlet weak var tryItButton: UIButton!
     @IBOutlet weak var buttonStackView: UIStackView!
@@ -36,6 +37,9 @@ class ShotViewController: UIViewController {
    
     // set optional shot variable 
     var shot: Shot?
+    
+    //Set up gifManager to be used later
+    let gifManager = SwiftyGifManager(memoryLimit:20)
     
     //connecting touch up inside from button to record video.
     @IBAction func record(_ sender: UIButton) {
@@ -53,11 +57,12 @@ class ShotViewController: UIViewController {
             navigationItem.title = shot.name
             shotDescLabel.text = shot.description
             if shot.gif != nil {
+                replayGifButton.isHidden = false
                 let gif = UIImage(gifName: shot.gif!)
-                let gifManager = SwiftyGifManager(memoryLimit:20)
                 shotImageView.setGifImage(gif, manager: gifManager, loopCount: 1)
             } else {
                 shotImageView.image = shot.photo
+                replayGifButton.isHidden = true
             }
         }
         
@@ -76,6 +81,12 @@ class ShotViewController: UIViewController {
             myShotsButton.isHidden = true
         }
         
+    }
+    
+    @IBAction func replayGif(_ sender: UIButton) {
+        print("replay pushed")
+        let gif = UIImage(gifName: (shot?.gif!)!)
+        shotImageView.setGifImage(gif, manager: gifManager, loopCount: 1)
     }
 
     override func didReceiveMemoryWarning() {

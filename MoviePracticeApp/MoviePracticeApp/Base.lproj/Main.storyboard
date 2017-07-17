@@ -203,6 +203,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-8s-arN">
+                                <rect key="frame" x="165" y="524" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="REPLAY"/>
+                                <connections>
+                                    <action selector="replayGif:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kId-xI-tha"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -221,6 +229,7 @@
                         <outlet property="buttonStackBottom" destination="SvJ-Cr-4Nx" id="Hfm-TP-Yfc"/>
                         <outlet property="buttonStackView" destination="hXM-3c-Mvn" id="T0m-9l-JH2"/>
                         <outlet property="myShotsButton" destination="9yO-4B-UjV" id="hQ9-07-6m9"/>
+                        <outlet property="replayGifButton" destination="fEB-8s-arN" id="Nc4-OJ-2gd"/>
                         <outlet property="shotDescLabel" destination="Vu8-3I-cXC" id="aJF-Hk-Dzf"/>
                         <outlet property="shotDescriptionHeight" destination="MgC-hL-hm9" id="P7s-00-oPe"/>
                         <outlet property="shotImageView" destination="eWU-M2-1eh" id="fSf-H8-6mk"/>
