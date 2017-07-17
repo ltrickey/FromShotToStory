@@ -84,24 +84,19 @@ class ShotViewController: UIViewController {
         //change layout of description label based on orientation.
         switch UIDevice.current.orientation{
         case .portrait:
-            buttonStackView.spacing = 50 as CGFloat
             shotDescriptionHeight.constant = 550 as CGFloat
             buttonStackBottom.constant = 75 as CGFloat
         case .portraitUpsideDown:
-            buttonStackView.spacing = 50 as CGFloat
             shotDescriptionHeight.constant = 550 as CGFloat
             buttonStackBottom.constant = 75 as CGFloat
         case .landscapeLeft:
-            buttonStackView.spacing = 20 as CGFloat
-            shotDescriptionHeight.constant = 400 as CGFloat
+            shotDescriptionHeight.constant = 500 as CGFloat
             buttonStackBottom.constant = 30 as CGFloat
         case .landscapeRight:
-            buttonStackView.spacing = 20 as CGFloat
-            shotDescriptionHeight.constant = 400 as CGFloat
+            shotDescriptionHeight.constant = 500 as CGFloat
             buttonStackBottom.constant = 30 as CGFloat
         default:
-            buttonStackView.spacing = 20 as CGFloat
-            shotDescriptionHeight.constant = 400 as CGFloat
+            shotDescriptionHeight.constant = 500 as CGFloat
             buttonStackBottom.constant = 75 as CGFloat
         }
     }
