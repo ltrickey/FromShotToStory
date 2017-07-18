@@ -16,11 +16,11 @@
 		513C25A91F158365000F2996 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513C25A81F158365000F2996 /* AVFoundation.framework */; };
 		513C25AB1F15887B000F2996 /* Take.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C25AA1F15887B000F2996 /* Take.swift */; };
 		51574EA81F1AEAE200C2AE6E /* shotData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 51574EA71F1AEAE200C2AE6E /* shotData.csv */; };
+		5159B5A31F1EAC1B00170959 /* StoryBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5159B5A21F1EAC1B00170959 /* StoryBoardViewController.swift */; };
+		5159B5A51F1EAC9100170959 /* ShotChoiceImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5159B5A41F1EAC9100170959 /* ShotChoiceImageView.swift */; };
 		51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7B4DB1F1AFF440049C8BF /* CSV.framework */; };
 		51B896BC1F1DA8E3008BAA69 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */; };
 		51B896BE1F1E846D008BAA69 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896BD1F1E846D008BAA69 /* StoryViewController.swift */; };
-		51B896C41F1E90BF008BAA69 /* ShotTypesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896C31F1E90BF008BAA69 /* ShotTypesCollectionViewController.swift */; };
-		51B896C61F1E9224008BAA69 /* ShotTypesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896C51F1E9224008BAA69 /* ShotTypesCollectionViewCell.swift */; };
 		51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */; };
 		51C3E3C11F0AF68200AF729A /* ShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3C01F0AF68200AF729A /* ShotViewController.swift */; };
 		51C3E3C41F0AF68200AF729A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C21F0AF68200AF729A /* Main.storyboard */; };
@@ -58,11 +58,11 @@
 		513C25A81F158365000F2996 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		513C25AA1F15887B000F2996 /* Take.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Take.swift; sourceTree = "<group>"; };
 		51574EA71F1AEAE200C2AE6E /* shotData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shotData.csv; sourceTree = "<group>"; };
+		5159B5A21F1EAC1B00170959 /* StoryBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBoardViewController.swift; sourceTree = "<group>"; };
+		5159B5A41F1EAC9100170959 /* ShotChoiceImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotChoiceImageView.swift; sourceTree = "<group>"; };
 		51B7B4DB1F1AFF440049C8BF /* CSV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSV.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/CSV.swift/CSV.framework"; sourceTree = "<group>"; };
 		51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		51B896BD1F1E846D008BAA69 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
-		51B896C31F1E90BF008BAA69 /* ShotTypesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTypesCollectionViewController.swift; sourceTree = "<group>"; };
-		51B896C51F1E9224008BAA69 /* ShotTypesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotTypesCollectionViewCell.swift; sourceTree = "<group>"; };
 		51C3E3BB1F0AF68200AF729A /* MoviePracticeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviePracticeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C3E3C01F0AF68200AF729A /* ShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewController.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 				51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */,
 				51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */,
 				51B896BD1F1E846D008BAA69 /* StoryViewController.swift */,
-				51B896C31F1E90BF008BAA69 /* ShotTypesCollectionViewController.swift */,
-				51B896C51F1E9224008BAA69 /* ShotTypesCollectionViewCell.swift */,
+				5159B5A21F1EAC1B00170959 /* StoryBoardViewController.swift */,
+				5159B5A41F1EAC9100170959 /* ShotChoiceImageView.swift */,
 				51B896C71F1E94AF008BAA69 /* Learn Shots */,
 				5138A5E51F18189D00757BDC /* DataStore.swift */,
 				5133C2771F0D6CC000E1B33E /* Shot.swift */,
@@ -422,12 +422,12 @@
 				51B896BE1F1E846D008BAA69 /* StoryViewController.swift in Sources */,
 				5133C27C1F0D964800E1B33E /* ShotTableViewController.swift in Sources */,
 				5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */,
-				51B896C41F1E90BF008BAA69 /* ShotTypesCollectionViewController.swift in Sources */,
 				51C3E3C11F0AF68200AF729A /* ShotViewController.swift in Sources */,
 				5138A5E61F18189D00757BDC /* DataStore.swift in Sources */,
+				5159B5A51F1EAC9100170959 /* ShotChoiceImageView.swift in Sources */,
 				51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */,
+				5159B5A31F1EAC1B00170959 /* StoryBoardViewController.swift in Sources */,
 				513C25A21F146518000F2996 /* MyTakesCollectionViewCell.swift in Sources */,
-				51B896C61F1E9224008BAA69 /* ShotTypesCollectionViewCell.swift in Sources */,
 				513C25AB1F15887B000F2996 /* Take.swift in Sources */,
 				51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */,
 				5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */,

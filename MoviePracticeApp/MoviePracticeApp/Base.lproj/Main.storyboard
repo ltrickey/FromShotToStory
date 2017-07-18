@@ -140,15 +140,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8s5-B1-C7M">
-                                <rect key="frame" x="0.0" y="501" width="1112" height="333"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H3a-pK-6H8">
+                                <rect key="frame" x="44" y="389" width="1024" height="401"/>
                                 <connections>
-                                    <segue destination="mOP-Iw-JA9" kind="embed" id="Ymr-HY-ZwC"/>
+                                    <segue destination="BfA-hO-brv" kind="embed" id="adW-rB-0Cr"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H3a-pK-6H8" firstAttribute="centerY" secondItem="lLz-bC-9Uk" secondAttribute="centerY" id="8NW-ie-tqx"/>
+                            <constraint firstItem="H3a-pK-6H8" firstAttribute="centerX" secondItem="lLz-bC-9Uk" secondAttribute="centerX" id="CvI-OU-0bt"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -270,66 +273,11 @@
             </objects>
             <point key="canvasLocation" x="489" y="-33"/>
         </scene>
-        <!--Shot Types Collection View Controller-->
-        <scene sceneID="LJc-mI-oEb">
-            <objects>
-                <collectionViewController id="mOP-Iw-JA9" customClass="ShotTypesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ySU-4H-61Q">
-                        <rect key="frame" x="0.0" y="0.0" width="1112" height="333"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Sgd-7u-MP1">
-                            <size key="itemSize" width="259" height="252"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShotTypesCollectionViewCell" id="WAQ-lo-gaN" customClass="ShotTypesCollectionViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="259" height="252"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="259" height="252"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="filmStrip" translatesAutoresizingMaskIntoConstraints="NO" id="jM1-SR-RJV">
-                                            <rect key="frame" x="-20" y="-11.5" width="300" height="275"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shot Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-DJ-zeN">
-                                            <rect key="frame" x="78" y="116" width="102" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="jM1-SR-RJV" firstAttribute="centerX" secondItem="WAQ-lo-gaN" secondAttribute="centerX" id="S1X-vL-Lf9"/>
-                                    <constraint firstItem="y7A-DJ-zeN" firstAttribute="centerY" secondItem="WAQ-lo-gaN" secondAttribute="centerY" id="aZ3-bB-Ijl"/>
-                                    <constraint firstItem="y7A-DJ-zeN" firstAttribute="centerX" secondItem="WAQ-lo-gaN" secondAttribute="centerX" id="uk9-zA-MhH"/>
-                                    <constraint firstItem="jM1-SR-RJV" firstAttribute="centerY" secondItem="WAQ-lo-gaN" secondAttribute="centerY" id="yUL-kH-Zrv"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="shotNameLabel" destination="y7A-DJ-zeN" id="9Y1-5S-i2B"/>
-                                    <outlet property="shotTypeImageView" destination="jM1-SR-RJV" id="Hos-Yy-rbr"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="mOP-Iw-JA9" id="in5-0c-fHf"/>
-                            <outlet property="delegate" destination="mOP-Iw-JA9" id="qx3-9R-zxb"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Odh-d7-fch" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="351" y="1139"/>
-        </scene>
         <!--My Takes Collection View Controller-->
         <scene sceneID="i4m-tD-oOr">
             <objects>
                 <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -450,10 +398,47 @@
             </objects>
             <point key="canvasLocation" x="-970" y="118"/>
         </scene>
+        <!--Story Board View Controller-->
+        <scene sceneID="c10-on-93d">
+            <objects>
+                <viewController id="BfA-hO-brv" customClass="StoryBoardViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uoq-gX-6pI">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="401"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XaN-4O-y8g" customClass="ShotChoiceImageView" customModule="MoviePracticeApp" customModuleProvider="target">
+                                <rect key="frame" x="20" y="78" width="240" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="twH-Md-rEH" customClass="ShotChoiceImageView" customModule="MoviePracticeApp" customModuleProvider="target">
+                                <rect key="frame" x="268" y="78" width="240" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="82e-VY-IHu" customClass="ShotChoiceImageView" customModule="MoviePracticeApp" customModuleProvider="target">
+                                <rect key="frame" x="516" y="78" width="240" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GOO-wk-Pa0" customClass="ShotChoiceImageView" customModule="MoviePracticeApp" customModuleProvider="target">
+                                <rect key="frame" x="764" y="78" width="240" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="FirstShot" destination="XaN-4O-y8g" id="9KJ-Ui-QQR"/>
+                        <outlet property="FourthShot" destination="GOO-wk-Pa0" id="ACt-HV-0pc"/>
+                        <outlet property="SecondShot" destination="twH-Md-rEH" id="dGx-ca-poI"/>
+                        <outlet property="ThirdShot" destination="82e-VY-IHu" id="jU3-TL-4LH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0n-AL-x86" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="392.80575539568349" y="1233.453237410072"/>
+        </scene>
     </scenes>
     <resources>
         <image name="defaultShot" width="694" height="438"/>
-        <image name="filmStrip" width="300" height="275"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v7S-ab-MzB"/>
