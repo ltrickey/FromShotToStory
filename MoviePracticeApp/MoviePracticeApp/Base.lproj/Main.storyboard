@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jga-ot-BN4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fLk-iM-duv">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,6 +28,7 @@
                                     <subviews>
                                         <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="CuA-ak-WrH">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="350" id="AUw-uR-ZOO"/>
                                                 <constraint firstAttribute="height" constant="200" id="IKg-sS-eVF"/>
@@ -75,6 +76,7 @@
                                     <subviews>
                                         <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="GbQ-PT-Ohs">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="200"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="3j9-FA-7N4"/>
                                                 <constraint firstAttribute="width" constant="350" id="3xk-R6-ra2"/>
@@ -124,7 +126,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktl-O4-ANr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-149" y="135"/>
+            <point key="canvasLocation" x="-248" y="-33"/>
         </scene>
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -157,6 +159,7 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="728.5" placeholderIntrinsicHeight="466" image="defaultShot" translatesAutoresizingMaskIntoConstraints="NO" id="eWU-M2-1eh">
                                 <rect key="frame" x="156" y="74" width="800" height="480"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="480" id="Oog-xx-cay"/>
                                     <constraint firstAttribute="width" constant="800" id="g6g-El-3SG"/>
@@ -238,13 +241,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501.79856115107913" y="134.53237410071944"/>
+            <point key="canvasLocation" x="489" y="-33"/>
         </scene>
         <!--My Takes Collection View Controller-->
         <scene sceneID="i4m-tD-oOr">
             <objects>
                 <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -299,7 +302,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211.8705035971223" y="134.53237410071944"/>
+            <point key="canvasLocation" x="1199" y="-33"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wq4-Mu-XDo">
@@ -312,12 +315,55 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3hg-hD-RsD" kind="relationship" relationship="rootViewController" id="DIL-S2-Ne0"/>
+                        <segue destination="fLk-iM-duv" kind="relationship" relationship="rootViewController" id="eo7-uH-0wk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VcT-2r-mFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-801" y="135"/>
+            <point key="canvasLocation" x="-1712" y="135"/>
+        </scene>
+        <!--Opening View Controller-->
+        <scene sceneID="C26-P6-wyE">
+            <objects>
+                <viewController id="fLk-iM-duv" customClass="OpeningViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9R1-fn-sUY"/>
+                        <viewControllerLayoutGuide type="bottom" id="v0R-dd-GD6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fKd-wV-ZpH">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YkM-w5-KJm">
+                                <rect key="frame" x="20" y="64" width="1072" height="770"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-KD-E9l" userLabel="Learn Shot Types">
+                                        <rect key="frame" x="0.0" y="0.0" width="1072" height="380"/>
+                                        <state key="normal" title="Learn Shot Types"/>
+                                        <connections>
+                                            <segue destination="3hg-hD-RsD" kind="show" id="Irc-2e-GwL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTz-Am-dAg" userLabel="Construct a Story">
+                                        <rect key="frame" x="0.0" y="390" width="1072" height="380"/>
+                                        <state key="normal" title="Construct a Story"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YkM-w5-KJm" firstAttribute="top" secondItem="9R1-fn-sUY" secondAttribute="bottom" id="ODz-hj-62y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YkM-w5-KJm" secondAttribute="trailing" id="Rey-uz-hiu"/>
+                            <constraint firstItem="YkM-w5-KJm" firstAttribute="leading" secondItem="fKd-wV-ZpH" secondAttribute="leadingMargin" id="Rw1-Ea-1hI"/>
+                            <constraint firstItem="v0R-dd-GD6" firstAttribute="top" secondItem="YkM-w5-KJm" secondAttribute="bottom" id="wGE-MX-1vG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dzt-1H-jaG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5yZ-5u-Def" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-970" y="118"/>
         </scene>
     </scenes>
     <resources>

@@ -17,6 +17,7 @@
 		513C25AB1F15887B000F2996 /* Take.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C25AA1F15887B000F2996 /* Take.swift */; };
 		51574EA81F1AEAE200C2AE6E /* shotData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 51574EA71F1AEAE200C2AE6E /* shotData.csv */; };
 		51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7B4DB1F1AFF440049C8BF /* CSV.framework */; };
+		51B896BC1F1DA8E3008BAA69 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */; };
 		51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */; };
 		51C3E3C11F0AF68200AF729A /* ShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3C01F0AF68200AF729A /* ShotViewController.swift */; };
 		51C3E3C41F0AF68200AF729A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C21F0AF68200AF729A /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		513C25AA1F15887B000F2996 /* Take.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Take.swift; sourceTree = "<group>"; };
 		51574EA71F1AEAE200C2AE6E /* shotData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shotData.csv; sourceTree = "<group>"; };
 		51B7B4DB1F1AFF440049C8BF /* CSV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSV.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/CSV.swift/CSV.framework"; sourceTree = "<group>"; };
+		51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		51C3E3BB1F0AF68200AF729A /* MoviePracticeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviePracticeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C3E3C01F0AF68200AF729A /* ShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */,
 				51C3E3C21F0AF68200AF729A /* Main.storyboard */,
+				51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */,
 				51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */,
 				5133C2771F0D6CC000E1B33E /* Shot.swift */,
 				513C25AA1F15887B000F2996 /* Take.swift */,
@@ -409,6 +412,7 @@
 				51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */,
 				5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */,
 				51F93DF91F1424EB009E4DF3 /* MyTakesCollectionViewController.swift in Sources */,
+				51B896BC1F1DA8E3008BAA69 /* OpeningViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
