@@ -426,10 +426,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="FirstShot" destination="XaN-4O-y8g" id="9KJ-Ui-QQR"/>
-                        <outlet property="FourthShot" destination="GOO-wk-Pa0" id="ACt-HV-0pc"/>
-                        <outlet property="SecondShot" destination="twH-Md-rEH" id="dGx-ca-poI"/>
-                        <outlet property="ThirdShot" destination="82e-VY-IHu" id="jU3-TL-4LH"/>
+                        <outlet property="firstShot" destination="XaN-4O-y8g" id="Xeq-vU-bfk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0n-AL-x86" userLabel="First Responder" sceneMemberID="firstResponder"/>

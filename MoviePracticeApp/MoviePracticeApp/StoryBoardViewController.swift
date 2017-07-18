@@ -8,22 +8,42 @@
 
 import UIKit
 
-class StoryBoardViewController: UIViewController {
+class StoryBoardViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    var location = CGPoint(x: 0, y: 0)
+    
+    @IBOutlet weak var firstShot: ShotChoiceImageView!
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch: UITouch! = touches.first as! UITouch
+        
+        location = touch.location(in: self.view)
+        
+        firstShot.center = location
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch: UITouch! = touches.first as! UITouch
+        
+        location = touch.location(in: self.view)
+        
+        firstShot.center = location
 
-    @IBOutlet weak var FirstShot: UIImageView!
-    @IBOutlet weak var SecondShot: UIImageView!
-    @IBOutlet weak var ThirdShot: UIImageView!
-    @IBOutlet weak var FourthShot: UIImageView!
+    }
+    var imagePicker: UIImagePickerController!
+//    var FirstShot:ShotChoiceImageView = ShotChoiceImageView(imageIcon: UIImage(named: "filmStrip"), location: CGPoint(x: 80, y: 330))
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//        self.view.addSubview(FirstShotLocationA)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        firstShot.center = CGPoint(x: 160, y: 330)
     }
     
 
