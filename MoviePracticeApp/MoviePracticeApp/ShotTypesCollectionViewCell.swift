@@ -10,4 +10,11 @@ import UIKit
 
 class ShotTypesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var shotTypeImageView: UIImageView!
+    
+    @IBOutlet weak var shotNameLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }
