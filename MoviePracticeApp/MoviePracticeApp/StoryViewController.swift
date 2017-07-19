@@ -8,13 +8,12 @@
 
 import UIKit
 import DropDown
+import CSV
 
 class StoryViewController: UIViewController {
     
-    let shots = ["Close Up", "Establishing"]
-    let images = ["closeUpShot", "establishing"]
-
-    @IBOutlet weak var shotTypesCollectionView: UICollectionView!
+    var shotNames = [String]()
+    var imageNames = [String]()
     
     @IBOutlet weak var selectShotsLabel: UILabel!
     @IBOutlet weak var selectShotsExample: UILabel!
@@ -45,6 +44,7 @@ class StoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadShotData()
 
         // story stuff
         self.selectShotsLabel.isHidden = true
@@ -52,7 +52,6 @@ class StoryViewController: UIViewController {
         self.selectShotsEncouragement.isHidden = true
         
         //shot view stuff
-        self.firstShotImageView.isHidden = true
         setupStoryDropDownMenu()
         setupfirstShotDropDownMenu()
         setupSecondShotDropDownMenu()
@@ -111,12 +110,12 @@ class StoryViewController: UIViewController {
         firstShotDropDownMenu.anchorView = firstShotDropDown as UIBarButtonItem
         
         // The list of items to display. Can be changed dynamically
-        firstShotDropDownMenu.dataSource = self.shots
+        firstShotDropDownMenu.dataSource = self.shotNames
 
         // Action triggered on selection
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.firstShotDropDown.title = item
-            self.firstShotImageView.image = UIImage(named: self.images[index])
+            self.firstShotImageView.image = UIImage(named: self.imageNames[index])
             self.firstShotImageView.isHidden = false
         }
     }
@@ -126,12 +125,12 @@ class StoryViewController: UIViewController {
         secondShotDropDownMenu.anchorView = secondShotDropDown as UIBarButtonItem
             
         // The list of items to display. Can be changed dynamically
-        secondShotDropDownMenu.dataSource = self.shots
+        secondShotDropDownMenu.dataSource = self.shotNames
             
         // Action triggered on selection
         secondShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.secondShotDropDown.title = item
-            self.secondShotImageView.image = UIImage(named: self.images[index])
+            self.secondShotImageView.image = UIImage(named: self.imageNames[index])
             self.secondShotImageView.isHidden = false
         }
         
@@ -142,12 +141,12 @@ class StoryViewController: UIViewController {
             thirdShotDropDownMenu.anchorView = thirdShotDropDown as UIBarButtonItem
             
             // The list of items to display. Can be changed dynamically
-            thirdShotDropDownMenu.dataSource = self.shots
+            thirdShotDropDownMenu.dataSource = self.shotNames
             
             // Action triggered on selection
             thirdShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
                 self.thirdShotDropDown.title = item
-                self.thirdShotImageView.image = UIImage(named: self.images[index])
+                self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
                 self.thirdShotImageView.isHidden = false
             }
             
@@ -158,12 +157,12 @@ class StoryViewController: UIViewController {
             fourthShotDropDownMenu.anchorView = fourthShotDropDown as UIBarButtonItem
             
             // The list of items to display. Can be changed dynamically
-            fourthShotDropDownMenu.dataSource = self.shots
+            fourthShotDropDownMenu.dataSource = self.shotNames
             
             // Action triggered on selection
             fourthShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
                 self.fourthShotDropDown.title = item
-                self.fourthShotImageView.image = UIImage(named: self.images[index])
+                self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
                 self.fourthShotImageView.isHidden = false
             }
             
@@ -178,4 +177,20 @@ class StoryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //Private method
+    private func loadShotData() {
+        
+        //gets filepath of .csv file
+        let filePath:String = Bundle.main.path(forResource: "shotData", ofType: "csv")!
+        
+        let stream = InputStream(fileAtPath: filePath)!
+        let csv = try! CSVReader(stream: stream)
+        
+        while let row = csv.next() {
+            
+            shotNames.append(row[0])
+            imageNames.append(row[1])
+        }
+    }
 }
