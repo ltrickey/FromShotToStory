@@ -232,23 +232,23 @@ class StoryViewController: UIViewController {
         
         
         let alert = UIAlertController(title: "iOScreator", message:
-            "Hello, world!", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
         
         
         let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             print("perform segue!  DUH")
-//            self.performSegue(withIdentifier: "My Takes", sender: self)
+            self.performSegue(withIdentifier: "My Takes", sender: self)
             
         })
         
         alert.addAction(goToMyTakes)
-        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
+
         alert.popoverPresentationController?.sourceView = self.view
         alert.popoverPresentationController?.sourceRect = self.view.bounds
         // this is the center of the screen currently but it can be any point in the view
         self.present(alert, animated: true, completion: nil)
-
+        
     }
 
 
