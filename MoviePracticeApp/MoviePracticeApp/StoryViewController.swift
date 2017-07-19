@@ -130,7 +130,7 @@ class StoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         firstShotDropDownMenu.anchorView = firstShotDropDown as UIBarButtonItem
         
         // The list of items to display. Can be changed dynamically
-        firstShotDropDownMenu.dataSource = ["Car", "Motorcycle", "Truck"]
+        firstShotDropDownMenu.dataSource = self.shots
 
         
         // Will set a custom with instead of anchor view width
@@ -143,6 +143,8 @@ class StoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // Action triggered on selection
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.firstShotDropDown.title = item
+            self.firstShotImageView.image = UIImage(named: self.images[index])
+            self.firstShotImageView.isHidden = false
         }
         
         // You can manually select a row if needed
