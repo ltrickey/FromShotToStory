@@ -215,21 +215,21 @@
                                     <stackView opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-J9-Rio">
                                         <rect key="frame" x="0.0" y="40" width="1015" height="180"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="Mpy-uT-2J7"/>
                                                     <constraint firstAttribute="height" constant="180" id="ayJ-rj-uRg"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-jS-q9b">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-jS-q9b">
                                                 <rect key="frame" x="255" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="5QT-vW-IJd"/>
                                                     <constraint firstAttribute="width" constant="250" id="6I1-6p-50I"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Ba-Hvp">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Ba-Hvp">
                                                 <rect key="frame" x="510" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="BAe-7Q-nkU"/>
