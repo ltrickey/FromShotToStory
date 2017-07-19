@@ -1,4 +1,4 @@
-//
+
 //  AppDelegate.swift
 //  MoviePracticeApp
 //
@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import AVFoundation
+import DropDown
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         catch {
             print("Setting category to AVAudioSessionCategoryPlayback failed.")
         }
+        
+        DropDown.startListeningToKeyboard()
         
         return true
     }

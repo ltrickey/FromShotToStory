@@ -24,9 +24,13 @@ class StoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var selectShotsExample: UILabel!
     @IBOutlet weak var selectShotsEncouragement: UILabel!
     
-    @IBOutlet weak var firstShotPickerView: UIPickerView!
-    @IBOutlet weak var firstShotTextField: UITextField!
+    
+    @IBOutlet weak var firstShotDropDown: UIBarButtonItem!
     @IBOutlet weak var firstShotImageView: UIImageView!
+    
+    let firstShotDropDownMenu = DropDown()
+    
+
     
     var list = ["", "Jess is having a terrible day.", "Dustin is enjoying the beautiful weather.", "Lila gets distracted.","A new school is very scary", "Sleep is my favorite activity", "Julia is trying to impress her teacher so she can get an A in class.", "Dylan can’t wait for school to be over so he can go to Disneyland."]
     
@@ -42,9 +46,12 @@ class StoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.selectShotsEncouragement.isHidden = true
         
         //shot view stuff
-        self.firstShotTextField.isHidden = true
-        self.firstShotPickerView.isHidden = true
+
         self.firstShotImageView.isHidden = true
+        
+        setupfirstShotDropDownMenu()
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +63,14 @@ class StoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return 1
     }
     
+    // Actions for drop downs
+    @IBAction func openFirstDropDown(_ sender: Any) {
+//        if firstShotDropDownMenu.
+        firstShotDropDownMenu.show()
+//        let selection = firstShotDropDownMenu.selectedItem
+    }
+    
+
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         
         if pickerView == selectStoryPicker {
@@ -86,11 +101,9 @@ class StoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 self.selectShotsExample.isHidden = false
                 self.selectShotsEncouragement.isHidden = false
                 self.selectShotsExample.text = examples[row]
-                self.firstShotTextField.isHidden = false
+
             }
         } else {
-            self.firstShotPickerView.isHidden = true
-            self.firstShotImageView.isHidden = false
             self.firstShotImageView.image = UIImage(named: images[row])
         }
         
@@ -105,14 +118,35 @@ class StoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             textField.endEditing(true)
             
-        } else if textField == self.firstShotTextField {
-            self.firstShotPickerView.isHidden = false
-            self.firstShotImageView.isHidden = true
-            //if you dont want the users to se the keyboard type:
-            
-            textField.endEditing(true)
         }
         
+    }
+    
+    //Setup Drop down
+    
+    func setupfirstShotDropDownMenu() {
+        // The view to which the drop down will appear on
+        
+        firstShotDropDownMenu.anchorView = firstShotDropDown as UIBarButtonItem
+        
+        // The list of items to display. Can be changed dynamically
+        firstShotDropDownMenu.dataSource = ["Car", "Motorcycle", "Truck"]
+
+        
+        // Will set a custom with instead of anchor view width
+        //		dropDown.width = 100
+        
+        
+        // You can also use localizationKeysDataSource instead. Check the docs.
+        
+        
+        // Action triggered on selection
+        firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+            self.firstShotDropDown.title = item
+        }
+        
+        // You can manually select a row if needed
+        //		dropDown.selectRowAtIndex(3)
     }
 
     /*
