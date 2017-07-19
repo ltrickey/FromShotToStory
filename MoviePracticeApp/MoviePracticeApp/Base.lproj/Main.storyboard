@@ -192,42 +192,16 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Lwv-OH-UzU">
                                         <rect key="frame" x="0.0" y="0.0" width="262" height="246"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q0h-tE-yAn">
-                                                <rect key="frame" x="0.0" y="0.0" width="262" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxe-Dw-soX">
-                                                <rect key="frame" x="0.0" y="30" width="262" height="216"/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="oc6-y9-hMR" id="v4N-cz-fAM"/>
-                                                    <outlet property="delegate" destination="oc6-y9-hMR" id="mUm-Ob-cGC"/>
-                                                </connections>
-                                            </pickerView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="q0h-tE-yAn" secondAttribute="trailing" id="TNX-ll-XZQ"/>
-                                            <constraint firstItem="q0h-tE-yAn" firstAttribute="leading" secondItem="Lwv-OH-UzU" secondAttribute="leading" id="n6d-Gg-iYh"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZiL-jb-Gcz">
                                         <rect key="frame" x="270" y="0.0" width="262" height="246"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtH-zM-uwu">
-                                                <rect key="frame" x="0.0" y="0.0" width="262" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="262" height="246"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmC-bE-fH1">
-                                                <rect key="frame" x="0.0" y="30" width="262" height="216"/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="oc6-y9-hMR" id="cq5-WB-ptD"/>
-                                                    <outlet property="delegate" destination="oc6-y9-hMR" id="sqT-QU-esz"/>
-                                                </connections>
-                                            </pickerView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="MtH-zM-uwu" firstAttribute="leading" secondItem="ZiL-jb-Gcz" secondAttribute="leading" id="3MP-1Z-bKx"/>
@@ -333,8 +307,6 @@
                     </view>
                     <connections>
                         <outlet property="firstShotImageView" destination="Sac-U3-7Hy" id="D71-g5-OXc"/>
-                        <outlet property="firstShotPickerView" destination="rxe-Dw-soX" id="VFR-FP-eIi"/>
-                        <outlet property="firstShotTextField" destination="q0h-tE-yAn" id="sTl-iN-Or0"/>
                         <outlet property="selectShotsEncouragement" destination="OUw-AX-sa8" id="CLj-0Y-HOW"/>
                         <outlet property="selectShotsExample" destination="4A5-8y-tHu" id="ZCW-qC-AE6"/>
                         <outlet property="selectShotsLabel" destination="l5h-mO-Qbn" id="7xW-hJ-yN2"/>

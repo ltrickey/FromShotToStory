@@ -5,6 +5,9 @@
       location = "group:MoviePracticeApp.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../DropDown-master/DropDown.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
