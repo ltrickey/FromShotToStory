@@ -184,6 +184,32 @@
                                     <constraint firstItem="tQB-ae-a3m" firstAttribute="leading" secondItem="eOm-aK-2py" secondAttribute="leading" id="wLc-8F-zBk"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
+                                <rect key="frame" x="20" y="496" width="1072" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="First Shot" width="236.5" id="DGK-M7-tgz" userLabel="First Shot">
+                                        <connections>
+                                            <action selector="openFirstDropDown:" destination="oc6-y9-hMR" id="6OE-d7-shZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Second Shot" width="264" id="0aR-xW-EKf" userLabel="Second Shot">
+                                        <connections>
+                                            <action selector="openSecondDropDown:" destination="oc6-y9-hMR" id="YyA-eV-zw2"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Third Shot" width="244" id="UXv-F6-T3l" userLabel="Third Shot">
+                                        <connections>
+                                            <action selector="openThirdDropDown:" destination="oc6-y9-hMR" id="BJX-aG-WYV"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Fourth Shot" width="274" id="ece-S0-rW7" userLabel="Fourth Shot">
+                                        <connections>
+                                            <action selector="openFourthDropDown:" destination="oc6-y9-hMR" id="YCP-ek-1J1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-J9-Rio">
                                 <rect key="frame" x="20" y="596" width="1072" height="218"/>
                                 <subviews>
@@ -216,17 +242,6 @@
                                     <constraint firstAttribute="height" constant="218" id="JyZ-1z-7d8"/>
                                 </constraints>
                             </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
-                                <rect key="frame" x="20" y="496" width="1072" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Show Drop Down" id="DGK-M7-tgz" userLabel="Show Drop Down">
-                                        <connections>
-                                            <action selector="openFirstDropDown:" destination="oc6-y9-hMR" id="6OE-d7-shZ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -241,10 +256,16 @@
                     <connections>
                         <outlet property="firstShotDropDown" destination="DGK-M7-tgz" id="zos-hg-DcI"/>
                         <outlet property="firstShotImageView" destination="Sac-U3-7Hy" id="D71-g5-OXc"/>
+                        <outlet property="fourthShotDropDown" destination="ece-S0-rW7" id="f9f-gO-gQo"/>
+                        <outlet property="fourthShotImageView" destination="WxP-TF-jmS" id="7pJ-fg-gRb"/>
+                        <outlet property="secondShotDropDown" destination="0aR-xW-EKf" id="NAR-Bw-Zq1"/>
+                        <outlet property="secondShotImageView" destination="kMk-jS-q9b" id="dHP-RU-MOO"/>
                         <outlet property="selectShotsEncouragement" destination="OUw-AX-sa8" id="CLj-0Y-HOW"/>
                         <outlet property="selectShotsExample" destination="4A5-8y-tHu" id="ZCW-qC-AE6"/>
                         <outlet property="selectShotsLabel" destination="l5h-mO-Qbn" id="7xW-hJ-yN2"/>
                         <outlet property="storyToTryButton" destination="fCz-gJ-wU4" id="PQO-0G-T7b"/>
+                        <outlet property="thirdShotDropDown" destination="UXv-F6-T3l" id="EY2-gZ-Rm3"/>
+                        <outlet property="thirdShotImageView" destination="sma-Ba-Hvp" id="ouw-Nz-538"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>

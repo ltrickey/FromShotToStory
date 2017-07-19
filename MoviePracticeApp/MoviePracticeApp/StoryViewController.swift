@@ -9,7 +9,7 @@
 import UIKit
 import DropDown
 
-class StoryViewController: UIViewController, UIPickerViewDelegate {
+class StoryViewController: UIViewController {
     
     let shots = ["Close Up", "Establishing"]
     let images = ["closeUpShot", "establishing"]
@@ -23,11 +23,21 @@ class StoryViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var storyToTryButton: UIBarButtonItem!
     
     @IBOutlet weak var firstShotDropDown: UIBarButtonItem!
-    @IBOutlet weak var firstShotImageView: UIImageView!
+    @IBOutlet weak var secondShotDropDown: UIBarButtonItem!
+    @IBOutlet weak var thirdShotDropDown: UIBarButtonItem!
+    @IBOutlet weak var fourthShotDropDown: UIBarButtonItem!
     
-    let firstShotDropDownMenu = DropDown()
+    @IBOutlet weak var firstShotImageView: UIImageView!
+    @IBOutlet weak var secondShotImageView: UIImageView!
+    @IBOutlet weak var thirdShotImageView: UIImageView!
+    @IBOutlet weak var fourthShotImageView: UIImageView!
+    
     let storyDropDown = DropDown()
 
+    let firstShotDropDownMenu = DropDown()
+    let secondShotDropDownMenu = DropDown()
+    let thirdShotDropDownMenu = DropDown()
+    let fourthShotDropDownMenu = DropDown()
     
     var stories = ["", "Jess is having a terrible day.", "Dustin is enjoying the beautiful weather.", "Lila gets distracted.","A new school is very scary", "Sleep is my favorite activity", "Julia is trying to impress her teacher so she can get an A in class.", "Dylan can’t wait for school to be over so he can go to Disneyland."]
     
@@ -42,12 +52,12 @@ class StoryViewController: UIViewController, UIPickerViewDelegate {
         self.selectShotsEncouragement.isHidden = true
         
         //shot view stuff
-
         self.firstShotImageView.isHidden = true
         setupStoryDropDownMenu()
         setupfirstShotDropDownMenu()
-        
-
+        setupSecondShotDropDownMenu()
+        setupThirdShotDropDownMenu()
+        setupFourthShotDropDownMenu()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,71 +65,24 @@ class StoryViewController: UIViewController, UIPickerViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
-        return 1
-    }
     
-    // Actions for drop downs
-    @IBAction func openFirstDropDown(_ sender: Any) {
-        firstShotDropDownMenu.show()
-
-    }
- 
+    // Attach buttons to open drop downs    
     @IBAction func openStoryDropDown(_ sender: Any) {
         storyDropDown.show()
     }
-    
+    @IBAction func openFirstDropDown(_ sender: Any) {
+        firstShotDropDownMenu.show()
+    }
+    @IBAction func openSecondDropDown(_ sender: Any) {
+        secondShotDropDownMenu.show()
+    }
+    @IBAction func openThirdDropDown(_ sender: Any) {
+        thirdShotDropDownMenu.show()
+    }
+    @IBAction func openFourthDropDown(_ sender: Any) {
+        fourthShotDropDownMenu.show()
+    }
 
-//    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-//        
-//        if pickerView == selectStoryPicker {
-//           return list.count
-//        } else {
-//        return shots.count
-//        }
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        self.view.endEditing(true)
-//        
-//        if pickerView == selectStoryPicker {
-//            return list[row]
-//        } else {
-//            return shots[row]
-//        }
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        
-//        if pickerView == selectStoryPicker {
-//            self.selectStoryTextField.text = self.list[row]
-//            self.selectStoryPicker.isHidden = true
-//            
-//            if row != 0 {
-//                self.selectShotsLabel.isHidden = false
-//                self.selectShotsExample.isHidden = false
-//                self.selectShotsEncouragement.isHidden = false
-//                self.selectShotsExample.text = examples[row]
-//
-//            }
-//        } else {
-//            self.firstShotImageView.image = UIImage(named: images[row])
-//        }
-//        
-//    }
-//    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if textField == self.selectStoryTextField {
-//            self.selectStoryPicker.isHidden = false
-//            self.selectShotsLabel.isHidden = true
-//            self.selectShotsExample.isHidden = true
-//            //if you dont want the users to se the keyboard type:
-//            
-//            textField.endEditing(true)
-//            
-//        }
-//        
-//    }
     
     //Setup Drop downs
     
@@ -145,30 +108,66 @@ class StoryViewController: UIViewController, UIPickerViewDelegate {
     
     func setupfirstShotDropDownMenu() {
         // The view to which the drop down will appear on
-        
         firstShotDropDownMenu.anchorView = firstShotDropDown as UIBarButtonItem
         
         // The list of items to display. Can be changed dynamically
         firstShotDropDownMenu.dataSource = self.shots
 
-        
-        // Will set a custom with instead of anchor view width
-        //		dropDown.width = 100
-        
-        
-        // You can also use localizationKeysDataSource instead. Check the docs.
-        
-        
         // Action triggered on selection
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.firstShotDropDown.title = item
             self.firstShotImageView.image = UIImage(named: self.images[index])
             self.firstShotImageView.isHidden = false
         }
-        
-        // You can manually select a row if needed
-        //		dropDown.selectRowAtIndex(3)
     }
+    
+    func setupSecondShotDropDownMenu() {
+        // The view to which the drop down will appear on
+        secondShotDropDownMenu.anchorView = secondShotDropDown as UIBarButtonItem
+            
+        // The list of items to display. Can be changed dynamically
+        secondShotDropDownMenu.dataSource = self.shots
+            
+        // Action triggered on selection
+        secondShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+            self.secondShotDropDown.title = item
+            self.secondShotImageView.image = UIImage(named: self.images[index])
+            self.secondShotImageView.isHidden = false
+        }
+        
+    }
+        
+        func setupThirdShotDropDownMenu() {
+            // The view to which the drop down will appear on
+            thirdShotDropDownMenu.anchorView = thirdShotDropDown as UIBarButtonItem
+            
+            // The list of items to display. Can be changed dynamically
+            thirdShotDropDownMenu.dataSource = self.shots
+            
+            // Action triggered on selection
+            thirdShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+                self.thirdShotDropDown.title = item
+                self.thirdShotImageView.image = UIImage(named: self.images[index])
+                self.thirdShotImageView.isHidden = false
+            }
+            
+        }
+        
+        func setupFourthShotDropDownMenu() {
+            // The view to which the drop down will appear on
+            fourthShotDropDownMenu.anchorView = fourthShotDropDown as UIBarButtonItem
+            
+            // The list of items to display. Can be changed dynamically
+            fourthShotDropDownMenu.dataSource = self.shots
+            
+            // Action triggered on selection
+            fourthShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+                self.fourthShotDropDown.title = item
+                self.fourthShotImageView.image = UIImage(named: self.images[index])
+                self.fourthShotImageView.isHidden = false
+            }
+            
+        }
 
     /*
     // MARK: - Navigation
@@ -179,5 +178,4 @@ class StoryViewController: UIViewController, UIPickerViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
