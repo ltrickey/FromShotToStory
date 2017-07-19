@@ -16,6 +16,7 @@
 		513C25A91F158365000F2996 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513C25A81F158365000F2996 /* AVFoundation.framework */; };
 		513C25AB1F15887B000F2996 /* Take.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C25AA1F15887B000F2996 /* Take.swift */; };
 		51574EA81F1AEAE200C2AE6E /* shotData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 51574EA71F1AEAE200C2AE6E /* shotData.csv */; };
+		5164325D1F1FDC7600D0A94F /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5164325C1F1FDC7600D0A94F /* DropDown.framework */; };
 		51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7B4DB1F1AFF440049C8BF /* CSV.framework */; };
 		51B896BC1F1DA8E3008BAA69 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */; };
 		51B896BE1F1E846D008BAA69 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896BD1F1E846D008BAA69 /* StoryViewController.swift */; };
@@ -56,6 +57,7 @@
 		513C25A81F158365000F2996 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		513C25AA1F15887B000F2996 /* Take.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Take.swift; sourceTree = "<group>"; };
 		51574EA71F1AEAE200C2AE6E /* shotData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shotData.csv; sourceTree = "<group>"; };
+		5164325C1F1FDC7600D0A94F /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		51B7B4DB1F1AFF440049C8BF /* CSV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSV.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/CSV.swift/CSV.framework"; sourceTree = "<group>"; };
 		51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		51B896BD1F1E846D008BAA69 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5164325D1F1FDC7600D0A94F /* DropDown.framework in Frameworks */,
 				51DA094B1F1D5C5500FD3BD8 /* SwiftyGif.framework in Frameworks */,
 				51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */,
 				513C25A91F158365000F2996 /* AVFoundation.framework in Frameworks */,
@@ -111,6 +114,7 @@
 		513C25A51F15835F000F2996 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5164325C1F1FDC7600D0A94F /* DropDown.framework */,
 				51DA094A1F1D5C5500FD3BD8 /* SwiftyGif.framework */,
 				51B7B4DB1F1AFF440049C8BF /* CSV.framework */,
 				513C25A81F158365000F2996 /* AVFoundation.framework */,
