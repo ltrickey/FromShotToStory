@@ -127,9 +127,9 @@ class StoryViewController: UIViewController {
             self.firstShotImageView.isUserInteractionEnabled = true
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
-            let tapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+            let firstTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
             //Add the recognizer to your view.
-            self.firstShotImageView.addGestureRecognizer(tapRecognizer)
+            self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
             self.firstShotImageView.isHidden = false
         }
     }
@@ -152,6 +152,15 @@ class StoryViewController: UIViewController {
         secondShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.secondShotDropDown.title = item
             self.secondShotImageView.image = UIImage(named: self.imageNames[index])
+            
+            //setup tap gesture recognizer on Image
+            self.secondShotImageView.isUserInteractionEnabled = true
+            //now you need a tap gesture recognizer
+            //note that target and action point to what happens when the action is recognized.
+            let secondTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+            //Add the recognizer to your view.
+            self.secondShotImageView.addGestureRecognizer(secondTapRecognizer)
+            
             self.secondShotImageView.isHidden = false
         }
         
@@ -168,6 +177,15 @@ class StoryViewController: UIViewController {
             thirdShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
                 self.thirdShotDropDown.title = item
                 self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
+                
+                //setup tap gesture recognizer on Image
+                self.thirdShotImageView.isUserInteractionEnabled = true
+                //now you need a tap gesture recognizer
+                //note that target and action point to what happens when the action is recognized.
+                let thirdTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+                //Add the recognizer to your view.
+                self.thirdShotImageView.addGestureRecognizer(thirdTapRecognizer)
+                
                 self.thirdShotImageView.isHidden = false
             }
             
@@ -184,6 +202,15 @@ class StoryViewController: UIViewController {
             fourthShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
                 self.fourthShotDropDown.title = item
                 self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
+                
+                //setup tap gesture recognizer on Image
+                self.fourthShotImageView.isUserInteractionEnabled = true
+                //now you need a tap gesture recognizer
+                //note that target and action point to what happens when the action is recognized.
+                let fourthTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+                //Add the recognizer to your view.
+                self.fourthShotImageView.addGestureRecognizer(fourthTapRecognizer)
+                
                 self.fourthShotImageView.isHidden = false
             }
             
