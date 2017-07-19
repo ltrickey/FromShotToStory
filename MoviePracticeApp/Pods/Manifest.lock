@@ -1,15 +1,18 @@
 PODS:
   - CSV.swift (2.0.0)
+  - DropDown (2)
   - SwiftyGif (3.0.3)
 
 DEPENDENCIES:
   - CSV.swift (~> 2.0)
+  - DropDown
   - SwiftyGif
 
 SPEC CHECKSUMS:
   CSV.swift: 9219fd67bd5737c7f7ed1aeee093e28ff6f0e5b0
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   SwiftyGif: 89a0bb19709bdb6990e10405ad456d8bea804a65
 
-PODFILE CHECKSUM: 551eab906e064fce00ecbad24ed11ac01d6e57c8
+PODFILE CHECKSUM: 954b91bf43244419297cc6b142f1a7b30fce96d1
 
 COCOAPODS: 1.2.1

@@ -16,8 +16,8 @@
 		513C25A91F158365000F2996 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513C25A81F158365000F2996 /* AVFoundation.framework */; };
 		513C25AB1F15887B000F2996 /* Take.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C25AA1F15887B000F2996 /* Take.swift */; };
 		51574EA81F1AEAE200C2AE6E /* shotData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 51574EA71F1AEAE200C2AE6E /* shotData.csv */; };
-		51601BE91F1FD3100099D388 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51601BE81F1FD3100099D388 /* DropDown.framework */; };
-		51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7B4DB1F1AFF440049C8BF /* CSV.framework */; };
+		517AC4051F1FD8A20023BF37 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 517AC4041F1FD8A20023BF37 /* DropDown.framework */; };
+		517AC4061F1FDA2D0023BF37 /* CSV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7B4DB1F1AFF440049C8BF /* CSV.framework */; };
 		51B896BC1F1DA8E3008BAA69 /* OpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */; };
 		51B896BE1F1E846D008BAA69 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B896BD1F1E846D008BAA69 /* StoryViewController.swift */; };
 		51C3E3BF1F0AF68200AF729A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */; };
@@ -58,6 +58,7 @@
 		513C25AA1F15887B000F2996 /* Take.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Take.swift; sourceTree = "<group>"; };
 		51574EA71F1AEAE200C2AE6E /* shotData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shotData.csv; sourceTree = "<group>"; };
 		51601BE81F1FD3100099D388 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../DropDown-master/build/Debug-iphoneos/DropDown.framework"; sourceTree = "<group>"; };
+		517AC4041F1FD8A20023BF37 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/DropDown/DropDown.framework"; sourceTree = "<group>"; };
 		51B7B4DB1F1AFF440049C8BF /* CSV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSV.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/CSV.swift/CSV.framework"; sourceTree = "<group>"; };
 		51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		51B896BD1F1E846D008BAA69 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
@@ -91,9 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51601BE91F1FD3100099D388 /* DropDown.framework in Frameworks */,
+				517AC4061F1FDA2D0023BF37 /* CSV.framework in Frameworks */,
+				517AC4051F1FD8A20023BF37 /* DropDown.framework in Frameworks */,
 				51DA094B1F1D5C5500FD3BD8 /* SwiftyGif.framework in Frameworks */,
-				51B7B4DC1F1AFF440049C8BF /* CSV.framework in Frameworks */,
 				513C25A91F158365000F2996 /* AVFoundation.framework in Frameworks */,
 				513C25A71F15835F000F2996 /* AVKit.framework in Frameworks */,
 				8C496A8909F2DEE1AFA691B0 /* Pods_MoviePracticeApp.framework in Frameworks */,
@@ -114,6 +115,7 @@
 		513C25A51F15835F000F2996 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				517AC4041F1FD8A20023BF37 /* DropDown.framework */,
 				51601BE81F1FD3100099D388 /* DropDown.framework */,
 				51DA094A1F1D5C5500FD3BD8 /* SwiftyGif.framework */,
 				51B7B4DB1F1AFF440049C8BF /* CSV.framework */,
@@ -322,7 +324,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		1A9B61A0BE268869C34307BA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -330,14 +332,14 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		419B37AF6551604809D0920C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -345,7 +347,7 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
@@ -367,7 +369,7 @@
 		};
 		F51110BBEE59F74004411098 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -375,7 +377,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
