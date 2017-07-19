@@ -134,13 +134,6 @@ class StoryViewController: UIViewController {
         }
     }
     
-    //Image Tap Functions
-    
-    
-    func imageTapped(_ sender: UITapGestureRecognizer) {
-        print("an image was tapped!")
-    }
-    
     func setupSecondShotDropDownMenu() {
         // The view to which the drop down will appear on
         secondShotDropDownMenu.anchorView = secondShotDropDown as UIBarButtonItem
@@ -216,6 +209,38 @@ class StoryViewController: UIViewController {
             
         }
     
+    //Image Tap Functions
+    
+    
+    func imageTapped(_ sender: UITapGestureRecognizer) {
+        print("an image was tapped!")
+        
+//        let picker = UIImagePickerController()
+//        picker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
+//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {
+//            action in
+//            picker.sourceType = .camera
+//            self.present(picker, animated: true, completion: nil)
+//        }))
+//        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {
+//            action in
+//            picker.sourceType = .photoLibrary
+//            self.present(picker, animated: true, completion: nil)
+//        }))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        
+        let alert = UIAlertController(title: "iOScreator", message:
+            "Hello, world!", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = self.view.bounds
+        // this is the center of the screen currently but it can be any point in the view
+        self.present(alert, animated: true, completion: nil)
+
+    }
 
 
     /*
@@ -243,4 +268,17 @@ class StoryViewController: UIViewController {
             imageNames.append(row[1])
         }
     }
+}
+
+extension StoryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        //use image here!
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
