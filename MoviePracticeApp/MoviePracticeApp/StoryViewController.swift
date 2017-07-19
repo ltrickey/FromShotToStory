@@ -122,8 +122,23 @@ class StoryViewController: UIViewController {
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.firstShotDropDown.title = item
             self.firstShotImageView.image = UIImage(named: self.imageNames[index])
+            
+            //setup tap gesture recognizer on Image
+            self.firstShotImageView.isUserInteractionEnabled = true
+            //now you need a tap gesture recognizer
+            //note that target and action point to what happens when the action is recognized.
+            let tapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+            //Add the recognizer to your view.
+            self.firstShotImageView.addGestureRecognizer(tapRecognizer)
             self.firstShotImageView.isHidden = false
         }
+    }
+    
+    //Image Tap Functions
+    
+    
+    func imageTapped(_ sender: UITapGestureRecognizer) {
+        print("an image was tapped!")
     }
     
     func setupSecondShotDropDownMenu() {
@@ -173,6 +188,8 @@ class StoryViewController: UIViewController {
             }
             
         }
+    
+
 
     /*
     // MARK: - Navigation
