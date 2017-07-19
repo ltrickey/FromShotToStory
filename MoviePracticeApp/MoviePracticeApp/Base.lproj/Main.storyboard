@@ -277,11 +277,12 @@
                         <outlet property="storyToTryButton" destination="fCz-gJ-wU4" id="PQO-0G-T7b"/>
                         <outlet property="thirdShotDropDown" destination="UXv-F6-T3l" id="EY2-gZ-Rm3"/>
                         <outlet property="thirdShotImageView" destination="sma-Ba-Hvp" id="ouw-Nz-538"/>
+                        <segue destination="dOW-F5-u1l" kind="presentation" id="FKI-Cx-73y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="1063"/>
+            <point key="canvasLocation" x="1250" y="665"/>
         </scene>
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -402,7 +403,7 @@
         <scene sceneID="i4m-tD-oOr">
             <objects>
                 <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -529,6 +530,7 @@
         <image name="defaultShot" width="694" height="438"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="FKI-Cx-73y"/>
         <segue reference="v7S-ab-MzB"/>
     </inferredMetricsTieBreakers>
 </document>
