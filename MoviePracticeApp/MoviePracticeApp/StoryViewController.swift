@@ -235,6 +235,15 @@ class StoryViewController: UIViewController {
             "Hello, world!", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
+        
+        let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            print("perform segue!  DUH")
+//            self.performSegue(withIdentifier: "My Takes", sender: self)
+            
+        })
+        
+        alert.addAction(goToMyTakes)
+        
         alert.popoverPresentationController?.sourceView = self.view
         alert.popoverPresentationController?.sourceRect = self.view.bounds
         // this is the center of the screen currently but it can be any point in the view
@@ -243,15 +252,17 @@ class StoryViewController: UIViewController {
     }
 
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "My Takes" {
+//            
+//        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
-    */
+//    }
+
     
     //Private method
     private func loadShotData() {
