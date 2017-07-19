@@ -273,6 +273,7 @@
                         <outlet property="selectShotsEncouragement" destination="OUw-AX-sa8" id="CLj-0Y-HOW"/>
                         <outlet property="selectShotsExample" destination="4A5-8y-tHu" id="ZCW-qC-AE6"/>
                         <outlet property="selectShotsLabel" destination="l5h-mO-Qbn" id="7xW-hJ-yN2"/>
+                        <outlet property="shotsStackView" destination="bF7-J2-CAu" id="PHe-BE-o4F"/>
                         <outlet property="storyToTryButton" destination="fCz-gJ-wU4" id="PQO-0G-T7b"/>
                         <outlet property="thirdShotDropDown" destination="UXv-F6-T3l" id="EY2-gZ-Rm3"/>
                         <outlet property="thirdShotImageView" destination="sma-Ba-Hvp" id="ouw-Nz-538"/>

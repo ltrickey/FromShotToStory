@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522195066.137443"
+            timestampString = "522195739.491998"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "setupSecondShotDropDownMenu()"
             landmarkType = "7">
          </BreakpointContent>

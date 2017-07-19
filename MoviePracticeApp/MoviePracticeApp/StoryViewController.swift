@@ -21,6 +21,9 @@ class StoryViewController: UIViewController {
     
     @IBOutlet weak var storyToTryButton: UIBarButtonItem!
     
+    
+    @IBOutlet weak var shotsStackView: UIStackView!
+    
     @IBOutlet weak var firstShotDropDown: UIBarButtonItem!
     @IBOutlet weak var secondShotDropDown: UIBarButtonItem!
     @IBOutlet weak var thirdShotDropDown: UIBarButtonItem!
@@ -45,7 +48,9 @@ class StoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadShotData()
-
+        
+        shotsStackView.isHidden = true
+        
         // story stuff
         self.selectShotsLabel.isHidden = true
         self.selectShotsExample.isHidden = true
@@ -101,6 +106,7 @@ class StoryViewController: UIViewController {
             self.selectShotsLabel.isHidden = false
             self.selectShotsExample.isHidden = false
             self.selectShotsEncouragement.isHidden = false
+            self.shotsStackView.isHidden = false
         }
        
     }
