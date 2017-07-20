@@ -53,14 +53,16 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         if isPresentingInModal {
             //set up edit button on nav bar to be select & Done
-            editButton = UIBarButtonItem(title: "DONE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
-                    }
-        else {
+            editButton = UIBarButtonItem(title: "Select", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
+            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
+            self.navigationItem.leftBarButtonItem = cancelButton
+        } else {
             //set up edit button on nav bar to be edit/delete
             editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
         }
         
         self.navigationItem.rightBarButtonItem = editButton
+        
         
         //set up tap to play
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))

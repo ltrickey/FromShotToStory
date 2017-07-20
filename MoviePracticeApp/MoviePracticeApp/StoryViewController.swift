@@ -147,7 +147,7 @@ class StoryViewController: UIViewController {
         secondShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.secondShotDropDown.title = item
             self.secondShotImageView.image = UIImage(named: self.imageNames[index])
-            self.secondShotImageView.layer.setValue("second", forKey: "shot")
+            self.secondShotImageView.layer.setValue(item, forKey: "shot")
        
             //setup tap gesture recognizer on Image
             self.secondShotImageView.isUserInteractionEnabled = true
@@ -173,7 +173,7 @@ class StoryViewController: UIViewController {
             thirdShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
                 self.thirdShotDropDown.title = item
                 self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
-                self.thirdShotImageView.layer.setValue("third", forKey: "shot")
+                self.thirdShotImageView.layer.setValue(item, forKey: "shot")
 
                 //setup tap gesture recognizer on Image
                 self.thirdShotImageView.isUserInteractionEnabled = true
@@ -199,7 +199,7 @@ class StoryViewController: UIViewController {
             fourthShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
                 self.fourthShotDropDown.title = item
                 self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
-                self.fourthShotImageView.layer.setValue("fourth", forKey: "shot")
+                self.fourthShotImageView.layer.setValue(item, forKey: "shot")
                 
                 //setup tap gesture recognizer on Image
                 self.fourthShotImageView.isUserInteractionEnabled = true
