@@ -35,6 +35,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     var editModeEnabled = false
     var tapGesture = UITapGestureRecognizer()
     
+    var isPresentingInModal : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let shotName = shotName {
@@ -49,7 +51,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         var editButton = UIBarButtonItem()
         
-        let isPresentingInModal = presentingViewController is UINavigationController
+        if presentingViewController is UINavigationController {
+            isPresentingInModal = true
+        }
         
         if isPresentingInModal {
             //set up edit button on nav bar to be select & Done
@@ -107,7 +111,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         cell.savedShotImageView?.image = take.thumbnail
         cell.savedShotImageView?.isUserInteractionEnabled = true
             
-        // Add an action function to the delete button
+        // Set up Cell Delete button based on which view state
+        
         cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
     
         return cell
@@ -137,6 +142,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     func dismissPopUp(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func selectTakeCell(sender:UIButton) {
+        
     }
     
     //Delete function called when delete button on cell is tapped.
