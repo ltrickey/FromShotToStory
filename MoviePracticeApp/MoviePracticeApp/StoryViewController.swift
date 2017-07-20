@@ -15,11 +15,6 @@ class StoryViewController: UIViewController {
     var shotNames = [String]()
     var imageNames = [String]()
     
-    var firstIndex = Int()
-    var secondIndex = Int()
-    var thirdIndex = Int()
-    var fourthIndex = Int()
-    
     @IBOutlet weak var selectShotsLabel: UILabel!
     @IBOutlet weak var selectShotsExample: UILabel!
     @IBOutlet weak var selectShotsEncouragement: UILabel!
@@ -127,10 +122,7 @@ class StoryViewController: UIViewController {
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.firstShotDropDown.title = item
             self.firstShotImageView.image = UIImage(named: self.imageNames[index])
-            self.firstShotImageView.layer.setValue("first", forKey: "shot")
-            
-            //set index to be used in transition.
-            self.firstIndex = index
+            self.firstShotImageView.layer.setValue(item, forKey: "shot")
             
             //setup tap gesture recognizer on Image
             self.firstShotImageView.isUserInteractionEnabled = true
@@ -156,10 +148,7 @@ class StoryViewController: UIViewController {
             self.secondShotDropDown.title = item
             self.secondShotImageView.image = UIImage(named: self.imageNames[index])
             self.secondShotImageView.layer.setValue("second", forKey: "shot")
-            
-            //set index to be used in transition.
-            self.secondIndex = index
-            
+       
             //setup tap gesture recognizer on Image
             self.secondShotImageView.isUserInteractionEnabled = true
             //now you need a tap gesture recognizer
@@ -185,10 +174,7 @@ class StoryViewController: UIViewController {
                 self.thirdShotDropDown.title = item
                 self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
                 self.thirdShotImageView.layer.setValue("third", forKey: "shot")
-                
-                //set index to be used in transition.
-                self.thirdIndex = index
-                
+
                 //setup tap gesture recognizer on Image
                 self.thirdShotImageView.isUserInteractionEnabled = true
                 //now you need a tap gesture recognizer
@@ -214,9 +200,6 @@ class StoryViewController: UIViewController {
                 self.fourthShotDropDown.title = item
                 self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
                 self.fourthShotImageView.layer.setValue("fourth", forKey: "shot")
-                
-                //set index to be used in transition.
-                self.fourthIndex = index
                 
                 //setup tap gesture recognizer on Image
                 self.fourthShotImageView.isUserInteractionEnabled = true
@@ -291,9 +274,13 @@ class StoryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         
+        let sender = sender as! UITapGestureRecognizer
         let navController = segue.destination as! UINavigationController
         let myTakesCollectionViewController = navController.topViewController as! MyTakesCollectionViewController
-        myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
+        
+        let shotName = sender.view?.layer.value(forKey: "shot")
+
+        myTakesCollectionViewController.shotName = shotName as! String
 
         
 //        guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
