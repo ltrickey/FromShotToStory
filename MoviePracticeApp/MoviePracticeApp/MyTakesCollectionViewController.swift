@@ -41,12 +41,23 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             shotsTaken = (data.allTakesSaved[shotName]!)
         }
         
-        
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        //set up edit button on nav bar
-        let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
+        // Depending on style of presentation (modal or push presentation), this nav button will be different
+        
+        var editButton = UIBarButtonItem()
+        
+        let isPresentingInModal = presentingViewController is UINavigationController
+        
+        if isPresentingInModal {
+            //set up edit button on nav bar to be select & Done
+            editButton = UIBarButtonItem(title: "DONE", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
+                    }
+        else {
+            //set up edit button on nav bar to be edit/delete
+            editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
+        }
         
         self.navigationItem.rightBarButtonItem = editButton
         
@@ -119,6 +130,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 playVideo (view: self, videoAsset: videoAsset)
             }
         }
+    }
+    
+    func dismissPopUp(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
     
     //Delete function called when delete button on cell is tapped.
