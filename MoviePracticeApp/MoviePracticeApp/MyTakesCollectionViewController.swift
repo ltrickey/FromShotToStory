@@ -74,9 +74,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
         self.tapGesture.delegate = self
         self.tapGesture.isEnabled = true
-        
-        //load take objects
-        loadTakes()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -176,8 +174,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Refresh the collection view - this deletes the button.  How to delete whole cell?
         shotsTaken = (data.allTakesSaved[shotName!]!)
 
-        loadTakes()
-//        self.collectionView?.reloadItems(at: [cellPath!])
+        //        self.collectionView?.reloadItems(at: [cellPath!])
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
         }
@@ -283,16 +280,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     //MARK: Private Methods
-    
-    private func loadTakes() {
-        if !shotsTaken.isEmpty {
-            for take in shotsTaken {
-                let asset = getVideoFromLocalIdentifier(id: take.localid)
-                let thumbnail = getAssetThumbnail(asset: asset)
-                take.thumbnail =  thumbnail
-            }
-        }
-    }
     
     private func getVideoFromLocalIdentifier(id: String) -> PHAsset {
         let fetchOptions = PHFetchOptions()
