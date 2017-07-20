@@ -131,12 +131,13 @@ class StoryViewController: UIViewController {
             //set index to be used in transition.
             self.firstIndex = index
             print(self.firstIndex)
+            print(self.shotNames[self.firstIndex])
             
             //setup tap gesture recognizer on Image
             self.firstShotImageView.isUserInteractionEnabled = true
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
-            let firstTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+            let firstTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.firstImageTapped(_:)))
             //Add the recognizer to your view.
             self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
             self.firstShotImageView.isHidden = false
@@ -155,11 +156,14 @@ class StoryViewController: UIViewController {
             self.secondShotDropDown.title = item
             self.secondShotImageView.image = UIImage(named: self.imageNames[index])
             
+            //set index to be used in transition.
+            self.secondIndex = index
+            
             //setup tap gesture recognizer on Image
             self.secondShotImageView.isUserInteractionEnabled = true
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
-            let secondTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+            let secondTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.firstImageTapped(_:)))
             //Add the recognizer to your view.
             self.secondShotImageView.addGestureRecognizer(secondTapRecognizer)
             
@@ -180,11 +184,14 @@ class StoryViewController: UIViewController {
                 self.thirdShotDropDown.title = item
                 self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
                 
+                //set index to be used in transition.
+                self.thirdIndex = index
+                
                 //setup tap gesture recognizer on Image
                 self.thirdShotImageView.isUserInteractionEnabled = true
                 //now you need a tap gesture recognizer
                 //note that target and action point to what happens when the action is recognized.
-                let thirdTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+                let thirdTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.firstImageTapped(_:)))
                 //Add the recognizer to your view.
                 self.thirdShotImageView.addGestureRecognizer(thirdTapRecognizer)
                 
@@ -205,11 +212,14 @@ class StoryViewController: UIViewController {
                 self.fourthShotDropDown.title = item
                 self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
                 
+                //set index to be used in transition.
+                self.fourthIndex = index
+                
                 //setup tap gesture recognizer on Image
                 self.fourthShotImageView.isUserInteractionEnabled = true
                 //now you need a tap gesture recognizer
                 //note that target and action point to what happens when the action is recognized.
-                let fourthTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+                let fourthTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.firstImageTapped(_:)))
                 //Add the recognizer to your view.
                 self.fourthShotImageView.addGestureRecognizer(fourthTapRecognizer)
                 
@@ -221,7 +231,7 @@ class StoryViewController: UIViewController {
     //Image Tap Functions
     
     
-    func imageTapped(_ sender: UITapGestureRecognizer) {
+    func firstImageTapped(_ sender: UITapGestureRecognizer) {
         print("an image was tapped!")
         
 //        let picker = UIImagePickerController()
@@ -246,7 +256,7 @@ class StoryViewController: UIViewController {
         
         let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             print("perform segue!  DUH")
-            self.performSegue(withIdentifier: "My Takes", sender: self)
+            self.performSegue(withIdentifier: "My Takes One", sender: self)
         })
         
         alert.addAction(goToMyTakes)
@@ -263,14 +273,14 @@ class StoryViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "My Takes" {
+    func prepare(for segue: UIStoryboardSegue, sender: UITapGestureRecognizer) {
+        if segue.identifier == "My Takes One" {
 
             guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
-        
-            myTakesCollectionViewController.shotName = shotNames[self.firstIndex]
+            
+            myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
         }
     }
 

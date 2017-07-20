@@ -38,9 +38,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        shotsTaken = (data.allTakesSaved[shotName!]!)
-
+        if let shotName = shotName {
+            shotsTaken = (data.allTakesSaved[shotName]!)
+        }
+        
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -99,6 +100,12 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
     
     //MARK: - ACTIONS
+    
+    @IBAction func unwindToStoryView (sender: UIStoryboardSegue) {
+        if let source = sender.source as? StoryViewController {
+        }
+    }
+
     
     func tapToPlay(_ recognizer: UITapGestureRecognizer)  {
         if recognizer.state == UIGestureRecognizerState.ended {

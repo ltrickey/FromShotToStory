@@ -215,7 +215,7 @@
                                     <stackView opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-J9-Rio">
                                         <rect key="frame" x="0.0" y="40" width="1015" height="180"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="First" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="First Shot" label="First Shot">
                                                     <bool key="isElement" value="YES"/>
@@ -225,21 +225,21 @@
                                                     <constraint firstAttribute="height" constant="180" id="ayJ-rj-uRg"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-jS-q9b">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="2" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-jS-q9b">
                                                 <rect key="frame" x="255" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="5QT-vW-IJd"/>
                                                     <constraint firstAttribute="width" constant="250" id="6I1-6p-50I"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Ba-Hvp">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="3" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Ba-Hvp">
                                                 <rect key="frame" x="510" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="BAe-7Q-nkU"/>
                                                     <constraint firstAttribute="width" constant="250" id="Vmm-r2-Oar"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WxP-TF-jmS">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="4" translatesAutoresizingMaskIntoConstraints="NO" id="WxP-TF-jmS">
                                                 <rect key="frame" x="765" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="7qs-Iz-Nhf"/>
@@ -280,12 +280,12 @@
                         <outlet property="storyToTryButton" destination="fCz-gJ-wU4" id="PQO-0G-T7b"/>
                         <outlet property="thirdShotDropDown" destination="UXv-F6-T3l" id="EY2-gZ-Rm3"/>
                         <outlet property="thirdShotImageView" destination="sma-Ba-Hvp" id="ouw-Nz-538"/>
-                        <segue destination="dOW-F5-u1l" kind="presentation" identifier="My Takes" id="FKI-Cx-73y"/>
+                        <segue destination="2y9-jM-b5Q" kind="presentation" identifier="My Takes One" id="FKI-Cx-73y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250" y="665"/>
+            <point key="canvasLocation" x="1097" y="665"/>
         </scene>
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -368,7 +368,7 @@
                                             </attributedString>
                                         </state>
                                         <connections>
-                                            <segue destination="dOW-F5-u1l" kind="show" id="ryn-NO-TfB"/>
+                                            <segue destination="dOW-F5-u1l" kind="show" id="jRI-wM-qHN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -457,11 +457,12 @@
                         </connections>
                     </collectionView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="HgE-YF-C3x"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQt-QW-Nb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913.3093525179856" y="-33.093525179856115"/>
+            <point key="canvasLocation" x="1972" y="-33"/>
         </scene>
         <!--Opening View Controller-->
         <scene sceneID="C26-P6-wyE">
@@ -528,12 +529,30 @@
             </objects>
             <point key="canvasLocation" x="-970.14388489208636" y="117.98561151079137"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dc5-WI-hqB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2y9-jM-b5Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Lf-eM-pF1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dOW-F5-u1l" kind="relationship" relationship="rootViewController" id="f1n-ox-e6W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uxn-3e-Th6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768" y="665"/>
+        </scene>
     </scenes>
     <resources>
         <image name="defaultShot" width="694" height="438"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FKI-Cx-73y"/>
+        <segue reference="f1n-ox-e6W"/>
         <segue reference="v7S-ab-MzB"/>
     </inferredMetricsTieBreakers>
 </document>
