@@ -137,7 +137,10 @@ class StoryViewController: UIViewController {
             self.firstShotImageView.isUserInteractionEnabled = true
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
-            let firstTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.firstImageTapped(_:)))
+            let firstTapRecognizer = UITapGestureRecognizer(target: self,  action:#selector(self.firstImageTapped(_:)))
+//            self.performSegue(withIdentifier: "My Takes One", sender: sender)
+
+            
             //Add the recognizer to your view.
             self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
             self.firstShotImageView.isHidden = false
@@ -220,6 +223,7 @@ class StoryViewController: UIViewController {
                 //now you need a tap gesture recognizer
                 //note that target and action point to what happens when the action is recognized.
                 let fourthTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.firstImageTapped(_:)))
+                
                 //Add the recognizer to your view.
                 self.fourthShotImageView.addGestureRecognizer(fourthTapRecognizer)
                 
@@ -233,6 +237,7 @@ class StoryViewController: UIViewController {
     
     func firstImageTapped(_ sender: UITapGestureRecognizer) {
         print("an image was tapped!")
+        self.performSegue(withIdentifier: "My Takes", sender: self)
         
 //        let picker = UIImagePickerController()
 //        picker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
@@ -250,22 +255,21 @@ class StoryViewController: UIViewController {
 //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         
-        let alert = UIAlertController(title: "iOScreator", message:
-            "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
-            print("perform segue!  DUH")
-            self.performSegue(withIdentifier: "My Takes One", sender: self)
-        })
-        
-        alert.addAction(goToMyTakes)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
-
-        alert.popoverPresentationController?.sourceView = self.view
-        alert.popoverPresentationController?.sourceRect = self.view.bounds
-        // this is the center of the screen currently but it can be any point in the view
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "iOScreator", message:
+//            "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
+//        
+//        
+//        let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+//            self.performSegue(withIdentifier: "My Takes One", sender: sender)
+//        })
+//        
+//        alert.addAction(goToMyTakes)
+//        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
+//
+//        alert.popoverPresentationController?.sourceView = self.view
+//        alert.popoverPresentationController?.sourceRect = self.view.bounds
+//        // this is the center of the screen currently but it can be any point in the view
+//        self.present(alert, animated: true, completion: nil)
         
     }
 
@@ -273,17 +277,33 @@ class StoryViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    func prepare(for segue: UIStoryboardSegue, sender: UITapGestureRecognizer) {
-        if segue.identifier == "My Takes One" {
+//    func prepare(for segue: UIStoryboardSegue, sender: UITapGestureRecognizer) {
+//        if segue.identifier == "My Takes One" {
+//
+//            guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
+//                fatalError("Unexpected destination: \(segue.destination)")
+//            }
+//            
+//            print(self.shotNames[self.firstIndex])
+//            myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
+//        }
+//        
+//
+//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        
+        let navController = segue.destination as! UINavigationController
+        let myTakesCollectionViewController = navController.topViewController as! MyTakesCollectionViewController
+        myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
 
-            guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
-            
-            myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
-        }
+        
+//        guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
+//            fatalError("Unexpected destination: \(segue.destination)")
+//        }
+//        
+//        myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
     }
-
     
     //Private method
     private func loadShotData() {

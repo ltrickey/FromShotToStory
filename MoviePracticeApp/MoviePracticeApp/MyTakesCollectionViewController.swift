@@ -34,13 +34,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     var editModeEnabled = false
     var tapGesture = UITapGestureRecognizer()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let shotName = shotName {
             shotsTaken = (data.allTakesSaved[shotName]!)
         }
+        
         
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
