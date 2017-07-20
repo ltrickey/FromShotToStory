@@ -127,11 +127,10 @@ class StoryViewController: UIViewController {
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.firstShotDropDown.title = item
             self.firstShotImageView.image = UIImage(named: self.imageNames[index])
+            self.firstShotImageView.layer.setValue("First", forKey: "number")
             
             //set index to be used in transition.
             self.firstIndex = index
-            print(self.firstIndex)
-            print(self.shotNames[self.firstIndex])
             
             //setup tap gesture recognizer on Image
             self.firstShotImageView.isUserInteractionEnabled = true
@@ -232,10 +231,9 @@ class StoryViewController: UIViewController {
     
     //Image Tap Functions
     
-    
     func firstImageTapped(_ sender: UITapGestureRecognizer) {
         print("an image was tapped!")
-        
+        print(sender.view?.layer.value(forKey: "number"))
 //        let picker = UIImagePickerController()
 //        picker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
 //        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

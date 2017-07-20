@@ -38,9 +38,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         if let shotName = shotName {
-            shotsTaken = (data.allTakesSaved[shotName]!)
+            if data.allTakesSaved[shotName] != nil {
+                shotsTaken = (data.allTakesSaved[shotName]!)
+            }
         }
-        
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
