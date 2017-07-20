@@ -138,8 +138,6 @@ class StoryViewController: UIViewController {
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
             let firstTapRecognizer = UITapGestureRecognizer(target: self,  action:#selector(self.firstImageTapped(_:)))
-//            self.performSegue(withIdentifier: "My Takes One", sender: sender)
-
             
             //Add the recognizer to your view.
             self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
@@ -237,7 +235,6 @@ class StoryViewController: UIViewController {
     
     func firstImageTapped(_ sender: UITapGestureRecognizer) {
         print("an image was tapped!")
-        self.performSegue(withIdentifier: "My Takes", sender: self)
         
 //        let picker = UIImagePickerController()
 //        picker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
@@ -255,21 +252,21 @@ class StoryViewController: UIViewController {
 //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         
-//        let alert = UIAlertController(title: "iOScreator", message:
-//            "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
-//        
-//        
-//        let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
-//            self.performSegue(withIdentifier: "My Takes One", sender: sender)
-//        })
-//        
-//        alert.addAction(goToMyTakes)
-//        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
-//
-//        alert.popoverPresentationController?.sourceView = self.view
-//        alert.popoverPresentationController?.sourceRect = self.view.bounds
-//        // this is the center of the screen currently but it can be any point in the view
-//        self.present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "iOScreator", message:
+            "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.performSegue(withIdentifier: "My Takes", sender: sender)
+        })
+        
+        alert.addAction(goToMyTakes)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
+
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = self.view.bounds
+        // this is the center of the screen currently but it can be any point in the view
+        self.present(alert, animated: true, completion: nil)
         
     }
 
