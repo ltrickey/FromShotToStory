@@ -15,6 +15,8 @@ class StoryViewController: UIViewController {
     var shotNames = [String]()
     var imageNames = [String]()
     
+    var takes = [Take]()
+    
     @IBOutlet weak var selectShotsLabel: UILabel!
     @IBOutlet weak var selectShotsExample: UILabel!
     @IBOutlet weak var selectShotsEncouragement: UILabel!
@@ -253,6 +255,12 @@ class StoryViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    //Mark: -ACTIONS
+//    @IBAction func unwindToStoryView(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.source as? MyTakesCollectionViewController, shotsTaken[0] = sourceViewController.take {
+//        }
+//    }
 
 
     // MARK: - Navigation

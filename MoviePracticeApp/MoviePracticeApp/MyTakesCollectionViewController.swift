@@ -10,12 +10,11 @@ import UIKit
 import AVFoundation
 import AVKit
 import Photos
+import os.log
 
 class MyTakesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     //MARK: properties
-    
-    var takes = [Take]()
     
     private let reuseIdentifier = "Cell"
     
@@ -106,14 +105,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         cell.backgroundColor = UIColor.black
             
         // Fetches the appropriate take for the data source layout.
-        let take = takes[indexPath.item]
+        let take = shotsTaken[indexPath.item]
             
         cell.savedShotImageView?.image = take.thumbnail
         cell.savedShotImageView?.isUserInteractionEnabled = true
             
         // Set up Cell Delete button based on which view state
         if self.isPresentingInModal {
-            print("presenting in modal")
             cell.deleteButton.setTitle("Select",for: .normal)
             cell.deleteButton.addTarget(self, action: #selector(self.selectTakeCell), for: UIControlEvents.touchUpInside)
         } else {
@@ -177,7 +175,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
   
         // Refresh the collection view - this deletes the button.  How to delete whole cell?
         shotsTaken = (data.allTakesSaved[shotName!]!)
-        print(shotsTaken)
+
         loadTakes()
 //        self.collectionView?.reloadItems(at: [cellPath!])
         DispatchQueue.main.async {
@@ -259,6 +257,30 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    //MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let sender = sender as! UIButton
+        let cell = sender.superview as! MyTakesCollectionViewCell
+        let index = cell.index
+        
+        // Configure the destination view controller only when the select button on the cell is called.
+        // not working but not sure if I need this.  Check if original segue still works.
+//        guard let button = sender as? UIButton, button === cell.deleteButton else {
+//            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+//            return
+//        }
+        
+//        guard let storyViewController = segue.destination as? StoryViewController else {
+//            fatalError("Unexpected destination: \(segue.destination)")
+//        }
+//
+        
+//        self.take = shotsTaken[index]
+    }
 
     //MARK: Private Methods
     
@@ -268,7 +290,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 let asset = getVideoFromLocalIdentifier(id: take.localid)
                 let thumbnail = getAssetThumbnail(asset: asset)
                 take.thumbnail =  thumbnail
-                takes.append(take)
             }
         }
     }
