@@ -130,6 +130,7 @@ class StoryViewController: UIViewController {
             
             //set index to be used in transition.
             self.firstIndex = index
+            print(self.firstIndex)
             
             //setup tap gesture recognizer on Image
             self.firstShotImageView.isUserInteractionEnabled = true
@@ -269,9 +270,8 @@ class StoryViewController: UIViewController {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
         
-            myTakesCollectionViewController.shotName = shotNames[firstIndex]
+            myTakesCollectionViewController.shotName = shotNames[self.firstIndex]
         }
-//        myTakesCollectionViewController.shotName = (shot?.name)!
     }
 
     
