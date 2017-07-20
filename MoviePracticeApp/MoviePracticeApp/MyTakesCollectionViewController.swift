@@ -57,7 +57,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         if isPresentingInModal {
             //set up edit button on nav bar to be select & Done
-            editButton = UIBarButtonItem(title: "Select", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
+            editButton = UIBarButtonItem(title: "Select Take", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
             let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
             self.navigationItem.leftBarButtonItem = cancelButton
         } else {
@@ -112,8 +112,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         cell.savedShotImageView?.isUserInteractionEnabled = true
             
         // Set up Cell Delete button based on which view state
-        
-        cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
+        if self.isPresentingInModal {
+            print("presenting in modal")
+            cell.deleteButton.setTitle("Select",for: .normal)
+            cell.deleteButton.addTarget(self, action: #selector(self.selectTakeCell), for: UIControlEvents.touchUpInside)
+        } else {
+            cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
+        }
     
         return cell
     }
