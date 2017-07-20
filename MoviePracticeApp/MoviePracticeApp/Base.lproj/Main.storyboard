@@ -215,8 +215,11 @@
                                     <stackView opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-J9-Rio">
                                         <rect key="frame" x="0.0" y="40" width="1015" height="180"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="First" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="First Shot" label="First Shot">
+                                                    <bool key="isElement" value="YES"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="Mpy-uT-2J7"/>
                                                     <constraint firstAttribute="height" constant="180" id="ayJ-rj-uRg"/>
@@ -277,7 +280,7 @@
                         <outlet property="storyToTryButton" destination="fCz-gJ-wU4" id="PQO-0G-T7b"/>
                         <outlet property="thirdShotDropDown" destination="UXv-F6-T3l" id="EY2-gZ-Rm3"/>
                         <outlet property="thirdShotImageView" destination="sma-Ba-Hvp" id="ouw-Nz-538"/>
-                        <segue destination="dOW-F5-u1l" kind="presentation" id="FKI-Cx-73y"/>
+                        <segue destination="dOW-F5-u1l" kind="presentation" identifier="My Takes" id="FKI-Cx-73y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>

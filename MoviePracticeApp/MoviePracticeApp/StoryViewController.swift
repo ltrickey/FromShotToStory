@@ -15,6 +15,11 @@ class StoryViewController: UIViewController {
     var shotNames = [String]()
     var imageNames = [String]()
     
+    var firstIndex = Int()
+    var secondIndex = Int()
+    var thirdIndex = Int()
+    var fourthIndex = Int()
+    
     @IBOutlet weak var selectShotsLabel: UILabel!
     @IBOutlet weak var selectShotsExample: UILabel!
     @IBOutlet weak var selectShotsEncouragement: UILabel!
@@ -122,6 +127,9 @@ class StoryViewController: UIViewController {
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
             self.firstShotDropDown.title = item
             self.firstShotImageView.image = UIImage(named: self.imageNames[index])
+            
+            //set index to be used in transition.
+            self.firstIndex = index
             
             //setup tap gesture recognizer on Image
             self.firstShotImageView.isUserInteractionEnabled = true
@@ -238,7 +246,6 @@ class StoryViewController: UIViewController {
         let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             print("perform segue!  DUH")
             self.performSegue(withIdentifier: "My Takes", sender: self)
-            
         })
         
         alert.addAction(goToMyTakes)
@@ -255,13 +262,17 @@ class StoryViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "My Takes" {
-//            
-//        }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "My Takes" {
+
+            guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+        
+            myTakesCollectionViewController.shotName = shotNames[firstIndex]
+        }
+//        myTakesCollectionViewController.shotName = (shot?.name)!
+    }
 
     
     //Private method

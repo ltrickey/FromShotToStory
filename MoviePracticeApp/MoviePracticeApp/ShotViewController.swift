@@ -160,11 +160,11 @@ class ShotViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        guard let MyShotsCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
+        guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
             fatalError("Unexpected destination: \(segue.destination)")
         }
 
-        MyShotsCollectionViewController.shotName = (shot?.name)!
+       myTakesCollectionViewController.shotName = (shot?.name)!
     }
     
     private func fetchLastVideoSaved() -> String {
