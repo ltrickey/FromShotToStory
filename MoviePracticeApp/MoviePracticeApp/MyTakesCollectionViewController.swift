@@ -31,6 +31,13 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [Take] = []
     
+    //keeping track of which UIview sent us here
+    var senderName: String = ""
+    
+    //keeping track of Take objects in the four shots in the storyview
+    var takeToPassID: String = ""
+    
+
     var editModeEnabled = false
     var tapGesture = UITapGestureRecognizer()
     
@@ -117,13 +124,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
     
         return cell
-    }
-    
-    //MARK: - ACTIONS
-    
-    @IBAction func unwindToStoryView (sender: UIStoryboardSegue) {
-        if let source = sender.source as? StoryViewController {
-        }
     }
 
     
@@ -262,7 +262,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         let sender = sender as! UIButton
         let cell = sender.superview as! MyTakesCollectionViewCell
-        let index = cell.index
+        let index = cell.index as! Int
         
         // Configure the destination view controller only when the select button on the cell is called.
         // not working but not sure if I need this.  Check if original segue still works.
@@ -276,7 +276,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 //        }
 //
         
-//        self.take = shotsTaken[index]
+        let take = shotsTaken[index]
+        takeToPassID = take.localid
     }
 
     //MARK: Private Methods

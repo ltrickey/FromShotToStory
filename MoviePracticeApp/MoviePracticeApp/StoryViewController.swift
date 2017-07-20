@@ -125,6 +125,7 @@ class StoryViewController: UIViewController {
             self.firstShotDropDown.title = item
             self.firstShotImageView.image = UIImage(named: self.imageNames[index])
             self.firstShotImageView.layer.setValue(item, forKey: "shot")
+            self.firstShotImageView.layer.setValue("first", forKey: "sender")
             
             //setup tap gesture recognizer on Image
             self.firstShotImageView.isUserInteractionEnabled = true
@@ -257,10 +258,13 @@ class StoryViewController: UIViewController {
     }
     
     //Mark: -ACTIONS
-//    @IBAction func unwindToStoryView(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.source as? MyTakesCollectionViewController, shotsTaken[0] = sourceViewController.take {
-//        }
-//    }
+    @IBAction func unwindToStoryView(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? MyTakesCollectionViewController {
+            // put take in first position.
+            let senderName = sourceViewController.senderName
+            print(senderName)
+        }
+    }
 
 
     // MARK: - Navigation
@@ -287,9 +291,10 @@ class StoryViewController: UIViewController {
         let myTakesCollectionViewController = navController.topViewController as! MyTakesCollectionViewController
         
         let shotName = sender.view?.layer.value(forKey: "shot")
+        let senderName = sender.view?.layer.value(forKey: "sender")
 
         myTakesCollectionViewController.shotName = shotName as! String
-
+        myTakesCollectionViewController.senderName = senderName as! String
         
 //        guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
 //            fatalError("Unexpected destination: \(segue.destination)")
