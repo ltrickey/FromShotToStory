@@ -151,12 +151,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522271610.073879"
+            timestampString = "522272684.339953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
-            landmarkName = "firstImageTapped(_:)"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "imageTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -167,12 +167,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522271610.073879"
+            timestampString = "522272684.339953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "firstImageTapped(_:)"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "imageTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -183,12 +183,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522271610.073879"
+            timestampString = "522272684.339953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "firstImageTapped(_:)"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "imageTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
