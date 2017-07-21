@@ -10,8 +10,9 @@ import UIKit
 import DropDown
 import CSV
 import Photos
+import MobileCoreServices
 
-class StoryViewController: UIViewController {
+class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     var shotNames = [String]()
     var imageNames = [String]()
@@ -225,33 +226,19 @@ class StoryViewController: UIViewController {
     //Image Tap Functions
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
-        print("an image was tapped!")
-        print(sender.view?.layer.value(forKey: "shot"))
-//        let picker = UIImagePickerController()
-//        picker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
-//        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {
-//            action in
-//            picker.sourceType = .camera
-//            self.present(picker, animated: true, completion: nil)
-//        }))
-//        alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {
-//            action in
-//            picker.sourceType = .photoLibrary
-//            self.present(picker, animated: true, completion: nil)
-//        }))
-//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
         
         let alert = UIAlertController(title: "iOScreator", message:
             "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
-        
         
         let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.performSegue(withIdentifier: "My Takes", sender: sender)
         })
         
+        let openCamera : UIAlertAction = UIAlertAction(title: "Record new Take", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+             _ = self.startCameraFromViewController(self, withDelegate: self)        })
+        
         alert.addAction(goToMyTakes)
+        alert.addAction(openCamera)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
 
         alert.popoverPresentationController?.sourceView = self.view
@@ -323,7 +310,48 @@ class StoryViewController: UIViewController {
 //        myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
     }
     
-    //Private method
+    //MARK: - Camera Methonds 
+    
+    func startCameraFromViewController(_ viewController: UIViewController, withDelegate delegate: UIImagePickerControllerDelegate & UINavigationControllerDelegate) -> Bool {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) == false {
+            return false
+        }
+        
+        let cameraController = UIImagePickerController()
+        cameraController.sourceType = .camera
+        cameraController.mediaTypes = [kUTTypeMovie as NSString as String]
+        cameraController.allowsEditing = false
+        cameraController.delegate = delegate
+        
+        present(cameraController, animated: true, completion: nil)
+        return true
+    }
+    
+    func video(_ videoPath: NSString, didFinishSavingWithError error: NSError?, contextInfo info: AnyObject) {
+        var title = "Success"
+        var message = "Video was saved!"
+        
+        //Saving it in my Database too!
+        let localid = fetchLastVideoSaved()
+        
+        let takeToSave = Take(localid: localid, thumbnail: nil)
+        //Not adding this to my database for the time being.
+        //NEED TO DO SOMETHING WITH THIS ASSET!
+        
+        // add take image to specific target.
+        
+        if let _ = error {
+            title = "Error"
+            message = "Video failed to save"
+        }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+
+    
+    //MARK: - Private method
     private func loadShotData() {
         
         //gets filepath of .csv file
@@ -349,24 +377,6 @@ class StoryViewController: UIViewController {
         return videoAsset
     }
     
-//    private func playVideo(view: UIViewController, videoAsset: PHAsset) {
-//        guard (videoAsset.mediaType == .video) else {
-//            print("Not a valid video media type")
-//            return
-//        }
-//        PHCachingImageManager().requestAVAsset(forVideo: videoAsset, options: nil) { (asset, audioMix, args) in
-//            let asset = asset as! AVURLAsset
-//            DispatchQueue.main.async {
-//                let player = AVPlayer(url: asset.url)
-//                let playerViewController = AVPlayerViewController()
-//                playerViewController.player = player
-//                view.present(playerViewController, animated: true) {
-//                    playerViewController.player!.play()
-//                }
-//            }
-//        }
-//    }
-    
     private func getAssetThumbnail(asset: PHAsset) -> UIImage {
         let manager = PHImageManager.default()
         let option = PHImageRequestOptions()
@@ -377,17 +387,57 @@ class StoryViewController: UIViewController {
         })
         return thumbnail
     }
+    
+    private func fetchLastVideoSaved() -> String {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        let allVideo = PHAsset.fetchAssets(with: .video, options: fetchOptions)
+        
+        let lastVideoSaved = allVideo.firstObject
+        
+        let identifier = lastVideoSaved?.localIdentifier
+        
+        return identifier!
+    }
+
 }
 
-extension StoryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        //use image here!
+//extension StoryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+//    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+//        //use image here!
+//        dismiss(animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        dismiss(animated: true, completion: nil)
+//    }
+//    
+//}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension StoryViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        
         dismiss(animated: true, completion: nil)
+        
+        // Handle a movie capture
+        if mediaType == kUTTypeMovie {
+            
+            // took away GUARD statement here b/c of errors
+            let path = (info[UIImagePickerControllerMediaURL] as! URL).path
+            
+            if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path) {
+                UISaveVideoAtPathToSavedPhotosAlbum(path, self, #selector(ShotViewController.video(_:didFinishSavingWithError:contextInfo:)), nil)
+                
+            }
+            
+        }
     }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
 }
+
+
+

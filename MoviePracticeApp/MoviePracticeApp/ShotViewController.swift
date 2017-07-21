@@ -18,7 +18,7 @@ import SwiftyGif
 // Is this a problem with a global variable?
 
 
-class ShotViewController: UIViewController {
+class ShotViewController: UIViewController, UINavigationControllerDelegate {
     
     //MARK: Properties
     
@@ -210,8 +210,8 @@ extension ShotViewController: UIImagePickerControllerDelegate {
 
 
 // MARK: - UINavigationControllerDelegate
-
-extension ShotViewController: UINavigationControllerDelegate {
-}
+//
+//extension ShotViewController: UINavigationControllerDelegate {
+//}
 
 
