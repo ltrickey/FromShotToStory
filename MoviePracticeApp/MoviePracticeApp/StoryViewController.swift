@@ -276,20 +276,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    func prepare(for segue: UIStoryboardSegue, sender: UITapGestureRecognizer) {
-//        if segue.identifier == "My Takes One" {
-//
-//            guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
-//                fatalError("Unexpected destination: \(segue.destination)")
-//            }
-//            
-//            print(self.shotNames[self.firstIndex])
-//            myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
-//        }
-//        
-//
-//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         
@@ -310,8 +296,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
 //        myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
     }
     
-    //MARK: - Camera Methonds 
-    
+    //MARK: - Camera Methonds
     func startCameraFromViewController(_ viewController: UIViewController, withDelegate delegate: UIImagePickerControllerDelegate & UINavigationControllerDelegate) -> Bool {
         if UIImagePickerController.isSourceTypeAvailable(.camera) == false {
             return false
@@ -334,11 +319,17 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         //Saving it in my Database too!
         let localid = fetchLastVideoSaved()
         
-        let takeToSave = Take(localid: localid, thumbnail: nil)
+        let asset = getVideoFromLocalIdentifier(id: localid)
+        let thumbnail = getAssetThumbnail(asset: asset)
+        
+        let takeToSave = Take(localid: localid, thumbnail: thumbnail)
+        
         //Not adding this to my database for the time being.
         //NEED TO DO SOMETHING WITH THIS ASSET!
         
         // add take image to specific target.
+        //how do I tell which take is froooom?
+        firstShotImageView.image = takeToSave.thumbnail
         
         if let _ = error {
             title = "Error"
