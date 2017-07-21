@@ -201,11 +201,8 @@ extension ShotViewController: UIImagePickerControllerDelegate {
                 
                 myShotsButton.isHidden = false
             }
-            
         }
     }
-    
-
 }
 
 

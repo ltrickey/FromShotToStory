@@ -23,10 +23,77 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     var secondTake: AVAsset?
     var thirdTake: AVAsset?
     var fourthTake: AVAsset?
+    
+    var takeArray: [AVAsset]?
+    var videoSize: CGSize = CGSize(width: 0.0, height: 0.0)
 
+
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var putItTogetherButton: UIButton!
     
+    //edit all together!
     @IBAction func editTogether(_ sender: Any) {
+        if (firstTake != nil && secondTake != nil && thirdTake != nil && fourthTake != nil) {
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+            
+            //put all takes in array
+            takeArray = [firstTake!, secondTake!, thirdTake!, fourthTake!]
+
+            // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
+            let myMutableComposition = AVMutableComposition()
+            
+            // 2 - Video track
+            let videoTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+            
+            do {
+                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, (firstTake?.duration)!), of: (firstTake?.tracks(withMediaType: AVMediaTypeVideo)[0])!, at: kCMTimeZero)
+                videoSize = videoTrack.naturalSize
+            } catch let error as NSError {
+                print("error: \(error)")
+            }
+            
+            do {
+                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, (secondTake?.duration)!), of: (secondTake?.tracks(withMediaType: AVMediaTypeVideo)[0])!, at: (firstTake?.duration)!)
+                videoSize = videoTrack.naturalSize
+            } catch let error as NSError {
+                print("error: \(error)")
+            }
+            
+            // 4 - Get path
+            
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .short
+            let date = dateFormatter.string(from: NSDate() as Date)
+            let savePath = (documentDirectory as NSString).appendingPathComponent("mergeVideo-\(date).mov")
+            let url = NSURL(fileURLWithPath: savePath)
+            
+
+            // 5 - Create exporter
+            let exporter = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
+            exporter!.outputURL = url as URL
+            exporter!.outputFileType = AVFileTypeQuickTimeMovie
+            exporter!.shouldOptimizeForNetworkUse = true
+            exporter!.exportAsynchronously {
+                
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exporter!.outputURL!)
+                }) { saved, error in
+                    if saved {
+                        let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
+                        // add action to watch now!
+                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    } else{
+                        print("video erro: \(error)")
+                        
+                    }
+                }
+            }
+        }
     }
     
     @IBOutlet weak var selectShotsLabel: UILabel!
@@ -74,6 +141,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         self.selectShotsLabel.isHidden = true
         self.selectShotsExample.isHidden = true
         self.selectShotsEncouragement.isHidden = true
+        self.activityIndicator.isHidden = true
         
         //shot view stuff
         setupStoryDropDownMenu()
