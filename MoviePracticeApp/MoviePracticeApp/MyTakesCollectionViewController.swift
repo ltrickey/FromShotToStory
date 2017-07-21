@@ -44,6 +44,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     var isPresentingInModal : Bool = false
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if presentingViewController is UINavigationController {
             isPresentingInModal = true

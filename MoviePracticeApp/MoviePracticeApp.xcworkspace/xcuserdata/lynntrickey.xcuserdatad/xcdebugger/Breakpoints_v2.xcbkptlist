@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522355667.384454"
+            timestampString = "522357654.417787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "setupSecondShotDropDownMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522355667.384454"
+            timestampString = "522357654.417787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "imageTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -135,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522356142.867615"
+            timestampString = "522357654.417787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -151,11 +151,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522355667.384454"
+            timestampString = "522357654.417787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "unwindToStoryView(sender:)"
             landmarkType = "7">
             <Locations>

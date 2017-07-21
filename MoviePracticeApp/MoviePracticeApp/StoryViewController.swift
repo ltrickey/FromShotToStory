@@ -24,6 +24,10 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     var thirdTake: AVAsset?
     var fourthTake: AVAsset?
 
+    @IBOutlet weak var putItTogetherButton: UIButton!
+    
+    @IBAction func editTogether(_ sender: Any) {
+    }
     
     @IBOutlet weak var selectShotsLabel: UILabel!
     @IBOutlet weak var selectShotsExample: UILabel!
@@ -55,10 +59,15 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     var examples = ["", "An insert shot of Jess's foot stepping in some mud.", "A tilt shot from the beautiful sky to down to Dustin's smiling face to show him enjohing the weather.", "A Point of View Shot of point of what is distracting Lila.", "A tracking shot of someone walking down the hall at a new school.", "A close up of someone not being able to keep their eyes open.",  "An over the shoulder shot as Julia turns in her paper to her teacher.", "An extreme close up of dylan's eyes as he watches the clock."]
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadShotData()
         
+        putItTogetherButton.isHidden = true
         shotsStackView.isHidden = true
         
         // story stuff
@@ -117,6 +126,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             self.selectShotsExample.isHidden = false
             self.selectShotsEncouragement.isHidden = false
             self.shotsStackView.isHidden = false
+            self.putItTogetherButton.isHidden = false
+
         }
        
     }
@@ -270,6 +281,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     self.firstTake = avAsset!
                     print("first Asset Loaded")
                 })
+ 
 
             } else if senderName == "second" {
                 // put take in second position.
@@ -280,6 +292,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     print("second Asset Loaded")
                 })
                 
+                
+                
             } else if senderName == "third" {
                 // put take in second position.
                 thirdShotImageView.image = thumbnail
@@ -288,6 +302,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     self.thirdTake = avAsset!
                     print("third Asset Loaded")
                 })
+
                 
             } else if senderName == "fourth" {
                 // put take in second position.
@@ -296,7 +311,9 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                     self.fourthTake = avAsset!
                     print("fourth Asset Loaded")
+
                 })
+                
             }
         }
     }
@@ -360,15 +377,19 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
         let firstShot : UIAlertAction = UIAlertAction(title: "Insert as First Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToFirstShot(take: takeToSave)
+
         })
         let secondShot : UIAlertAction = UIAlertAction(title: "Insert as Second Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToSecondShot(take: takeToSave)
+
         })
         let thirdShot : UIAlertAction = UIAlertAction(title: "Insert as Third Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToThirdShot(take: takeToSave)
+ 
         })
         let fourthShot : UIAlertAction = UIAlertAction(title: "Insert as Fourth Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToFourthShot(take: takeToSave)
+ 
         })
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

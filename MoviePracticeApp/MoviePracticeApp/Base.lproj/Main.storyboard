@@ -257,11 +257,23 @@
                                     <constraint firstAttribute="trailing" secondItem="RH8-J9-Rio" secondAttribute="trailing" id="tnG-S7-xEl"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-36-9gx">
+                                <rect key="frame" x="40" y="778" width="1032" height="36"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Put it Together!"/>
+                                <connections>
+                                    <action selector="editTogether:" destination="oc6-y9-hMR" eventType="touchUpInside" id="seX-Op-XEB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="eOm-aK-2py" secondAttribute="trailing" constant="20" id="Qx8-a3-0aW"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="250" id="V1J-aR-aDh"/>
+                            <constraint firstItem="fB9-sh-lWa" firstAttribute="top" secondItem="EgU-36-9gx" secondAttribute="bottom" constant="20" id="bUB-dH-CAI"/>
+                            <constraint firstItem="EgU-36-9gx" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="lgj-Cw-JVw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EgU-36-9gx" secondAttribute="trailing" constant="20" id="tTO-US-Ha2"/>
                             <constraint firstItem="eOm-aK-2py" firstAttribute="top" secondItem="8No-4X-laN" secondAttribute="bottom" constant="10" id="yt2-dB-HLx"/>
                             <constraint firstItem="eOm-aK-2py" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="zeC-vW-rAq"/>
                         </constraints>
@@ -271,6 +283,7 @@
                         <outlet property="firstShotImageView" destination="Sac-U3-7Hy" id="D71-g5-OXc"/>
                         <outlet property="fourthShotDropDown" destination="ece-S0-rW7" id="f9f-gO-gQo"/>
                         <outlet property="fourthShotImageView" destination="WxP-TF-jmS" id="7pJ-fg-gRb"/>
+                        <outlet property="putItTogetherButton" destination="EgU-36-9gx" id="nFN-g7-8ZW"/>
                         <outlet property="secondShotDropDown" destination="0aR-xW-EKf" id="NAR-Bw-Zq1"/>
                         <outlet property="secondShotImageView" destination="kMk-jS-q9b" id="dHP-RU-MOO"/>
                         <outlet property="selectShotsEncouragement" destination="OUw-AX-sa8" id="CLj-0Y-HOW"/>
@@ -285,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="665"/>
+            <point key="canvasLocation" x="1096.9424460431655" y="664.02877697841734"/>
         </scene>
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">
