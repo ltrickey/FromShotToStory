@@ -324,24 +324,60 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         let takeToSave = Take(localid: localid, thumbnail: thumbnail)
         
-        //Not adding this to my database for the time being.
-        //NEED TO DO SOMETHING WITH THIS ASSET!
-        
-        // add take image to specific target.
-        //how do I tell which take is froooom?
-        firstShotImageView.image = takeToSave.thumbnail
+        //NOT ABLE TO TELL WHERE THIS CAME FROM.
         
         if let _ = error {
             title = "Error"
             message = "Video failed to save"
         }
+        let firstShot : UIAlertAction = UIAlertAction(title: "Insert as First Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.addToFirstShot(take: takeToSave)
+        })
+        let secondShot : UIAlertAction = UIAlertAction(title: "Insert as Second Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.addToSecondShot(take: takeToSave)
+        })
+        let thirdShot : UIAlertAction = UIAlertAction(title: "Insert as Third Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.addToThirdShot(take: takeToSave)
+        })
+        let fourthShot : UIAlertAction = UIAlertAction(title: "Insert as Fourth Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.addToFourthShot(take: takeToSave)
+        })
+        
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+        // add four different actions to put in diff locations.
+        alert.addAction(firstShot)
+        alert.addAction(secondShot)
+        alert.addAction(thirdShot)
+        alert.addAction(fourthShot)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = self.view.bounds
+        
         present(alert, animated: true, completion: nil)
     }
     
+    func addToFirstShot(take: Take) {
+        // add take image to specific target.
+        //how do I tell which take is froooom?
+        firstShotImageView.image = take.thumbnail
+    }
 
-    
+    func addToSecondShot(take: Take) {
+        secondShotImageView.image = take.thumbnail
+    }
+
+    func addToThirdShot(take: Take) {
+        thirdShotImageView.image = take.thumbnail
+    }
+
+    func addToFourthShot(take: Take) {
+        fourthShotImageView.image = take.thumbnail
+    }
+
+
+
+
     //MARK: - Private method
     private func loadShotData() {
         
