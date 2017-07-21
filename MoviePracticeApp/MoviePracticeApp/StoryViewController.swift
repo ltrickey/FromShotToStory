@@ -152,6 +152,7 @@ class StoryViewController: UIViewController {
             self.secondShotDropDown.title = item
             self.secondShotImageView.image = UIImage(named: self.imageNames[index])
             self.secondShotImageView.layer.setValue(item, forKey: "shot")
+            self.secondShotImageView.layer.setValue("second", forKey: "sender")
        
             //setup tap gesture recognizer on Image
             self.secondShotImageView.isUserInteractionEnabled = true
@@ -178,6 +179,7 @@ class StoryViewController: UIViewController {
                 self.thirdShotDropDown.title = item
                 self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
                 self.thirdShotImageView.layer.setValue(item, forKey: "shot")
+                self.thirdShotImageView.layer.setValue("third", forKey: "sender")
 
                 //setup tap gesture recognizer on Image
                 self.thirdShotImageView.isUserInteractionEnabled = true
@@ -204,6 +206,7 @@ class StoryViewController: UIViewController {
                 self.fourthShotDropDown.title = item
                 self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
                 self.fourthShotImageView.layer.setValue(item, forKey: "shot")
+                self.fourthShotImageView.layer.setValue("fourth", forKey: "sender")
                 
                 //setup tap gesture recognizer on Image
                 self.fourthShotImageView.isUserInteractionEnabled = true
@@ -261,15 +264,24 @@ class StoryViewController: UIViewController {
     //Mark: -ACTIONS
     @IBAction func unwindToStoryView(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MyTakesCollectionViewController {
+            //get video and thumbnail
+            let videoAsset = getVideoFromLocalIdentifier(id: sourceViewController.takeToPassID)
+            let thumbnail = getAssetThumbnail(asset: videoAsset)
+            
             let senderName = sourceViewController.senderName
             if senderName == "first" {
                 // put take in first position.
-                let videoAsset = getVideoFromLocalIdentifier(id: sourceViewController.takeToPassID)
-                let thumbnail = getAssetThumbnail(asset: videoAsset)
                 firstShotImageView.image = thumbnail
                 // ADD IN THE ID OF THE TAKE TO PASS TO SEND IT TO NEXT ONE??
             } else if senderName == "second" {
-                
+                // put take in second position.
+                secondShotImageView.image = thumbnail
+            } else if senderName == "third" {
+                // put take in second position.
+                thirdShotImageView.image = thumbnail
+            } else if senderName == "fourth" {
+                // put take in second position.
+                fourthShotImageView.image = thumbnail
             }
         }
     }
