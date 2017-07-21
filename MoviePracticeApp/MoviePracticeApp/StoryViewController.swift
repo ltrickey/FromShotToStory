@@ -19,6 +19,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     var takes = [Take]()
     
+    var firstTake: AVAsset?
+    var secondTake: AVAsset?
+    var thirdTake: AVAsset?
+    var fourthTake: AVAsset?
+
+    
     @IBOutlet weak var selectShotsLabel: UILabel!
     @IBOutlet weak var selectShotsExample: UILabel!
     @IBOutlet weak var selectShotsEncouragement: UILabel!
