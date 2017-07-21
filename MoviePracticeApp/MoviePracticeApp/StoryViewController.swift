@@ -9,6 +9,7 @@
 import UIKit
 import DropDown
 import CSV
+import Photos
 
 class StoryViewController: UIViewController {
     
@@ -260,9 +261,10 @@ class StoryViewController: UIViewController {
     //Mark: -ACTIONS
     @IBAction func unwindToStoryView(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MyTakesCollectionViewController {
-            // put take in first position.
             let senderName = sourceViewController.senderName
-            print(senderName)
+            if senderName == "first" {
+                // put take in first position.
+            }
         }
     }
 
@@ -317,6 +319,16 @@ class StoryViewController: UIViewController {
             shotNames.append(row[0])
             imageNames.append(row[1])
         }
+    }
+    
+    private func getVideoFromLocalIdentifier(id: String) -> PHAsset {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        let assetArray = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: fetchOptions)
+        let videoAsset = assetArray[0]
+        
+        return videoAsset
     }
 }
 

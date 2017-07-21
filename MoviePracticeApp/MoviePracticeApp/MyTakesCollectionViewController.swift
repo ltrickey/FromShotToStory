@@ -43,24 +43,14 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     
     var isPresentingInModal : Bool = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let shotName = shotName {
-            if data.allTakesSaved[shotName] != nil {
-                shotsTaken = (data.allTakesSaved[shotName]!)
-            }
-        }
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        // Depending on style of presentation (modal or push presentation), this nav button will be different
-        
-        var editButton = UIBarButtonItem()
+    override func viewWillAppear(_ animated: Bool) {
         
         if presentingViewController is UINavigationController {
             isPresentingInModal = true
         }
         
+        var editButton = UIBarButtonItem()
+
         if isPresentingInModal {
             //set up edit button on nav bar to be select & Done
             editButton = UIBarButtonItem(title: "Select Take", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
@@ -72,7 +62,46 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
         
         self.navigationItem.rightBarButtonItem = editButton
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if let shotName = shotName {
+            if data.allTakesSaved[shotName] != nil {
+                shotsTaken = (data.allTakesSaved[shotName]!)
+                
+                //set up thumbnails for each take object if it doesn't already have one saved.
+                for var take in shotsTaken {
+                    if take.thumbnail != nil {
+                        return
+                    } else {
+                        take = self.setUpThumbnail(take: take)
+                    }
+                }
+            }
+        }
         
+        // Register cell classes
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        // Depending on style of presentation (modal or push presentation), this nav button will be different
+        
+//        var editButton = UIBarButtonItem()
+//        
+//
+//        if isPresentingInModal {
+//            //set up edit button on nav bar to be select & Done
+//            editButton = UIBarButtonItem(title: "Select Take", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
+//            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
+//            self.navigationItem.leftBarButtonItem = cancelButton
+//        } else {
+//            //set up edit button on nav bar to be edit/delete
+//            editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
+//        }
+//        
+//        self.navigationItem.rightBarButtonItem = editButton
+//        
         
         //set up tap to play
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
@@ -118,7 +147,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Set up Cell Delete button based on which view state
         if self.isPresentingInModal {
             cell.deleteButton.setTitle("Select",for: .normal)
-            cell.deleteButton.addTarget(self, action: #selector(self.selectTakeCell), for: UIControlEvents.touchUpInside)
+//            cell.deleteButton.addTarget(self, action: #selector(self.selectTakeCell), for: UIControlEvents.touchUpInside)
         } else {
             cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
         }
@@ -145,9 +174,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         dismiss(animated: true, completion: nil)
     }
     
-    func selectTakeCell(sender:UIButton) {
-        
-    }
+//    func selectTakeCell(sender:UIButton) {
+//        self.performSegue(withIdentifier: "My Takes", sender: sender)
+//    }
     
     //Delete function called when delete button on cell is tapped.
     func deleteTakeCell(sender:UIButton) {
@@ -261,8 +290,9 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         super.prepare(for: segue, sender: sender)
         
         let sender = sender as! UIButton
-        let cell = sender.superview as! MyTakesCollectionViewCell
-        let index = cell.index as! Int
+        let cell = sender.superview?.superview as! MyTakesCollectionViewCell
+        let indexPath = self.collectionView?.indexPath(for: cell)
+        let index = indexPath?[1]
         
         // Configure the destination view controller only when the select button on the cell is called.
         // not working but not sure if I need this.  Check if original segue still works.
@@ -276,11 +306,19 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 //        }
 //
         
-        let take = shotsTaken[index]
+        let take = shotsTaken[index!]
         takeToPassID = take.localid
     }
 
     //MARK: Private Methods
+    
+    private func setUpThumbnail(take: Take) -> Take {
+        let assetid = take.localid
+        let videoAsset = getVideoFromLocalIdentifier(id: assetid)
+        let thumbnail = getAssetThumbnail(asset: videoAsset) // settin up thumbnail and adding them to ShotsTaken Arary
+        take.thumbnail = thumbnail
+        return take
+    }
     
     private func getVideoFromLocalIdentifier(id: String) -> PHAsset {
         let fetchOptions = PHFetchOptions()
