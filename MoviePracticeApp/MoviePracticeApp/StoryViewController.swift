@@ -47,22 +47,28 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
             let myMutableComposition = AVMutableComposition()
             
-            // 2 - Video track
-            let videoTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-            
-            do {
-                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, (firstTake?.duration)!), of: (firstTake?.tracks(withMediaType: AVMediaTypeVideo)[0])!, at: kCMTimeZero)
-                videoSize = videoTrack.naturalSize
-            } catch let error as NSError {
-                print("error: \(error)")
+            // 2 - Add Video tracks
+            var atTimeM: CMTime = CMTimeMake(0, 0)
+            var totalTime : CMTime = CMTimeMake(0, 0)
+
+            for videoAsset in takeArray! {
+                let videoTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+                do {
+                    if videoAsset == takeArray?.first {
+                        atTimeM = kCMTimeZero
+                    } else {
+                        atTimeM = totalTime // <-- Use the total time for all the videos seen so far.
+                    }
+                    try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
+                                                   of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0],
+                                                   at: atTimeM)
+                    videoSize = videoTrack.naturalSize
+                } catch let error as NSError {
+                    print("error: \(error)")
+                }
+                totalTime = totalTime + videoAsset.duration
             }
-            
-            do {
-                try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, (secondTake?.duration)!), of: (secondTake?.tracks(withMediaType: AVMediaTypeVideo)[0])!, at: (firstTake?.duration)!)
-                videoSize = videoTrack.naturalSize
-            } catch let error as NSError {
-                print("error: \(error)")
-            }
+
             
             // 4 - Get path
             
@@ -103,9 +109,13 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                         alertController.addAction(playNewVideoAction)
                         alertController.addAction(defaultAction)
                         
+                        //hide activity animator
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
+                        
                         self.present(alertController, animated: true, completion: nil)
                     } else{
-                        print("video erro: \(error)")
+                        print("video erro: \(String(describing: error))")
                         
                     }
                 }
