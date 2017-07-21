@@ -264,6 +264,12 @@ class StoryViewController: UIViewController {
             let senderName = sourceViewController.senderName
             if senderName == "first" {
                 // put take in first position.
+                let videoAsset = getVideoFromLocalIdentifier(id: sourceViewController.takeToPassID)
+                let thumbnail = getAssetThumbnail(asset: videoAsset)
+                firstShotImageView.image = thumbnail
+                // ADD IN THE ID OF THE TAKE TO PASS TO SEND IT TO NEXT ONE??
+            } else if senderName == "second" {
+                
             }
         }
     }
@@ -329,6 +335,35 @@ class StoryViewController: UIViewController {
         let videoAsset = assetArray[0]
         
         return videoAsset
+    }
+    
+//    private func playVideo(view: UIViewController, videoAsset: PHAsset) {
+//        guard (videoAsset.mediaType == .video) else {
+//            print("Not a valid video media type")
+//            return
+//        }
+//        PHCachingImageManager().requestAVAsset(forVideo: videoAsset, options: nil) { (asset, audioMix, args) in
+//            let asset = asset as! AVURLAsset
+//            DispatchQueue.main.async {
+//                let player = AVPlayer(url: asset.url)
+//                let playerViewController = AVPlayerViewController()
+//                playerViewController.player = player
+//                view.present(playerViewController, animated: true) {
+//                    playerViewController.player!.play()
+//                }
+//            }
+//        }
+//    }
+    
+    private func getAssetThumbnail(asset: PHAsset) -> UIImage {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var thumbnail = UIImage()
+        option.isSynchronous = true
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            thumbnail = result!
+        })
+        return thumbnail
     }
 }
 
