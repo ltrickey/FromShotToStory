@@ -120,6 +120,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     }
                 }
             }
+        } else {
+            let alertController = UIAlertController(title: "Choose four takes in order to put them together!", message: nil, preferredStyle: .alert)
+            // add action to watch now!
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
