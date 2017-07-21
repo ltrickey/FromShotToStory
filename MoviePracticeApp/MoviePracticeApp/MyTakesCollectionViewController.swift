@@ -51,6 +51,8 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         
         var editButton = UIBarButtonItem()
 
+        // Depending on style of presentation (modal or push presentation), this nav button will be different
+
         if isPresentingInModal {
             //set up edit button on nav bar to be select & Done
             editButton = UIBarButtonItem(title: "Select Take", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
@@ -62,11 +64,15 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
         
         self.navigationItem.rightBarButtonItem = editButton
-
-    }
+        
+        //set up tap to play
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
+        
+        collectionView?.addGestureRecognizer(self.tapGesture)
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        self.tapGesture.delegate = self
+        self.tapGesture.isEnabled = true
+        
         if let shotName = shotName {
             if data.allTakesSaved[shotName] != nil {
                 shotsTaken = (data.allTakesSaved[shotName]!)
@@ -81,35 +87,14 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 }
             }
         }
-        
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        // Depending on style of presentation (modal or push presentation), this nav button will be different
-        
-//        var editButton = UIBarButtonItem()
-//        
-//
-//        if isPresentingInModal {
-//            //set up edit button on nav bar to be select & Done
-//            editButton = UIBarButtonItem(title: "Select Take", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
-//            let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
-//            self.navigationItem.leftBarButtonItem = cancelButton
-//        } else {
-//            //set up edit button on nav bar to be edit/delete
-//            editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
-//        }
-//        
-//        self.navigationItem.rightBarButtonItem = editButton
-//        
-        
-        //set up tap to play
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToPlay(_:)))
-
-        collectionView?.addGestureRecognizer(self.tapGesture)
-
-        self.tapGesture.delegate = self
-        self.tapGesture.isEnabled = true
 
     }
 
