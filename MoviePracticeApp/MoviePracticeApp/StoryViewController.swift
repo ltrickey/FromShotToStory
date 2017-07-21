@@ -11,6 +11,7 @@ import DropDown
 import CSV
 import Photos
 import MobileCoreServices
+import AVKit
 
 class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -18,6 +19,9 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     var imageNames = [String]()
     
     var takes = [Take]()
+    
+    //getting everything from local data
+    var allTakesSaved = DataStore.myTakes
     
     var firstTake: AVAsset?
     var secondTake: AVAsset?
@@ -78,6 +82,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             exporter!.shouldOptimizeForNetworkUse = true
             exporter!.exportAsynchronously {
                 
+            // 6 - Get last video saved & add it to my data.
+            let localid = self.fetchLastVideoSaved()
+            let asset = self.getVideoFromLocalIdentifier(id: localid)
+            
+                // get thumbnail here??
+            let takeToSave = Take(localid: localid, thumbnail: nil)
+            self.allTakesSaved.saveTake(shot: "Story", take: takeToSave)
+                
                 PHPhotoLibrary.shared().performChanges({
                     PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exporter!.outputURL!)
                 }) { saved, error in
@@ -85,7 +97,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                         let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
                         // add action to watch now!
                         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        let playNewVideoAction = UIAlertAction(title: "Play New Story Video", style: .default, handler: {(action:UIAlertAction!)-> Void in
+                            self.playVideo(view: self, videoAsset: asset)})
+                        
+                        alertController.addAction(playNewVideoAction)
                         alertController.addAction(defaultAction)
+                        
                         self.present(alertController, animated: true, completion: nil)
                     } else{
                         print("video erro: \(error)")
@@ -543,6 +560,24 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         let identifier = lastVideoSaved?.localIdentifier
         
         return identifier!
+    }
+    
+    private func playVideo(view: UIViewController, videoAsset: PHAsset) {
+        guard (videoAsset.mediaType == .video) else {
+            print("Not a valid video media type")
+            return
+        }
+        PHCachingImageManager().requestAVAsset(forVideo: videoAsset, options: nil) { (asset, audioMix, args) in
+            let asset = asset as! AVURLAsset
+            DispatchQueue.main.async {
+                let player = AVPlayer(url: asset.url)
+                let playerViewController = AVPlayerViewController()
+                playerViewController.player = player
+                view.present(playerViewController, animated: true) {
+                    playerViewController.player!.play()
+                }
+            }
+        }
     }
 
 }
