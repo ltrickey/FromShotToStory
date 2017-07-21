@@ -227,7 +227,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
         
-        let alert = UIAlertController(title: "iOScreator", message:
+        let alert = UIAlertController(title: "Select Take", message:
             "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
         
         let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
@@ -286,7 +286,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         let shotName = sender.view?.layer.value(forKey: "shot")
         let senderName = sender.view?.layer.value(forKey: "sender")
 
-        myTakesCollectionViewController.shotName = shotName as! String
+        myTakesCollectionViewController.shotName = shotName as? String
         myTakesCollectionViewController.senderName = senderName as! String
         
 //        guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
