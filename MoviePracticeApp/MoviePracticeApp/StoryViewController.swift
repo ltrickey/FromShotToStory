@@ -265,25 +265,38 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             if senderName == "first" {
                 // put take in first position.
                 firstShotImageView.image = thumbnail
-//                requestAVssetForVideo(videoAsset)
-                
+
                 PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                     self.firstTake = avAsset!
                     print("first Asset Loaded")
                 })
 
-                
             } else if senderName == "second" {
                 // put take in second position.
                 secondShotImageView.image = thumbnail
-//                firstTake = videoAsset
 
+                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                    self.secondTake = avAsset!
+                    print("second Asset Loaded")
+                })
+                
             } else if senderName == "third" {
                 // put take in second position.
                 thirdShotImageView.image = thumbnail
+                
+                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                    self.thirdTake = avAsset!
+                    print("third Asset Loaded")
+                })
+                
             } else if senderName == "fourth" {
                 // put take in second position.
                 fourthShotImageView.image = thumbnail
+                
+                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                    self.fourthTake = avAsset!
+                    print("fourth Asset Loaded")
+                })
             }
         }
     }
