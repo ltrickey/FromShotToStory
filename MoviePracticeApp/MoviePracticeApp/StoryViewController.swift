@@ -265,10 +265,19 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             if senderName == "first" {
                 // put take in first position.
                 firstShotImageView.image = thumbnail
-                // ADD IN THE ID OF THE TAKE TO PASS TO SEND IT TO NEXT ONE??
+//                requestAVssetForVideo(videoAsset)
+                
+                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                    self.firstTake = avAsset!
+                    print("first Asset Loaded")
+                })
+
+                
             } else if senderName == "second" {
                 // put take in second position.
                 secondShotImageView.image = thumbnail
+//                firstTake = videoAsset
+
             } else if senderName == "third" {
                 // put take in second position.
                 thirdShotImageView.image = thumbnail
