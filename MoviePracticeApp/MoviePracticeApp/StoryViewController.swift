@@ -338,11 +338,11 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             // 2 - Add Video tracks
             var totalTime = kCMTimeZero
+            let videoTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: kCMPersistentTrackID_Invalid)
+            let audioTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: kCMPersistentTrackID_Invalid)
             
             for videoAsset in takeArray! {
                 print(videoAsset)
-                let videoTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-                let audioTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
 
                 do {
                     try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
