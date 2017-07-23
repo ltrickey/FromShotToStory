@@ -289,7 +289,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     print("first Asset Loaded")
                 })
  
-
             } else if senderName == "second" {
                 // put take in second position.
                 secondShotImageView.image = thumbnail
@@ -307,7 +306,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     self.thirdTake = avAsset!
                     print("third Asset Loaded")
                 })
-
                 
             } else if senderName == "fourth" {
                 // put take in second position.
@@ -481,18 +479,34 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
         let firstShot : UIAlertAction = UIAlertAction(title: "Insert as First Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToFirstShot(take: takeToSave)
+            PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                self.firstTake = avAsset!
+                print("first Asset Loaded")
+            })
 
         })
         let secondShot : UIAlertAction = UIAlertAction(title: "Insert as Second Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToSecondShot(take: takeToSave)
+            PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                self.secondTake = avAsset!
+                print("second Asset Loaded")
+            })
 
         })
         let thirdShot : UIAlertAction = UIAlertAction(title: "Insert as Third Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToThirdShot(take: takeToSave)
+            PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                self.thirdTake = avAsset!
+                print("third Asset Loaded")
+            })
  
         })
         let fourthShot : UIAlertAction = UIAlertAction(title: "Insert as Fourth Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToFourthShot(take: takeToSave)
+            PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                self.fourthTake = avAsset!
+                print("fourth Asset Loaded")
+            })
  
         })
         
