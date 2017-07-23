@@ -330,7 +330,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             //put all takes in array
             takeArray = [firstTake!, secondTake!, thirdTake!, fourthTake!]
             
-            print(takeArray)
             // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
             let myMutableComposition = AVMutableComposition()
             
