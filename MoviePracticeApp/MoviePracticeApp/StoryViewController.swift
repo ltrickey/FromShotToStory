@@ -463,7 +463,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         var title = "Success"
         var message = "Video was saved!"
         
-        //Saving it in my Database too!
         let localid = fetchLastVideoSaved()
         
         let asset = getVideoFromLocalIdentifier(id: localid)
@@ -611,6 +610,15 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 }
             }
         }
+    }
+    
+    private func getAVAssetfromPHAsset(asset: PHAsset) -> AVAsset {
+        var avAssetToReturn = AVFoundation.AVAsset()
+        PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+            avAssetToReturn = avAsset!
+        })
+        
+        return avAssetToReturn
     }
 
 }

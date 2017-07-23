@@ -140,8 +140,10 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
         
         //Saving it in my Database too!
         let localid = fetchLastVideoSaved()
-        
-        let takeToSave = Take(localid: localid, thumbnail: nil)
+        let asset = getVideoFromLocalIdentifier(id: localid)
+        let thumbnail =  getAssetThumbnail(asset: asset)
+
+        let takeToSave = Take(localid: localid, thumbnail: thumbnail)
         allTakesSaved.saveTake(shot: (shot?.name)!, take: takeToSave)
         
         if let _ = error {
@@ -179,7 +181,27 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
         
         return identifier!
     }
+    
+    private func getVideoFromLocalIdentifier(id: String) -> PHAsset {
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
+                                                         ascending: false)]
+        let assetArray = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: fetchOptions)
+        let videoAsset = assetArray[0]
+        
+        return videoAsset
+    }
 
+    private func getAssetThumbnail(asset: PHAsset) -> UIImage {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var thumbnail = UIImage()
+        option.isSynchronous = true
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            thumbnail = result!
+        })
+        return thumbnail
+    }
 }
 
 // MARK: - UIImagePickerControllerDelegate
