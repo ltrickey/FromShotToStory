@@ -35,100 +35,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var putItTogetherButton: UIButton!
     
-    //edit all together!
-    @IBAction func editTogether(_ sender: Any) {
-        if (firstTake != nil && secondTake != nil && thirdTake != nil && fourthTake != nil) {
-            self.activityIndicator.isHidden = false
-            self.activityIndicator.startAnimating()
-            
-            //put all takes in array
-            takeArray = [firstTake!, secondTake!, thirdTake!, fourthTake!]
-
-            // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
-            let myMutableComposition = AVMutableComposition()
-            
-            // 2 - Add Video tracks
-            var atTimeM: CMTime = CMTimeMake(0, 0)
-            var totalTime : CMTime = CMTimeMake(0, 0)
-
-            for videoAsset in takeArray! {
-                let videoTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
-                do {
-                    if videoAsset == takeArray?.first {
-                        atTimeM = kCMTimeZero
-                    } else {
-                        atTimeM = totalTime // <-- Use the total time for all the videos seen so far.
-                    }
-                    try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
-                                                   of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0],
-                                                   at: atTimeM)
-                    videoSize = videoTrack.naturalSize
-                } catch let error as NSError {
-                    print("error: \(error)")
-                }
-                totalTime = totalTime + videoAsset.duration
-            }
-
-            
-            // 4 - Get path
-            
-            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .long
-            dateFormatter.timeStyle = .short
-            let date = dateFormatter.string(from: NSDate() as Date)
-            let savePath = (documentDirectory as NSString).appendingPathComponent("mergeVideo-\(date).mov")
-            let url = NSURL(fileURLWithPath: savePath)
-            
-
-            // 5 - Create exporter
-            let exporter = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
-            exporter!.outputURL = url as URL
-            exporter!.outputFileType = AVFileTypeQuickTimeMovie
-            exporter!.shouldOptimizeForNetworkUse = true
-            exporter!.exportAsynchronously {
-                
-            // 6 - Get last video saved & add it to my data.
-            let localid = self.fetchLastVideoSaved()
-            let asset = self.getVideoFromLocalIdentifier(id: localid)
-            
-                // get thumbnail here??
-            let takeToSave = Take(localid: localid, thumbnail: nil)
-            self.allTakesSaved.saveTake(shot: "Story", take: takeToSave)
-                
-                PHPhotoLibrary.shared().performChanges({
-                    PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exporter!.outputURL!)
-                }) { saved, error in
-                    if saved {
-                        let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
-                        // add action to watch now!
-                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        let playNewVideoAction = UIAlertAction(title: "Play New Story Video", style: .default, handler: {(action:UIAlertAction!)-> Void in
-                            self.playVideo(view: self, videoAsset: asset)})
-                        
-                        alertController.addAction(playNewVideoAction)
-                        alertController.addAction(defaultAction)
-                        
-                        //hide activity animator
-                        self.activityIndicator.stopAnimating()
-                        self.activityIndicator.isHidden = true
-                        
-                        self.present(alertController, animated: true, completion: nil)
-                    } else{
-                        print("video erro: \(String(describing: error))")
-                        
-                    }
-                }
-            }
-        } else {
-            let alertController = UIAlertController(title: "Choose four takes in order to put them together!", message: nil, preferredStyle: .alert)
-            // add action to watch now!
-            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
     @IBOutlet weak var selectShotsLabel: UILabel!
     @IBOutlet weak var selectShotsExample: UILabel!
     @IBOutlet weak var selectShotsEncouragement: UILabel!
@@ -393,8 +299,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     print("second Asset Loaded")
                 })
                 
-                
-                
             } else if senderName == "third" {
                 // put take in second position.
                 thirdShotImageView.image = thumbnail
@@ -418,6 +322,110 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             }
         }
     }
+    
+    //MARK: --edit all together Actions!
+    @IBAction func editTogether(_ sender: Any) {
+        if (firstTake != nil && secondTake != nil && thirdTake != nil && fourthTake != nil) {
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+            
+            //put all takes in array
+            takeArray = [firstTake!, secondTake!, thirdTake!, fourthTake!]
+            
+            print(takeArray)
+            // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
+            let myMutableComposition = AVMutableComposition()
+            
+            // 2 - Add Video tracks
+            var totalTime = kCMTimeZero
+            
+            for videoAsset in takeArray! {
+                print(videoAsset)
+                let videoTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: Int32(kCMPersistentTrackID_Invalid))
+                let audioTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: CMPersistentTrackID())
+
+                do {
+                    try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
+                                                   of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0],
+                                                   at: totalTime)
+                    videoSize = videoTrack.naturalSize
+
+                } catch let error as NSError {
+                    print("error: \(error)")
+                }
+                
+                do {
+                    try audioTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
+                                                   of: videoAsset.tracks(withMediaType: AVMediaTypeAudio)[0],
+                                                   at: totalTime)
+                } catch let error as NSError {
+                    print("error: \(error)")
+                }
+                
+                totalTime = CMTimeAdd(totalTime, videoAsset.duration)
+                print(totalTime)
+            }
+            
+            
+            // 4 - Get path
+            
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .short
+            let date = dateFormatter.string(from: NSDate() as Date)
+            let savePath = (documentDirectory as NSString).appendingPathComponent("mergeVideo-\(date).mov")
+            let url = NSURL(fileURLWithPath: savePath)
+            
+            // 5 - Create exporter
+            let exporter = AVAssetExportSession(asset: myMutableComposition, presetName: AVAssetExportPresetHighestQuality)
+            exporter!.outputURL = url as URL
+            exporter!.outputFileType = AVFileTypeQuickTimeMovie
+            exporter!.shouldOptimizeForNetworkUse = true
+            exporter!.exportAsynchronously {
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: exporter!.outputURL!)
+                }) { saved, error in
+                    if saved {
+                        
+                        // 6 - Get last video saved & add it to my data.
+                        let localid = self.fetchLastVideoSaved()
+                        let asset = self.getVideoFromLocalIdentifier(id: localid)
+                        
+                        // get thumbnail here??
+                        let takeToSave = Take(localid: localid, thumbnail: nil)
+                        self.allTakesSaved.saveTake(shot: "Story", take: takeToSave)
+                        
+
+                        let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
+                        // add action to watch now!
+                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        let playNewVideoAction = UIAlertAction(title: "Play New Story Video", style: .default, handler: {(action:UIAlertAction!)-> Void in
+                            self.playVideo(view: self, videoAsset: asset)})
+                        
+                        alertController.addAction(playNewVideoAction)
+                        alertController.addAction(defaultAction)
+                        
+                        //hide activity animator
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    } else{
+                        print("video error: \(String(describing: error))")
+                        
+                    }
+                }
+            }
+        } else {
+            let alertController = UIAlertController(title: "Choose four takes in order to put them together!", message: nil, preferredStyle: .alert)
+            // add action to watch now!
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
 
 
     // MARK: - Navigation
@@ -434,12 +442,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
 
         myTakesCollectionViewController.shotName = shotName as? String
         myTakesCollectionViewController.senderName = senderName as! String
-        
-//        guard let myTakesCollectionViewController = segue.destination as? MyTakesCollectionViewController else {
-//            fatalError("Unexpected destination: \(segue.destination)")
-//        }
-//        
-//        myTakesCollectionViewController.shotName = self.shotNames[self.firstIndex]
+
     }
     
     //MARK: - Camera Methonds
@@ -598,18 +601,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
 
 }
 
-//extension StoryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//    
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-//        //use image here!
-//        dismiss(animated: true, completion: nil)
-//    }
-//    
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//    
-//}
 
 // MARK: - UIImagePickerControllerDelegate
 
