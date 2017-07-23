@@ -348,7 +348,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
                                                    of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0],
                                                    at: totalTime)
-                    videoSize = videoTrack.naturalSize
+                    //videoSize = videoTrack.naturalSize
 
                 } catch let error as NSError {
                     print("error: \(error)")
