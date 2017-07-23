@@ -56,12 +56,12 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
         if isPresentingInModal {
             //set up edit button on nav bar to be select & Done
-            editButton = UIBarButtonItem(title: "Select Take", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
+            editButton = UIBarButtonItem(title: "Select Take", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.editTakes(_:)))
             let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.dismissPopUp(_:)))
             self.navigationItem.leftBarButtonItem = cancelButton
         } else {
             //set up edit button on nav bar to be edit/delete
-            editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.deleteTakes(_:)))
+            editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MyTakesCollectionViewController.editTakes(_:)))
         }
         
         self.navigationItem.rightBarButtonItem = editButton
@@ -77,15 +77,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         if let shotName = shotName {
             if data.allTakesSaved[shotName] != nil {
                 shotsTaken = (data.allTakesSaved[shotName]!)
-                
-                //set up thumbnails for each take object if it doesn't already have one saved.
-                for var take in shotsTaken {
-                    if take.thumbnail != nil {
-                        return
-                    } else {
-                        take = self.setUpThumbnail(take: take)
-                    }
-                }
             }
         }
 
@@ -133,7 +124,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         // Set up Cell Delete button based on which view state
         if self.isPresentingInModal {
             cell.deleteButton.setTitle("Select",for: .normal)
-//            cell.deleteButton.addTarget(self, action: #selector(self.selectTakeCell), for: UIControlEvents.touchUpInside)
         } else {
             cell.deleteButton.addTarget(self, action: #selector(self.deleteTakeCell), for: UIControlEvents.touchUpInside)
         }
@@ -198,10 +188,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
     
     // MARK: Edit function called when edit button on bar is tapped.
-    func deleteTakes(_ sender: UIBarButtonItem) {
+    func editTakes(_ sender: UIBarButtonItem) {
         if(editModeEnabled == false) {
             //disable tap gesture recognizer for playing video
-            tapGesture.isEnabled = false
+            self.tapGesture.isEnabled = false
             
             // Put the collection view in edit mode
             let editButton = self.navigationItem.rightBarButtonItem
@@ -217,7 +207,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             }
         } else {
             // renable tap gesture for playing video
-            tapGesture.isEnabled = true
+            self.tapGesture.isEnabled = true
             
             // Take the collection view out of edit mode
             let editButton = self.navigationItem.rightBarButtonItem
