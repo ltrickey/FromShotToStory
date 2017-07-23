@@ -511,10 +511,18 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         // add four different actions to put in diff locations.
-        alert.addAction(firstShot)
-        alert.addAction(secondShot)
-        alert.addAction(thirdShot)
-        alert.addAction(fourthShot)
+        if firstShotImageView.image != nil {
+            alert.addAction(firstShot)
+        }
+        if secondShotImageView.image != nil {
+            alert.addAction(secondShot)
+        }
+        if thirdShotImageView.image != nil {
+            alert.addAction(thirdShot)
+        }
+        if fourthShotImageView.image != nil {
+            alert.addAction(fourthShot)
+        }
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
 
         alert.popoverPresentationController?.sourceView = self.view
@@ -540,9 +548,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     func addToFourthShot(take: Take) {
         fourthShotImageView.image = take.thumbnail
     }
-
-
-
 
     //MARK: - Private method
     private func loadShotData() {
