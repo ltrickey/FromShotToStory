@@ -439,16 +439,21 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
         
-        let sender = sender as! UITapGestureRecognizer
-        let navController = segue.destination as! UINavigationController
-        let myTakesCollectionViewController = navController.topViewController as! MyTakesCollectionViewController
-        
-        let shotName = sender.view?.layer.value(forKey: "shot")
-        let senderName = sender.view?.layer.value(forKey: "sender")
-
-        myTakesCollectionViewController.shotName = shotName as? String
-        myTakesCollectionViewController.senderName = senderName as! String
-
+        if segue.identifier == "My Takes" {
+            // add this in so this is only if a photo has been tapped.  If the button has been tapped, do it differently.
+            let sender = sender as! UITapGestureRecognizer
+            let navController = segue.destination as! UINavigationController
+            let myTakesCollectionViewController = navController.topViewController as! MyTakesCollectionViewController
+            
+            let shotName = sender.view?.layer.value(forKey: "shot")
+            let senderName = sender.view?.layer.value(forKey: "sender")
+            
+            myTakesCollectionViewController.shotName = shotName as? String
+            myTakesCollectionViewController.senderName = senderName as! String
+        } else {
+            let myTakesCollectionViewController = segue.destination as! MyTakesCollectionViewController
+            myTakesCollectionViewController.shotName = "Story"
+        }
     }
     
     //MARK: - Camera Methonds
