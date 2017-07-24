@@ -75,8 +75,21 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         self.tapGesture.isEnabled = true
         
         if let shotName = shotName {
+            
+            //loading data - possibly put in a separate function.
             if data.allTakesSaved[shotName] != nil {
-                shotsTaken = (data.allTakesSaved[shotName]!)
+                self.shotsTaken = (data.allTakesSaved[shotName]!)
+                
+                //check to make sure shot hasn't been deleted in camera roll by other app.
+                for take in self.shotsTaken {
+                    let asset = getVideoFromLocalIdentifier(id: take.localid)
+                    if asset == nil {
+                       data.deleteTake(shot: shotName, take: take)
+                        if data.allTakesSaved[shotName] != nil {
+                            self.shotsTaken = (data.allTakesSaved[shotName]!)
+                        }
+                    }
+                }
             }
         }
 
@@ -141,7 +154,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 
                 let videoAsset = getVideoFromLocalIdentifier(id: takeToPlay.localid)
                 
-                playVideo (view: self, videoAsset: videoAsset)
+                playVideo (view: self, videoAsset: videoAsset!)
             }
         }
     }
@@ -270,18 +283,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         let indexPath = self.collectionView?.indexPath(for: cell)
         let index = indexPath?[1]
         
-        // Configure the destination view controller only when the select button on the cell is called.
-        // not working but not sure if I need this.  Check if original segue still works.
-//        guard let button = sender as? UIButton, button === cell.deleteButton else {
-//            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-//            return
-//        }
-        
-//        guard let storyViewController = segue.destination as? StoryViewController else {
-//            fatalError("Unexpected destination: \(segue.destination)")
-//        }
-//
-        
         let take = shotsTaken[index!]
         takeToPassID = take.localid
     }
@@ -291,19 +292,23 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     private func setUpThumbnail(take: Take) -> Take {
         let assetid = take.localid
         let videoAsset = getVideoFromLocalIdentifier(id: assetid)
-        let thumbnail = getAssetThumbnail(asset: videoAsset) // settin up thumbnail and adding them to ShotsTaken Arary
+        let thumbnail = getAssetThumbnail(asset: videoAsset!) // settin up thumbnail and adding them to ShotsTaken Arary
         take.thumbnail = thumbnail
         return take
     }
     
-    private func getVideoFromLocalIdentifier(id: String) -> PHAsset {
+    private func getVideoFromLocalIdentifier(id: String) -> PHAsset? {
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate",
                                                          ascending: false)]
         let assetArray = PHAsset.fetchAssets(withLocalIdentifiers: [id], options: fetchOptions)
-        let videoAsset = assetArray[0]
         
-        return videoAsset
+        if assetArray.count == 0 {
+            return nil
+        } else {
+            let videoAsset = assetArray[0]
+            return videoAsset
+        }
     }
     
     private func playVideo(view: UIViewController, videoAsset: PHAsset) {

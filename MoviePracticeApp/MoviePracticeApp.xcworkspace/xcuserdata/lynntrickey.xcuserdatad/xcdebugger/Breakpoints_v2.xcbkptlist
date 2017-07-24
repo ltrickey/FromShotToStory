@@ -167,11 +167,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522543662.610185"
+            timestampString = "522549550.016105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "621"
-            endingLineNumber = "621"
+            startingLineNumber = "622"
+            endingLineNumber = "622"
             landmarkName = "getAVAssetfromPHAsset(asset:)"
             landmarkType = "7">
          </BreakpointContent>
