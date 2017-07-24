@@ -28,7 +28,6 @@
 		51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */; };
 		51C3E3D41F0AF68300AF729A /* MoviePracticeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */; };
 		51DA094B1F1D5C5500FD3BD8 /* SwiftyGif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51DA094A1F1D5C5500FD3BD8 /* SwiftyGif.framework */; };
-		51DA09511F1D5E3700FD3BD8 /* closeUp.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51DA09501F1D5E3700FD3BD8 /* closeUp.gif */; };
 		51DA09531F1D6A7A00FD3BD8 /* panShot.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51DA09521F1D6A7A00FD3BD8 /* panShot.gif */; };
 		51DA09551F1D6DBC00FD3BD8 /* tilt.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51DA09541F1D6DBC00FD3BD8 /* tilt.gif */; };
 		51DA09571F1D718000FD3BD8 /* track.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51DA09561F1D718000FD3BD8 /* track.gif */; };
@@ -74,7 +73,6 @@
 		51C3E3D31F0AF68300AF729A /* MoviePracticeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePracticeAppTests.swift; sourceTree = "<group>"; };
 		51C3E3D51F0AF68300AF729A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51DA094A1F1D5C5500FD3BD8 /* SwiftyGif.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyGif.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/SwiftyGif/SwiftyGif.framework"; sourceTree = "<group>"; };
-		51DA09501F1D5E3700FD3BD8 /* closeUp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = closeUp.gif; path = ../../../../../../Downloads/closeUp.gif; sourceTree = "<group>"; };
 		51DA09521F1D6A7A00FD3BD8 /* panShot.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = panShot.gif; path = ../../../../../../Downloads/panShot.gif; sourceTree = "<group>"; };
 		51DA09541F1D6DBC00FD3BD8 /* tilt.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = tilt.gif; path = ../../../../../../Downloads/tilt.gif; sourceTree = "<group>"; };
 		51DA09561F1D718000FD3BD8 /* track.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = track.gif; path = ../../../../../../Downloads/track.gif; sourceTree = "<group>"; };
@@ -127,17 +125,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5159B5D81F1EDA7900170959 /* Learn About Shots */ = {
+		5149FD2B1F267B57005F3CC8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */,
+				51B896BD1F1E846D008BAA69 /* StoryViewController.swift */,
 				5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */,
-				5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */,
-				51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */,
 				51C3E3C01F0AF68200AF729A /* ShotViewController.swift */,
 				51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */,
-				513C25A11F146518000F2996 /* MyTakesCollectionViewCell.swift */,
 			);
-			name = "Learn About Shots";
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5149FD2C1F267B82005F3CC8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5138A5E51F18189D00757BDC /* DataStore.swift */,
+				5133C2771F0D6CC000E1B33E /* Shot.swift */,
+				513C25AA1F15887B000F2996 /* Take.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5149FD2D1F267BD2005F3CC8 /* CSV */ = {
+			isa = PBXGroup;
+			children = (
+				51574EA71F1AEAE200C2AE6E /* shotData.csv */,
+				5149FD291F259CFE005F3CC8 /* shotSuggestions.csv */,
+			);
+			name = CSV;
+			sourceTree = "<group>";
+		};
+		5159B5D81F1EDA7900170959 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */,
+				513C25A11F146518000F2996 /* MyTakesCollectionViewCell.swift */,
+				51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		51C3E3B21F0AF68200AF729A = {
@@ -166,17 +192,13 @@
 				51C3E3C71F0AF68200AF729A /* LaunchScreen.storyboard */,
 				51C3E3C21F0AF68200AF729A /* Main.storyboard */,
 				51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */,
-				51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */,
-				51B896BD1F1E846D008BAA69 /* StoryViewController.swift */,
-				5159B5D81F1EDA7900170959 /* Learn About Shots */,
+				5149FD2B1F267B57005F3CC8 /* Controllers */,
+				5149FD2C1F267B82005F3CC8 /* Model */,
+				5159B5D81F1EDA7900170959 /* Views */,
+				5149FD2D1F267BD2005F3CC8 /* CSV */,
 				51DA094C1F1D5D2A00FD3BD8 /* Gifs */,
 				51C3E3C51F0AF68200AF729A /* Assets.xcassets */,
-				51574EA71F1AEAE200C2AE6E /* shotData.csv */,
-				5149FD291F259CFE005F3CC8 /* shotSuggestions.csv */,
 				51C3E3CA1F0AF68200AF729A /* Info.plist */,
-				5138A5E51F18189D00757BDC /* DataStore.swift */,
-				5133C2771F0D6CC000E1B33E /* Shot.swift */,
-				513C25AA1F15887B000F2996 /* Take.swift */,
 			);
 			path = MoviePracticeApp;
 			sourceTree = "<group>";
@@ -196,7 +218,6 @@
 				51DA09561F1D718000FD3BD8 /* track.gif */,
 				51DA09541F1D6DBC00FD3BD8 /* tilt.gif */,
 				51DA09521F1D6A7A00FD3BD8 /* panShot.gif */,
-				51DA09501F1D5E3700FD3BD8 /* closeUp.gif */,
 			);
 			name = Gifs;
 			sourceTree = "<group>";
@@ -305,7 +326,6 @@
 				51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */,
 				51DA09551F1D6DBC00FD3BD8 /* tilt.gif in Resources */,
 				51DA09571F1D718000FD3BD8 /* track.gif in Resources */,
-				51DA09511F1D5E3700FD3BD8 /* closeUp.gif in Resources */,
 				51DA09531F1D6A7A00FD3BD8 /* panShot.gif in Resources */,
 				5149FD2A1F259CFE005F3CC8 /* shotSuggestions.csv in Resources */,
 				51C3E3C61F0AF68200AF729A /* Assets.xcassets in Resources */,

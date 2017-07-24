@@ -38,7 +38,13 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var putItTogetherButton: UIButton!
     
     @IBOutlet weak var selectShotsLabel: UILabel!
-    @IBOutlet weak var selectShotsExample: UILabel!
+    
+    @IBOutlet var instructionsStackView: UIStackView!
+    @IBOutlet var exampleOne: UILabel!
+    @IBOutlet var exampleTwo: UILabel!
+    @IBOutlet var exampleThree: UILabel!
+    @IBOutlet var exampleFour: UILabel!
+    
     @IBOutlet weak var selectShotsEncouragement: UILabel!
     
     @IBOutlet weak var storyToTryButton: UIBarButtonItem!
@@ -64,7 +70,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     var stories = ["Jess is having a terrible day.", "Dustin is enjoying the beautiful weather.", "Lila gets distracted.","A new school is very scary", "Sleep is my favorite activity", "Julia is trying to impress her teacher so she can get an A in class.", "Dylan can’t wait for school to be over so he can go to Disneyland."]
     
-    var examples = ["An insert shot of Jess's foot stepping in some mud.", "A tilt shot from the beautiful sky to down to Dustin's smiling face to show him enjohing the weather.", "A Point of View Shot of point of what is distracting Lila.", "A tracking shot of someone walking down the hall at a new school.", "A close up of someone not being able to keep their eyes open.",  "An over the shoulder shot as Julia turns in her paper to her teacher.", "An extreme close up of dylan's eyes as he watches the clock."]
+    var examples = [[""]]
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,12 +80,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         } else {
             self.navigationItem.rightBarButtonItem = self.myStoriesButton
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadShotData()
+        loadStoryExamples()
 
         print(data.allTakesSaved["Story"])
         
@@ -87,9 +93,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         shotsStackView.isHidden = true
         
         // story stuff
-        self.selectShotsLabel.isHidden = true
-        self.selectShotsExample.isHidden = true
-        self.selectShotsEncouragement.isHidden = true
+        self.instructionsStackView.isHidden = true
         self.activityIndicator.isHidden = true
         
         //set up drop downs
@@ -139,16 +143,16 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         // Action triggered on selection
         storyDropDown.selectionAction = { [unowned self] (index, item) in
             self.storyToTryButton.title = item
-            self.selectShotsExample.text = self.examples[index]
+            self.instructionsStackView.isHidden = false
+            
+            self.exampleOne.text = self.examples[index][0]
+            self.exampleTwo.text = self.examples[index][1]
+            self.exampleThree.text = self.examples[index][2]
+            self.exampleFour.text = self.examples[index][3]
 
-            self.selectShotsLabel.isHidden = false
-            self.selectShotsExample.isHidden = false
-            self.selectShotsEncouragement.isHidden = false
             self.shotsStackView.isHidden = false
             self.putItTogetherButton.isHidden = false
-
         }
-       
     }
     
     func setupfirstShotDropDownMenu() {
@@ -263,25 +267,30 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
         
-        let alert = UIAlertController(title: "Select Take", message:
-            "Choose Existing or Shoot new Take", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Select Take", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
         let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.performSegue(withIdentifier: "My Takes", sender: sender)
         })
         
-        let openCamera : UIAlertAction = UIAlertAction(title: "Record new Take", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+        let openCamera : UIAlertAction = UIAlertAction(title: "Record New", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
              _ = self.startCameraFromViewController(self, withDelegate: self)        })
         
-        alert.addAction(goToMyTakes)
+        //check and see if image clicked has takes associated with it.
+        //if it does show goToMyTakes, else no.
+        let shot = sender.view?.layer.value(forKey: "shot") as! String
+
+        if data.allTakesSaved[shot] != nil && data.allTakesSaved[shot]! != [] {
+            alert.addAction(goToMyTakes)
+        }
+        
         alert.addAction(openCamera)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
 
         alert.popoverPresentationController?.sourceView = self.view
         alert.popoverPresentationController?.sourceRect = self.view.bounds
-        // this is the center of the screen currently but it can be any point in the view
+
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     //Mark: -ACTIONS
@@ -590,6 +599,21 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             shotNames.append(row[0])
             imageNames.append(row[1])
+        }
+    }
+    
+    private func loadStoryExamples() {
+        
+        //gets filepath of .csv file
+        let filePath:String = Bundle.main.path(forResource: "shotSuggestions", ofType: "csv")!
+        
+        let stream = InputStream(fileAtPath: filePath)!
+        let csv = try! CSVReader(stream: stream)
+        
+        examples.remove(at: 0)
+        
+        while let row = csv.next() {
+            examples.append(row)
         }
     }
     
