@@ -145,10 +145,10 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             self.storyToTryButton.title = item
             self.instructionsStackView.isHidden = false
             
-            self.exampleOne.text = self.examples[index][0]
-            self.exampleTwo.text = self.examples[index][1]
-            self.exampleThree.text = self.examples[index][2]
-            self.exampleFour.text = self.examples[index][3]
+            self.exampleOne.text = self.examples[index][1]
+            self.exampleTwo.text = self.examples[index][2]
+            self.exampleThree.text = self.examples[index][3]
+            self.exampleFour.text = self.examples[index][4]
 
             self.shotsStackView.isHidden = false
             self.putItTogetherButton.isHidden = false
