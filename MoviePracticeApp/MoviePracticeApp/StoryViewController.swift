@@ -31,8 +31,10 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     var takeArray: [AVAsset]?
     var videoSize: CGSize = CGSize(width: 0.0, height: 0.0)
 
+    @IBOutlet var myStoriesButton: UIBarButtonItem!
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var putItTogetherButton: UIButton!
     
     @IBOutlet weak var selectShotsLabel: UILabel!
@@ -40,7 +42,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var selectShotsEncouragement: UILabel!
     
     @IBOutlet weak var storyToTryButton: UIBarButtonItem!
-    
     
     @IBOutlet weak var shotsStackView: UIStackView!
     
@@ -67,6 +68,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if allTakesSaved.allTakesSaved["Story"] != nil {
+            self.navigationItem.rightBarButtonItem = self.myStoriesButton
+        } else {
+            self.navigationItem.setRightBarButtonItems(nil, animated: true)
+        }
     }
     
     override func viewDidLoad() {
@@ -82,12 +89,15 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         self.selectShotsEncouragement.isHidden = true
         self.activityIndicator.isHidden = true
         
-        //shot view stuff
+        //set up drop downs
         setupStoryDropDownMenu()
         setupfirstShotDropDownMenu()
         setupSecondShotDropDownMenu()
         setupThirdShotDropDownMenu()
         setupFourthShotDropDownMenu()
+        
+        // appearance
+        DropDown.appearance().textFont = UIFont.systemFont(ofSize: 20)
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,7 +128,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     func setupStoryDropDownMenu() {
         // The view to which the drop down will appear on
-        
         storyDropDown.anchorView = storyToTryButton as UIBarButtonItem
         
         // The list of items to display. Can be changed dynamically
@@ -388,12 +397,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                         // 6 - Get last video saved & add it to my data.
                         let localid = self.fetchLastVideoSaved()
                         let asset = self.getVideoFromLocalIdentifier(id: localid)
+                        let thumbnail = self.getAssetThumbnail(asset: asset)
                         
                         // get thumbnail here??
-                        let takeToSave = Take(localid: localid, thumbnail: nil)
+                        let takeToSave = Take(localid: localid, thumbnail: thumbnail)
                         self.allTakesSaved.saveTake(shot: "Story", take: takeToSave)
                         
-
                         let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
                         // add action to watch now!
                         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)

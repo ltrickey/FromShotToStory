@@ -30,7 +30,7 @@ class ShotTableViewController: UITableViewController {
         
         loadShotData()
         
-        navigationItem.title = "Shot List"
+        navigationItem.title = "Shot Types: Click on One to Learn More"
     }
 
     override func didReceiveMemoryWarning() {
