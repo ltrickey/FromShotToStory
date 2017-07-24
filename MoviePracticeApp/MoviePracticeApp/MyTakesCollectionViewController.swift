@@ -28,7 +28,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     // get takes from local data - could be nil if never saved before.
     var allShotData = DataStore.myTakes
 
-    // the array of shot URLs - not filled until viewDidLoad
+    // the array of shot URLs - not filled until loadShotData is called.
     var shotsTaken: [Take] = []
     
     //keeping track of which UIview sent us here
@@ -37,7 +37,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     //keeping track of Take objects in the four shots in the storyview
     var takeToPassID: String = ""
     
-
     var editModeEnabled = false
     var tapGesture = UITapGestureRecognizer()
     
@@ -148,11 +147,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         dismiss(animated: true, completion: nil)
     }
     
-//    func selectTakeCell(sender:UIButton) {
-//        self.performSegue(withIdentifier: "My Takes", sender: sender)
-//    }
-    
-    //Delete function called when delete button on cell is tapped.
+    //Delete function called when delete button on cell is tapped.  When in select mode, unwind segue automatically called.
     func deleteTakeCell(sender:UIButton) {
         
         //Access cell attached to button
@@ -174,10 +169,10 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
             PHAssetChangeRequest.deleteAssets([videoAsset] as NSFastEnumeration)}, completionHandler: { success, error in print("Finished deleting asset. %@", (success ? "Success" : error!))
         })
   
-        // Refresh the collection view - this deletes the button.  How to delete whole cell?
+        // Refresh the collection view - this deletes the button. 
         shotsTaken = (allShotData.allTakesSaved[shotName!]!)
 
-        //        self.collectionView?.reloadItems(at: [cellPath!])
+        // this deletes whole cell
         DispatchQueue.main.async {
             self.collectionView?.reloadData()
         }
@@ -275,11 +270,11 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     //MARK: Private Methods
     
     private func loadTakes(shotName: String) {
-        //loading data - possibly put in a separate function.
+        //loading data from local storage.
         if allShotData.allTakesSaved[shotName] != nil {
             self.shotsTaken = (allShotData.allTakesSaved[shotName]!)
             
-            //check to make sure shot hasn't been deleted in camera roll by other app.
+            //update local storage & don't try to display if take has been deleted by other app.
             for take in self.shotsTaken {
                 let asset = getVideoFromLocalIdentifier(id: take.localid)
                 if asset == nil {
@@ -290,14 +285,6 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
                 }
             }
         }
-    }
-    
-    private func setUpThumbnail(take: Take) -> Take {
-        let assetid = take.localid
-        let videoAsset = getVideoFromLocalIdentifier(id: assetid)
-        let thumbnail = getAssetThumbnail(asset: videoAsset!) // settin up thumbnail and adding them to ShotsTaken Arary
-        take.thumbnail = thumbnail
-        return take
     }
     
     private func getVideoFromLocalIdentifier(id: String) -> PHAsset? {
@@ -332,15 +319,4 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         }
     }
     
-    private func getAssetThumbnail(asset: PHAsset) -> UIImage {
-        let manager = PHImageManager.default()
-        let option = PHImageRequestOptions()
-        var thumbnail = UIImage()
-        option.isSynchronous = true
-        manager.requestImage(for: asset, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-            thumbnail = result!
-        })
-        return thumbnail
-    }
-
 }
