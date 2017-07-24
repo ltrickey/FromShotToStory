@@ -128,6 +128,7 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
         cameraController.sourceType = .camera
         cameraController.mediaTypes = [kUTTypeMovie as NSString as String]
         cameraController.allowsEditing = false
+        cameraController.videoMaximumDuration = 30
         cameraController.delegate = delegate
         
         present(cameraController, animated: true, completion: nil)

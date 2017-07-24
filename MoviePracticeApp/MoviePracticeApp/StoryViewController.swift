@@ -451,6 +451,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         let cameraController = UIImagePickerController()
         cameraController.sourceType = .camera
         cameraController.mediaTypes = [kUTTypeMovie as NSString as String]
+        cameraController.videoMaximumDuration = 30
         cameraController.allowsEditing = false
         cameraController.delegate = delegate
         
