@@ -184,10 +184,10 @@
                                     <constraint firstItem="tQB-ae-a3m" firstAttribute="leading" secondItem="eOm-aK-2py" secondAttribute="leading" id="wLc-8F-zBk"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-J2-CAu" userLabel="Shots Stack View">
-                                <rect key="frame" x="48.5" y="440" width="1015" height="220"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-J2-CAu" userLabel="Shots Stack View">
+                                <rect key="frame" x="49" y="440" width="1015" height="220"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
                                         <rect key="frame" x="0.0" y="0.0" width="1015" height="40"/>
                                         <items>
                                             <barButtonItem title="First Shot" width="212.5" id="DGK-M7-tgz" userLabel="First Shot">
@@ -212,10 +212,10 @@
                                             </barButtonItem>
                                         </items>
                                     </toolbar>
-                                    <stackView opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-J9-Rio">
+                                    <stackView opaque="NO" tag="4" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-J9-Rio">
                                         <rect key="frame" x="0.0" y="40" width="1015" height="180"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="First Shot" label="First Shot">
                                                     <bool key="isElement" value="YES"/>
@@ -225,21 +225,21 @@
                                                     <constraint firstAttribute="height" constant="180" id="ayJ-rj-uRg"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="2" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-jS-q9b">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="2" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-jS-q9b">
                                                 <rect key="frame" x="255" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="5QT-vW-IJd"/>
                                                     <constraint firstAttribute="width" constant="250" id="6I1-6p-50I"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="3" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Ba-Hvp">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="3" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Ba-Hvp">
                                                 <rect key="frame" x="510" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="BAe-7Q-nkU"/>
                                                     <constraint firstAttribute="width" constant="250" id="Vmm-r2-Oar"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" restorationIdentifier="4" translatesAutoresizingMaskIntoConstraints="NO" id="WxP-TF-jmS">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="4" translatesAutoresizingMaskIntoConstraints="NO" id="WxP-TF-jmS">
                                                 <rect key="frame" x="765" y="0.0" width="250" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="7qs-Iz-Nhf"/>
@@ -266,18 +266,22 @@
                                     <action selector="editTogether:" destination="oc6-y9-hMR" eventType="touchUpInside" id="seX-Op-XEB"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="saz-nb-iHC">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="saz-nb-iHC">
                                 <rect key="frame" x="546" y="407" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="saz-nb-iHC" firstAttribute="centerY" secondItem="lLz-bC-9Uk" secondAttribute="centerY" id="Jue-ib-zZA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eOm-aK-2py" secondAttribute="trailing" constant="20" id="Qx8-a3-0aW"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="250" id="V1J-aR-aDh"/>
+                            <constraint firstItem="bF7-J2-CAu" firstAttribute="centerX" secondItem="EgU-36-9gx" secondAttribute="centerX" id="aDY-my-Wz4"/>
                             <constraint firstItem="fB9-sh-lWa" firstAttribute="top" secondItem="EgU-36-9gx" secondAttribute="bottom" constant="20" id="bUB-dH-CAI"/>
+                            <constraint firstItem="bF7-J2-CAu" firstAttribute="centerX" secondItem="saz-nb-iHC" secondAttribute="centerX" id="eYx-ro-UNc"/>
+                            <constraint firstItem="bF7-J2-CAu" firstAttribute="top" secondItem="saz-nb-iHC" secondAttribute="bottom" constant="13" id="hgx-ne-QEM"/>
                             <constraint firstItem="EgU-36-9gx" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="lgj-Cw-JVw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EgU-36-9gx" secondAttribute="trailing" constant="20" id="tTO-US-Ha2"/>
+                            <constraint firstItem="saz-nb-iHC" firstAttribute="centerX" secondItem="lLz-bC-9Uk" secondAttribute="centerX" id="vXX-E2-bY6"/>
                             <constraint firstItem="eOm-aK-2py" firstAttribute="top" secondItem="8No-4X-laN" secondAttribute="bottom" constant="10" id="yt2-dB-HLx"/>
                             <constraint firstItem="eOm-aK-2py" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="zeC-vW-rAq"/>
                         </constraints>
@@ -509,12 +513,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YkM-w5-KJm">
                                 <rect key="frame" x="20" y="64" width="1072" height="770"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-KD-E9l" userLabel="Learn Shot Types">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-KD-E9l" userLabel="Learn Shot Types">
                                         <rect key="frame" x="0.0" y="0.0" width="1072" height="380"/>
                                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                        <state key="normal" title="Learn Shot Types">
-                                            <color key="titleColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Learn Shot Types">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <font key="NSFont" size="40" name="ArialRoundedMTBold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
                                         <connections>
                                             <segue destination="3hg-hD-RsD" kind="show" id="Irc-2e-GwL"/>
@@ -590,7 +600,7 @@
         <image name="defaultShot" width="694" height="438"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f1n-ox-e6W"/>
+        <segue reference="hrH-6s-EHT"/>
         <segue reference="v7S-ab-MzB"/>
     </inferredMetricsTieBreakers>
 </document>

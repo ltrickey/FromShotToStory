@@ -21,7 +21,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     var takes = [Take]()
     
     //getting everything from local data
-    var allTakesSaved = DataStore.myTakes
+    var data = DataStore.myTakes
     
     var firstTake: AVAsset?
     var secondTake: AVAsset?
@@ -69,16 +69,19 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if allTakesSaved.allTakesSaved["Story"] != nil {
-            self.navigationItem.rightBarButtonItem = self.myStoriesButton
+        if data.allTakesSaved["Story"] == nil || data.allTakesSaved["Story"]! == [] {
+            self.navigationItem.rightBarButtonItem = nil
         } else {
-            self.navigationItem.setRightBarButtonItems(nil, animated: true)
+            self.navigationItem.rightBarButtonItem = self.myStoriesButton
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadShotData()
+
+        print(data.allTakesSaved["Story"])
         
         putItTogetherButton.isHidden = true
         shotsStackView.isHidden = true
@@ -284,6 +287,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     //Mark: -ACTIONS
     @IBAction func unwindToStoryView(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MyTakesCollectionViewController {
+            
+            //show/hide my stories button
+            if data.allTakesSaved["Story"] == nil || data.allTakesSaved["Story"]! == [] {
+                self.navigationItem.rightBarButtonItem = nil
+            } else {
+                self.navigationItem.rightBarButtonItem = self.myStoriesButton
+            }
+            
             //get video and thumbnail
             let videoAsset = getVideoFromLocalIdentifier(id: sourceViewController.takeToPassID)
             let thumbnail = getAssetThumbnail(asset: videoAsset)
@@ -394,6 +405,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 }) { saved, error in
                     if saved {
                         
+                        //hide activity animator
+                        self.activityIndicator.isHidden = true
+                        self.activityIndicator.stopAnimating()
+                        //show my stories button
+                        self.navigationItem.rightBarButtonItem = self.myStoriesButton
+                        
                         // 6 - Get last video saved & add it to my data.
                         let localid = self.fetchLastVideoSaved()
                         let asset = self.getVideoFromLocalIdentifier(id: localid)
@@ -401,7 +418,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                         
                         // get thumbnail here??
                         let takeToSave = Take(localid: localid, thumbnail: thumbnail)
-                        self.allTakesSaved.saveTake(shot: "Story", take: takeToSave)
+                        self.data.saveTake(shot: "Story", take: takeToSave)
                         
                         let alertController = UIAlertController(title: "Your video was successfully saved", message: nil, preferredStyle: .alert)
                         // add action to watch now!
@@ -412,11 +429,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                         alertController.addAction(playNewVideoAction)
                         alertController.addAction(defaultAction)
                         
-                        //hide activity animator
-                        self.activityIndicator.stopAnimating()
-                        self.activityIndicator.isHidden = true
-                        
                         self.present(alertController, animated: true, completion: nil)
+                        
                     } else{
                         print("video error: \(String(describing: error))")
                         
