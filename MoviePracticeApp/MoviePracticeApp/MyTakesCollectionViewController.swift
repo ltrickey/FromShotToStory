@@ -26,7 +26,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     var shotName : String?
     
     // get takes from local data - could be nil if never saved before.
-    var data = DataStore.myTakes
+    var allShotData = DataStore.myTakes
 
     // the array of shot URLs - not filled until viewDidLoad
     var shotsTaken: [Take] = []
@@ -75,22 +75,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         self.tapGesture.isEnabled = true
         
         if let shotName = shotName {
-            
-            //loading data - possibly put in a separate function.
-            if data.allTakesSaved[shotName] != nil {
-                self.shotsTaken = (data.allTakesSaved[shotName]!)
-                
-                //check to make sure shot hasn't been deleted in camera roll by other app.
-                for take in self.shotsTaken {
-                    let asset = getVideoFromLocalIdentifier(id: take.localid)
-                    if asset == nil {
-                       data.deleteTake(shot: shotName, take: take)
-                        if data.allTakesSaved[shotName] != nil {
-                            self.shotsTaken = (data.allTakesSaved[shotName]!)
-                        }
-                    }
-                }
-            }
+           loadTakes(shotName: shotName)
         }
 
     }
@@ -181,7 +166,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
 
        // Remove an object from the collection view's dataSource
         let takeToDelete = shotsTaken[i]
-        data.deleteTake(shot: self.shotName!, take: takeToDelete)
+        allShotData.deleteTake(shot: self.shotName!, take: takeToDelete)
         
        // Remove Video Asset from Photos library
         PHPhotoLibrary.shared().performChanges( {
@@ -190,7 +175,7 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
         })
   
         // Refresh the collection view - this deletes the button.  How to delete whole cell?
-        shotsTaken = (data.allTakesSaved[shotName!]!)
+        shotsTaken = (allShotData.allTakesSaved[shotName!]!)
 
         //        self.collectionView?.reloadItems(at: [cellPath!])
         DispatchQueue.main.async {
@@ -288,6 +273,24 @@ class MyTakesCollectionViewController: UICollectionViewController, UICollectionV
     }
 
     //MARK: Private Methods
+    
+    private func loadTakes(shotName: String) {
+        //loading data - possibly put in a separate function.
+        if allShotData.allTakesSaved[shotName] != nil {
+            self.shotsTaken = (allShotData.allTakesSaved[shotName]!)
+            
+            //check to make sure shot hasn't been deleted in camera roll by other app.
+            for take in self.shotsTaken {
+                let asset = getVideoFromLocalIdentifier(id: take.localid)
+                if asset == nil {
+                    allShotData.deleteTake(shot: shotName, take: take)
+                    if allShotData.allTakesSaved[shotName] != nil {
+                        self.shotsTaken = (allShotData.allTakesSaved[shotName]!)
+                    }
+                }
+            }
+        }
+    }
     
     private func setUpThumbnail(take: Take) -> Take {
         let assetid = take.localid
