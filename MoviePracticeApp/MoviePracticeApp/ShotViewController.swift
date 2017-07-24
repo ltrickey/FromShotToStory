@@ -229,9 +229,4 @@ extension ShotViewController: UIImagePickerControllerDelegate {
 }
 
 
-// MARK: - UINavigationControllerDelegate
-//
-//extension ShotViewController: UINavigationControllerDelegate {
-//}
-
 
