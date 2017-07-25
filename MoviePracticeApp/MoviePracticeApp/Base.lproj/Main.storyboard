@@ -146,7 +146,7 @@
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-Z8-BD9">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="44"/>
                                         <items>
-                                            <barButtonItem title="Pick A Story To Try!" id="fCz-gJ-wU4">
+                                            <barButtonItem title="ß" id="fCz-gJ-wU4">
                                                 <connections>
                                                     <action selector="openStoryDropDown:" destination="oc6-y9-hMR" id="i2U-BU-7a1"/>
                                                 </connections>
@@ -549,12 +549,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YkM-w5-KJm">
-                                <rect key="frame" x="20" y="64" width="1072" height="770"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUq-g0-UR2">
+                                <rect key="frame" x="30" y="84" width="1052" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to Young Storytellers: From Shot to Story!">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="ArialRoundedMTBold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eR8-gT-DHo">
+                                <rect key="frame" x="20" y="100" width="1072" height="714"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdE-tN-iKR">
+                                        <rect key="frame" x="20" y="0.0" width="1032" height="178.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  To get started, click on Learn Shot types to learn about common shots and camera angles.</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name=".SFNSText"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-KD-E9l" userLabel="Learn Shot Types">
-                                        <rect key="frame" x="0.0" y="0.0" width="1072" height="380"/>
+                                        <rect key="frame" x="285" y="178.5" width="502" height="178.5"/>
                                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="502" id="JfR-lO-z6j"/>
+                                        </constraints>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Learn Shot Types">
@@ -569,9 +597,25 @@
                                             <segue destination="3hg-hD-RsD" kind="show" id="Irc-2e-GwL"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESY-JQ-Ruo">
+                                        <rect key="frame" x="20" y="357" width="1032" height="178.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Once you've learned about shot types, you can practice constructing a visual story.  You'll start with a short sentence, then select shot types and takes that will help you tell that story!</string>
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name=".SFNSText"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTz-Am-dAg" userLabel="Construct a Story">
-                                        <rect key="frame" x="0.0" y="390" width="1072" height="380"/>
+                                        <rect key="frame" x="285" y="535.5" width="502" height="178.5"/>
                                         <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="502" id="CaQ-7k-oP8"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                         <state key="normal" title="Construct a Story">
                                             <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -581,21 +625,30 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cdE-tN-iKR" secondAttribute="trailing" constant="20" id="PyQ-zv-LEg"/>
+                                    <constraint firstItem="ESY-JQ-Ruo" firstAttribute="leading" secondItem="eR8-gT-DHo" secondAttribute="leading" constant="20" id="Q8T-GE-xZN"/>
+                                    <constraint firstItem="cdE-tN-iKR" firstAttribute="leading" secondItem="eR8-gT-DHo" secondAttribute="leading" constant="20" id="ZS8-gf-5vG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ESY-JQ-Ruo" secondAttribute="trailing" constant="20" id="hxo-HM-4DL"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YkM-w5-KJm" firstAttribute="top" secondItem="9R1-fn-sUY" secondAttribute="bottom" id="ODz-hj-62y"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YkM-w5-KJm" secondAttribute="trailing" id="Rey-uz-hiu"/>
-                            <constraint firstItem="YkM-w5-KJm" firstAttribute="leading" secondItem="fKd-wV-ZpH" secondAttribute="leadingMargin" id="Rw1-Ea-1hI"/>
-                            <constraint firstItem="v0R-dd-GD6" firstAttribute="top" secondItem="YkM-w5-KJm" secondAttribute="bottom" id="wGE-MX-1vG"/>
+                            <constraint firstItem="v0R-dd-GD6" firstAttribute="top" secondItem="eR8-gT-DHo" secondAttribute="bottom" constant="20" id="15d-aW-dr3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XUq-g0-UR2" secondAttribute="trailing" constant="10" id="5kl-gJ-0Rp"/>
+                            <constraint firstAttribute="trailing" secondItem="eR8-gT-DHo" secondAttribute="trailing" constant="20" id="E22-Wp-WuK"/>
+                            <constraint firstItem="XUq-g0-UR2" firstAttribute="top" secondItem="9R1-fn-sUY" secondAttribute="bottom" constant="20" id="XH0-4H-8KY"/>
+                            <constraint firstItem="XUq-g0-UR2" firstAttribute="leading" secondItem="fKd-wV-ZpH" secondAttribute="leadingMargin" constant="10" id="gu0-Js-XND"/>
+                            <constraint firstItem="eR8-gT-DHo" firstAttribute="leading" secondItem="fKd-wV-ZpH" secondAttribute="leading" constant="20" id="hmV-8K-Mhn"/>
+                            <constraint firstItem="eR8-gT-DHo" firstAttribute="top" secondItem="fKd-wV-ZpH" secondAttribute="top" constant="100" id="uzI-Zx-yBk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dzt-1H-jaG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yZ-5u-Def" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="439"/>
+            <point key="canvasLocation" x="-271.40287769784175" y="438.84892086330939"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Csf-5C-nOC">
