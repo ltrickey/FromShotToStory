@@ -344,6 +344,9 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 
                 label.tag = 4
                 
+                //remove border if already set
+                self.firstShotImageView.layer.borderWidth = 0.0;
+                
                 self.fourthShotImageView.addSubview(label)
                 self.fourthShotImageView.bringSubview(toFront: label)
                 
@@ -402,10 +405,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             let senderName = sourceViewController.senderName
             if senderName == "first" {
-                // put take in first position.
-                //PUT THIS IN SEPARATE METHOD??
-                let label = firstShotImageView.viewWithTag(1) as? UILabel
-                label?.isHidden = true
+
+                //hide label view!
+                let views = self.firstShotImageView.subviews
+                for view in views {
+                  view.isHidden = true
+                }
                 
                 firstShotImageView.image = thumbnail
                 firstShotImageView.layer.borderWidth = 3.0;
@@ -419,6 +424,13 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 })
  
             } else if senderName == "second" {
+                
+                //hide label view!
+                let views = self.secondShotImageView.subviews
+                for view in views {
+                    view.isHidden = true
+                }
+                
                 // put take in second position.
                 secondShotImageView.image = thumbnail
                 secondShotImageView.layer.borderWidth = 3.0;
@@ -430,6 +442,13 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 })
                 
             } else if senderName == "third" {
+                
+                //hide label view!
+                let views = self.thirdShotImageView.subviews
+                for view in views {
+                    view.isHidden = true
+                }
+                
                 // put take in second position.
                 thirdShotImageView.image = thumbnail
                 thirdShotImageView.layer.borderWidth = 3.0;
@@ -441,6 +460,13 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 })
                 
             } else if senderName == "fourth" {
+                
+                //hide label view!
+                let views = self.fourthShotImageView.subviews
+                for view in views {
+                    view.isHidden = true
+                }
+                
                 // put take in second position.
                 fourthShotImageView.image = thumbnail
                 fourthShotImageView.layer.borderWidth = 3.0;
@@ -680,24 +706,48 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         firstShotImageView.image = take.thumbnail
         firstShotImageView.layer.borderWidth = 3.0;
         firstShotImageView.layer.borderColor = UIColor.green.cgColor
+        
+        //hide label view!
+        let views = self.firstShotImageView.subviews
+        for view in views {
+            view.isHidden = true
+        }
     }
 
     func addToSecondShot(take: Take) {
         secondShotImageView.image = take.thumbnail
         secondShotImageView.layer.borderWidth = 3.0;
         secondShotImageView.layer.borderColor = UIColor.green.cgColor
+        
+        //hide label view!
+        let views = self.secondShotImageView.subviews
+        for view in views {
+            view.isHidden = true
+        }
     }
 
     func addToThirdShot(take: Take) {
         thirdShotImageView.image = take.thumbnail
         thirdShotImageView.layer.borderWidth = 3.0;
         thirdShotImageView.layer.borderColor = UIColor.green.cgColor
+        
+        //hide label view!
+        let views = self.thirdShotImageView.subviews
+        for view in views {
+            view.isHidden = true
+        }
     }
 
     func addToFourthShot(take: Take) {
         fourthShotImageView.image = take.thumbnail
         fourthShotImageView.layer.borderWidth = 3.0;
         fourthShotImageView.layer.borderColor = UIColor.green.cgColor
+        
+        //hide label view!
+        let views = self.fourthShotImageView.subviews
+        for view in views {
+            view.isHidden = true
+        }
     }
 
     //MARK: - Private method

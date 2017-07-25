@@ -119,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522705946.578273"
+            timestampString = "522706775.305361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "682"
-            endingLineNumber = "682"
+            startingLineNumber = "709"
+            endingLineNumber = "709"
             landmarkName = "addToFirstShot(take:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -135,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522705946.578273"
+            timestampString = "522706638.996866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "517"
-            endingLineNumber = "517"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
             landmarkName = "editTogether(_:)"
             landmarkType = "7">
             <Locations>
@@ -183,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522705946.578273"
+            timestampString = "522706775.305361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "900"
-            endingLineNumber = "900">
+            startingLineNumber = "950"
+            endingLineNumber = "950">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
