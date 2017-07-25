@@ -93,6 +93,9 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         loadShotData()
         loadStoryExamples()
         
+        storyToTryButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Arial Rounded MT Bold", size: 20)!], for: UIControlState.normal)
+
+        
         // hide everything
         instructionsStackView.isHidden = true
         shotsStackView.isHidden = true

@@ -141,20 +141,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-aK-2py" userLabel="Story Stack View">
-                                <rect key="frame" x="40" y="74" width="1032" height="118"/>
+                                <rect key="frame" x="40" y="74" width="1032" height="116.5"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-Z8-BD9">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="44"/>
                                         <items>
+                                            <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="etA-zW-zhu"/>
                                             <barButtonItem title="Select a Short Story Sentence" id="fCz-gJ-wU4">
                                                 <connections>
                                                     <action selector="openStoryDropDown:" destination="oc6-y9-hMR" id="i2U-BU-7a1"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="cC3-kn-POS"/>
                                         </items>
                                     </toolbar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tQB-ae-a3m" userLabel="Instructions Stack View">
-                                        <rect key="frame" x="0.0" y="54" width="1032" height="64"/>
+                                        <rect key="frame" x="0.0" y="54" width="1032" height="62.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58p-gq-zgI">
                                                 <rect key="frame" x="0.0" y="0.0" width="1032" height="30"/>
@@ -162,10 +164,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great!  Now select four different shots to cut together in order to tell this story.  For example: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5h-mO-Qbn">
-                                                <rect key="frame" x="0.0" y="40" width="1032" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5h-mO-Qbn">
+                                                <rect key="frame" x="0.0" y="40" width="1032" height="22.5"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Great!  Now select four different shots to cut together in order to tell this story.  For example: ">
+                                                        <attributes>
+                                                            <font key="NSFont" size="20" name="ArialMT"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -179,30 +187,54 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Tck-cn-eHp" userLabel="Example Stack View">
-                                <rect key="frame" x="95" y="202" width="922" height="111"/>
+                                <rect key="frame" x="95" y="200.5" width="922" height="105"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-8y-tHu" userLabel="Example 1">
-                                        <rect key="frame" x="0.0" y="0.0" width="922" height="24"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-8y-tHu" userLabel="Example 1">
+                                        <rect key="frame" x="0.0" y="0.0" width="922" height="22.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="For Example">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="Arial-ItalicMT"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvS-vF-58Z" userLabel="Example 2">
-                                        <rect key="frame" x="0.0" y="29" width="922" height="24"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvS-vF-58Z" userLabel="Example 2">
+                                        <rect key="frame" x="0.0" y="27.5" width="922" height="22.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="For Example">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="Arial-ItalicMT"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMY-36-Aqe" userLabel="Example 3">
-                                        <rect key="frame" x="0.0" y="58" width="922" height="24"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMY-36-Aqe" userLabel="Example 3">
+                                        <rect key="frame" x="0.0" y="55" width="922" height="22.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="For Example">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="Arial-ItalicMT"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKK-Yz-v5c" userLabel="Example 4">
-                                        <rect key="frame" x="0.0" y="87" width="922" height="24"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKK-Yz-v5c" userLabel="Example 4">
+                                        <rect key="frame" x="0.0" y="82.5" width="922" height="22.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="For Example">
+                                                <attributes>
+                                                    <font key="NSFont" size="20" name="Arial-ItalicMT"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -212,12 +244,12 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
-                                <rect key="frame" x="40" y="323" width="1032" height="47"/>
+                                <rect key="frame" x="40" y="315.5" width="1032" height="45"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Then choose a take of that shot type that you've previously saved, or record a new take.  Work quickly and have fun experimenting!  Remember: it doesn't have to be perfect.</string>
                                         <attributes>
-                                            <font key="NSFont" metaFont="system" size="20"/>
+                                            <font key="NSFont" size="20" name="ArialMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -228,7 +260,7 @@
                                 <rect key="frame" x="546" y="407" width="20" height="20"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-J2-CAu" userLabel="Shots Stack View">
-                                <rect key="frame" x="20" y="442" width="1073" height="220"/>
+                                <rect key="frame" x="20" y="440.5" width="1073" height="220"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
                                         <rect key="frame" x="0.0" y="0.0" width="1073" height="40"/>
