@@ -194,26 +194,26 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             //add label
             // CGRectMake has been deprecated - and should be let, not var
-
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+            
+            let height = self.firstShotImageView.bounds.size.height
+            let width = self.firstShotImageView.bounds.size.width
+            
+            let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
             
             // you will probably want to set the font (remember to use Dynamic Type!)
-            label.font = UIFont.preferredFont(forTextStyle: .footnote)
+//            label.font = UIFont.preferredFont(forTextStyle: .footnote)
+            label.font = UIFont.boldSystemFont(ofSize: 20)
             
             // and set the text color too - remember good contrast
             label.textColor = .white
             
-            // may not be necessary (e.g., if the width & height match the superview)
-            // if you do need to center, CGPointMake has been deprecated, so use this
-//            label.center = CGPoint(x: 160, y: 284)
-        
-
+            label.backgroundColor = .gray
             
             // this changed in Swift 3 (much better, no?)
             label.textAlignment = .center
         
             
-            label.text = "I am a test label"
+            label.text = "Click to Select Take"
             
             self.firstShotImageView.addSubview(label)
             self.firstShotImageView.bringSubview(toFront: label)

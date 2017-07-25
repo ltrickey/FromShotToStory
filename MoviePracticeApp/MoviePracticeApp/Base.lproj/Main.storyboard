@@ -221,7 +221,7 @@
                                 <rect key="frame" x="546" y="407" width="20" height="20"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-J2-CAu" userLabel="Shots Stack View">
-                                <rect key="frame" x="49" y="380" width="1015" height="220"/>
+                                <rect key="frame" x="49" y="430" width="1015" height="220"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
                                         <rect key="frame" x="0.0" y="0.0" width="1015" height="40"/>
@@ -230,25 +230,25 @@
                                         </constraints>
                                         <items>
                                             <barButtonItem style="plain" systemItem="fixedSpace" id="gm7-1l-3d7"/>
-                                            <barButtonItem title="Select Shot Type" width="205.5" id="DGK-M7-tgz" userLabel="First Shot">
+                                            <barButtonItem title="Select Shot" width="205.5" id="DGK-M7-tgz" userLabel="First Shot">
                                                 <connections>
                                                     <action selector="openFirstDropDown:" destination="oc6-y9-hMR" id="6OE-d7-shZ"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="zWg-KR-c2q"/>
-                                            <barButtonItem title="Select Shot Type" width="246.5" id="0aR-xW-EKf" userLabel="Second Shot">
+                                            <barButtonItem title="Select Shot" width="246.5" id="0aR-xW-EKf" userLabel="Second Shot">
                                                 <connections>
                                                     <action selector="openSecondDropDown:" destination="oc6-y9-hMR" id="YyA-eV-zw2"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="6wc-qR-aUJ"/>
-                                            <barButtonItem title="Select Shot Type" width="220.5" id="UXv-F6-T3l" userLabel="Third Shot">
+                                            <barButtonItem title="Select Shot" width="220.5" id="UXv-F6-T3l" userLabel="Third Shot">
                                                 <connections>
                                                     <action selector="openThirdDropDown:" destination="oc6-y9-hMR" id="BJX-aG-WYV"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="geE-BA-5g5"/>
-                                            <barButtonItem title="Select Shot Type" width="229.5" id="ece-S0-rW7" userLabel="Fourth Shot">
+                                            <barButtonItem title="Select Shot" width="229.5" id="ece-S0-rW7" userLabel="Fourth Shot">
                                                 <connections>
                                                     <action selector="openFourthDropDown:" destination="oc6-y9-hMR" id="YCP-ek-1J1"/>
                                                 </connections>
@@ -305,7 +305,7 @@
                             <constraint firstItem="Tck-cn-eHp" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="40" id="BGK-by-vCr"/>
                             <constraint firstItem="OUw-AX-sa8" firstAttribute="top" secondItem="Tck-cn-eHp" secondAttribute="bottom" constant="10" id="CPs-Vo-Y4F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eOm-aK-2py" secondAttribute="trailing" constant="20" id="Qx8-a3-0aW"/>
-                            <constraint firstItem="bF7-J2-CAu" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="200" id="V1J-aR-aDh"/>
+                            <constraint firstItem="bF7-J2-CAu" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="250" id="V1J-aR-aDh"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="centerX" secondItem="EgU-36-9gx" secondAttribute="centerX" id="aDY-my-Wz4"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="29" id="an2-xT-9kP"/>
                             <constraint firstItem="fB9-sh-lWa" firstAttribute="top" secondItem="EgU-36-9gx" secondAttribute="bottom" constant="20" id="bUB-dH-CAI"/>
