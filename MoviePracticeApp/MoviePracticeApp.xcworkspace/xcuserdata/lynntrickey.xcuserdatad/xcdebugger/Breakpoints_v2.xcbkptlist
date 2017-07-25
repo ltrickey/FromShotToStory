@@ -103,12 +103,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522716918.209273"
+            timestampString = "522718702.32567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "745"
-            endingLineNumber = "745"
-            landmarkName = "addToFirstShot(take:)"
+            startingLineNumber = "758"
+            endingLineNumber = "758"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -119,12 +119,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522716918.209273"
+            timestampString = "522718702.32567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "579"
-            endingLineNumber = "579"
-            landmarkName = "editTogether(_:)"
+            startingLineNumber = "567"
+            endingLineNumber = "567"
+            landmarkName = "video(_:didFinishSavingWithError:contextInfo:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -167,11 +167,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522716918.209273"
+            timestampString = "522718702.32567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "986"
-            endingLineNumber = "986">
+            startingLineNumber = "999"
+            endingLineNumber = "999">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
