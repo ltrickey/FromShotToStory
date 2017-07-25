@@ -107,10 +107,10 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         //set up drop downs
         setupStoryDropDownMenu()
-        setupfirstShotDropDownMenu(dropDownNumber: 1)
-        setupSecondShotDropDownMenu()
-        setupThirdShotDropDownMenu()
-        setupFourthShotDropDownMenu()
+        setupShotDropDownMenu(dropDownNumber: 1)
+        setupShotDropDownMenu(dropDownNumber: 2)
+        setupShotDropDownMenu(dropDownNumber: 3)
+        setupShotDropDownMenu(dropDownNumber: 4)
         
         // appearance
         DropDown.appearance().textFont = UIFont.systemFont(ofSize: 20)
@@ -175,21 +175,31 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    func setupfirstShotDropDownMenu(dropDownNumber: Int) {
+    func setupShotDropDownMenu(dropDownNumber: Int) {
         var menu = self.firstShotDropDownMenu
-        var anchor: UIBarButtonItem
-        var take: AVAsset?
-        var imageView: UIImageView
+        var anchor = self.firstShotDropDown
+        var take = self.firstTake
+        var imageView = self.firstShotImageView
         
-        
-//        menu = self.firstShotDropDownMenu
-        anchor = self.firstShotDropDown
-        take = self.firstTake
-        imageView = self.firstShotImageView
-        
+        if dropDownNumber == 2 {
+            menu = self.secondShotDropDownMenu
+            anchor = self.secondShotDropDown
+            take = self.secondTake
+            imageView = self.secondShotImageView
+        } else if dropDownNumber == 3 {
+            menu = self.thirdShotDropDownMenu
+            anchor = self.thirdShotDropDown
+            take = self.thirdTake
+            imageView = self.thirdShotImageView
+        } else if dropDownNumber == 4 {
+            menu = self.fourthShotDropDownMenu
+            anchor = self.fourthShotDropDown
+            take = self.fourthTake
+            imageView = self.fourthShotImageView
+        }
         
         // The view to which the drop down will appear on
-        menu.anchorView = anchor as UIBarButtonItem
+        menu.anchorView = anchor
         
         // The list of items to display. Can be changed dynamically
         menu.dataSource = self.shotNames
@@ -197,22 +207,22 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         // Action triggered on selection
         menu.selectionAction = { [unowned self] (index, item) in
             take = nil
-            anchor.title = item
-            imageView.image = UIImage(named: self.imageNames[index])
-            imageView.layer.setValue(item, forKey: "shot")
-            imageView.layer.setValue("first", forKey: "sender")
+            anchor?.title = item
+            imageView?.image = UIImage(named: self.imageNames[index])
+            imageView?.layer.setValue(item, forKey: "shot")
+            imageView?.layer.setValue("first", forKey: "sender")
             
             //setup tap gesture recognizer on Image
-            imageView.isUserInteractionEnabled = true
+            imageView?.isUserInteractionEnabled = true
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
             let tapRecognizer = UITapGestureRecognizer(target: self,  action:#selector(self.imageTapped(_:)))
             
             //add label
-            let height = imageView.bounds.size.height
-            let width = imageView.bounds.size.width
+            let height = imageView?.bounds.size.height
+            let width = imageView?.bounds.size.width
             
-            let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
+            let label = UILabel(frame: CGRect(x: 0, y: (height! - 30), width: width!, height: 30))
             label.font = UIFont.boldSystemFont(ofSize: 20)
             
             // and set the text color & background
@@ -223,166 +233,16 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             label.text = "Click to Select Take"
             label.tag = 1
             
-            imageView.addSubview(label)
-            imageView.bringSubview(toFront: label)
-            imageView.layer.borderWidth = 0.0;
+            imageView?.addSubview(label)
+            imageView?.bringSubview(toFront: label)
+            imageView?.layer.borderWidth = 0.0;
 
 
             //Add the recognizer to your view.
-            imageView.addGestureRecognizer(tapRecognizer)
-            imageView.isHidden = false
+            imageView?.addGestureRecognizer(tapRecognizer)
+            imageView?.isHidden = false
         }
     }
-    
-    func setupSecondShotDropDownMenu() {
-        // The view to which the drop down will appear on
-        secondShotDropDownMenu.anchorView = secondShotDropDown as UIBarButtonItem
-            
-        // The list of items to display. Can be changed dynamically
-        secondShotDropDownMenu.dataSource = self.shotNames
-            
-        // Action triggered on selection
-        secondShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
-            self.secondTake = nil
-            self.secondShotDropDown.title = item
-            self.secondShotImageView.image = UIImage(named: self.imageNames[index])
-            self.secondShotImageView.layer.setValue(item, forKey: "shot")
-            self.secondShotImageView.layer.setValue("second", forKey: "sender")
-       
-            //setup tap gesture recognizer on Image
-            self.secondShotImageView.isUserInteractionEnabled = true
-            //now you need a tap gesture recognizer
-            //note that target and action point to what happens when the action is recognized.
-            let secondTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
-            
-            //add label
-            let height = self.secondShotImageView.bounds.size.height
-            let width = self.secondShotImageView.bounds.size.width
-            
-            let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
-            label.font = UIFont.boldSystemFont(ofSize: 20)
-            
-            // and set the text color & background
-            label.textColor = .white
-            label.backgroundColor = .gray
-            
-            label.textAlignment = .center
-            label.text = "Click to Select Take"
-            label.tag = 2
-            
-            self.secondShotImageView.addSubview(label)
-            self.secondShotImageView.bringSubview(toFront: label)
-            self.secondShotImageView.layer.borderWidth = 0.0;
-
-            
-            //Add the recognizer to your view.
-            self.secondShotImageView.addGestureRecognizer(secondTapRecognizer)
-            
-            self.secondShotImageView.isHidden = false
-        }
-        
-    }
-        
-        func setupThirdShotDropDownMenu() {
-            // The view to which the drop down will appear on
-            thirdShotDropDownMenu.anchorView = thirdShotDropDown as UIBarButtonItem
-            
-            // The list of items to display. Can be changed dynamically
-            thirdShotDropDownMenu.dataSource = self.shotNames
-            
-            // Action triggered on selection
-            thirdShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
-                self.thirdTake = nil
-                self.thirdShotDropDown.title = item
-                self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
-                self.thirdShotImageView.layer.setValue(item, forKey: "shot")
-                self.thirdShotImageView.layer.setValue("third", forKey: "sender")
-
-                //setup tap gesture recognizer on Image
-                self.thirdShotImageView.isUserInteractionEnabled = true
-                //now you need a tap gesture recognizer
-                //note that target and action point to what happens when the action is recognized.
-                let thirdTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
-                
-                //add label
-                let height = self.thirdShotImageView.bounds.size.height
-                let width = self.thirdShotImageView.bounds.size.width
-                
-                let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
-                label.font = UIFont.boldSystemFont(ofSize: 20)
-                
-                // and set the text color & background
-                label.textColor = .white
-                label.backgroundColor = .gray
-                
-                label.textAlignment = .center
-                label.text = "Click to Select Take"
-                label.tag = 3
-                
-                self.thirdShotImageView.addSubview(label)
-                self.thirdShotImageView.bringSubview(toFront: label)
-                self.thirdShotImageView.layer.borderWidth = 0.0;
-                
-                //Add the recognizer to your view.
-                self.thirdShotImageView.addGestureRecognizer(thirdTapRecognizer)
-                
-                self.thirdShotImageView.isHidden = false
-            }
-            
-        }
-        
-        func setupFourthShotDropDownMenu() {
-
-            // The view to which the drop down will appear on
-            fourthShotDropDownMenu.anchorView = fourthShotDropDown as UIBarButtonItem
-            
-            // The list of items to display. Can be changed dynamically
-            fourthShotDropDownMenu.dataSource = self.shotNames
-            
-            // Action triggered on selection
-            fourthShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
-                self.fourthTake = nil
-                self.fourthShotDropDown.title = item
-                self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
-                self.fourthShotImageView.layer.setValue(item, forKey: "shot")
-                self.fourthShotImageView.layer.setValue("fourth", forKey: "sender")
-                
-                //setup tap gesture recognizer on Image
-                self.fourthShotImageView.isUserInteractionEnabled = true
-                //now you need a tap gesture recognizer
-                //note that target and action point to what happens when the action is recognized.
-                let fourthTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
-                
-                //add label
-                let height = self.fourthShotImageView.bounds.size.height
-                let width = self.fourthShotImageView.bounds.size.width
-                
-                let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
-                label.font = UIFont.boldSystemFont(ofSize: 20)
-                
-                // and set the text color & background
-                label.textColor = .white
-                label.backgroundColor = .gray
-                
-                label.textAlignment = .center
-                label.text = "Click to Select Take"
-                
-                label.tag = 4
-                
-                //remove border if already set
-                self.firstShotImageView.layer.borderWidth = 0.0;
-                
-                self.fourthShotImageView.addSubview(label)
-                self.fourthShotImageView.bringSubview(toFront: label)
-                self.fourthShotImageView.layer.borderWidth = 0.0;
-                
-                //Add the recognizer to your view.
-                self.fourthShotImageView.addGestureRecognizer(fourthTapRecognizer)
-                
-                self.fourthShotImageView.isHidden = false
-            }
-            
-        }
     
     //Image Tap Functions
     
