@@ -288,6 +288,27 @@
                                     <constraint firstAttribute="trailing" secondItem="RH8-J9-Rio" secondAttribute="trailing" id="tnG-S7-xEl"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xeC-1a-VJm" userLabel="Button Stack View">
+                                <rect key="frame" x="49" y="600" width="1015" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ss9-nZ-33a" userLabel="Select Take">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                        <state key="normal" title="Select Take"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLf-C8-R4k">
+                                        <rect key="frame" x="255" y="0.0" width="250" height="30"/>
+                                        <state key="normal" title="Select Take"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eC-xh-mgl">
+                                        <rect key="frame" x="510" y="0.0" width="250" height="30"/>
+                                        <state key="normal" title="Select Take"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrl-jE-pEJ">
+                                        <rect key="frame" x="765" y="0.0" width="250" height="30"/>
+                                        <state key="normal" title="Select Take"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-36-9gx">
                                 <rect key="frame" x="40" y="778" width="1032" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -304,13 +325,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Tck-cn-eHp" secondAttribute="trailing" constant="40" id="29B-Z1-fO9"/>
                             <constraint firstItem="Tck-cn-eHp" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="40" id="BGK-by-vCr"/>
                             <constraint firstItem="OUw-AX-sa8" firstAttribute="top" secondItem="Tck-cn-eHp" secondAttribute="bottom" constant="10" id="CPs-Vo-Y4F"/>
+                            <constraint firstItem="xeC-1a-VJm" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="29" id="Ply-Z0-IH0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eOm-aK-2py" secondAttribute="trailing" constant="20" id="Qx8-a3-0aW"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="200" id="V1J-aR-aDh"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="centerX" secondItem="EgU-36-9gx" secondAttribute="centerX" id="aDY-my-Wz4"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="29" id="an2-xT-9kP"/>
                             <constraint firstItem="fB9-sh-lWa" firstAttribute="top" secondItem="EgU-36-9gx" secondAttribute="bottom" constant="20" id="bUB-dH-CAI"/>
+                            <constraint firstItem="xeC-1a-VJm" firstAttribute="top" secondItem="bF7-J2-CAu" secondAttribute="bottom" id="d2X-o7-jXF"/>
                             <constraint firstItem="Tck-cn-eHp" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="10" id="fTI-uY-LZi"/>
                             <constraint firstItem="saz-nb-iHC" firstAttribute="centerY" secondItem="lLz-bC-9Uk" secondAttribute="centerY" id="hD8-34-VYY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xeC-1a-VJm" secondAttribute="trailing" constant="28" id="kSe-NP-gzs"/>
                             <constraint firstItem="EgU-36-9gx" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="lgj-Cw-JVw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EgU-36-9gx" secondAttribute="trailing" constant="20" id="tTO-US-Ha2"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="centerX" secondItem="saz-nb-iHC" secondAttribute="centerX" id="uGF-oG-fFy"/>
@@ -328,25 +352,30 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="saz-nb-iHC" id="Aow-BH-5Xp"/>
+                        <outlet property="buttonStackView" destination="xeC-1a-VJm" id="mKu-dU-WLz"/>
                         <outlet property="exampleFour" destination="JKK-Yz-v5c" id="0gy-8C-7rv"/>
                         <outlet property="exampleOne" destination="4A5-8y-tHu" id="hUv-fT-WKS"/>
                         <outlet property="exampleStackView" destination="Tck-cn-eHp" id="vkZ-xn-bRU"/>
                         <outlet property="exampleThree" destination="JMY-36-Aqe" id="d92-Dk-kEi"/>
                         <outlet property="exampleTwo" destination="mvS-vF-58Z" id="ra0-Ll-8Vc"/>
+                        <outlet property="firstSelectTake" destination="ss9-nZ-33a" id="jxb-1z-fTU"/>
                         <outlet property="firstShotDropDown" destination="DGK-M7-tgz" id="zos-hg-DcI"/>
                         <outlet property="firstShotImageView" destination="Sac-U3-7Hy" id="D71-g5-OXc"/>
+                        <outlet property="fourthSelectTake" destination="zrl-jE-pEJ" id="4pO-Vt-b5x"/>
                         <outlet property="fourthShotDropDown" destination="ece-S0-rW7" id="f9f-gO-gQo"/>
                         <outlet property="fourthShotImageView" destination="WxP-TF-jmS" id="7pJ-fg-gRb"/>
                         <outlet property="instructionsStackView" destination="tQB-ae-a3m" id="LLB-gQ-L6a"/>
                         <outlet property="largeStoryLabel" destination="58p-gq-zgI" id="ZTO-Rp-Z8x"/>
                         <outlet property="myStoriesButton" destination="QZg-KX-oZC" id="cgb-a9-hv2"/>
                         <outlet property="putItTogetherButton" destination="EgU-36-9gx" id="nFN-g7-8ZW"/>
+                        <outlet property="secondSelectTake" destination="DLf-C8-R4k" id="9ks-bc-XNz"/>
                         <outlet property="secondShotDropDown" destination="0aR-xW-EKf" id="NAR-Bw-Zq1"/>
                         <outlet property="secondShotImageView" destination="kMk-jS-q9b" id="dHP-RU-MOO"/>
                         <outlet property="selectShotsEncouragement" destination="OUw-AX-sa8" id="CLj-0Y-HOW"/>
                         <outlet property="selectShotsLabel" destination="l5h-mO-Qbn" id="7xW-hJ-yN2"/>
                         <outlet property="shotsStackView" destination="bF7-J2-CAu" id="PHe-BE-o4F"/>
                         <outlet property="storyToTryButton" destination="fCz-gJ-wU4" id="PQO-0G-T7b"/>
+                        <outlet property="thirdSelectTake" destination="1eC-xh-mgl" id="qCV-vO-T0w"/>
                         <outlet property="thirdShotDropDown" destination="UXv-F6-T3l" id="EY2-gZ-Rm3"/>
                         <outlet property="thirdShotImageView" destination="sma-Ba-Hvp" id="ouw-Nz-538"/>
                         <segue destination="2y9-jM-b5Q" kind="presentation" identifier="My Takes" id="FKI-Cx-73y"/>
@@ -354,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466" y="885"/>
+            <point key="canvasLocation" x="465.64748201438852" y="884.89208633093529"/>
         </scene>
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">

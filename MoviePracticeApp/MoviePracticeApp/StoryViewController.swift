@@ -54,7 +54,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var storyToTryButton: UIBarButtonItem!
     
     @IBOutlet weak var shotsStackView: UIStackView!
-    
+
     @IBOutlet weak var firstShotDropDown: UIBarButtonItem!
     @IBOutlet weak var secondShotDropDown: UIBarButtonItem!
     @IBOutlet weak var thirdShotDropDown: UIBarButtonItem!
@@ -64,6 +64,13 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var secondShotImageView: UIImageView!
     @IBOutlet weak var thirdShotImageView: UIImageView!
     @IBOutlet weak var fourthShotImageView: UIImageView!
+    
+    
+    @IBOutlet var buttonStackView: UIStackView!
+    @IBOutlet var firstSelectTake: UIButton!
+    @IBOutlet var secondSelectTake: UIButton!
+    @IBOutlet var thirdSelectTake: UIButton!
+    @IBOutlet var fourthSelectTake: UIButton!
     
     let storyDropDown = DropDown()
 
