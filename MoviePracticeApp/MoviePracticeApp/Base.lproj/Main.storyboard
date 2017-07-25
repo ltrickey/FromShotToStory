@@ -146,7 +146,7 @@
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-Z8-BD9">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="44"/>
                                         <items>
-                                            <barButtonItem title="ß" id="fCz-gJ-wU4">
+                                            <barButtonItem title="Select a Short Story Sentence" id="fCz-gJ-wU4">
                                                 <connections>
                                                     <action selector="openStoryDropDown:" destination="oc6-y9-hMR" id="i2U-BU-7a1"/>
                                                 </connections>
@@ -211,10 +211,17 @@
                                     <constraint firstItem="JMY-36-Aqe" firstAttribute="leading" secondItem="mvS-vF-58Z" secondAttribute="leading" id="dbD-OE-oGE"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work quickly and have fun experimenting!  Remember: it doesn't have to be perfect." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
-                                <rect key="frame" x="40" y="311" width="1032" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
+                                <rect key="frame" x="40" y="311" width="1032" height="60"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Once your shots are selected, you can choose a take of that shot type that you've previously saved, or record a new take.  Work quickly and have fun experimenting!  Remember: it doesn't have to be perfect.</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="20"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="saz-nb-iHC">
@@ -354,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJ1-h9-cRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466" y="885"/>
+            <point key="canvasLocation" x="465.64748201438852" y="884.89208633093529"/>
         </scene>
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -568,7 +575,7 @@
                                         <rect key="frame" x="20" y="0.0" width="1032" height="178.5"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  To get started, click on Learn Shot types to learn about common shots and camera angles.</string>
+                                                <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  To get started, click on Learn Shot Types to learn about shots and camera angles.</string>
                                                 <attributes>
                                                     <font key="NSFont" size="20" name=".SFNSText"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
