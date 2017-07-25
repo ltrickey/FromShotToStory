@@ -181,6 +181,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
 
         // Action triggered on selection
         firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+            self.firstTake = nil
             self.firstShotDropDown.title = item
             self.firstShotImageView.image = UIImage(named: self.imageNames[index])
             self.firstShotImageView.layer.setValue(item, forKey: "shot")
@@ -209,6 +210,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             self.firstShotImageView.addSubview(label)
             self.firstShotImageView.bringSubview(toFront: label)
+            self.firstShotImageView.layer.borderWidth = 0.0;
+
 
             //Add the recognizer to your view.
             self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
@@ -253,6 +256,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             self.secondShotImageView.addSubview(label)
             self.secondShotImageView.bringSubview(toFront: label)
+            self.secondShotImageView.layer.borderWidth = 0.0;
+
             
             //Add the recognizer to your view.
             self.secondShotImageView.addGestureRecognizer(secondTapRecognizer)
@@ -299,6 +304,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 
                 self.thirdShotImageView.addSubview(label)
                 self.thirdShotImageView.bringSubview(toFront: label)
+                self.thirdShotImageView.layer.borderWidth = 0.0;
                 
                 //Add the recognizer to your view.
                 self.thirdShotImageView.addGestureRecognizer(thirdTapRecognizer)
@@ -349,6 +355,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 
                 self.fourthShotImageView.addSubview(label)
                 self.fourthShotImageView.bringSubview(toFront: label)
+                self.fourthShotImageView.layer.borderWidth = 0.0;
                 
                 //Add the recognizer to your view.
                 self.fourthShotImageView.addGestureRecognizer(fourthTapRecognizer)
