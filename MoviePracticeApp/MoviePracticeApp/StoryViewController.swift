@@ -23,6 +23,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     //getting everything from local data
     var data = DataStore.myTakes
     
+    // assets for editing.
     var firstTake: AVAsset?
     var secondTake: AVAsset?
     var thirdTake: AVAsset?
@@ -40,6 +41,9 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var selectShotsLabel: UILabel!
     
     @IBOutlet var instructionsStackView: UIStackView!
+    
+    @IBOutlet var largeStoryLabel: UILabel!
+    @IBOutlet var exampleStackView: UIStackView!
     @IBOutlet var exampleOne: UILabel!
     @IBOutlet var exampleTwo: UILabel!
     @IBOutlet var exampleThree: UILabel!
@@ -87,14 +91,19 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         loadShotData()
         loadStoryExamples()
 
-        print(data.allTakesSaved["Story"])
+//        print(data.allTakesSaved["Story"])
         
-        putItTogetherButton.isHidden = true
+        
+        
+        // hide everything
+        instructionsStackView.isHidden = true
         shotsStackView.isHidden = true
+        exampleStackView.isHidden = true
+        selectShotsEncouragement.isHidden = true
         
-        // story stuff
-        self.instructionsStackView.isHidden = true
-        self.activityIndicator.isHidden = true
+        activityIndicator.isHidden = true
+        putItTogetherButton.isHidden = true
+
         
         //set up drop downs
         setupStoryDropDownMenu()
@@ -142,9 +151,16 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         // Action triggered on selection
         storyDropDown.selectionAction = { [unowned self] (index, item) in
-            self.storyToTryButton.title = item
-            self.instructionsStackView.isHidden = false
             
+            //show rest of page
+            self.instructionsStackView.isHidden = false
+            self.shotsStackView.isHidden = false
+            self.exampleStackView.isHidden = false
+            self.selectShotsEncouragement.isHidden = false
+            
+            //fill out labels
+            self.storyToTryButton.title = item
+            self.largeStoryLabel.text = item
             self.exampleOne.text = self.examples[index][1]
             self.exampleTwo.text = self.examples[index][2]
             self.exampleThree.text = self.examples[index][3]
@@ -311,7 +327,10 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             let senderName = sourceViewController.senderName
             if senderName == "first" {
                 // put take in first position.
+                //PUT THIS IN SEPARATE METHOD??
                 firstShotImageView.image = thumbnail
+                firstShotImageView.layer.borderWidth = 3.0;
+                firstShotImageView.layer.borderColor = UIColor.green.cgColor
 
                 PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                     self.firstTake = avAsset!
@@ -321,6 +340,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             } else if senderName == "second" {
                 // put take in second position.
                 secondShotImageView.image = thumbnail
+                secondShotImageView.layer.borderWidth = 3.0;
+                secondShotImageView.layer.borderColor = UIColor.green.cgColor
 
                 PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                     self.secondTake = avAsset!
@@ -330,6 +351,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             } else if senderName == "third" {
                 // put take in second position.
                 thirdShotImageView.image = thumbnail
+                thirdShotImageView.layer.borderWidth = 3.0;
+                thirdShotImageView.layer.borderColor = UIColor.green.cgColor
                 
                 PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                     self.thirdTake = avAsset!
@@ -339,6 +362,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             } else if senderName == "fourth" {
                 // put take in second position.
                 fourthShotImageView.image = thumbnail
+                fourthShotImageView.layer.borderWidth = 3.0;
+                fourthShotImageView.layer.borderColor = UIColor.green.cgColor
                 
                 PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                     self.fourthTake = avAsset!
@@ -498,7 +523,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     func video(_ videoPath: NSString, didFinishSavingWithError error: NSError?, contextInfo info: AnyObject) {
         var title = "Success"
-        var message = "Video was saved!"
+        var message = "Your Take was saved!"
         
         let localid = fetchLastVideoSaved()
         
@@ -572,18 +597,26 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         // add take image to specific target.
         //how do I tell which take is froooom?
         firstShotImageView.image = take.thumbnail
+        firstShotImageView.layer.borderWidth = 3.0;
+        firstShotImageView.layer.borderColor = UIColor.green.cgColor
     }
 
     func addToSecondShot(take: Take) {
         secondShotImageView.image = take.thumbnail
+        secondShotImageView.layer.borderWidth = 3.0;
+        secondShotImageView.layer.borderColor = UIColor.green.cgColor
     }
 
     func addToThirdShot(take: Take) {
         thirdShotImageView.image = take.thumbnail
+        thirdShotImageView.layer.borderWidth = 3.0;
+        thirdShotImageView.layer.borderColor = UIColor.green.cgColor
     }
 
     func addToFourthShot(take: Take) {
         fourthShotImageView.image = take.thumbnail
+        fourthShotImageView.layer.borderWidth = 3.0;
+        fourthShotImageView.layer.borderColor = UIColor.green.cgColor
     }
 
     //MARK: - Private method
