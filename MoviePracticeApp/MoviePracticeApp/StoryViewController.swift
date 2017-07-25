@@ -107,7 +107,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         //set up drop downs
         setupStoryDropDownMenu()
-        setupfirstShotDropDownMenu()
+        setupfirstShotDropDownMenu(dropDownNumber: 1)
         setupSecondShotDropDownMenu()
         setupThirdShotDropDownMenu()
         setupFourthShotDropDownMenu()
@@ -175,30 +175,42 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    func setupfirstShotDropDownMenu() {
+    func setupfirstShotDropDownMenu(dropDownNumber: Int) {
+        var menu = self.firstShotDropDownMenu
+        var anchor: UIBarButtonItem
+        var take: AVAsset?
+        var imageView: UIImageView
+        
+        
+//        menu = self.firstShotDropDownMenu
+        anchor = self.firstShotDropDown
+        take = self.firstTake
+        imageView = self.firstShotImageView
+        
+        
         // The view to which the drop down will appear on
-        firstShotDropDownMenu.anchorView = firstShotDropDown as UIBarButtonItem
+        menu.anchorView = anchor as UIBarButtonItem
         
         // The list of items to display. Can be changed dynamically
-        firstShotDropDownMenu.dataSource = self.shotNames
+        menu.dataSource = self.shotNames
 
         // Action triggered on selection
-        firstShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
-            self.firstTake = nil
-            self.firstShotDropDown.title = item
-            self.firstShotImageView.image = UIImage(named: self.imageNames[index])
-            self.firstShotImageView.layer.setValue(item, forKey: "shot")
-            self.firstShotImageView.layer.setValue("first", forKey: "sender")
+        menu.selectionAction = { [unowned self] (index, item) in
+            take = nil
+            anchor.title = item
+            imageView.image = UIImage(named: self.imageNames[index])
+            imageView.layer.setValue(item, forKey: "shot")
+            imageView.layer.setValue("first", forKey: "sender")
             
             //setup tap gesture recognizer on Image
-            self.firstShotImageView.isUserInteractionEnabled = true
+            imageView.isUserInteractionEnabled = true
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
-            let firstTapRecognizer = UITapGestureRecognizer(target: self,  action:#selector(self.imageTapped(_:)))
+            let tapRecognizer = UITapGestureRecognizer(target: self,  action:#selector(self.imageTapped(_:)))
             
             //add label
-            let height = self.firstShotImageView.bounds.size.height
-            let width = self.firstShotImageView.bounds.size.width
+            let height = imageView.bounds.size.height
+            let width = imageView.bounds.size.width
             
             let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
             label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -211,14 +223,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             label.text = "Click to Select Take"
             label.tag = 1
             
-            self.firstShotImageView.addSubview(label)
-            self.firstShotImageView.bringSubview(toFront: label)
-            self.firstShotImageView.layer.borderWidth = 0.0;
+            imageView.addSubview(label)
+            imageView.bringSubview(toFront: label)
+            imageView.layer.borderWidth = 0.0;
 
 
             //Add the recognizer to your view.
-            self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
-            self.firstShotImageView.isHidden = false
+            imageView.addGestureRecognizer(tapRecognizer)
+            imageView.isHidden = false
         }
     }
     
