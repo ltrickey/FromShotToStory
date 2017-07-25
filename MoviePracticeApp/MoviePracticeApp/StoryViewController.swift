@@ -73,7 +73,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     let thirdShotDropDownMenu = DropDown()
     let fourthShotDropDownMenu = DropDown()
     
-    var stories = ["Jess is having a terrible day.", "Dustin is enjoying the beautiful weather.", "Lila gets distracted.","A new school is very scary", "Sleep is my favorite activity", "Julia is trying to impress her teacher so she can get an A in class.", "Dylan can’t wait for school to be over so he can go to Disneyland."]
+    var stories = ["Jess is having a terrible day", "Dustin is enjoying the beautiful weather", "Lila gets distracted","A new school is very scary", "Sleep is my favorite activity", "Julia is trying to impress her teacher so she can get an A in class", "Dylan can’t wait for school to be over so he can go to Disneyland"]
     
     var examples = [[""]]
 
@@ -193,32 +193,22 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             let firstTapRecognizer = UITapGestureRecognizer(target: self,  action:#selector(self.imageTapped(_:)))
             
             //add label
-            // CGRectMake has been deprecated - and should be let, not var
-            
             let height = self.firstShotImageView.bounds.size.height
             let width = self.firstShotImageView.bounds.size.width
             
             let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
-            
-            // you will probably want to set the font (remember to use Dynamic Type!)
-//            label.font = UIFont.preferredFont(forTextStyle: .footnote)
             label.font = UIFont.boldSystemFont(ofSize: 20)
             
-            // and set the text color too - remember good contrast
+            // and set the text color & background
             label.textColor = .white
-            
             label.backgroundColor = .gray
             
-            // this changed in Swift 3 (much better, no?)
             label.textAlignment = .center
-        
-            
             label.text = "Click to Select Take"
             
             self.firstShotImageView.addSubview(label)
             self.firstShotImageView.bringSubview(toFront: label)
 
-            
             //Add the recognizer to your view.
             self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
             self.firstShotImageView.isHidden = false
@@ -244,6 +234,24 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
             let secondTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+            
+            //add label
+            let height = self.secondShotImageView.bounds.size.height
+            let width = self.secondShotImageView.bounds.size.width
+            
+            let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
+            label.font = UIFont.boldSystemFont(ofSize: 20)
+            
+            // and set the text color & background
+            label.textColor = .white
+            label.backgroundColor = .gray
+            
+            label.textAlignment = .center
+            label.text = "Click to Select Take"
+            
+            self.secondShotImageView.addSubview(label)
+            self.secondShotImageView.bringSubview(toFront: label)
+            
             //Add the recognizer to your view.
             self.secondShotImageView.addGestureRecognizer(secondTapRecognizer)
             
@@ -271,6 +279,24 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 //now you need a tap gesture recognizer
                 //note that target and action point to what happens when the action is recognized.
                 let thirdTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+                
+                //add label
+                let height = self.thirdShotImageView.bounds.size.height
+                let width = self.thirdShotImageView.bounds.size.width
+                
+                let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
+                label.font = UIFont.boldSystemFont(ofSize: 20)
+                
+                // and set the text color & background
+                label.textColor = .white
+                label.backgroundColor = .gray
+                
+                label.textAlignment = .center
+                label.text = "Click to Select Take"
+                
+                self.thirdShotImageView.addSubview(label)
+                self.thirdShotImageView.bringSubview(toFront: label)
+                
                 //Add the recognizer to your view.
                 self.thirdShotImageView.addGestureRecognizer(thirdTapRecognizer)
                 
@@ -298,6 +324,23 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 //now you need a tap gesture recognizer
                 //note that target and action point to what happens when the action is recognized.
                 let fourthTapRecognizer = UITapGestureRecognizer(target: self, action:#selector(self.imageTapped(_:)))
+                
+                //add label
+                let height = self.fourthShotImageView.bounds.size.height
+                let width = self.fourthShotImageView.bounds.size.width
+                
+                let label = UILabel(frame: CGRect(x: 0, y: (height - 30), width: width, height: 30))
+                label.font = UIFont.boldSystemFont(ofSize: 20)
+                
+                // and set the text color & background
+                label.textColor = .white
+                label.backgroundColor = .gray
+                
+                label.textAlignment = .center
+                label.text = "Click to Select Take"
+                
+                self.fourthShotImageView.addSubview(label)
+                self.fourthShotImageView.bringSubview(toFront: label)
                 
                 //Add the recognizer to your view.
                 self.fourthShotImageView.addGestureRecognizer(fourthTapRecognizer)
