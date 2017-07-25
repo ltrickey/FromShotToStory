@@ -205,6 +205,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             label.textAlignment = .center
             label.text = "Click to Select Take"
+            label.tag = 1
             
             self.firstShotImageView.addSubview(label)
             self.firstShotImageView.bringSubview(toFront: label)
@@ -248,6 +249,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             label.textAlignment = .center
             label.text = "Click to Select Take"
+            label.tag = 2
             
             self.secondShotImageView.addSubview(label)
             self.secondShotImageView.bringSubview(toFront: label)
@@ -293,6 +295,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 
                 label.textAlignment = .center
                 label.text = "Click to Select Take"
+                label.tag = 3
                 
                 self.thirdShotImageView.addSubview(label)
                 self.thirdShotImageView.bringSubview(toFront: label)
@@ -338,6 +341,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 
                 label.textAlignment = .center
                 label.text = "Click to Select Take"
+                
+                label.tag = 4
                 
                 self.fourthShotImageView.addSubview(label)
                 self.fourthShotImageView.bringSubview(toFront: label)
@@ -399,9 +404,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             if senderName == "first" {
                 // put take in first position.
                 //PUT THIS IN SEPARATE METHOD??
+                let label = firstShotImageView.viewWithTag(1) as? UILabel
+                label?.isHidden = true
+                
                 firstShotImageView.image = thumbnail
                 firstShotImageView.layer.borderWidth = 3.0;
                 firstShotImageView.layer.borderColor = UIColor.green.cgColor
+                
+
 
                 PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                     self.firstTake = avAsset!
