@@ -140,8 +140,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-aK-2py" userLabel="Story Stack View">
-                                <rect key="frame" x="40" y="74" width="1032" height="106"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-aK-2py" userLabel="Story Stack View">
+                                <rect key="frame" x="40" y="74" width="1032" height="118"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-Z8-BD9">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="44"/>
@@ -153,8 +153,8 @@
                                             </barButtonItem>
                                         </items>
                                     </toolbar>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tQB-ae-a3m" userLabel="Instructions Stack View">
-                                        <rect key="frame" x="0.0" y="44" width="1032" height="62"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tQB-ae-a3m" userLabel="Instructions Stack View">
+                                        <rect key="frame" x="0.0" y="54" width="1032" height="64"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58p-gq-zgI">
                                                 <rect key="frame" x="0.0" y="0.0" width="1032" height="30"/>
@@ -163,7 +163,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great!  Now select four different shots to cut together in order to tell this story.  For example: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5h-mO-Qbn">
-                                                <rect key="frame" x="0.0" y="38" width="1032" height="24"/>
+                                                <rect key="frame" x="0.0" y="40" width="1032" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -179,28 +179,28 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Tck-cn-eHp" userLabel="Example Stack View">
-                                <rect key="frame" x="60" y="190" width="992" height="111"/>
+                                <rect key="frame" x="95" y="202" width="922" height="111"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-8y-tHu" userLabel="Example 1">
-                                        <rect key="frame" x="0.0" y="0.0" width="992" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="922" height="24"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvS-vF-58Z" userLabel="Example 2">
-                                        <rect key="frame" x="0.0" y="29" width="992" height="24"/>
+                                        <rect key="frame" x="0.0" y="29" width="922" height="24"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMY-36-Aqe" userLabel="Example 3">
-                                        <rect key="frame" x="0.0" y="58" width="992" height="24"/>
+                                        <rect key="frame" x="0.0" y="58" width="922" height="24"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="For Example" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKK-Yz-v5c" userLabel="Example 4">
-                                        <rect key="frame" x="0.0" y="87" width="992" height="24"/>
+                                        <rect key="frame" x="0.0" y="87" width="922" height="24"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -211,14 +211,14 @@
                                     <constraint firstItem="JMY-36-Aqe" firstAttribute="leading" secondItem="mvS-vF-58Z" secondAttribute="leading" id="dbD-OE-oGE"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
-                                <rect key="frame" x="40" y="311" width="1032" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
+                                <rect key="frame" x="40" y="323" width="1032" height="47"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Once your shots are selected, you can choose a take of that shot type that you've previously saved, or record a new take.  Work quickly and have fun experimenting!  Remember: it doesn't have to be perfect.</string>
+                                        <string key="content">Then choose a take of that shot type that you've previously saved, or record a new take.  Work quickly and have fun experimenting!  Remember: it doesn't have to be perfect.</string>
                                         <attributes>
                                             <font key="NSFont" metaFont="system" size="20"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -228,10 +228,10 @@
                                 <rect key="frame" x="546" y="407" width="20" height="20"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-J2-CAu" userLabel="Shots Stack View">
-                                <rect key="frame" x="49" y="430" width="1015" height="220"/>
+                                <rect key="frame" x="20" y="442" width="1073" height="220"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
-                                        <rect key="frame" x="0.0" y="0.0" width="1015" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1073" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="HGc-cx-Sn4"/>
                                         </constraints>
@@ -264,23 +264,23 @@
                                         </items>
                                     </toolbar>
                                     <stackView opaque="NO" tag="4" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RH8-J9-Rio" userLabel="Image Stack View">
-                                        <rect key="frame" x="0.0" y="40" width="1015" height="180"/>
+                                        <rect key="frame" x="0.0" y="40" width="1073" height="180"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sac-U3-7Hy">
-                                                <rect key="frame" x="0.0" y="0.0" width="250" height="180"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="264.5" height="180"/>
                                                 <color key="tintColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="First Shot" label="First Shot">
                                                     <bool key="isElement" value="YES"/>
                                                 </accessibility>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="2" translatesAutoresizingMaskIntoConstraints="NO" id="kMk-jS-q9b">
-                                                <rect key="frame" x="255" y="0.0" width="250" height="180"/>
+                                                <rect key="frame" x="269.5" y="0.0" width="264.5" height="180"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="3" translatesAutoresizingMaskIntoConstraints="NO" id="sma-Ba-Hvp">
-                                                <rect key="frame" x="510" y="0.0" width="250" height="180"/>
+                                                <rect key="frame" x="539" y="0.0" width="264.5" height="180"/>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="4" translatesAutoresizingMaskIntoConstraints="NO" id="WxP-TF-jmS">
-                                                <rect key="frame" x="765" y="0.0" width="250" height="180"/>
+                                                <rect key="frame" x="808.5" y="0.0" width="264.5" height="180"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
@@ -307,18 +307,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OUw-AX-sa8" firstAttribute="trailing" secondItem="eOm-aK-2py" secondAttribute="trailing" id="1Mv-10-UQD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Tck-cn-eHp" secondAttribute="trailing" constant="40" id="29B-Z1-fO9"/>
-                            <constraint firstItem="Tck-cn-eHp" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="40" id="BGK-by-vCr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tck-cn-eHp" secondAttribute="trailing" constant="75" id="29B-Z1-fO9"/>
+                            <constraint firstItem="Tck-cn-eHp" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="75" id="BGK-by-vCr"/>
                             <constraint firstItem="OUw-AX-sa8" firstAttribute="top" secondItem="Tck-cn-eHp" secondAttribute="bottom" constant="10" id="CPs-Vo-Y4F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eOm-aK-2py" secondAttribute="trailing" constant="20" id="Qx8-a3-0aW"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="250" id="V1J-aR-aDh"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="centerX" secondItem="EgU-36-9gx" secondAttribute="centerX" id="aDY-my-Wz4"/>
-                            <constraint firstItem="bF7-J2-CAu" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="29" id="an2-xT-9kP"/>
+                            <constraint firstItem="bF7-J2-CAu" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" id="an2-xT-9kP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OUw-AX-sa8" secondAttribute="trailing" constant="20" id="bNC-Z6-0hb"/>
                             <constraint firstItem="fB9-sh-lWa" firstAttribute="top" secondItem="EgU-36-9gx" secondAttribute="bottom" constant="20" id="bUB-dH-CAI"/>
                             <constraint firstItem="Tck-cn-eHp" firstAttribute="top" secondItem="eOm-aK-2py" secondAttribute="bottom" constant="10" id="fTI-uY-LZi"/>
                             <constraint firstItem="saz-nb-iHC" firstAttribute="centerY" secondItem="lLz-bC-9Uk" secondAttribute="centerY" id="hD8-34-VYY"/>
                             <constraint firstItem="EgU-36-9gx" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="lgj-Cw-JVw"/>
+                            <constraint firstItem="OUw-AX-sa8" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="pz2-xZ-Qje"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EgU-36-9gx" secondAttribute="trailing" constant="20" id="tTO-US-Ha2"/>
                             <constraint firstItem="bF7-J2-CAu" firstAttribute="centerX" secondItem="saz-nb-iHC" secondAttribute="centerX" id="uGF-oG-fFy"/>
                             <constraint firstItem="eOm-aK-2py" firstAttribute="top" secondItem="8No-4X-laN" secondAttribute="bottom" constant="10" id="yt2-dB-HLx"/>
@@ -482,7 +483,7 @@
         <scene sceneID="i4m-tD-oOr">
             <objects>
                 <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -575,7 +576,7 @@
                                         <rect key="frame" x="20" y="0.0" width="1032" height="178.5"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  To get started, click on Learn Shot Types to learn about shots and camera angles.</string>
+                                                <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  To get started, click on Learn Shot Types to learn about and practice different shots and camera angles.</string>
                                                 <attributes>
                                                     <font key="NSFont" size="20" name=".SFNSText"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
