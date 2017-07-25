@@ -228,6 +228,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
         // Action triggered on selection
         secondShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+            self.secondTake = nil
             self.secondShotDropDown.title = item
             self.secondShotImageView.image = UIImage(named: self.imageNames[index])
             self.secondShotImageView.layer.setValue(item, forKey: "shot")
@@ -276,6 +277,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             // Action triggered on selection
             thirdShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+                self.thirdTake = nil
                 self.thirdShotDropDown.title = item
                 self.thirdShotImageView.image = UIImage(named: self.imageNames[index])
                 self.thirdShotImageView.layer.setValue(item, forKey: "shot")
@@ -315,6 +317,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
         
         func setupFourthShotDropDownMenu() {
+
             // The view to which the drop down will appear on
             fourthShotDropDownMenu.anchorView = fourthShotDropDown as UIBarButtonItem
             
@@ -323,6 +326,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             // Action triggered on selection
             fourthShotDropDownMenu.selectionAction = { [unowned self] (index, item) in
+                self.fourthTake = nil
                 self.fourthShotDropDown.title = item
                 self.fourthShotImageView.image = UIImage(named: self.imageNames[index])
                 self.fourthShotImageView.layer.setValue(item, forKey: "shot")
