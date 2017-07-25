@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522701852.063068"
+            timestampString = "522703471.101247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "setupThirdShotDropDownMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,12 +119,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522702257.981042"
+            timestampString = "522703471.101247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
-            landmarkName = "video(_:didFinishSavingWithError:contextInfo:)"
+            startingLineNumber = "629"
+            endingLineNumber = "629"
+            landmarkName = "addToFirstShot(take:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -135,13 +135,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522702257.981042"
+            timestampString = "522703471.101247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
             landmarkName = "editTogether(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviePracticeApp.StoryViewController.editTogether (Any) -&gt; ()"
+                  moduleName = "MoviePracticeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/StoryViewController.swift"
+                  timestampString = "522703297.736366"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "444"
+                  endingLineNumber = "444"
+                  offsetFromSymbolStart = "6084">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviePracticeApp.StoryViewController.(editTogether (Any) -&gt; ()).(closure #1)"
+                  moduleName = "MoviePracticeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynntrickey/Documents/ada/capstone/MoviePracticeApp/MoviePracticeApp/MoviePracticeApp/StoryViewController.swift"
+                  timestampString = "522703297.738062"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "445"
+                  endingLineNumber = "445"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -151,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviePracticeApp/StoryViewController.swift"
-            timestampString = "522702257.981042"
+            timestampString = "522703471.101247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "819"
-            endingLineNumber = "819">
+            startingLineNumber = "847"
+            endingLineNumber = "847">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

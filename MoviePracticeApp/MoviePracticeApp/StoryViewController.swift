@@ -60,6 +60,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var thirdShotDropDown: UIBarButtonItem!
     @IBOutlet weak var fourthShotDropDown: UIBarButtonItem!
     
+    //image views
     @IBOutlet weak var firstShotImageView: UIImageView!
     @IBOutlet weak var secondShotImageView: UIImageView!
     @IBOutlet weak var thirdShotImageView: UIImageView!
@@ -76,6 +77,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     var examples = [[""]]
 
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -90,10 +92,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         super.viewDidLoad()
         loadShotData()
         loadStoryExamples()
-
-//        print(data.allTakesSaved["Story"])
-        
-        
         
         // hide everything
         instructionsStackView.isHidden = true
@@ -103,7 +101,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         activityIndicator.isHidden = true
         putItTogetherButton.isHidden = true
-
         
         //set up drop downs
         setupStoryDropDownMenu()
@@ -114,6 +111,10 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         // appearance
         DropDown.appearance().textFont = UIFont.systemFont(ofSize: 20)
+        
+        
+        //setup labels on image views
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -190,6 +191,33 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             //now you need a tap gesture recognizer
             //note that target and action point to what happens when the action is recognized.
             let firstTapRecognizer = UITapGestureRecognizer(target: self,  action:#selector(self.imageTapped(_:)))
+            
+            //add label
+            // CGRectMake has been deprecated - and should be let, not var
+
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
+            
+            // you will probably want to set the font (remember to use Dynamic Type!)
+            label.font = UIFont.preferredFont(forTextStyle: .footnote)
+            
+            // and set the text color too - remember good contrast
+            label.textColor = .white
+            
+            // may not be necessary (e.g., if the width & height match the superview)
+            // if you do need to center, CGPointMake has been deprecated, so use this
+//            label.center = CGPoint(x: 160, y: 284)
+        
+
+            
+            // this changed in Swift 3 (much better, no?)
+            label.textAlignment = .center
+        
+            
+            label.text = "I am a test label"
+            
+            self.firstShotImageView.addSubview(label)
+            self.firstShotImageView.bringSubview(toFront: label)
+
             
             //Add the recognizer to your view.
             self.firstShotImageView.addGestureRecognizer(firstTapRecognizer)
