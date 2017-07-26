@@ -164,7 +164,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-aK-2py" userLabel="Story Stack View">
-                                <rect key="frame" x="40" y="74" width="1032" height="116.5"/>
+                                <rect key="frame" x="40" y="74" width="1032" height="121.5"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-Z8-BD9">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="44"/>
@@ -179,16 +179,23 @@
                                         </items>
                                     </toolbar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tQB-ae-a3m" userLabel="Instructions Stack View">
-                                        <rect key="frame" x="0.0" y="54" width="1032" height="62.5"/>
+                                        <rect key="frame" x="0.0" y="54" width="1032" height="67.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STORY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58p-gq-zgI">
-                                                <rect key="frame" x="0.0" y="0.0" width="1032" height="30"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                <color key="textColor" red="0.18823529410000001" green="0.83921568629999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58p-gq-zgI">
+                                                <rect key="frame" x="0.0" y="0.0" width="1032" height="35"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="STORY">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.18823529410000001" green="0.83921568629999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="30" name="ArialRoundedMTBold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5h-mO-Qbn">
-                                                <rect key="frame" x="0.0" y="40" width="1032" height="22.5"/>
+                                                <rect key="frame" x="0.0" y="45" width="1032" height="22.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Great!  Now select four different shots to cut together in order to tell this story.  For example: ">
                                                         <attributes>
@@ -210,7 +217,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Tck-cn-eHp" userLabel="Example Stack View">
-                                <rect key="frame" x="95" y="200.5" width="922" height="105"/>
+                                <rect key="frame" x="95" y="205.5" width="922" height="105"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-8y-tHu" userLabel="Example 1">
                                         <rect key="frame" x="0.0" y="0.0" width="922" height="22.5"/>
@@ -267,7 +274,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3MJ-q7-OkX" userLabel="Encouragement View">
-                                <rect key="frame" x="40" y="315.5" width="1032" height="88.5"/>
+                                <rect key="frame" x="40" y="320.5" width="1032" height="88.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="45"/>
@@ -276,7 +283,7 @@
                                                 <string key="content">Then choose a take of each shot type that you previously saved, or record a new one.  Put them together into a cut and see your story come to life!  </string>
                                                 <attributes>
                                                     <font key="NSFont" size="20" name="ArialMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -301,7 +308,7 @@
                                 <rect key="frame" x="546" y="407" width="20" height="20"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bF7-J2-CAu" userLabel="Shots Stack View">
-                                <rect key="frame" x="20" y="440.5" width="1073" height="220"/>
+                                <rect key="frame" x="20" y="445.5" width="1073" height="220"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZsN-Rz-61i">
                                         <rect key="frame" x="0.0" y="0.0" width="1073" height="40"/>
@@ -589,8 +596,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Select" colorLabel="IBBuiltInLabel-Red">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10r-xb-fJZ" userLabel="Select" colorLabel="IBBuiltInLabel-Red">
                                             <rect key="frame" x="0.0" y="138" width="200" height="43"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="43" id="Nms-uH-31H"/>
+                                            </constraints>
                                             <state key="normal" title="Delete">
                                                 <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -605,13 +615,13 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="eUj-Uf-uXJ" firstAttribute="leading" secondItem="xRq-N1-U5N" secondAttribute="leading" id="3ss-G4-v4G"/>
-                                    <constraint firstAttribute="bottom" secondItem="eUj-Uf-uXJ" secondAttribute="bottom" id="9QZ-ki-gYj"/>
-                                    <constraint firstAttribute="trailing" secondItem="10r-xb-fJZ" secondAttribute="trailing" id="Eqo-Xt-dr7"/>
-                                    <constraint firstItem="10r-xb-fJZ" firstAttribute="leading" secondItem="xRq-N1-U5N" secondAttribute="leading" id="UA6-Ua-kmK"/>
-                                    <constraint firstAttribute="trailing" secondItem="eUj-Uf-uXJ" secondAttribute="trailing" id="ft1-EG-zmu"/>
-                                    <constraint firstItem="eUj-Uf-uXJ" firstAttribute="top" secondItem="xRq-N1-U5N" secondAttribute="top" id="rnC-HY-6oe"/>
-                                    <constraint firstAttribute="bottom" secondItem="10r-xb-fJZ" secondAttribute="bottom" constant="20" id="uzX-tD-hIR"/>
+                                    <constraint firstItem="eUj-Uf-uXJ" firstAttribute="leading" secondItem="10r-xb-fJZ" secondAttribute="leading" id="6o0-gi-cOm"/>
+                                    <constraint firstAttribute="trailing" secondItem="eUj-Uf-uXJ" secondAttribute="trailing" id="W9q-AZ-ySK"/>
+                                    <constraint firstItem="eUj-Uf-uXJ" firstAttribute="top" secondItem="xRq-N1-U5N" secondAttribute="top" id="ct0-q2-AVw"/>
+                                    <constraint firstItem="eUj-Uf-uXJ" firstAttribute="leading" secondItem="xRq-N1-U5N" secondAttribute="leading" id="e6w-13-w68"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="10r-xb-fJZ" secondAttribute="bottom" constant="11" id="fx2-wo-JJ9"/>
+                                    <constraint firstItem="eUj-Uf-uXJ" firstAttribute="trailing" secondItem="10r-xb-fJZ" secondAttribute="trailing" id="nP3-xw-dQ8"/>
+                                    <constraint firstAttribute="bottom" secondItem="eUj-Uf-uXJ" secondAttribute="bottom" id="qG6-5U-PqV"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="deleteButton" destination="10r-xb-fJZ" id="SFd-2F-575"/>
