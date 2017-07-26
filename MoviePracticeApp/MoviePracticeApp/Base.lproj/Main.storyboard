@@ -18,9 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWb-PQ-iXz">
+                            <rect key="frame" x="0.0" y="0.0" width="1112" height="79"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Click on each Shot to see an example and learn how it can be used in filmmaking.  Then try it yourself!">
+                                    <attributes>
+                                        <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <font key="NSFont" size="20" name="ArialRoundedMTBold"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShotTableViewCell" rowHeight="200" id="aib-P6-cTk" customClass="ShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1112" height="200"/>
+                                <rect key="frame" x="0.0" y="107" width="1112" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aib-P6-cTk" id="2rW-Bn-sU0">
                                     <rect key="frame" x="0.0" y="0.0" width="1112" height="199.5"/>
@@ -68,7 +83,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TriedShotTableViewCell" rowHeight="200" id="fHg-CT-w4Y" customClass="TriedShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="228" width="1112" height="200"/>
+                                <rect key="frame" x="0.0" y="307" width="1112" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fHg-CT-w4Y" id="Lx2-9e-qKy">
                                     <rect key="frame" x="0.0" y="0.0" width="1112" height="199.5"/>
@@ -443,14 +458,6 @@
                                     <constraint firstAttribute="width" constant="800" id="g6g-El-3SG"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-8s-arN">
-                                <rect key="frame" x="156" y="493" width="64" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="REPLAY"/>
-                                <connections>
-                                    <action selector="replayGif:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kId-xI-tha"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-3c-Mvn">
                                 <rect key="frame" x="0.0" y="708" width="1112" height="62"/>
                                 <subviews>
@@ -492,6 +499,15 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-8s-arN">
+                                <rect key="frame" x="120" y="524" width="30" height="30"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.18823529410000001" green="0.83921568629999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="replayGif:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kId-xI-tha"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -501,7 +517,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hXM-3c-Mvn" secondAttribute="bottom" constant="20" id="SvJ-Cr-4Nx" userLabel="Button Stack Bottom"/>
                             <constraint firstItem="hXM-3c-Mvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vnd-vL-49K"/>
                             <constraint firstItem="eWU-M2-1eh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="c80-i5-a6B"/>
+                            <constraint firstItem="fEB-8s-arN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="100" id="cws-6b-nkz"/>
                             <constraint firstItem="Vu8-3I-cXC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ttC-Hh-XkU"/>
+                            <constraint firstItem="fEB-8s-arN" firstAttribute="bottom" secondItem="eWU-M2-1eh" secondAttribute="bottom" id="ypZ-d5-9yl"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -509,6 +527,7 @@
                     <connections>
                         <outlet property="buttonStackBottom" destination="SvJ-Cr-4Nx" id="Hfm-TP-Yfc"/>
                         <outlet property="buttonStackView" destination="hXM-3c-Mvn" id="T0m-9l-JH2"/>
+                        <outlet property="gifButtonLeft" destination="cws-6b-nkz" id="2A3-AR-f9K"/>
                         <outlet property="myShotsButton" destination="9yO-4B-UjV" id="hQ9-07-6m9"/>
                         <outlet property="replayGifButton" destination="fEB-8s-arN" id="Nc4-OJ-2gd"/>
                         <outlet property="shotDescLabel" destination="Vu8-3I-cXC" id="aJF-Hk-Dzf"/>
@@ -587,6 +606,107 @@
             </objects>
             <point key="canvasLocation" x="1978" y="-33"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Ok8-Ie-Mls">
+            <objects>
+                <viewController id="93b-Tc-SP4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4zf-h5-jIr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ekn-qr-Iit"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Fz-Rh-y6g">
+                        <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-Mk-Mxf">
+                                <rect key="frame" x="20" y="100" width="1072" height="684"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iz7-B6-p4M">
+                                        <rect key="frame" x="0.0" y="0.0" width="1072" height="684"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUq-g0-UR2">
+                                                <rect key="frame" x="165.5" y="0.0" width="741" height="121"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Welcome to Young Storytellers: From Shot to Story!">
+                                                        <attributes>
+                                                            <font key="NSFont" size="30" name="ArialRoundedMTBold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdE-tN-iKR">
+                                                <rect key="frame" x="20" y="141" width="1032" height="120.5"/>
+                                                <color key="backgroundColor" red="0.18823529410000001" green="0.83921568629999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  Begin with "Learn Shot Types" in order to learn about and practice different shots and camera angles and how they are used in filmmaking.</string>
+                                                        <attributes>
+                                                            <font key="NSFont" size="20" name=".SFNSText"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESY-JQ-Ruo">
+                                                <rect key="frame" x="20" y="281.5" width="1032" height="121"/>
+                                                <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">Then, you can practice constructing a visual story through shot choice with "Start with Story."  You'll start with a short sentence, then select shot types and takes that will help you tell that story.  You'll choose clips you've saved or shoot new takes be able to put together a short cut.  Have fun!</string>
+                                                        <attributes>
+                                                            <font key="NSFont" size="20" name=".SFNSText"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-Kh-BA4">
+                                                <rect key="frame" x="450.5" y="422.5" width="171" height="120.5"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Let's Get Started!">
+                                                            <attributes>
+                                                                <font key="NSFont" size="20" name="ArialRoundedMTBold"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="fLk-iM-duv" kind="show" id="qwS-XA-wVX"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="TfE-67-9zm">
+                                                <rect key="frame" x="356" y="563" width="360" height="121"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="cdE-tN-iKR" secondAttribute="trailing" constant="20" id="EoM-Vg-cgk"/>
+                                            <constraint firstItem="ESY-JQ-Ruo" firstAttribute="leading" secondItem="iz7-B6-p4M" secondAttribute="leading" constant="20" id="jtY-Me-IRi"/>
+                                            <constraint firstAttribute="trailing" secondItem="ESY-JQ-Ruo" secondAttribute="trailing" constant="20" id="lUk-K2-osa"/>
+                                            <constraint firstItem="cdE-tN-iKR" firstAttribute="leading" secondItem="iz7-B6-p4M" secondAttribute="leading" constant="20" id="pwo-lF-rwO"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gyq-Mk-Mxf" firstAttribute="top" secondItem="2Fz-Rh-y6g" secondAttribute="top" constant="100" id="4QG-fK-tQS"/>
+                            <constraint firstAttribute="bottom" secondItem="gyq-Mk-Mxf" secondAttribute="bottom" constant="50" id="H8Q-9I-6SF"/>
+                            <constraint firstAttribute="trailing" secondItem="gyq-Mk-Mxf" secondAttribute="trailing" constant="20" id="hRk-kS-ilL"/>
+                            <constraint firstItem="gyq-Mk-Mxf" firstAttribute="leading" secondItem="2Fz-Rh-y6g" secondAttribute="leading" constant="20" id="win-Jh-KdJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GI5-bH-8ye"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9TW-s4-Kdf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-915.10791366906483" y="438.84892086330939"/>
+        </scene>
         <!--Opening View Controller-->
         <scene sceneID="C26-P6-wyE">
             <objects>
@@ -599,40 +719,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUq-g0-UR2">
-                                <rect key="frame" x="30" y="84" width="1052" height="35"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Welcome to Young Storytellers: From Shot to Story!">
-                                        <attributes>
-                                            <font key="NSFont" size="30" name="ArialRoundedMTBold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eR8-gT-DHo">
-                                <rect key="frame" x="20" y="100" width="1072" height="714"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a3c-tA-qhR">
+                                <rect key="frame" x="20" y="64" width="1072" height="770"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdE-tN-iKR">
-                                        <rect key="frame" x="20" y="0.0" width="1032" height="178.5"/>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  To get started, click on Learn Shot Types to learn about and practice different shots and camera angles.</string>
-                                                <attributes>
-                                                    <font key="NSFont" size="20" name=".SFNSText"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTr-KD-E9l" userLabel="Learn Shot Types">
-                                        <rect key="frame" x="285" y="178.5" width="502" height="178.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1072" height="385"/>
                                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="502" id="JfR-lO-z6j"/>
-                                        </constraints>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Learn Shot Types">
@@ -647,25 +739,9 @@
                                             <segue destination="3hg-hD-RsD" kind="show" id="Irc-2e-GwL"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESY-JQ-Ruo">
-                                        <rect key="frame" x="20" y="357" width="1032" height="178.5"/>
-                                        <attributedString key="attributedText">
-                                            <fragment>
-                                                <string key="content">Once you've learned about shot types, you can practice constructing a visual story.  You'll start with a short sentence, then select shot types and takes that will help you tell that story!</string>
-                                                <attributes>
-                                                    <font key="NSFont" size="20" name=".SFNSText"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTz-Am-dAg" userLabel="Construct a Story">
-                                        <rect key="frame" x="285" y="535.5" width="502" height="178.5"/>
+                                        <rect key="frame" x="0.0" y="385" width="1072" height="385"/>
                                         <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="502" id="CaQ-7k-oP8"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                         <state key="normal" title="Construct a Story">
                                             <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -675,23 +751,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="cdE-tN-iKR" secondAttribute="trailing" constant="20" id="PyQ-zv-LEg"/>
-                                    <constraint firstItem="ESY-JQ-Ruo" firstAttribute="leading" secondItem="eR8-gT-DHo" secondAttribute="leading" constant="20" id="Q8T-GE-xZN"/>
-                                    <constraint firstItem="cdE-tN-iKR" firstAttribute="leading" secondItem="eR8-gT-DHo" secondAttribute="leading" constant="20" id="ZS8-gf-5vG"/>
-                                    <constraint firstAttribute="trailing" secondItem="ESY-JQ-Ruo" secondAttribute="trailing" constant="20" id="hxo-HM-4DL"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="v0R-dd-GD6" firstAttribute="top" secondItem="eR8-gT-DHo" secondAttribute="bottom" constant="20" id="15d-aW-dr3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XUq-g0-UR2" secondAttribute="trailing" constant="10" id="5kl-gJ-0Rp"/>
-                            <constraint firstAttribute="trailing" secondItem="eR8-gT-DHo" secondAttribute="trailing" constant="20" id="E22-Wp-WuK"/>
-                            <constraint firstItem="XUq-g0-UR2" firstAttribute="top" secondItem="9R1-fn-sUY" secondAttribute="bottom" constant="20" id="XH0-4H-8KY"/>
-                            <constraint firstItem="XUq-g0-UR2" firstAttribute="leading" secondItem="fKd-wV-ZpH" secondAttribute="leadingMargin" constant="10" id="gu0-Js-XND"/>
-                            <constraint firstItem="eR8-gT-DHo" firstAttribute="leading" secondItem="fKd-wV-ZpH" secondAttribute="leading" constant="20" id="hmV-8K-Mhn"/>
-                            <constraint firstItem="eR8-gT-DHo" firstAttribute="top" secondItem="fKd-wV-ZpH" secondAttribute="top" constant="100" id="uzI-Zx-yBk"/>
+                            <constraint firstItem="a3c-tA-qhR" firstAttribute="top" secondItem="9R1-fn-sUY" secondAttribute="bottom" id="4TA-RA-rvk"/>
+                            <constraint firstItem="v0R-dd-GD6" firstAttribute="top" secondItem="a3c-tA-qhR" secondAttribute="bottom" id="ZrZ-U5-LDc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a3c-tA-qhR" secondAttribute="trailing" id="bke-Kl-IoS"/>
+                            <constraint firstItem="a3c-tA-qhR" firstAttribute="leading" secondItem="fKd-wV-ZpH" secondAttribute="leadingMargin" id="vCm-j0-vE3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dzt-1H-jaG"/>
@@ -712,12 +779,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="fLk-iM-duv" kind="relationship" relationship="rootViewController" id="DQm-zC-QC6"/>
+                        <segue destination="93b-Tc-SP4" kind="relationship" relationship="rootViewController" id="lbs-6M-TXn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AA6-VS-fQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1032" y="439"/>
+            <point key="canvasLocation" x="-1627" y="439"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dc5-WI-hqB">
@@ -741,6 +808,7 @@
     <resources>
         <image name="checkMark" width="256" height="256"/>
         <image name="defaultShot" width="694" height="438"/>
+        <image name="icon" width="360" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v7S-ab-MzB"/>

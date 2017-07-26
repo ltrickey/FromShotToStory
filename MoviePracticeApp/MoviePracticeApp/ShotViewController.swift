@@ -30,6 +30,7 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var shotImageView: UIImageView!
     @IBOutlet weak var replayGifButton: UIButton!
+    @IBOutlet weak var gifButtonLeft: NSLayoutConstraint!
     @IBOutlet weak var myShotsButton: UIButton!
     @IBOutlet weak var tryItButton: UIButton!
     @IBOutlet weak var buttonStackView: UIStackView!
@@ -58,8 +59,10 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
             shotDescLabel.text = shot.description
             if shot.gif != nil {
                 replayGifButton.isHidden = false
-                let btnImage = UIImage(named: "replay")
+                let btnImage = UIImage(named: "replay")?.withRenderingMode(.alwaysTemplate)
                 replayGifButton.setImage(btnImage , for: UIControlState.normal)
+                replayGifButton.tintColor = UIColor.white
+                
                 let gif = UIImage(gifName: shot.gif!)
                 shotImageView.setGifImage(gif, manager: gifManager, loopCount: 1)
             } else {
@@ -86,7 +89,6 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func replayGif(_ sender: UIButton) {
-        print("replay pushed")
         let gif = UIImage(gifName: (shot?.gif!)!)
         shotImageView.setGifImage(gif, manager: gifManager, loopCount: 1)
     }
@@ -103,18 +105,23 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
         case .portrait:
             shotDescriptionHeight.constant = 550 as CGFloat
             buttonStackBottom.constant = 75 as CGFloat
+            gifButtonLeft.constant = 0 as CGFloat
         case .portraitUpsideDown:
             shotDescriptionHeight.constant = 550 as CGFloat
             buttonStackBottom.constant = 75 as CGFloat
+            gifButtonLeft.constant = 0 as CGFloat
         case .landscapeLeft:
             shotDescriptionHeight.constant = 500 as CGFloat
             buttonStackBottom.constant = 30 as CGFloat
+            gifButtonLeft.constant = 100 as CGFloat
         case .landscapeRight:
             shotDescriptionHeight.constant = 500 as CGFloat
             buttonStackBottom.constant = 30 as CGFloat
+            gifButtonLeft.constant = 100 as CGFloat
         default:
             shotDescriptionHeight.constant = 500 as CGFloat
             buttonStackBottom.constant = 75 as CGFloat
+            gifButtonLeft.constant = 0 as CGFloat
         }
     }
 

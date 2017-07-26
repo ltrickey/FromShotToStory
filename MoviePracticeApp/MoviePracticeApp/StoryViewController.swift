@@ -244,8 +244,11 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     //Image Tap Functions
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
+        //check and see if image clicked has takes associated with it.
+        //if it does show goToMyTakes, else no.
+        let shot = sender.view?.layer.value(forKey: "shot") as! String
         
-        let alert = UIAlertController(title: "Select Take", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Select Take", message: ("No " + shot + " Takes Saved"), preferredStyle: UIAlertControllerStyle.alert)
         
         let goToMyTakes : UIAlertAction = UIAlertAction(title: "Choose from My Takes", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.performSegue(withIdentifier: "My Takes", sender: sender)
@@ -253,13 +256,10 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         let openCamera : UIAlertAction = UIAlertAction(title: "Record New", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
              _ = self.startCameraFromViewController(self, withDelegate: self)        })
-        
-        //check and see if image clicked has takes associated with it.
-        //if it does show goToMyTakes, else no.
-        let shot = sender.view?.layer.value(forKey: "shot") as! String
 
         if data.allTakesSaved[shot] != nil && data.allTakesSaved[shot]! != [] {
             alert.addAction(goToMyTakes)
+            alert.message = nil
         }
         
         alert.addAction(openCamera)
