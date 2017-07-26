@@ -71,7 +71,7 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
             }
         }
         
-        //add borders to buttons 
+        //add borders to buttons & Labels
         let white = UIColor.white.cgColor
         tryItButton.layer.cornerRadius = 10; // this value vary as per your desire
         tryItButton.clipsToBounds = true
@@ -81,6 +81,9 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
         myShotsButton.layer.borderWidth = 4.0
         tryItButton.layer.borderColor = white
         myShotsButton.layer.borderColor = white
+        
+        shotDescLabel.layer.cornerRadius = 10; // this value vary as per your desire
+        shotDescLabel.clipsToBounds = true
         
         if shot!.tried == false {
             myShotsButton.isHidden = true
