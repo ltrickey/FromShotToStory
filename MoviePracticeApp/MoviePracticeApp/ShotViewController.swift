@@ -123,7 +123,7 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
             gifButtonLeft.constant = 100 as CGFloat
         default:
             shotDescriptionHeight.constant = 500 as CGFloat
-            buttonStackBottom.constant = 75 as CGFloat
+            buttonStackBottom.constant = 30 as CGFloat
             gifButtonLeft.constant = 0 as CGFloat
         }
     }

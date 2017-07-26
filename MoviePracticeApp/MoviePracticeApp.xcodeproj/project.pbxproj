@@ -155,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				51F5ACBE1F29265500EA4FCA /* DescriptionViewController.swift */,
-				51F5ACC01F29295600EA4FCA /* insetLabel.swift */,
 				51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */,
 				51B896BD1F1E846D008BAA69 /* StoryViewController.swift */,
 				5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */,
@@ -187,6 +186,7 @@
 		5159B5D81F1EDA7900170959 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				51F5ACC01F29295600EA4FCA /* insetLabel.swift */,
 				5133C2791F0D749D00E1B33E /* ShotTableViewCell.swift */,
 				513C25A11F146518000F2996 /* MyTakesCollectionViewCell.swift */,
 				51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */,

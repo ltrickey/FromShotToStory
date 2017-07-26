@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xWb-PQ-iXz">
-                            <rect key="frame" x="0.0" y="0.0" width="1112" height="79"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1112" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <attributedString key="attributedText">
@@ -35,7 +35,7 @@
                         </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShotTableViewCell" rowHeight="200" id="aib-P6-cTk" customClass="ShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="107" width="1112" height="200"/>
+                                <rect key="frame" x="0.0" y="82" width="1112" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aib-P6-cTk" id="2rW-Bn-sU0">
                                     <rect key="frame" x="0.0" y="0.0" width="1112" height="199.5"/>
@@ -83,7 +83,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TriedShotTableViewCell" rowHeight="200" id="fHg-CT-w4Y" customClass="TriedShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="307" width="1112" height="200"/>
+                                <rect key="frame" x="0.0" y="282" width="1112" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fHg-CT-w4Y" id="Lx2-9e-qKy">
                                     <rect key="frame" x="0.0" y="0.0" width="1112" height="199.5"/>
