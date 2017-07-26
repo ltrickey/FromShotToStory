@@ -157,8 +157,8 @@
 				51F5ACBE1F29265500EA4FCA /* DescriptionViewController.swift */,
 				51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */,
 				51B896BD1F1E846D008BAA69 /* StoryViewController.swift */,
-				5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */,
 				51C3E3C01F0AF68200AF729A /* ShotViewController.swift */,
+				5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */,
 				51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */,
 			);
 			name = Controllers;

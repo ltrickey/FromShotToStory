@@ -42,14 +42,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet var instructionsStackView: UIStackView!
     
+    @IBOutlet weak var encouragementView: UIStackView!
+    
     @IBOutlet var largeStoryLabel: UILabel!
     @IBOutlet var exampleStackView: UIStackView!
     @IBOutlet var exampleOne: UILabel!
     @IBOutlet var exampleTwo: UILabel!
     @IBOutlet var exampleThree: UILabel!
     @IBOutlet var exampleFour: UILabel!
-    
-    @IBOutlet weak var selectShotsEncouragement: UILabel!
     
     @IBOutlet weak var storyToTryButton: UIBarButtonItem!
     
@@ -116,7 +116,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         instructionsStackView.isHidden = true
         shotsStackView.isHidden = true
         exampleStackView.isHidden = true
-        selectShotsEncouragement.isHidden = true
+        encouragementView.isHidden = true
         
         activityIndicator.isHidden = true
         putItTogetherButton.isHidden = true
@@ -152,7 +152,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             self.instructionsStackView.isHidden = false
             self.shotsStackView.isHidden = false
             self.exampleStackView.isHidden = false
-            self.selectShotsEncouragement.isHidden = false
+            self.encouragementView.isHidden = false
             
             //fill out labels
             self.storyToTryButton.title = item

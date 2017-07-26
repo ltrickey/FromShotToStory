@@ -266,8 +266,8 @@
                                     <constraint firstItem="JMY-36-Aqe" firstAttribute="leading" secondItem="mvS-vF-58Z" secondAttribute="leading" id="dbD-OE-oGE"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3MJ-q7-OkX" userLabel="Encouragement View">
-                                <rect key="frame" x="40" y="315.5" width="1032" height="55"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3MJ-q7-OkX" userLabel="Encouragement View">
+                                <rect key="frame" x="40" y="315.5" width="1032" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="22.5"/>
@@ -281,12 +281,14 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bq-ho-iOL">
-                                        <rect key="frame" x="0.0" y="32.5" width="1032" height="22.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bq-ho-iOL" customClass="insetLabel" customModule="MoviePracticeApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="42.5" width="1032" height="23.5"/>
+                                        <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Work quickly and have fun experimenting!  Remember: it doesn't have to be perfect.">
                                                 <attributes>
-                                                    <font key="NSFont" size="20" name="ArialMT"/>
+                                                    <font key="NSFont" size="20" name="ArialRoundedMTBold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -367,12 +369,12 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-36-9gx">
                                 <rect key="frame" x="40" y="779" width="1032" height="35"/>
-                                <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.83921568629999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Put it Together!">
                                             <attributes>
-                                                <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="20" name="ArialRoundedMTBold"/>
                                             </attributes>
                                         </fragment>
@@ -413,6 +415,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="saz-nb-iHC" id="Aow-BH-5Xp"/>
+                        <outlet property="encouragementView" destination="3MJ-q7-OkX" id="xRS-a0-6xb"/>
                         <outlet property="exampleFour" destination="JKK-Yz-v5c" id="0gy-8C-7rv"/>
                         <outlet property="exampleOne" destination="4A5-8y-tHu" id="hUv-fT-WKS"/>
                         <outlet property="exampleStackView" destination="Tck-cn-eHp" id="vkZ-xn-bRU"/>
@@ -428,7 +431,6 @@
                         <outlet property="putItTogetherButton" destination="EgU-36-9gx" id="nFN-g7-8ZW"/>
                         <outlet property="secondShotDropDown" destination="0aR-xW-EKf" id="NAR-Bw-Zq1"/>
                         <outlet property="secondShotImageView" destination="kMk-jS-q9b" id="dHP-RU-MOO"/>
-                        <outlet property="selectShotsEncouragement" destination="OUw-AX-sa8" id="CLj-0Y-HOW"/>
                         <outlet property="selectShotsLabel" destination="l5h-mO-Qbn" id="7xW-hJ-yN2"/>
                         <outlet property="shotsStackView" destination="bF7-J2-CAu" id="PHe-BE-o4F"/>
                         <outlet property="storyToTryButton" destination="fCz-gJ-wU4" id="PQO-0G-T7b"/>
@@ -663,7 +665,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">The purpose of this app is to teach simple filmmaking techniques and how they can be used in storytelling.  Begin with "Learn Shot Types" in order to learn about and practice different shots and camera angles and how they are used in filmmaking.</string>
+                                                <string key="content">Let's learn some simple filmmaking techniques and how they can be used to tell a story.  Begin with "Learn Shot Types" in order to learn about different shots and camera angles.</string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <font key="NSFont" size="25" name="ArialRoundedMTBold"/>
@@ -675,10 +677,10 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESY-JQ-Ruo" customClass="insetLabel" customModule="MoviePracticeApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="227" width="1032" height="207"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">Then, you can practice constructing a visual story through shot choice with "Start with Story."  You'll start with a short sentence, then select shot types and takes that will help you tell that story.  You'll choose clips you've saved or shoot new takes be able to put together a short cut.  Have fun!</string>
+                                                <string key="content">Then, you can practice constructing a story through shot choice with "Start with Story."  You'll start with a short sentence, then select shot types and takes that will help you tell that story.  You'll choose clips you've previously saved or shoot new takes to put together a cut.  Have fun!</string>
                                                 <attributes>
                                                     <font key="NSFont" size="25" name="ArialRoundedMTBold"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -696,7 +698,14 @@
                                     <constraint firstAttribute="width" constant="100" id="hcx-fQ-qiA"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="icon">
-                                    <attributedString key="attributedTitle"/>
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="CLICK">
+                                            <attributes>
+                                                <font key="NSFont" size="13" name="ArialRoundedMTBold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="fLk-iM-duv" kind="show" id="qwS-XA-wVX"/>
