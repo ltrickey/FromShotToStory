@@ -42,6 +42,8 @@
 		51F5ACBA1F2869FE00EA4FCA /* lowAngle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACB61F2869FE00EA4FCA /* lowAngle.gif */; };
 		51F5ACBB1F2869FE00EA4FCA /* headOn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACB71F2869FE00EA4FCA /* headOn.gif */; };
 		51F5ACBD1F2904E800EA4FCA /* profile.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACBC1F2904E800EA4FCA /* profile.gif */; };
+		51F5ACBF1F29265500EA4FCA /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5ACBE1F29265500EA4FCA /* DescriptionViewController.swift */; };
+		51F5ACC11F29295700EA4FCA /* insetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F5ACC01F29295600EA4FCA /* insetLabel.swift */; };
 		51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */; };
 		51F93DF91F1424EB009E4DF3 /* MyTakesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */; };
 		65CF9275438EF04818493BEC /* Pods_MoviePracticeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837CE62395D90A57571C033A /* Pods_MoviePracticeAppTests.framework */; };
@@ -98,6 +100,8 @@
 		51F5ACB61F2869FE00EA4FCA /* lowAngle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = lowAngle.gif; path = ../../../../../../Downloads/lowAngle.gif; sourceTree = "<group>"; };
 		51F5ACB71F2869FE00EA4FCA /* headOn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = headOn.gif; path = ../../../../../../Downloads/headOn.gif; sourceTree = "<group>"; };
 		51F5ACBC1F2904E800EA4FCA /* profile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = profile.gif; path = ../../../../../../Downloads/profile.gif; sourceTree = "<group>"; };
+		51F5ACBE1F29265500EA4FCA /* DescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		51F5ACC01F29295600EA4FCA /* insetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = insetLabel.swift; sourceTree = "<group>"; };
 		51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriedShotTableViewCell.swift; sourceTree = "<group>"; };
 		51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTakesCollectionViewController.swift; sourceTree = "<group>"; };
 		70D945474346E3A6B642E3CF /* Pods-MoviePracticeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviePracticeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		5149FD2B1F267B57005F3CC8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				51F5ACBE1F29265500EA4FCA /* DescriptionViewController.swift */,
+				51F5ACC01F29295600EA4FCA /* insetLabel.swift */,
 				51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */,
 				51B896BD1F1E846D008BAA69 /* StoryViewController.swift */,
 				5133C27B1F0D964800E1B33E /* ShotTableViewController.swift */,
@@ -487,6 +493,7 @@
 			files = (
 				51B896BE1F1E846D008BAA69 /* StoryViewController.swift in Sources */,
 				5133C27C1F0D964800E1B33E /* ShotTableViewController.swift in Sources */,
+				51F5ACBF1F29265500EA4FCA /* DescriptionViewController.swift in Sources */,
 				5133C2781F0D6CC000E1B33E /* Shot.swift in Sources */,
 				51C3E3C11F0AF68200AF729A /* ShotViewController.swift in Sources */,
 				5138A5E61F18189D00757BDC /* DataStore.swift in Sources */,
@@ -496,6 +503,7 @@
 				51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */,
 				5133C27A1F0D749D00E1B33E /* ShotTableViewCell.swift in Sources */,
 				51F93DF91F1424EB009E4DF3 /* MyTakesCollectionViewController.swift in Sources */,
+				51F5ACC11F29295700EA4FCA /* insetLabel.swift in Sources */,
 				51B896BC1F1DA8E3008BAA69 /* OpeningViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
