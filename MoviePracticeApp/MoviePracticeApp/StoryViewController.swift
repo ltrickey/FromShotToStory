@@ -427,8 +427,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             let shotName = sender.view?.layer.value(forKey: "shot")
             let senderName = sender.view?.layer.value(forKey: "sender")
-            print("printing sender name")
-            print(senderName)
             
             myTakesCollectionViewController.shotName = shotName as? String
             myTakesCollectionViewController.senderName = senderName as! String
@@ -466,7 +464,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         
         // DO I want to save this take to my local storage?
-        let takeToSave = Take(localid: localid, thumbnail: thumbnail)
+//        let takeToSave = Take(localid: localid, thumbnail: thumbnail)
         
         //NOT ABLE TO TELL WHERE THIS CAME FROM.
         
