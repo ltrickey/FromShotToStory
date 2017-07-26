@@ -12,6 +12,7 @@ import CSV
 import Photos
 import MobileCoreServices
 import AVKit
+import QuartzCore
 
 class StoryViewController: UIViewController, UINavigationControllerDelegate {
     
@@ -324,6 +325,45 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             let videoTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: kCMPersistentTrackID_Invalid)
             let audioTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: kCMPersistentTrackID_Invalid)
             
+            //get screen size and set title to that size.
+            let screenSize: CGRect = UIScreen.main.bounds
+            
+            var videoSize = videoTrack.naturalSize
+
+            let layer = CALayer()
+            layer.backgroundColor = UIColor.black.cgColor
+            layer.frame = screenSize
+            layer.opacity = 1.0
+            
+            // create text Layer
+            let captionHeight = 40 as NSInteger
+            
+            let title = CATextLayer()
+            title.backgroundColor = UIColor.clear.cgColor
+            title.string = self.storyToTryButton.title
+            title.font = UIFont.boldSystemFont(ofSize: 20)
+            title.fontSize = 28
+            title.shadowOpacity = 0.75;
+            title.alignmentMode = kCAAlignmentCenter;
+            title.frame = CGRect(x: 0, y: 0, width: Int(videoSize.width), height: (videoSize.height - captionHeight))
+            title.foregroundColor = UIColor.white.cgColor
+            
+            //over layer
+            let overLayer = CALayer()
+            overLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
+
+            overLayer.addSublayer(title)
+            
+            //manage layer heirarchy
+            let parentLayer = CALayer()
+            let videoLayer = CALayer()
+            
+            parentLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
+            videoLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
+            
+            parentLayer.addSublayer(videoLayer)
+            parentLayer.addSublayer(overLayer)
+            
             for videoAsset in takeArray! {
                 print(videoAsset)
 
@@ -331,7 +371,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
                                                    of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0],
                                                    at: totalTime)
-                    //?? DO i need this? videoSize = videoTrack.naturalSize
+                    videoSize = videoTrack.naturalSize
 
                 } catch let error as NSError {
                     print("error: \(error)")
@@ -346,9 +386,18 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 }
                 
                 totalTime = CMTimeAdd(totalTime, videoAsset.duration)
-                print(totalTime)
             }
             
+            // adding instructions
+            let mainInstruction = AVVideoCompositionInstruction()
+//            mainInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, myMutableComposition.duration);
+            
+            let videolayerInstruction = AVMutableVideoCompositionLayerInstruction(assetTrack: videoTrack)
+//            mainInstruction.layerInstructions = videolayerInstruction
+            
+            // In conclusion, apply the previously created mainInstruction and compose them into 'animation tool'
+            myMutableComposition.instructions = mainInstruction
+            myMutableComposition.animationTool.frameDur
             
             // 4 - Get path
             
