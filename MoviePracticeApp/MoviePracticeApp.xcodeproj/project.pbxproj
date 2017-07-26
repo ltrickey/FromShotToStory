@@ -40,7 +40,8 @@
 		51F5ACB81F2869FE00EA4FCA /* tracking.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACB41F2869FE00EA4FCA /* tracking.gif */; };
 		51F5ACB91F2869FE00EA4FCA /* POV.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACB51F2869FE00EA4FCA /* POV.gif */; };
 		51F5ACBA1F2869FE00EA4FCA /* lowAngle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACB61F2869FE00EA4FCA /* lowAngle.gif */; };
-		51F5ACBB1F2869FE00EA4FCA /* frontAngle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACB71F2869FE00EA4FCA /* frontAngle.gif */; };
+		51F5ACBB1F2869FE00EA4FCA /* headOn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACB71F2869FE00EA4FCA /* headOn.gif */; };
+		51F5ACBD1F2904E800EA4FCA /* profile.gif in Resources */ = {isa = PBXBuildFile; fileRef = 51F5ACBC1F2904E800EA4FCA /* profile.gif */; };
 		51F93DF71F141109009E4DF3 /* TriedShotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */; };
 		51F93DF91F1424EB009E4DF3 /* MyTakesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */; };
 		65CF9275438EF04818493BEC /* Pods_MoviePracticeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837CE62395D90A57571C033A /* Pods_MoviePracticeAppTests.framework */; };
@@ -95,7 +96,8 @@
 		51F5ACB41F2869FE00EA4FCA /* tracking.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = tracking.gif; path = ../../../../../../Downloads/tracking.gif; sourceTree = "<group>"; };
 		51F5ACB51F2869FE00EA4FCA /* POV.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = POV.gif; path = ../../../../../../Downloads/POV.gif; sourceTree = "<group>"; };
 		51F5ACB61F2869FE00EA4FCA /* lowAngle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = lowAngle.gif; path = ../../../../../../Downloads/lowAngle.gif; sourceTree = "<group>"; };
-		51F5ACB71F2869FE00EA4FCA /* frontAngle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = frontAngle.gif; path = ../../../../../../Downloads/frontAngle.gif; sourceTree = "<group>"; };
+		51F5ACB71F2869FE00EA4FCA /* headOn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = headOn.gif; path = ../../../../../../Downloads/headOn.gif; sourceTree = "<group>"; };
+		51F5ACBC1F2904E800EA4FCA /* profile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = profile.gif; path = ../../../../../../Downloads/profile.gif; sourceTree = "<group>"; };
 		51F93DF61F141109009E4DF3 /* TriedShotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriedShotTableViewCell.swift; sourceTree = "<group>"; };
 		51F93DF81F1424EB009E4DF3 /* MyTakesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTakesCollectionViewController.swift; sourceTree = "<group>"; };
 		70D945474346E3A6B642E3CF /* Pods-MoviePracticeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviePracticeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviePracticeApp/Pods-MoviePracticeApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -235,12 +237,13 @@
 		51DA094C1F1D5D2A00FD3BD8 /* Gifs */ = {
 			isa = PBXGroup;
 			children = (
+				51F5ACBC1F2904E800EA4FCA /* profile.gif */,
 				51F5ACAE1F28659400EA4FCA /* establishing.gif */,
 				51F5ACA21F2859BC00EA4FCA /* wide.gif */,
 				51F5ACB41F2869FE00EA4FCA /* tracking.gif */,
 				51F5ACB51F2869FE00EA4FCA /* POV.gif */,
 				51F5ACB61F2869FE00EA4FCA /* lowAngle.gif */,
-				51F5ACB71F2869FE00EA4FCA /* frontAngle.gif */,
+				51F5ACB71F2869FE00EA4FCA /* headOn.gif */,
 				51F5ACB21F2868B700EA4FCA /* pan.gif */,
 				51F5ACB01F28682B00EA4FCA /* highAngle.gif */,
 				51F5ACAC1F2863A500EA4FCA /* insert.gif */,
@@ -357,7 +360,7 @@
 				51C3E3C91F0AF68200AF729A /* LaunchScreen.storyboard in Resources */,
 				51F5ACAB1F28615000EA4FCA /* closeUp2.gif in Resources */,
 				51F5ACA51F285CCA00EA4FCA /* extremeCloseUp.gif in Resources */,
-				51F5ACBB1F2869FE00EA4FCA /* frontAngle.gif in Resources */,
+				51F5ACBB1F2869FE00EA4FCA /* headOn.gif in Resources */,
 				5149FD2A1F259CFE005F3CC8 /* shotSuggestions.csv in Resources */,
 				51F5ACA91F28600C00EA4FCA /* overTheShoulder.gif in Resources */,
 				51F5ACB11F28682B00EA4FCA /* highAngle.gif in Resources */,
@@ -367,6 +370,7 @@
 				51F5ACBA1F2869FE00EA4FCA /* lowAngle.gif in Resources */,
 				51F5ACA71F285F3200EA4FCA /* medium.gif in Resources */,
 				51574EA81F1AEAE200C2AE6E /* shotData.csv in Resources */,
+				51F5ACBD1F2904E800EA4FCA /* profile.gif in Resources */,
 				51F5ACAF1F28659400EA4FCA /* establishing.gif in Resources */,
 				51F5ACB81F2869FE00EA4FCA /* tracking.gif in Resources */,
 				51F5ACA31F2859BC00EA4FCA /* wide.gif in Resources */,

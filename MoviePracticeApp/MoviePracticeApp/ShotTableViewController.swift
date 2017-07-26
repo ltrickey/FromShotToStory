@@ -19,8 +19,8 @@ class ShotTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        print("reloading data")
         loadShotData()
+        sortShots()
         self.tableView.reloadData()
         
     }
@@ -28,9 +28,7 @@ class ShotTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadShotData()
-        
-        navigationItem.title = "Shot Types: Click on a Shot to Learn More"
+        navigationItem.title = "Shot Types"
     }
 
     override func didReceiveMemoryWarning() {
@@ -141,5 +139,10 @@ class ShotTableViewController: UITableViewController {
             }
             shots.append(shotObject)
         }
+    }
+    
+    // method to sort data in table cell.  Should only be called after data has been retrieved.
+    private func sortShots () {
+        self.shots.sort(by: { !$0.tried && $1.tried })
     }
 }

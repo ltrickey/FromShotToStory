@@ -39,7 +39,7 @@
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <font key="NSFont" size="44" name="ArialRoundedMTBold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
@@ -58,7 +58,6 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="fVI-R2-fgG" secondAttribute="bottom" constant="45" id="FWh-qe-VY5"/>
                                         <constraint firstItem="fVI-R2-fgG" firstAttribute="leading" secondItem="CuA-ak-WrH" secondAttribute="trailing" constant="8" id="Q9I-Zi-j2v"/>
                                         <constraint firstItem="fVI-R2-fgG" firstAttribute="top" secondItem="2rW-Bn-sU0" secondAttribute="topMargin" constant="45" id="S2b-HE-orG"/>
-                                        <constraint firstItem="fVI-R2-fgG" firstAttribute="top" secondItem="2rW-Bn-sU0" secondAttribute="topMargin" constant="45" id="dLb-kO-YDJ"/>
                                     </constraints>
                                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 </tableViewCellContentView>
@@ -83,31 +82,39 @@
                                                 <constraint firstAttribute="width" constant="350" id="3xk-R6-ra2"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVl-kq-IcL">
-                                            <rect key="frame" x="358" y="53" width="746" height="93"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Label">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <font key="NSFont" size="44" name="ArialRoundedMTBold"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03Z-aw-OgU">
+                                            <rect key="frame" x="358" y="45" width="746" height="109.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVl-kq-IcL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="671" height="109.5"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <font key="NSFont" size="44" name="ArialRoundedMTBold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkMark" translatesAutoresizingMaskIntoConstraints="NO" id="Abd-sU-RXu">
+                                                    <rect key="frame" x="671" y="0.0" width="75" height="109.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="R9K-9h-2fF"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="trailing" secondItem="Lx2-9e-qKy" secondAttribute="trailingMargin" id="7hK-hh-hoy"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="nVl-kq-IcL" secondAttribute="bottom" constant="45" id="CMW-1V-URE"/>
                                         <constraint firstItem="GbQ-PT-Ohs" firstAttribute="leading" secondItem="Lx2-9e-qKy" secondAttribute="leading" id="Sx7-1r-hQM"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="nVl-kq-IcL" secondAttribute="bottom" constant="45" id="WRj-md-ZDy"/>
-                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="leading" secondItem="GbQ-PT-Ohs" secondAttribute="trailing" constant="8" id="eVK-aS-ASz"/>
-                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="trailing" secondItem="Lx2-9e-qKy" secondAttribute="trailingMargin" id="q64-qm-cq8"/>
-                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="top" secondItem="Lx2-9e-qKy" secondAttribute="topMargin" constant="45" id="v61-Jf-Ysb"/>
-                                        <constraint firstItem="nVl-kq-IcL" firstAttribute="top" secondItem="Lx2-9e-qKy" secondAttribute="topMargin" constant="45" id="yGV-V9-Xvz"/>
+                                        <constraint firstItem="03Z-aw-OgU" firstAttribute="top" secondItem="Lx2-9e-qKy" secondAttribute="top" constant="45" id="W5U-mJ-PFT"/>
+                                        <constraint firstAttribute="bottom" secondItem="03Z-aw-OgU" secondAttribute="bottom" constant="45" id="aPI-G1-g5q"/>
+                                        <constraint firstAttribute="trailing" secondItem="03Z-aw-OgU" secondAttribute="trailing" constant="8" id="noa-6B-2tf"/>
                                         <constraint firstItem="GbQ-PT-Ohs" firstAttribute="top" secondItem="Lx2-9e-qKy" secondAttribute="top" id="zjd-6U-T18"/>
+                                        <constraint firstItem="03Z-aw-OgU" firstAttribute="leading" secondItem="GbQ-PT-Ohs" secondAttribute="trailing" constant="8" id="zqP-Sm-LO7"/>
                                     </constraints>
                                     <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 </tableViewCellContentView>
@@ -732,10 +739,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkMark" width="256" height="256"/>
         <image name="defaultShot" width="694" height="438"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="v7S-ab-MzB"/>
-        <segue reference="hrH-6s-EHT"/>
+        <segue reference="jRI-wM-qHN"/>
     </inferredMetricsTieBreakers>
 </document>
