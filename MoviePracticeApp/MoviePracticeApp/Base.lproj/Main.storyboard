@@ -48,6 +48,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="fVI-R2-fgG" firstAttribute="trailing" secondItem="2rW-Bn-sU0" secondAttribute="trailingMargin" id="1vO-bj-hsT"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="fVI-R2-fgG" secondAttribute="bottom" constant="45" id="2Ob-O3-Lax"/>
@@ -87,7 +88,7 @@
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
-                                                        <color key="NSColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <font key="NSFont" size="44" name="ArialRoundedMTBold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
@@ -96,7 +97,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.6470588235294118" green="0.16470588235294117" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstItem="nVl-kq-IcL" firstAttribute="trailing" secondItem="Lx2-9e-qKy" secondAttribute="trailingMargin" id="7hK-hh-hoy"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="nVl-kq-IcL" secondAttribute="bottom" constant="45" id="CMW-1V-URE"/>
@@ -329,9 +330,11 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-36-9gx">
                                 <rect key="frame" x="40" y="778" width="1032" height="36"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Put it Together!"/>
+                                <state key="normal" title="Put it Together!">
+                                    <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="editTogether:" destination="oc6-y9-hMR" eventType="touchUpInside" id="seX-Op-XEB"/>
                                 </connections>
@@ -447,7 +450,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-Hd-jYg">
                                         <rect key="frame" x="0.0" y="0.0" width="531" height="62"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.18823529410000001" green="0.83921568629999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -465,7 +468,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yO-4B-UjV" userLabel="My Takes Button">
                                         <rect key="frame" x="581" y="0.0" width="531" height="62"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.18823529410000001" green="0.83921568629999999" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="5" minY="5" maxX="4" maxY="5"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -732,7 +735,7 @@
         <image name="defaultShot" width="694" height="438"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hrH-6s-EHT"/>
         <segue reference="v7S-ab-MzB"/>
+        <segue reference="hrH-6s-EHT"/>
     </inferredMetricsTieBreakers>
 </document>
