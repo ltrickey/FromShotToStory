@@ -73,6 +73,23 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     let thirdShotDropDownMenu = DropDown()
     let fourthShotDropDownMenu = DropDown()
     
+    // Attach buttons to open drop downs
+    @IBAction func openStoryDropDown(_ sender: Any) {
+        storyDropDown.show()
+    }
+    @IBAction func openFirstDropDown(_ sender: Any) {
+        firstShotDropDownMenu.show()
+    }
+    @IBAction func openSecondDropDown(_ sender: Any) {
+        secondShotDropDownMenu.show()
+    }
+    @IBAction func openThirdDropDown(_ sender: Any) {
+        thirdShotDropDownMenu.show()
+    }
+    @IBAction func openFourthDropDown(_ sender: Any) {
+        fourthShotDropDownMenu.show()
+    }
+    
     var stories = ["Jess is having a terrible day", "Dustin is enjoying the beautiful weather", "Lila gets distracted","A new school is very scary", "Sleep is my favorite activity", "Julia is trying to impress her teacher so she can get an A in class", "Dylan can’t wait for school to be over so he can go to Disneyland"]
     
     var examples = [[""]]
@@ -95,8 +112,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         storyToTryButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Arial Rounded MT Bold", size: 20)!], for: UIControlState.normal)
 
-        
-        // hide everything
+        // hide everything until after story is chosen
         instructionsStackView.isHidden = true
         shotsStackView.isHidden = true
         exampleStackView.isHidden = true
@@ -114,34 +130,12 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         // appearance
         DropDown.appearance().textFont = UIFont.systemFont(ofSize: 20)
-        
-        
-        //setup labels on image views
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // Attach buttons to open drop downs    
-    @IBAction func openStoryDropDown(_ sender: Any) {
-        storyDropDown.show()
-    }
-    @IBAction func openFirstDropDown(_ sender: Any) {
-        firstShotDropDownMenu.show()
-    }
-    @IBAction func openSecondDropDown(_ sender: Any) {
-        secondShotDropDownMenu.show()
-    }
-    @IBAction func openThirdDropDown(_ sender: Any) {
-        thirdShotDropDownMenu.show()
-    }
-    @IBAction func openFourthDropDown(_ sender: Any) {
-        fourthShotDropDownMenu.show()
-    }
-
     
     //Setup Drop downs
     func setupStoryDropDownMenu() {
@@ -174,26 +168,32 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     func setupShotDropDownMenu(dropDownNumber: Int) {
+        print("I'm setting up drop down")
+        print(dropDownNumber)
         var menu = self.firstShotDropDownMenu
         var anchor = self.firstShotDropDown
         var take = self.firstTake
         var imageView = self.firstShotImageView
+        var value = "first"
         
         if dropDownNumber == 2 {
             menu = self.secondShotDropDownMenu
             anchor = self.secondShotDropDown
             take = self.secondTake
             imageView = self.secondShotImageView
+            value = "second"
         } else if dropDownNumber == 3 {
             menu = self.thirdShotDropDownMenu
             anchor = self.thirdShotDropDown
             take = self.thirdTake
             imageView = self.thirdShotImageView
+            value = "third"
         } else if dropDownNumber == 4 {
             menu = self.fourthShotDropDownMenu
             anchor = self.fourthShotDropDown
             take = self.fourthTake
             imageView = self.fourthShotImageView
+            value = "fourth"
         }
         
         // The view to which the drop down will appear on
@@ -208,7 +208,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             anchor?.title = item
             imageView?.image = UIImage(named: self.imageNames[index])
             imageView?.layer.setValue(item, forKey: "shot")
-            imageView?.layer.setValue("first", forKey: "sender")
+            imageView?.layer.setValue(value, forKey: "sender")
             
             //setup tap gesture recognizer on Image
             imageView?.isUserInteractionEnabled = true
@@ -234,7 +234,6 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             imageView?.addSubview(label)
             imageView?.bringSubview(toFront: label)
             imageView?.layer.borderWidth = 0.0;
-
 
             //Add the recognizer to view.
             imageView?.addGestureRecognizer(tapRecognizer)
@@ -289,76 +288,20 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             let senderName = sourceViewController.senderName
             if senderName == "first" {
-
-                //hide label view!
-                let views = self.firstShotImageView.subviews
-                for view in views {
-                  view.isHidden = true
-                }
                 
-                firstShotImageView.image = thumbnail
-                firstShotImageView.layer.borderWidth = 3.0;
-                firstShotImageView.layer.borderColor = UIColor.green.cgColor
-
-                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                    self.firstTake = avAsset!
-                    print("first Asset Loaded")
-                })
+                addToFirstShot(asset: videoAsset, thumbnail: thumbnail)
  
             } else if senderName == "second" {
                 
-                //hide label view!
-                let views = self.secondShotImageView.subviews
-                for view in views {
-                    view.isHidden = true
-                }
-                
-                // put take in second position.
-                secondShotImageView.image = thumbnail
-                secondShotImageView.layer.borderWidth = 3.0;
-                secondShotImageView.layer.borderColor = UIColor.green.cgColor
-
-                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                    self.secondTake = avAsset!
-                    print("second Asset Loaded")
-                })
-                
+                addToSecondShot(asset: videoAsset, thumbnail: thumbnail)
+            
             } else if senderName == "third" {
                 
-                //hide label view!
-                let views = self.thirdShotImageView.subviews
-                for view in views {
-                    view.isHidden = true
-                }
-                
-                // put take in second position.
-                thirdShotImageView.image = thumbnail
-                thirdShotImageView.layer.borderWidth = 3.0;
-                thirdShotImageView.layer.borderColor = UIColor.green.cgColor
-                
-                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                    self.thirdTake = avAsset!
-                    print("third Asset Loaded")
-                })
+                addToThirdShot(asset: videoAsset, thumbnail: thumbnail)
                 
             } else if senderName == "fourth" {
                 
-                //hide label view!
-                let views = self.fourthShotImageView.subviews
-                for view in views {
-                    view.isHidden = true
-                }
-                
-                // put take in second position.
-                fourthShotImageView.image = thumbnail
-                fourthShotImageView.layer.borderWidth = 3.0;
-                fourthShotImageView.layer.borderColor = UIColor.green.cgColor
-                
-                PHImageManager.default().requestAVAsset(forVideo: videoAsset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                    self.fourthTake = avAsset!
-                    print("fourth Asset Loaded")
-
-                })
+                addToFourthShot(asset: videoAsset, thumbnail: thumbnail)
                 
             }
         }
@@ -388,7 +331,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                     try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
                                                    of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0],
                                                    at: totalTime)
-                    //videoSize = videoTrack.naturalSize
+                    //?? DO i need this? videoSize = videoTrack.naturalSize
 
                 } catch let error as NSError {
                     print("error: \(error)")
@@ -484,6 +427,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             
             let shotName = sender.view?.layer.value(forKey: "shot")
             let senderName = sender.view?.layer.value(forKey: "sender")
+            print("printing sender name")
+            print(senderName)
             
             myTakesCollectionViewController.shotName = shotName as? String
             myTakesCollectionViewController.senderName = senderName as! String
@@ -519,6 +464,8 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         let asset = getVideoFromLocalIdentifier(id: localid)
         let thumbnail = getAssetThumbnail(asset: asset)
         
+        
+        // DO I want to save this take to my local storage?
         let takeToSave = Take(localid: localid, thumbnail: thumbnail)
         
         //NOT ABLE TO TELL WHERE THIS CAME FROM.
@@ -527,20 +474,20 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             title = "Error"
             message = "Video failed to save"
         }
-        let firstShot : UIAlertAction = UIAlertAction(title: "Insert as First Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+        let firstShot : UIAlertAction = UIAlertAction(title: "Use as First Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
             self.addToFirstShot(asset: asset, thumbnail: thumbnail)
 
         })
-        let secondShot : UIAlertAction = UIAlertAction(title: "Insert as Second Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
-            self.addToSecondShot(take: takeToSave)
+        let secondShot : UIAlertAction = UIAlertAction(title: "Use as Second Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.addToSecondShot(asset: asset, thumbnail: thumbnail)
 
         })
-        let thirdShot : UIAlertAction = UIAlertAction(title: "Insert as Third Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
-            self.addToThirdShot(take: takeToSave)
+        let thirdShot : UIAlertAction = UIAlertAction(title: "Use as Third Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.addToThirdShot(asset: asset, thumbnail: thumbnail)
  
         })
-        let fourthShot : UIAlertAction = UIAlertAction(title: "Insert as Fourth Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
-            self.addToFourthShot(take: takeToSave)
+        let fourthShot : UIAlertAction = UIAlertAction(title: "Use as Fourth Shot", style: UIAlertActionStyle.default, handler: {(action:UIAlertAction!)-> Void in
+            self.addToFourthShot(asset: asset, thumbnail: thumbnail)
  
         })
         
@@ -570,7 +517,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
             self.firstTake = avAsset!
-            print("fourth Asset Loaded")
+            print("first Asset Loaded")
         })
         // add take image to specific target.
         //how do I tell which take is froooom?
@@ -585,16 +532,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
 
-    func addToSecondShot(take: Take) {
-        
-        let asset = self.getVideoFromLocalIdentifier(id: take.localid)
+    func addToSecondShot(asset: PHAsset, thumbnail: UIImage) {
         
         PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
             self.secondTake = avAsset!
-            print("fourth Asset Loaded")
+            print("second Asset Loaded")
         })
         
-        secondShotImageView.image = take.thumbnail
+        secondShotImageView.image = thumbnail
         secondShotImageView.layer.borderWidth = 3.0;
         secondShotImageView.layer.borderColor = UIColor.green.cgColor
         
@@ -605,16 +550,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
 
-    func addToThirdShot(take: Take) {
-        
-        let asset = self.getVideoFromLocalIdentifier(id: take.localid)
+    func addToThirdShot(asset: PHAsset, thumbnail: UIImage) {
         
         PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
             self.thirdTake = avAsset!
-            print("fourth Asset Loaded")
+            print("third Asset Loaded")
         })
         
-        thirdShotImageView.image = take.thumbnail
+        thirdShotImageView.image = thumbnail
         thirdShotImageView.layer.borderWidth = 3.0;
         thirdShotImageView.layer.borderColor = UIColor.green.cgColor
         
@@ -625,16 +568,14 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         }
     }
 
-    func addToFourthShot(take: Take) {
-        
-        let asset = self.getVideoFromLocalIdentifier(id: take.localid)
+    func addToFourthShot(asset: PHAsset, thumbnail: UIImage) {
         
         PHImageManager.default().requestAVAsset(forVideo: asset, options: nil, resultHandler: {(avAsset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
             self.fourthTake = avAsset!
             print("fourth Asset Loaded")
         })
         
-        fourthShotImageView.image = take.thumbnail
+        fourthShotImageView.image = thumbnail
         fourthShotImageView.layer.borderWidth = 3.0;
         fourthShotImageView.layer.borderColor = UIColor.green.cgColor
         
