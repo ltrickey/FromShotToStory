@@ -59,8 +59,8 @@ class ShotViewController: UIViewController, UINavigationControllerDelegate {
             shotDescLabel.text = shot.description
             if shot.gif != nil {
                 replayGifButton.isHidden = false
-                let btnImage = UIImage(named: "replay")?.withRenderingMode(.alwaysTemplate)
-                replayGifButton.setImage(btnImage , for: UIControlState.normal)
+//                let btnImage = UIImage(named: "replay")?.withRenderingMode(.alwaysTemplate)
+//                replayGifButton.setImage(btnImage , for: UIControlState.normal)
                 replayGifButton.tintColor = UIColor.white
                 
                 let gif = UIImage(gifName: shot.gif!)
