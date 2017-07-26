@@ -13,7 +13,7 @@
         <!--Shot Table View Controller-->
         <scene sceneID="Njv-f6-K3G">
             <objects>
-                <tableViewController id="3hg-hD-RsD" customClass="ShotTableViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="3hg-hD-RsD" customClass="ShotTableViewController" customModule="Shot_to_Story" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="hAr-zN-5w0">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShotTableViewCell" rowHeight="200" id="aib-P6-cTk" customClass="ShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShotTableViewCell" rowHeight="200" id="aib-P6-cTk" customClass="ShotTableViewCell" customModule="Shot_to_Story" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="82" width="1112" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aib-P6-cTk" id="2rW-Bn-sU0">
@@ -82,7 +82,7 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="ShowDetail" id="v7S-ab-MzB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TriedShotTableViewCell" rowHeight="200" id="fHg-CT-w4Y" customClass="TriedShotTableViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TriedShotTableViewCell" rowHeight="200" id="fHg-CT-w4Y" customClass="TriedShotTableViewCell" customModule="Shot_to_Story" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="282" width="1112" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fHg-CT-w4Y" id="Lx2-9e-qKy">
@@ -151,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="466.18705035971226" y="-33.093525179856115"/>
         </scene>
-        <!--Construct a Story-->
+        <!--Create a Cut-->
         <scene sceneID="X9V-T9-nTk">
             <objects>
-                <viewController id="oc6-y9-hMR" customClass="StoryViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oc6-y9-hMR" customClass="StoryViewController" customModule="Shot_to_Story" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8No-4X-laN"/>
                         <viewControllerLayoutGuide type="bottom" id="fB9-sh-lWa"/>
@@ -170,7 +170,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="44"/>
                                         <items>
                                             <barButtonItem width="40" style="plain" systemItem="fixedSpace" id="etA-zW-zhu"/>
-                                            <barButtonItem title="Select a Short Story Sentence" id="fCz-gJ-wU4">
+                                            <barButtonItem title="Select a Story" id="fCz-gJ-wU4">
                                                 <connections>
                                                     <action selector="openStoryDropDown:" destination="oc6-y9-hMR" id="i2U-BU-7a1"/>
                                                 </connections>
@@ -267,25 +267,26 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3MJ-q7-OkX" userLabel="Encouragement View">
-                                <rect key="frame" x="40" y="315.5" width="1032" height="66"/>
+                                <rect key="frame" x="40" y="315.5" width="1032" height="88.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUw-AX-sa8">
-                                        <rect key="frame" x="0.0" y="0.0" width="1032" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1032" height="45"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Then choose a take of that shot type that you've previously saved, or record a new take.  ">
+                                            <fragment>
+                                                <string key="content">Then choose a take of each shot type that you previously saved, or record a new one.  Put them together into a cut and see your story come to life!  </string>
                                                 <attributes>
                                                     <font key="NSFont" size="20" name="ArialMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bq-ho-iOL" customClass="insetLabel" customModule="MoviePracticeApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="42.5" width="1032" height="23.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bq-ho-iOL" customClass="insetLabel" customModule="Shot_to_Story" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="1032" height="23.5"/>
                                         <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Work quickly and have fun experimenting!  Remember: it doesn't have to be perfect.">
+                                            <fragment content="Work quickly and have fun experimenting.  Remember: it doesn't have to be perfect!">
                                                 <attributes>
                                                     <font key="NSFont" size="20" name="ArialRoundedMTBold"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -406,7 +407,7 @@
                             <constraint firstItem="eOm-aK-2py" firstAttribute="leading" secondItem="lLz-bC-9Uk" secondAttribute="leadingMargin" constant="20" id="zeC-vW-rAq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Construct a Story" id="2nK-ta-t5U" userLabel="Start with a Story!">
+                    <navigationItem key="navigationItem" title="Create a Cut" id="2nK-ta-t5U" userLabel="Start with a Story!">
                         <barButtonItem key="rightBarButtonItem" title="My Stories" id="QZg-KX-oZC" userLabel="My Stories">
                             <connections>
                                 <segue destination="dOW-F5-u1l" kind="show" id="hrH-6s-EHT"/>
@@ -446,7 +447,7 @@
         <!--Shot View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ShotViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ShotViewController" customModule="Shot_to_Story" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -455,7 +456,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC" customClass="insetLabel" customModule="MoviePracticeApp" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-3I-cXC" customClass="insetLabel" customModule="Shot_to_Story" customModuleProvider="target">
                                 <rect key="frame" x="181" y="564" width="750" height="48.5"/>
                                 <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -569,8 +570,8 @@
         <!--My Takes Collection View Controller-->
         <scene sceneID="i4m-tD-oOr">
             <objects>
-                <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="J1T-MZ-CSH">
+                <collectionViewController id="dOW-F5-u1l" customClass="MyTakesCollectionViewController" customModule="Shot_to_Story" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="J1T-MZ-CSH">
                         <rect key="frame" x="0.0" y="0.0" width="1112" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -581,7 +582,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedShotCell" id="xRq-N1-U5N" customClass="MyTakesCollectionViewCell" customModule="MoviePracticeApp" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedShotCell" id="xRq-N1-U5N" customClass="MyTakesCollectionViewCell" customModule="Shot_to_Story" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -635,7 +636,7 @@
         <!--Description View Controller-->
         <scene sceneID="Ok8-Ie-Mls">
             <objects>
-                <viewController id="93b-Tc-SP4" customClass="DescriptionViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="93b-Tc-SP4" customClass="DescriptionViewController" customModule="Shot_to_Story" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4zf-h5-jIr"/>
                         <viewControllerLayoutGuide type="bottom" id="Ekn-qr-Iit"/>
@@ -660,12 +661,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-Mk-Mxf">
                                 <rect key="frame" x="40" y="200" width="1032" height="434"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdE-tN-iKR" customClass="insetLabel" customModule="MoviePracticeApp" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdE-tN-iKR" customClass="insetLabel" customModule="Shot_to_Story" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="1032" height="207"/>
                                         <color key="backgroundColor" red="0.0" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">Let's learn some simple filmmaking techniques and how they can be used to tell a story.  Begin with "Learn Shot Types" in order to learn about different shots and camera angles.</string>
+                                                <string key="content">Let's learn about some simple filmmaking techniques and how they can be used to tell a story.  Begin with "Learn Shot Types" on the next page in order to explore different shot types and camera angles.</string>
                                                 <attributes>
                                                     <color key="NSColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <font key="NSFont" size="25" name="ArialRoundedMTBold"/>
@@ -675,12 +676,12 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESY-JQ-Ruo" customClass="insetLabel" customModule="MoviePracticeApp" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESY-JQ-Ruo" customClass="insetLabel" customModule="Shot_to_Story" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="227" width="1032" height="207"/>
                                         <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <attributedString key="attributedText">
                                             <fragment>
-                                                <string key="content">Then, you can practice constructing a story through shot choice with "Start with Story."  You'll start with a short sentence, then select shot types and takes that will help you tell that story.  You'll choose clips you've previously saved or shoot new takes to put together a cut.  Have fun!</string>
+                                                <string key="content">Then, you can practice constructing a story through shot choice with "Create a Cut."  You'll start with a short sentence, then select shot types and takes that will help you tell that story.  You'll choose clips you've previously saved or shoot new takes to put together a cut.  Have fun!</string>
                                                 <attributes>
                                                     <font key="NSFont" size="25" name="ArialRoundedMTBold"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -692,16 +693,16 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNC-Kh-BA4">
-                                <rect key="frame" x="506" y="684" width="100" height="100"/>
+                                <rect key="frame" x="481" y="654" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="QuD-s4-DcK"/>
-                                    <constraint firstAttribute="width" constant="100" id="hcx-fQ-qiA"/>
+                                    <constraint firstAttribute="height" constant="150" id="QuD-s4-DcK"/>
+                                    <constraint firstAttribute="width" constant="150" id="hcx-fQ-qiA"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="icon">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="CLICK">
+                                        <fragment content="START">
                                             <attributes>
-                                                <font key="NSFont" size="13" name="ArialRoundedMTBold"/>
+                                                <font key="NSFont" size="19" name="ArialRoundedMTBold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -718,7 +719,7 @@
                             <constraint firstItem="gyq-Mk-Mxf" firstAttribute="top" secondItem="2Fz-Rh-y6g" secondAttribute="top" constant="200" id="4QG-fK-tQS"/>
                             <constraint firstItem="XUq-g0-UR2" firstAttribute="centerX" secondItem="2Fz-Rh-y6g" secondAttribute="centerX" id="6T4-Mj-tHd"/>
                             <constraint firstAttribute="bottom" secondItem="gyq-Mk-Mxf" secondAttribute="bottom" constant="200" id="H8Q-9I-6SF"/>
-                            <constraint firstItem="dNC-Kh-BA4" firstAttribute="top" secondItem="gyq-Mk-Mxf" secondAttribute="bottom" constant="50" id="PDj-N2-phw"/>
+                            <constraint firstItem="dNC-Kh-BA4" firstAttribute="top" secondItem="gyq-Mk-Mxf" secondAttribute="bottom" constant="20" id="PDj-N2-phw"/>
                             <constraint firstItem="dNC-Kh-BA4" firstAttribute="centerX" secondItem="2Fz-Rh-y6g" secondAttribute="centerX" id="ZgA-ow-hcV"/>
                             <constraint firstAttribute="trailing" secondItem="gyq-Mk-Mxf" secondAttribute="trailing" constant="40" id="hRk-kS-ilL"/>
                             <constraint firstItem="gyq-Mk-Mxf" firstAttribute="leading" secondItem="2Fz-Rh-y6g" secondAttribute="leading" constant="40" id="win-Jh-KdJ"/>
@@ -726,6 +727,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="GI5-bH-8ye"/>
                     <connections>
+                        <outlet property="clickToEnter" destination="dNC-Kh-BA4" id="1Xd-Kz-imA"/>
                         <outlet property="instructionsLabel" destination="ESY-JQ-Ruo" id="p6r-24-umh"/>
                         <outlet property="purposeLabel" destination="cdE-tN-iKR" id="Wh7-jS-gUc"/>
                     </connections>
@@ -737,7 +739,7 @@
         <!--Opening View Controller-->
         <scene sceneID="C26-P6-wyE">
             <objects>
-                <viewController id="fLk-iM-duv" customClass="OpeningViewController" customModule="MoviePracticeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fLk-iM-duv" customClass="OpeningViewController" customModule="Shot_to_Story" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9R1-fn-sUY"/>
                         <viewControllerLayoutGuide type="bottom" id="v0R-dd-GD6"/>
@@ -770,7 +772,7 @@
                                         <rect key="frame" x="0.0" y="385" width="1072" height="385"/>
                                         <color key="backgroundColor" red="1" green="0.90196078430000004" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                        <state key="normal" title="Construct a Story">
+                                        <state key="normal" title="Create a Cut">
                                             <color key="titleColor" red="0.20784313730000001" green="0.20784313730000001" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>

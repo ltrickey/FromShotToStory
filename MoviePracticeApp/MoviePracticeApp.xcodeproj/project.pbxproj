@@ -75,7 +75,7 @@
 		51B7B4DB1F1AFF440049C8BF /* CSV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSV.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/MoviePracticeApp-bubvjyxlltimbzcwxobimvaeidsc/Build/Products/Debug-iphoneos/CSV.swift/CSV.framework"; sourceTree = "<group>"; };
 		51B896BB1F1DA8E3008BAA69 /* OpeningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningViewController.swift; sourceTree = "<group>"; };
 		51B896BD1F1E846D008BAA69 /* StoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
-		51C3E3BB1F0AF68200AF729A /* MoviePracticeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviePracticeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51C3E3BB1F0AF68200AF729A /* Shot to Story.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shot to Story.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3E3BE1F0AF68200AF729A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C3E3C01F0AF68200AF729A /* ShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShotViewController.swift; sourceTree = "<group>"; };
 		51C3E3C31F0AF68200AF729A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 		51C3E3BC1F0AF68200AF729A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				51C3E3BB1F0AF68200AF729A /* MoviePracticeApp.app */,
+				51C3E3BB1F0AF68200AF729A /* Shot to Story.app */,
 				51C3E3CF1F0AF68300AF729A /* MoviePracticeAppTests.xctest */,
 			);
 			name = Products;
@@ -275,9 +275,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		51C3E3BA1F0AF68200AF729A /* MoviePracticeApp */ = {
+		51C3E3BA1F0AF68200AF729A /* Shot to Story */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 51C3E3D81F0AF68300AF729A /* Build configuration list for PBXNativeTarget "MoviePracticeApp" */;
+			buildConfigurationList = 51C3E3D81F0AF68300AF729A /* Build configuration list for PBXNativeTarget "Shot to Story" */;
 			buildPhases = (
 				419B37AF6551604809D0920C /* [CP] Check Pods Manifest.lock */,
 				51C3E3B71F0AF68200AF729A /* Sources */,
@@ -290,9 +290,9 @@
 			);
 			dependencies = (
 			);
-			name = MoviePracticeApp;
+			name = "Shot to Story";
 			productName = MoviePracticeApp;
-			productReference = 51C3E3BB1F0AF68200AF729A /* MoviePracticeApp.app */;
+			productReference = 51C3E3BB1F0AF68200AF729A /* Shot to Story.app */;
 			productType = "com.apple.product-type.application";
 		};
 		51C3E3CE1F0AF68300AF729A /* MoviePracticeAppTests */ = {
@@ -351,7 +351,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				51C3E3BA1F0AF68200AF729A /* MoviePracticeApp */,
+				51C3E3BA1F0AF68200AF729A /* Shot to Story */,
 				51C3E3CE1F0AF68300AF729A /* MoviePracticeAppTests */,
 			);
 		};
@@ -521,7 +521,7 @@
 /* Begin PBXTargetDependency section */
 		51C3E3D11F0AF68300AF729A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 51C3E3BA1F0AF68200AF729A /* MoviePracticeApp */;
+			target = 51C3E3BA1F0AF68200AF729A /* Shot to Story */;
 			targetProxy = 51C3E3D01F0AF68300AF729A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -711,7 +711,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		51C3E3D81F0AF68300AF729A /* Build configuration list for PBXNativeTarget "MoviePracticeApp" */ = {
+		51C3E3D81F0AF68300AF729A /* Build configuration list for PBXNativeTarget "Shot to Story" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				51C3E3D91F0AF68300AF729A /* Debug */,

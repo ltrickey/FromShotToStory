@@ -1,3 +1,5 @@
+
+
 //
 //  StoryViewController.swift
 //  MoviePracticeApp
@@ -319,20 +321,22 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
             // 1 - Create AVMutableComposition object. This object will hold your AVMutableCompositionTrack instances.
             let myMutableComposition = AVMutableComposition()
             
-            // 2 - Add Video tracks
-            var totalTime = kCMTimeZero
+            // 2 - Add tracks
             let videoTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeVideo, preferredTrackID: kCMPersistentTrackID_Invalid)
             let audioTrack:AVMutableCompositionTrack = myMutableComposition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: kCMPersistentTrackID_Invalid)
             
+            // 3 - Add AV Assets to tracks
+            var totalTime = kCMTimeZero
+            
             for videoAsset in takeArray! {
                 print(videoAsset)
-
+                
                 do {
                     try videoTrack.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration),
                                                    of: videoAsset.tracks(withMediaType: AVMediaTypeVideo)[0],
                                                    at: totalTime)
                     //?? DO i need this? videoSize = videoTrack.naturalSize
-
+                    
                 } catch let error as NSError {
                     print("error: \(error)")
                 }
@@ -348,7 +352,26 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
                 totalTime = CMTimeAdd(totalTime, videoAsset.duration)
                 print(totalTime)
             }
+
+            let videoSize = videoTrack.naturalSize
             
+            //// suppose you have a watermark image here
+            
+            // add parent layer
+            
+            let parentLayer = CALayer()
+            parentLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
+            let videoLayer = CALayer()
+            videoLayer.frame = CGRect(x: 0, y: 0, width: videoSize.width, height: videoSize.height)
+            
+            let subtitleText = CATextLayer()
+            subtitleText.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)
+            subtitleText.frame = CGRect(x: 0, y: 100, width: videoSize.width, height: 50)
+            subtitleText.string = "TESTING OH MY GOSH"
+            subtitleText.alignmentMode = kCAAlignmentCenter
+            subtitleText.foregroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+            subtitleText.displayIfNeeded()
+      
             
             // 4 - Get path
             
@@ -675,7 +698,7 @@ class StoryViewController: UIViewController, UINavigationControllerDelegate {
         
         return avAssetToReturn
     }
-
+    
 }
 
 

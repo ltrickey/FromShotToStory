@@ -14,6 +14,8 @@ class DescriptionViewController: UIViewController {
     @IBOutlet weak var purposeLabel: UILabel!
     @IBOutlet weak var instructionsLabel: UILabel!
     
+    @IBOutlet weak var clickToEnter: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +23,8 @@ class DescriptionViewController: UIViewController {
         purposeLabel.clipsToBounds = true
         instructionsLabel.layer.cornerRadius = 10; // this value vary as per your desire
         instructionsLabel.clipsToBounds = true
+        clickToEnter.layer.cornerRadius = 10
+        clickToEnter.clipsToBounds = true
 
         // Do any additional setup after loading the view.
     }
