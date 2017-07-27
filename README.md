@@ -9,7 +9,7 @@ In one of their core, year-long programs - Movie Makers - highschool aged mentor
 
 The program coordinators have noticed that despite the kids being familiar with the technology used in the program - specifically the cameras on iphones and ipads - the participants lacked the confidence when applying the technology to shoot a narrative film. Although the kids were familiar with selfies and snapchat, when it came to storytelling and evoking emotion through shot choice, they felt unprepared.
 
-I intend to build an iOS app that teaches these kids about traditional filmmaking techniques and how they can be mapped onto the use of an iphone or ipad camera. I hope to build confidence of the participants and lower the technical barriers for these kids to share their stories. This could be used in-class during the weeks where the program mentors are trying to get the kids comfortable with the technical side of filmmaking, or out of class as additional practice.
+For the month long final Capstone project at Ada Developer's Academy, I developed From Shot to Story to help teach these kids about traditional filmmaking techniques and how they can be mapped onto the use of an iphone or ipad camera. Hopefully this will help confidence of the participants and lower the technical barriers for these kids to share their stories. This can be used in-class when the program mentors are getting the kids comfortable with the technical side of filmmaking, or out of class as additional practice.
 
 ## MVP Feature Set
 
