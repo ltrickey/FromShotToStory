@@ -1,5 +1,5 @@
 ## From Shot to Story
-An app for [Young Storytellers](https://www.youngstorytellers.com/) to practice filmmaking techniques on the iPad.  Created as Capstone project for [Ada Developer's Academy](https://adadevelopersacademy.org/) Cohort 7.
+An app for [Young Storytellers](https://www.youngstorytellers.com/) participating in the middle school Movie Makers Program to practice filmmaking techniques on the iPad.  Created as Capstone project for [Ada Developer's Academy](https://adadevelopersacademy.org/) Cohort 7.
 
 ## Problem Statement
 
